@@ -1,0 +1,18 @@
+# @package _global_
+defaults:
+  - override /mode: debug
+
+app_name: esgml
+project: esgml
+# work_dir: /workspace/data/tbts/${app_name}
+# tmp_dir: /workspace/data/tbts/tmp
+dir:
+  data: /workspace/data/tbts
+  project: /workspace/data/tbts/${app_name}
+  dataset: /workspace/data/datasets
+  model: /workspace/data/models
+  output: /workspace/data/outputs
+env:
+  os:
+    MODIN_ENGINE: joblib
+    WANDB_API_KEY: 3d6fcda4381d365661f9ca2ad248b80002170ac4

@@ -1,0 +1,23 @@
+# @package _global_
+defaults:
+  - override /task: corpus_task
+
+task:
+  verbose: true
+  corpus:
+    _subtasks_:
+      - export_to_text
+      - export_processed
+    export_processed:
+      pipeline:
+        _pipeline_:
+          - filter_query
+          - explode_splits
+          - filter_length
+          - save_dataframe
+        apply_to: 
+          - text
+        filter_query:
+          query: chapter == 21
+        filter_length:
+          min_length: 50
