@@ -151,6 +151,20 @@ case $COMMAND in
             corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD} \
 
         ;;
+    build_simple)
+
+        ekorpkit \
+            --config-dir $CONFIG_PATH \
+            project=$PROJECT \
+            env.distributed_framework.backend=$BACKEND \
+            +dataset/simple=${CORPUS_NAME} \
+            num_workers=${CPU_N} \
+            dataset.simple.fetch.calculate_stats=true \
+            dataset.simple.fetch.preprocess_text=${PREPROCESS} \
+            dataset.simple.fetch.overwrite=${OVERWRITE} \
+            dataset.simple.fetch.force_download=${FORCE_DOWNLOAD} \
+
+        ;;
     build_t5)
 
         ekorpkit \
