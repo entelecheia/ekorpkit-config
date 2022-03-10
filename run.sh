@@ -14,6 +14,9 @@ FORCE_DOWNLOAD="false"
 BACKEND="joblib"
 PREPROCESS="true"
 TASK="default"
+CONFIG_PATH="/workspace/data/ekorpkit-config/config"
+PROJECT="esgml"
+CPU_N=230
 
 pyclean () {
     find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
@@ -48,6 +51,12 @@ while [ "$1" != "" ]; do
         -t | --task )           shift
                                 TASK=$1
                                 ;;
+        --config )              shift
+                                CONFIG_PATH=$1
+                                ;;
+        --project )             shift
+                                PROJECT=$1
+                                ;;
         --backend )             shift
                                 BACKEND=$1
                                 ;;
@@ -73,8 +82,6 @@ done
 if [[ "$CPU_N" == "" ]]; then
     CPU_N=230
 fi
-CONFIG_PATH="/workspace/data/ekorpkit-config/config"
-PROJECT="esgml"
 
 case $COMMAND in
     listup)
@@ -100,7 +107,7 @@ case $COMMAND in
             +run/finetune=${TASK} \
 
         ;;
-    topic_task)
+    topic)
 
         ekorpkit \
             --config-dir $CONFIG_PATH \
@@ -109,7 +116,7 @@ case $COMMAND in
             num_workers=${CPU_N} \
 
         ;;
-    corpus_task)
+    corpus)
 
         ekorpkit \
             --config-dir $CONFIG_PATH \
