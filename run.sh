@@ -8,7 +8,8 @@ LIMIT=-1
 INPUT_PATH=""
 OUTPUT_PATH=""
 CORPUS_NAME="esg_report"
-FILE_PATTERN="."
+FILENAME=""
+EXPRESSION=""
 OVERWRITE="false"
 FORCE_DOWNLOAD="false"
 BACKEND="joblib"
@@ -54,6 +55,14 @@ while [ "$1" != "" ]; do
     -t | --task)
         shift
         TASK=$1
+        ;;
+    -f | --filename)
+        shift
+        FILENAME=$1
+        ;;
+    -e | --expression)
+        shift
+        EXPRESSION=$1
         ;;
     --config)
         shift
@@ -209,6 +218,16 @@ build_t5_all)
             dataset.t5.fetch.preprocess_text=${PREPROCESS} \
             dataset.t5.fetch.overwrite=${OVERWRITE} \
             dataset.t5.fetch.force_download=${FORCE_DOWNLOAD}
+    done
+
+    ;;
+yaml)
+    #~ ex) bash data/ekorpkit-config/run.sh yaml -f bio.yaml -e 'ner.*'
+    filename=${CONFIG_PATH}/list/${FILENAME}
+    declare -a VALUES
+    VALUES=($(yq r "$filename" "$EXPRESSION"))
+    for i in "${VALUES[@]}"; do
+        echo "value: $i"
     done
 
     ;;
