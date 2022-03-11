@@ -168,60 +168,34 @@ build_corpus)
         corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD}
 
     ;;
-build_simple)
+build_simple | build_t5)
+    #~ ex) bash data/ekorpkit-config/run.sh build_t5_all -f bio.yaml -e 'ner.*'
+    arrCMD=(${COMMAND//_/ })
+    echo "sub command: ${arrCMD[1]}"
+    if [[ "${arrCMD[2]}" == "all" ]]; then
+        filename=${CONFIG_PATH}/list/${FILENAME}
+        declare -a NAMES
+        NAMES=($(yq r "$filename" "$EXPRESSION"))
+    else
+        declare -a NAMES=(${CORPUS_NAME})
+    fi
 
-    ekorpkit \
-        --config-dir $CONFIG_PATH \
-        project=$PROJECT \
-        env.distributed_framework.backend=$BACKEND \
-        +dataset/simple=${CORPUS_NAME} \
-        num_workers=${CPU_N} \
-        dataset.simple.fetch.calculate_stats=true \
-        dataset.simple.fetch.preprocess_text=${PREPROCESS} \
-        dataset.simple.fetch.overwrite=${OVERWRITE} \
-        dataset.simple.fetch.force_download=${FORCE_DOWNLOAD}
-
-    ;;
-build_t5)
-
-    ekorpkit \
-        --config-dir $CONFIG_PATH \
-        project=$PROJECT \
-        env.distributed_framework.backend=$BACKEND \
-        +dataset/t5=${CORPUS_NAME} \
-        num_workers=${CPU_N} \
-        dataset.t5.fetch.calculate_stats=true \
-        dataset.t5.fetch.preprocess_text=${PREPROCESS} \
-        dataset.t5.fetch.overwrite=${OVERWRITE} \
-        dataset.t5.fetch.force_download=${FORCE_DOWNLOAD}
-
-    ;;
-build_t5_all)
-    declare -a NAMES=("NCBI-disease"
-        "BC4CHEMD"
-        "BC2GM"
-        "BC5CDR-disease"
-        "BC5CDR-chem"
-        "JNLPBA"
-        "s800"
-        "linnaeus"
-    )
     for i in "${NAMES[@]}"; do
         echo "$i"
         ekorpkit \
             --config-dir $CONFIG_PATH \
             project=$PROJECT \
             env.distributed_framework.backend=$BACKEND \
-            +dataset/t5=${i} \
+            +dataset/${arrCMD[1]}=${i} \
             num_workers=${CPU_N} \
-            dataset.t5.fetch.calculate_stats=true \
-            dataset.t5.fetch.preprocess_text=${PREPROCESS} \
-            dataset.t5.fetch.overwrite=${OVERWRITE} \
-            dataset.t5.fetch.force_download=${FORCE_DOWNLOAD}
+            dataset.${arrCMD[1]}.fetch.calculate_stats=true \
+            dataset.${arrCMD[1]}.fetch.preprocess_text=${PREPROCESS} \
+            dataset.${arrCMD[1]}.fetch.overwrite=${OVERWRITE} \
+            dataset.${arrCMD[1]}.fetch.force_download=${FORCE_DOWNLOAD}
     done
 
     ;;
-yaml)
+yaml | yml | yaml_file)
     #~ ex) bash data/ekorpkit-config/run.sh yaml -f bio.yaml -e 'ner.*'
     filename=${CONFIG_PATH}/list/${FILENAME}
     declare -a VALUES
