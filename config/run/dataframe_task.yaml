@@ -1,8 +1,10 @@
 # @package _global_
 defaults:
-  - override /task: dataframe_pipeline
+  - override /task: dataframe_task
 
 task:
+  data_dir: ${dir.project}/dataframe/tmp
+  data_file: pmc_noncomm/pmc_noncomm-train-000.parquet
   pipeline:
     _pipeline_:
       - load_dataframe
@@ -13,10 +15,6 @@ task:
       - concat_dataframes
       - drop_duplicates
       - save_dataframe
-    load_dataframe:
-      # data_dir: ${oc.select:corpus.data_dir, ${dir.corpus}}
-      data_dir: ${dir.project}/dataframe/tmp
-      data_file: pmc_noncomm/pmc_noncomm-train-000.parquet
     save_dataframe:
       output_dir: ${dir.project}/dataframe/tmp
       output_file: ${..load_dataframe.data_file}
