@@ -5,9 +5,7 @@
 # set -x
 
 LIMIT=-1
-INPUT_PATH=""
-OUTPUT_PATH=""
-CORPUS_NAME="esg_report"
+CORPUS_NAME=""
 FILENAME=""
 EXPRESSION=""
 OVERWRITE="false"
@@ -35,14 +33,6 @@ while [ "$1" != "" ]; do
     -l | --limit)
         shift
         LIMIT=$1
-        ;;
-    -i | --input)
-        shift
-        INPUT_PATH=$1
-        ;;
-    -o | --output)
-        shift
-        OUTPUT_PATH=$1
         ;;
     -c | --corpus)
         shift
@@ -118,12 +108,20 @@ info)
     ;;
 finetune)
 
+    if [[ "$CORPUS_NAME" == "" ]]; then
+        DSET=" "
+    else
+        DSET="dataset.name=$CORPUS_NAME "
+    fi
+
     ekorpkit \
         --config-dir $CONFIG_PATH \
         project=$PROJECT \
-        +run/finetune=${TASK}
+        +run/finetune=${TASK} \
+        ${DSET}
 
     ;;
+
 topic)
 
     ekorpkit \
@@ -168,7 +166,7 @@ build_corpus)
         corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD}
 
     ;;
-build_simple | build_t5)
+build_simple | build_t5 | build_t5_all | build_simple_all)
     #~ ex) bash data/ekorpkit-config/run.sh build_t5_all -f bio.yaml -e 'ner.*'
     arrCMD=(${COMMAND//_/ })
     echo "sub command: ${arrCMD[1]}"
