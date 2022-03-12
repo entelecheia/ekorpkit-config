@@ -7,6 +7,7 @@ project: esgml
 # work_dir: /workspace/data/tbts/${app_name}
 # tmp_dir: /workspace/data/tbts/tmp
 dir:
+  workspace: /workspace
   data: /workspace/data/tbts
   project: /workspace/data/tbts/${app_name}
   dataset: /workspace/data/datasets
