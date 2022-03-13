@@ -14,7 +14,6 @@ FORCE_DOWNLOAD="false"
 BACKEND="joblib"
 PREPROCESS="true"
 TASK="default"
-CPU_N=230
 
 pyclean() {
     find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
