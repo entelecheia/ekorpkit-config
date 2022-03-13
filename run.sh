@@ -1,5 +1,7 @@
 #!/bin/sh
-set -o allexport; source .env; set +o allexport
+set -o allexport
+source .env
+set +o allexport
 # set -x or set -o xtrace expands variables and prints a little + sign before the line.
 # set -v or set -o verbose does not expand the variables before printing.
 # Use set +x and set +v to turn off the above settings.
@@ -54,7 +56,7 @@ while [ "$1" != "" ]; do
         ;;
     --config)
         shift
-        CONFIG_PATH=$1
+        CONFIG_DIR=$1
         ;;
     --project)
         shift
@@ -93,7 +95,7 @@ fi
 case $COMMAND in
 listup)
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         cmd=listup
 
@@ -101,7 +103,7 @@ listup)
 info)
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         +info=${TASK}
 
@@ -115,7 +117,7 @@ finetune)
     fi
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         +run/finetune=${TASK} \
         ${DSET}
@@ -125,7 +127,7 @@ finetune)
 topic)
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         +run/topic=${TASK} \
         num_workers=${NUM_WORKERS}
@@ -134,7 +136,7 @@ topic)
 corpus)
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         +run=corpus_task \
         corpus.name=${CORPUS_NAME} \
@@ -144,7 +146,7 @@ corpus)
 dataframe)
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         env.distributed_framework.backend=$BACKEND \
         project=$PROJECT \
         +run=dataframe_task \
@@ -161,7 +163,7 @@ build_corpus)
     fi
 
     ekorpkit \
-        --config-dir $CONFIG_PATH \
+        --config-dir $CONFIG_DIR \
         project=$PROJECT \
         env.distributed_framework.backend=$BACKEND \
         +corpus/builtin=${CORPUS_NAME} \
@@ -178,7 +180,7 @@ build_simple | build_t5 | build_t5_all | build_simple_all)
     arrCMD=(${COMMAND//_/ })
     echo "sub command: ${arrCMD[1]}"
     if [[ "${arrCMD[2]}" == "all" ]]; then
-        filename=${CONFIG_PATH}/list/${FILENAME}
+        filename=${CONFIG_DIR}/list/${FILENAME}
         declare -a NAMES
         NAMES=($(yq r "$filename" "$EXPRESSION"))
     else
@@ -188,7 +190,7 @@ build_simple | build_t5 | build_t5_all | build_simple_all)
     for i in "${NAMES[@]}"; do
         echo "$i"
         ekorpkit \
-            --config-dir $CONFIG_PATH \
+            --config-dir $CONFIG_DIR \
             project=$PROJECT \
             env.distributed_framework.backend=$BACKEND \
             +dataset/${arrCMD[1]}=${i} \
@@ -202,7 +204,7 @@ build_simple | build_t5 | build_t5_all | build_simple_all)
     ;;
 yaml | yml | yaml_file)
     #~ ex) bash data/ekorpkit-config/run.sh yaml -f bio.yaml -e 'ner.*'
-    filename=${CONFIG_PATH}/list/${FILENAME}
+    filename=${CONFIG_DIR}/list/${FILENAME}
     declare -a VALUES
     VALUES=($(yq r "$filename" "$EXPRESSION"))
     for i in "${VALUES[@]}"; do
