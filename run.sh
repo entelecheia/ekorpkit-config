@@ -154,37 +154,28 @@ dataframe)
         num_workers=${NUM_WORKERS}
 
     ;;
-build_corpus)
-
-    if [[ "$DATA_DIR" == "" ]]; then
-        DIR_ARG=" "
-    else
-        DIR_ARG="corpus.builtin.fetch.data_dir=$DATA_DIR "
-    fi
-
-    ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
-        env.distributed_framework.backend=$BACKEND \
-        +corpus/builtin=${CORPUS_NAME} \
-        num_workers=${NUM_WORKERS} \
-        corpus.builtin.fetch.calculate_stats=true \
-        corpus.builtin.fetch.preprocess_text=${PREPROCESS} \
-        corpus.builtin.fetch.overwrite=${OVERWRITE} \
-        corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD} \
-        ${DIR_ARG}
-
-    ;;
-build_simple | build_t5 | build_t5_all | build_simple_all)
+build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
     #~ ex) bash data/ekorpkit-config/run.sh build_t5_all -f bio.yaml -e 'ner.*'
     arrCMD=(${COMMAND//_/ })
     echo "sub command: ${arrCMD[1]}"
+    if [[ "${arrCMD[1]}" == "corpus" ]]; then
+        CAT="corpus"
+        SUBCAT="builtin"
+    else
+        CAT="dataset"
+        SUBCAT="${arrCMD[1]}"
+    fi
     if [[ "${arrCMD[2]}" == "all" ]]; then
         filename=${CONFIG_DIR}/list/${FILENAME}
         declare -a NAMES
         NAMES=($(yq r "$filename" "$EXPRESSION"))
     else
         declare -a NAMES=(${CORPUS_NAME})
+    fi
+    if [[ "$DATA_DIR" == "" ]]; then
+        DIR_ARG=" "
+    else
+        DIR_ARG="${CAT}.${SUBCAT}.fetch.data_dir=$DATA_DIR "
     fi
 
     for i in "${NAMES[@]}"; do
@@ -193,12 +184,13 @@ build_simple | build_t5 | build_t5_all | build_simple_all)
             --config-dir $CONFIG_DIR \
             project=$PROJECT \
             env.distributed_framework.backend=$BACKEND \
-            +dataset/${arrCMD[1]}=${i} \
+            +${CAT}/${SUBCAT}=${i} \
             num_workers=${NUM_WORKERS} \
-            dataset.${arrCMD[1]}.fetch.calculate_stats=true \
-            dataset.${arrCMD[1]}.fetch.preprocess_text=${PREPROCESS} \
-            dataset.${arrCMD[1]}.fetch.overwrite=${OVERWRITE} \
-            dataset.${arrCMD[1]}.fetch.force_download=${FORCE_DOWNLOAD}
+            ${CAT}.${SUBCAT}.fetch.calculate_stats=true \
+            ${CAT}.${SUBCAT}.fetch.preprocess_text=${PREPROCESS} \
+            ${CAT}.${SUBCAT}.fetch.overwrite=${OVERWRITE} \
+            ${CAT}.${SUBCAT}.fetch.force_download=${FORCE_DOWNLOAD} \
+            ${DIR_ARG}
     done
 
     ;;
