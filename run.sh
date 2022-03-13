@@ -36,9 +36,9 @@ while [ "$1" != "" ]; do
         shift
         CORPUS_NAME=$1
         ;;
-    -n | --cpu_n)
+    -n | --num_workers)
         shift
-        CPU_N=$1
+        NUM_WORKERS=$1
         ;;
     -t | --task)
         shift
@@ -86,10 +86,8 @@ while [ "$1" != "" ]; do
     shift
 done
 
-# echo "command: $COMMAND"
-# echo "limit: $LIMIT"
-if [[ "$CPU_N" == "" ]]; then
-    CPU_N=230
+if [[ "$NUM_WORKERS" == "" ]]; then
+    NUM_WORKERS=1
 fi
 
 case $COMMAND in
@@ -130,7 +128,7 @@ topic)
         --config-dir $CONFIG_PATH \
         project=$PROJECT \
         +run/topic=${TASK} \
-        num_workers=${CPU_N}
+        num_workers=${NUM_WORKERS}
 
     ;;
 corpus)
@@ -140,7 +138,7 @@ corpus)
         project=$PROJECT \
         +run=corpus_task \
         corpus.name=${CORPUS_NAME} \
-        num_workers=${CPU_N}
+        num_workers=${NUM_WORKERS}
 
     ;;
 dataframe)
@@ -151,7 +149,7 @@ dataframe)
         project=$PROJECT \
         +run=dataframe_task \
         corpus.name=${CORPUS_NAME} \
-        num_workers=${CPU_N}
+        num_workers=${NUM_WORKERS}
 
     ;;
 build_corpus)
@@ -167,7 +165,7 @@ build_corpus)
         project=$PROJECT \
         env.distributed_framework.backend=$BACKEND \
         +corpus/builtin=${CORPUS_NAME} \
-        num_workers=${CPU_N} \
+        num_workers=${NUM_WORKERS} \
         corpus.builtin.fetch.calculate_stats=true \
         corpus.builtin.fetch.preprocess_text=${PREPROCESS} \
         corpus.builtin.fetch.overwrite=${OVERWRITE} \
@@ -194,7 +192,7 @@ build_simple | build_t5 | build_t5_all | build_simple_all)
             project=$PROJECT \
             env.distributed_framework.backend=$BACKEND \
             +dataset/${arrCMD[1]}=${i} \
-            num_workers=${CPU_N} \
+            num_workers=${NUM_WORKERS} \
             dataset.${arrCMD[1]}.fetch.calculate_stats=true \
             dataset.${arrCMD[1]}.fetch.preprocess_text=${PREPROCESS} \
             dataset.${arrCMD[1]}.fetch.overwrite=${OVERWRITE} \
