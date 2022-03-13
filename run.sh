@@ -64,6 +64,10 @@ while [ "$1" != "" ]; do
         shift
         BACKEND=$1
         ;;
+    --data_dir)
+        shift
+        DATA_DIR=$1
+        ;;
     --ow)
         OVERWRITE="true"
         ;;
@@ -152,6 +156,12 @@ dataframe)
     ;;
 build_corpus)
 
+    if [[ "$DATA_DIR" == "" ]]; then
+        DIR_ARG=" "
+    else
+        DIR_ARG="corpus.builtin.fetch.data_dir=$DATA_DIR "
+    fi
+
     ekorpkit \
         --config-dir $CONFIG_PATH \
         project=$PROJECT \
@@ -161,7 +171,8 @@ build_corpus)
         corpus.builtin.fetch.calculate_stats=true \
         corpus.builtin.fetch.preprocess_text=${PREPROCESS} \
         corpus.builtin.fetch.overwrite=${OVERWRITE} \
-        corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD}
+        corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD} \
+        ${DIR_ARG}
 
     ;;
 build_simple | build_t5 | build_t5_all | build_simple_all)
