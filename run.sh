@@ -164,7 +164,7 @@ build_corpus)
 
     ekorpkit \
         --config-dir $CONFIG_PATH \
-        "project=$PROJECT \
+        project=$PROJECT \
         env.distributed_framework.backend=$BACKEND \
         +corpus/builtin=${CORPUS_NAME} \
         num_workers=${CPU_N} \
@@ -172,7 +172,7 @@ build_corpus)
         corpus.builtin.fetch.preprocess_text=${PREPROCESS} \
         corpus.builtin.fetch.overwrite=${OVERWRITE} \
         corpus.builtin.fetch.force_download=${FORCE_DOWNLOAD} \
-        ${DIR_ARG}"
+        ${DIR_ARG}
 
     ;;
 build_simple | build_t5 | build_t5_all | build_simple_all)
