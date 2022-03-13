@@ -1,4 +1,5 @@
 #!/bin/sh
+set -o allexport; source .env; set +o allexport
 # set -x or set -o xtrace expands variables and prints a little + sign before the line.
 # set -v or set -o verbose does not expand the variables before printing.
 # Use set +x and set +v to turn off the above settings.
@@ -13,8 +14,6 @@ FORCE_DOWNLOAD="false"
 BACKEND="joblib"
 PREPROCESS="true"
 TASK="default"
-CONFIG_PATH="/workspace/data/ekorpkit-config/config"
-PROJECT="esgml"
 CPU_N=230
 
 pyclean() {
@@ -204,7 +203,7 @@ yaml | yml | yaml_file)
 
     ;;
 *)
-    echo "not existing command\n"
+    echo "not existing command!"
     usage
     exit
     ;;

@@ -1,3 +1,5 @@
+.env
+.history/
 workspace/
 
 # Byte-compiled / optimized / DLL files
