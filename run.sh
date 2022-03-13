@@ -159,7 +159,7 @@ build_corpus)
     if [[ "$DATA_DIR" == "" ]]; then
         DIR_ARG=" "
     else
-        DIR_ARG="corpus.builtin.fetch.data_dir=\"$DATA_DIR\" "
+        DIR_ARG="'corpus.builtin.fetch.data_dir=$DATA_DIR' "
     fi
 
     ekorpkit \
