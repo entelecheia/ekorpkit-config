@@ -103,6 +103,7 @@ CONFIG_ARG="--config-dir ${CONFIG_DIR}
     project=${PROJECT} 
     dir.workspace=${WORKSPACE_DIR} 
     num_workers=${NUM_WORKERS} 
+    env.os.WANDB_API_KEY=${WANDB_API_KEY}
     env.distributed_framework.backend=${DF_BACKEND}"
 
 case $COMMAND in
