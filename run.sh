@@ -126,11 +126,17 @@ finetune)
     else
         DSET="dataset.name=$CORPUS_NAME "
     fi
+    if [[ "$DATA_DIR" == "" ]]; then
+        DIR_ARG=" "
+    else
+        DIR_ARG="model.transformer.finetune.prediction.data_dir=$DATA_DIR "
+    fi
 
     ekorpkit \
         ${CONFIG_ARG} \
         +run/finetune=${TASK} \
-        ${DSET}
+        ${DSET} \
+        ${DIR_ARG} \
 
     ;;
 
