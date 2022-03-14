@@ -152,7 +152,7 @@ corpus)
 
     ekorpkit \
         ${CONFIG_ARG} \
-        +run=corpus_task \
+        +run/corpus=${TASK} \
         corpus.name=${CORPUS_NAME} \
 
     ;;
