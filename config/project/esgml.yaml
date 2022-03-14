@@ -6,11 +6,11 @@ app_name: esgml
 project: esgml
 dir:
   workspace: /workspace
-  data: /workspace/data/tbts
-  project: /workspace/data/tbts/${app_name}
-  dataset: /workspace/data/datasets
-  model: /workspace/data/models
-  output: /workspace/data/outputs
+  data: ${.workspace}/data/tbts
+  project: ${.workspace}/data/tbts/${app_name}
+  dataset: ${.workspace}/data/datasets
+  model: ${.workspace}/data/models
+  output: ${.workspace}/data/outputs
 env:
   os:
     MODIN_ENGINE: joblib

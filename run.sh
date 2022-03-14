@@ -13,7 +13,6 @@ FILENAME=""
 EXPRESSION=""
 OVERWRITE="false"
 FORCE_DOWNLOAD="false"
-BACKEND="joblib"
 PREPROCESS="true"
 TASK="default"
 
@@ -58,13 +57,17 @@ while [ "$1" != "" ]; do
         shift
         CONFIG_DIR=$1
         ;;
+    --workspace)
+        shift
+        WORKSPACE_DIR=$1
+        ;;
     --project)
         shift
         PROJECT=$1
         ;;
     --backend)
         shift
-        BACKEND=$1
+        DF_BACKEND=$1
         ;;
     --data_dir)
         shift
@@ -92,19 +95,27 @@ if [[ "$NUM_WORKERS" == "" ]]; then
     NUM_WORKERS=1
 fi
 
+if [[ "$DF_BACKEND" == "" ]]; then
+    DF_BACKEND="joblib"
+fi
+
+CONFIG_ARG="--config-dir ${CONFIG_DIR} 
+    project=${PROJECT} 
+    dir.workspace=${WORKSPACE_DIR} 
+    num_workers=${NUM_WORKERS} 
+    env.distributed_framework.backend=${DF_BACKEND}"
+
 case $COMMAND in
 listup)
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         cmd=listup
 
     ;;
 info)
 
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         +info=${TASK}
 
     ;;
@@ -117,8 +128,7 @@ finetune)
     fi
 
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         +run/finetune=${TASK} \
         ${DSET}
 
@@ -127,31 +137,24 @@ finetune)
 topic)
 
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         +run/topic=${TASK} \
-        num_workers=${NUM_WORKERS}
 
     ;;
 corpus)
 
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         +run=corpus_task \
         corpus.name=${CORPUS_NAME} \
-        num_workers=${NUM_WORKERS}
 
     ;;
 dataframe)
 
     ekorpkit \
-        --config-dir $CONFIG_DIR \
-        env.distributed_framework.backend=$BACKEND \
-        project=$PROJECT \
+        ${CONFIG_ARG} \
         +run=dataframe_task \
         corpus.name=${CORPUS_NAME} \
-        num_workers=${NUM_WORKERS}
 
     ;;
 build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
@@ -181,9 +184,7 @@ build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
     for i in "${NAMES[@]}"; do
         echo "$i"
         ekorpkit \
-            --config-dir $CONFIG_DIR \
-            project=$PROJECT \
-            env.distributed_framework.backend=$BACKEND \
+            ${CONFIG_ARG} \
             +${CAT}/${SUBCAT}=${i} \
             num_workers=${NUM_WORKERS} \
             ${CAT}.${SUBCAT}.fetch.calculate_stats=true \
