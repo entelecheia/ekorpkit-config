@@ -3,7 +3,7 @@
 ## Corpus tasks
 
 ```bash
-bash run.sh corpus -t corpus_sample c nikl_news 
+bash run.sh corpus -t corpus_sample -c nikl_news 
 bash run.sh corpus -t corpus_sample -c aihub_book
 ```
 
