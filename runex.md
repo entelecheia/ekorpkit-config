@@ -4,14 +4,18 @@
 
 ```bash
 bash data/ekorpkit-config/run.sh corpus -t corpus_sample c nikl_news 
-
 bash data/ekorpkit-config/run.sh corpus -t corpus_sample -c aihub_book
 ```
 
-## Build corpus
+## Build a corpus
 
 ```bash
 bash data/ekorpkit-config/run.sh build_corpus -c aihub_book
+```
+## Build a dataset for simpletransformers
+
+```bash
+bash data/ekorpkit-config/run.sh build_simple -c esg_topics
 ```
 
 ## Topic tasks
