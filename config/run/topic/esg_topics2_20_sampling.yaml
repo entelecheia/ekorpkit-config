@@ -2,7 +2,7 @@
 defaults:
   - /model/topic: esg_topics2
   # - override /corpus: esg_nouns
-  - override /task: dataframe_pipeline
+  - override /task: dataframe_task
 
 task:
   name: esg_topics2_20_sampling

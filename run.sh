@@ -108,15 +108,14 @@ CONFIG_ARG="--config-dir ${CONFIG_DIR}
 
 case $COMMAND in
 listup)
-    ekorpkit \
-        ${CONFIG_ARG} \
+
+    ekorpkit ${CONFIG_ARG} \
         cmd=listup
 
     ;;
 info)
 
-    ekorpkit \
-        ${CONFIG_ARG} \
+    ekorpkit ${CONFIG_ARG} \
         +info=${TASK}
 
     ;;
@@ -133,35 +132,24 @@ finetune)
         DIR_ARG="model.transformer.finetune.prediction.data_dir=$DATA_DIR "
     fi
 
-    ekorpkit \
-        ${CONFIG_ARG} \
+    ekorpkit ${CONFIG_ARG} \
         +run/finetune=${TASK} \
         ${DSET} \
-        ${DIR_ARG} \
+        ${DIR_ARG}
 
     ;;
 
 topic)
 
-    ekorpkit \
-        ${CONFIG_ARG} \
-        +run/topic=${TASK} \
+    ekorpkit ${CONFIG_ARG} \
+        +run/topic=${TASK}
 
     ;;
-corpus)
+corpus | dataframe)
 
-    ekorpkit \
-        ${CONFIG_ARG} \
-        +run/corpus=${TASK} \
-        corpus.name=${CORPUS_NAME} \
-
-    ;;
-dataframe)
-
-    ekorpkit \
-        ${CONFIG_ARG} \
-        +run=dataframe_task \
-        corpus.name=${CORPUS_NAME} \
+    ekorpkit ${CONFIG_ARG} \
+        +run/${COMMAND}=${TASK} \
+        corpus.name=${CORPUS_NAME}
 
     ;;
 build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
@@ -190,8 +178,7 @@ build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
 
     for i in "${NAMES[@]}"; do
         echo "$i"
-        ekorpkit \
-            ${CONFIG_ARG} \
+        ekorpkit ${CONFIG_ARG} \
             +${CAT}/${SUBCAT}=${i} \
             num_workers=${NUM_WORKERS} \
             ${CAT}.${SUBCAT}.fetch.calculate_stats=true \

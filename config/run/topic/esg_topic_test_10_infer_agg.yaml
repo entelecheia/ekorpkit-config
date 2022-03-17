@@ -2,7 +2,7 @@
 defaults:
   - /model/topic: esg_topics_test
   # - override /corpus: esg_nouns 
-  - override /task: dataframe_pipeline
+  - override /task: dataframe_task
 
 task:
   name: esg_topic_infer_agg
