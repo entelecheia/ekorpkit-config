@@ -35,8 +35,8 @@ task:
         RPT_ID: "df.assign(RPFX='r').RPFX + df.RPT_ID"
         CMP_CD: "df.assign(CPFX='A').CPFX + df.CMP_CD"
     save_dataframe:
-      output_dir: ${dir.project}/dataframe/tmp
-      output_file: ${..load_dataframe.data_file}
+      output_dir: ${..data_dir}
+      output_file: TT_EST_REPORT.parquet
       columns_to_save:
         - RPT_ID
         - ANL_DT
