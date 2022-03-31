@@ -18,6 +18,12 @@ bash run.sh build_corpus -c aihub_book
 bash run.sh build_simple -c esg_topics
 ```
 
+## Build datasets for simpleT5
+
+```bash
+bash run.sh build_t5_all -f bio.yaml -e 'ner.*'
+```
+
 ## Topic tasks
 
 ```bash

@@ -111,6 +111,8 @@ CONFIG_ARG="--config-dir ${CONFIG_DIR}
     env.os.WANDB_API_KEY=${WANDB_API_KEY}
     env.distributed_framework.backend=${DF_BACKEND}"
 
+RSRC_DIR="$(dirname "$CONFIG_DIR")/resource/"
+
 case $COMMAND in
 listup)
 
@@ -169,7 +171,7 @@ build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
         SUBCAT="${arrCMD[1]}"
     fi
     if [[ "${arrCMD[2]}" == "all" ]]; then
-        filename=${CONFIG_DIR}/list/${FILENAME}
+        filename="${RSRC_DIR}${FILENAME}"
         declare -a NAMES
         NAMES=($(yq r "$filename" "$EXPRESSION"))
     else
@@ -196,8 +198,8 @@ build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
     ;;
 yaml | yml | yaml_file)
     #~ ex) bash data/ekorpkit-config/run.sh yaml -f bio.yaml -e 'ner.*'
-    filename=${CONFIG_DIR}/list/${FILENAME}
     declare -a VALUES
+    filename="${RSRC_DIR}${FILENAME}"
     VALUES=($(yq r "$filename" "$EXPRESSION"))
     for i in "${VALUES[@]}"; do
         echo "value: $i"
