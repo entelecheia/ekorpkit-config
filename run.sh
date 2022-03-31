@@ -15,6 +15,7 @@ OVERWRITE="false"
 FORCE_DOWNLOAD="false"
 PREPROCESS="true"
 TASK="default"
+GROUP="_default"
 
 pyclean() {
     find . -regex '^.*\(__pycache__\|\.py[co]\)$' -delete
@@ -48,6 +49,10 @@ while [ "$1" != "" ]; do
     -f | --filename)
         shift
         FILENAME=$1
+        ;;
+    -g | --group)
+        shift
+        GROUP=$1
         ;;
     -e | --expression)
         shift
@@ -133,22 +138,22 @@ finetune)
     fi
 
     ekorpkit ${CONFIG_ARG} \
-        +run/finetune=${TASK} \
+        +run/${GROUP}=${TASK} \
         ${DSET} \
         ${DIR_ARG}
 
     ;;
 
-topic)
+task)
 
     ekorpkit ${CONFIG_ARG} \
-        +run/topic=${TASK}
+        +run/${GROUP}=${TASK}
 
     ;;
 corpus | dataframe)
 
     ekorpkit ${CONFIG_ARG} \
-        +run/${COMMAND}=${TASK} \
+        +run/${GROUP}=${TASK} \
         corpus.name=${CORPUS_NAME}
 
     ;;
