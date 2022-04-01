@@ -1,28 +1,31 @@
 # @package _global_
 defaults:
-  - /model/topic: esg_report_topics
-  - override /corpus: esg_report_nouns
+  - /model/topic: sec_report_topics
+  - override /corpus: sec_report_nouns
   - override /task: topic_task
 
 task:
-  name: esg_report_topics
+  name: sec_report_topics
   verbose: true
   topic:
     _subtasks_:
       - load_corpus
       - train_model
       # - load_model
-      # - visualize
-      # - topic_wordclouds
+      - visualize
+      - topic_wordclouds
       # - infer_topics
       # - label_topics
       # - save_labels
       # - export_processed
     train_model:
-      k: 6
-      iterations: 500
+      k: 50
+      iterations: 300
     load_model:
-      model_file: esg_topics2-LDA.k30.mdl
+      model_file: sec_report_topics-LDA.k30.mdl
+    topic_wordclouds:
+      ncols: 5
+      nrows: 5
     label_topics:
       rebuild: true
     # infer_topics:

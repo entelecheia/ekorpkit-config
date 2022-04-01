@@ -6,6 +6,7 @@ corpus:
   name: sec_report
 task:
   name: sec_report_topics
+  data_dir: ${dir.project}/${task.name}
   verbose: true
   merge_metadata: false
   pipeline:
@@ -24,10 +25,10 @@ task:
     extract_tokens:
       nouns_only: true
     save_dataframe:
-      output_dir: ${dir.project}/${task.name}/corpus
+      task_dir: corpus
       output_file: ${corpus.name}_tokenized.parquet
     save_dataframe2:
-      output_dir: ${dir.project}/${task.name}/corpus
+      task_dir: corpus
       output_file: ${corpus.name}_nouns.parquet
     chunk:
       chunk_size: 350

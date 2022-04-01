@@ -9,8 +9,8 @@ dir:
   data: ${.workspace}/data/tbts
   project: ${.workspace}/data/tbts/${app_name}
   dataset: ${.workspace}/data/datasets
-  model: ${.workspace}/data/models
-  output: ${.workspace}/data/outputs
+  model: ${.workspace}/data/tbts/models
+  output: ${.workspace}/data/tbts/outputs
 env:
   os:
     MODIN_ENGINE: joblib
