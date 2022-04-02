@@ -23,7 +23,7 @@ task:
       merge_on:
         - id
     save_dataframe:
-      columns_to_save:
+      columns_to_keep:
         - corpus
         - id
         - chunk_id

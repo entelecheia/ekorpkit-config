@@ -1,0 +1,36 @@
+# @package _global_
+defaults:
+  - /model/topic: sample_report_topics
+  - override /corpus: sample_report_nouns
+  - override /task: topic_task
+
+task:
+  name: sample_report_topics
+  verbose: true
+  topic:
+    _subtasks_:
+      - load_corpus
+      - train_model
+      # - load_model
+      - visualize
+      - topic_wordclouds
+      # - infer_topics
+      # - label_topics
+      # - save_labels
+      # - export_processed
+    train_model:
+      k: 40
+      iterations: 300
+    load_model:
+      model_file: sample_report_topics-LDA.k32.mdl
+    topic_wordclouds:
+      ncols: 4
+      nrows: 5
+    label_topics:
+      rebuild: true
+    # infer_topics:
+    save_labels:
+      names:
+        0: E
+        1: S
+        2: G
