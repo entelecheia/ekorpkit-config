@@ -9,23 +9,40 @@ task:
   verbose: true
   topic:
     _subtasks_:
-      - load_corpus
-      - train_model
-      # - load_model
-      - visualize
+      # - load_corpus
+      # - train_model
+      - load_model
+      # - visualize
       - topic_wordclouds
       # - infer_topics
       # - label_topics
       # - save_labels
       # - export_processed
+    load_corpus:
+      rebuild: false
     train_model:
       k: 40
-      iterations: 300
+      interval: 100
+      iterations: 3000
     load_model:
-      model_file: sample_report_topics-LDA.k32.mdl
+      model_file: sample_report_topics-LDA.k40.mdl
     topic_wordclouds:
+      top_n: 500
       ncols: 4
       nrows: 5
+      dpi: 300
+      figsize: (12, 12)
+      # save_each: false
+      # save_masked: true
+      # wordclouds:
+      #   0:
+      #     mask_file: E.png
+      #   1:
+      #     mask_file: S.png
+      #   2:
+      #     mask_file: G.png
+      #   3:
+      #     mask_file: ESG.png
     label_topics:
       rebuild: true
     # infer_topics:

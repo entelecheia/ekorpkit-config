@@ -12,4 +12,4 @@ ngram:
   normalized: true
   delimiter: ''
 files:
-  stoplist:
+  stoplist: ${..model_dir}/stopwords-extra.txt
