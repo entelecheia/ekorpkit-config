@@ -9,6 +9,9 @@
 - The changes in proportions of ESG topics and their relative composition would tell more stories.
   - w.r.t. risk-return profiles
   - w.r.t. effect on the valuation of a firm
+
+#### 36 Topics from the analyst reports
+
 ![](figs/analyst_topic_p1.png)
 ![](figs/analyst_topic_p2.png)
 ![](figs/analyst_topic_p3.png)
