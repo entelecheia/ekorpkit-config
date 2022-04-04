@@ -10,7 +10,7 @@
   - w.r.t. risk-return profiles
   - w.r.t. effect on the valuation of a firm
 
-#### 36 Topics from the analyst reports
+> 36 Topics from the analyst reports
 
 ![](figs/analyst_topic_p1.png)
 ![](figs/analyst_topic_p2.png)
