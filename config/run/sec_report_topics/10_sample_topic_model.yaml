@@ -9,17 +9,17 @@ task:
   verbose: true
   topic:
     _subtasks_:
-      # - load_corpus
+      - load_corpus
       # - train_model
-      - load_model
+      # - load_model
       # - visualize
-      - topic_wordclouds
+      # - topic_wordclouds
       # - infer_topics
       # - label_topics
       # - save_labels
       # - export_processed
     load_corpus:
-      rebuild: false
+      rebuild: true
     train_model:
       k: 36
       interval: 100
@@ -51,7 +51,7 @@ task:
           figsize: (12, 5)
     label_topics:
       rebuild: true
-    # infer_topics:
+    infer_topics:
     save_labels:
       names:
         0: E

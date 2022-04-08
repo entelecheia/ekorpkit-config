@@ -1,5 +1,5 @@
 # ekorpkit-config
-Config files for [ekorpkit](https://github.com/entelecheia/ekorpkit) package
+Config files for the [ekorpkit](https://github.com/entelecheia/ekorpkit) package
 
 # Use Cases
 
