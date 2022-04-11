@@ -5,7 +5,7 @@ defaults:
   - override /task: topic_task
 
 task:
-  name: sample_report_topics
+  name: sec_report_topics
   data_dir: ${dir.project}/${task.name}
   verbose: true
   topic:

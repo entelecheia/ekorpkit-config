@@ -1,0 +1,48 @@
+# @package _global_
+defaults:
+  - /visualize/plot: lineplot
+  - override /task: dataframe_task
+
+task:
+  name: sec_report_topics
+  data_dir: ${dir.project}/${task.name}
+  verbose: true
+  pipeline:
+    _pipeline_:
+      load_dataframe: load_dataframe
+      # drop: drop
+      # melt: melt
+      # aggregate_columns: aggregate_columns
+      # eval_columns: eval_columns
+      # aggregate_columns2: aggregate_columns
+      # save_dataframe: save_dataframe
+      # pivot: pivot
+      plot: plot
+      
+    load_dataframe:
+      data_dir: ${task.data_dir}/topics
+      data_file: sec_report_topic_dists_agg_year.parquet
+    eval_columns:
+      expressions:
+        year: timestamp.dt.year
+    plot:
+      visualize: ${visualize}
+
+visualize:
+  plot:
+    output_dir: ${task.data_dir}/figs
+    output_file: topic_trends.png
+    columns:
+      xvalue: year
+      yvalue: ['topic0', 'topic1', 'topic2', 'topic3',  'topic6']
+    figure:
+      xlabel: Year
+      ylabel: Topic Weight
+      title: Topic Trends
+      legend:
+        labels: ['E', 'S', 'G', 'ESG Inv',  'G2']
+      # xticks:
+      #   ticks: [2005, 2010, 2015, 2020]
+      #   labels: [2005, 2010, 2015, 2020]
+      xtickmajorformatterfunc: 'ticker.FormatStrFormatter("%d")'
+      ytickmajorformatterfunc: 'ticker.PercentFormatter(1.0)'
