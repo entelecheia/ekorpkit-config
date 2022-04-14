@@ -16,6 +16,17 @@
 ![](figs/analyst_topic_p2.png)
 ![](figs/analyst_topic_p3.png)
 
-## ESG topic weights
+## Comparing ESG Topic Trends
+
+![](figs/analyst_topic_trends.png)
+
+- Overall, the average weight of the ESG topics is around 2 percent.
+- Among E, S, and G, the Social area occupies the largest proportion.
+- This is an effect that S includes the Corporate Social Responsibility (CSR) issues.
+- Though the Environmental topic takes the smallest share, its variability is the biggest.
+- Recently, the proportion of the Environmental topic has been increasing.
+- Comparing the topic weights by the sectors shows sizable variations among the sectors.
+
+![](figs/analyst_topic_weights_sectors.png)
 
 > This analysis is done using the [ekorpkit](https://github.com/entelecheia/ekorpkit) package with the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config).
