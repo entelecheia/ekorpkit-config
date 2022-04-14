@@ -10,11 +10,14 @@ task:
   name: sec_report_topics
   data_dir: ${dir.project}/${task.name}
   verbose: true
-  merge_metadata: false
+  merge_metadata: true
   pipeline:
     _pipeline_:
       merge_dataframe: merge_dataframe
-      drop: drop
+      # merge_dataframe2: merge_dataframe
+      merge_dataframe3: merge_dataframe
+      filter_query: filter_query
+      # drop: drop
       melt: melt
       aggregate_columns: aggregate_columns
       eval_columns: eval_columns
@@ -28,6 +31,18 @@ task:
       merge_on:
         - id
         - chunk_id
+    merge_dataframe2:
+      data_dir: ${task.data_dir}/corpus
+      data_file: K200_20220412.csv
+      merge_on:
+        - CMP_CD
+    merge_dataframe3:
+      data_dir: ${task.data_dir}/corpus
+      data_file: GICS_consts_20220413.csv
+      merge_on:
+        - CMP_CD
+    filter_query:
+      query: TARGET_PRC.notna()
     drop:
       columns:
         - text
@@ -37,7 +52,8 @@ task:
         - chunk_id
         - corpus
         - timestamp
-      value_vars:
+        - sector
+      value_vars: "[f'topic{i}' for i in range(36)]"
       var_name: topic_num
       value_name: topic_weight
     aggregate_columns:
@@ -47,6 +63,7 @@ task:
         - id
         - corpus
         - timestamp
+        - sector
         - topic_num
     eval_columns:
       expressions:
@@ -55,15 +72,17 @@ task:
       aggregations:
         topic_weight: mean
       groupby:
+        - sector
         - year
         - topic_num
     pivot:
       index:
         - year
+        - sector
       columns:
         - topic_num
       values:
         - topic_weight
     save_dataframe:
       output_dir: ${task.data_dir}/topics
-      output_file: sec_report_topic_dists_agg_year.parquet
+      output_file: sec_report_topic_dists_sector_year.parquet

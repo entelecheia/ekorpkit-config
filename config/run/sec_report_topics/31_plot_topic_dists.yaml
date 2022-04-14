@@ -1,6 +1,7 @@
 # @package _global_
 defaults:
-  - /visualize/plot: lineplot
+  # - /visualize/plot: lineplot
+  - /visualize/plot: stackplot
   - override /task: dataframe_task
 
 task:
@@ -12,8 +13,8 @@ task:
       load_dataframe: load_dataframe
       # drop: drop
       # melt: melt
-      # aggregate_columns: aggregate_columns
-      # eval_columns: eval_columns
+      # merge_dataframe: merge_dataframe
+      eval_columns: eval_columns
       # aggregate_columns2: aggregate_columns
       # save_dataframe: save_dataframe
       # pivot: pivot
@@ -24,25 +25,37 @@ task:
       data_file: sec_report_topic_dists_agg_year.parquet
     eval_columns:
       expressions:
-        year: timestamp.dt.year
+        E: topic0
+        S: topic1
+        G2: topic2
+        G: topic2+topic6
+        G3: topic2+topic6+topic4
+        ESG: E+S+G
+        ESG2: E+S+G2
+        ESG3: E+S+G3
     plot:
       visualize: ${visualize}
 
 visualize:
   plot:
     output_dir: ${task.data_dir}/figs
-    output_file: topic_trends.png
+    output_file: topic_trends_esg.png
     columns:
       xvalue: year
-      yvalue: ['topic0', 'topic1', 'topic2', 'topic3',  'topic6']
+      yvalue: ['E', 'S', 'G']
+      # yvalue: ['ESG', 'ESG2', 'ESG3']
+      # yvalue: ['topic0', 'topic1', 'topic2', 'topic3',  'topic6']
     figure:
       xlabel: Year
       ylabel: Topic Weight
       title: Topic Trends
-      legend:
-        labels: ['E', 'S', 'G', 'ESG Inv',  'G2']
+      xlim:
+        left: 2004
+        right: 2020
+      # legend:
+      #   labels: ['ESG', 'E', 'S', 'G']
       # xticks:
       #   ticks: [2005, 2010, 2015, 2020]
       #   labels: [2005, 2010, 2015, 2020]
       xtickmajorformatterfunc: 'ticker.FormatStrFormatter("%d")'
-      ytickmajorformatterfunc: 'ticker.PercentFormatter(1.0)'
+      ytickmajorformatterfunc: 'ticker.PercentFormatter(1.0, decimals=1)'

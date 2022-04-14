@@ -16,4 +16,17 @@
 ![](figs/analyst_topic_p2.png)
 ![](figs/analyst_topic_p3.png)
 
+## ESG topic weights
+
+|     Trends of ESG Topic Weights     | Coefficient of Variation of ESG Topic Weights |
+| :---------------------------------: | :-------------------------------------------: |
+|![](figs/topic_trends_esg_k200.png)|![](figs/topic_trends_cv.png)|
+
+
+|     Trends of ESG Topic Weights     | Coefficient of Variation of ESG Topic Weights |
+| :---------------------------------: | :-------------------------------------------: |
+| ![](figs/topic_weights_by_sector.png) |         ![](figs/topic_weights_by_sector_2019.png)         |
+
+<img src="figs/topic_weights_by_sector.png) |         ![](figs/topic_weights_by_sector_2019.png" width="200">
+
 > This analysis is done using the [ekorpkit](https://github.com/entelecheia/ekorpkit) package with the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config).
