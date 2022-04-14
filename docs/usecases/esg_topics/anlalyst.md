@@ -16,7 +16,7 @@
 ![](figs/analyst_topic_p2.png)
 ![](figs/analyst_topic_p3.png)
 
-## Comparing ESG Topic Trends
+## Comparing the ESG Topic Trends
 
 ![](figs/analyst_topic_trends.png)
 
@@ -25,7 +25,7 @@
 - This is an effect that S includes the Corporate Social Responsibility (CSR) issues.
 - Though the Environmental topic takes the smallest share, its variability is the biggest.
 - Recently, the proportion of the Environmental topic has been increasing.
-- Comparing the topic weights by the sectors shows sizable variations among the sectors.
+- Comparing the topic weights by the sectors shows sizable variations among them.
 
 ![](figs/analyst_topic_weights_sectors.png)
 
