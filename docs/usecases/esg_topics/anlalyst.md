@@ -20,7 +20,7 @@
 
 ![](figs/analyst_topic_trends.png)
 
-- Overall, the average weight of the ESG topics is around 2 percent.
+- Overall, the ESG topics take around 2 percent of the weight on average.
 - Among E, S, and G, the Social area occupies the largest proportion.
 - This is an effect that S includes the Corporate Social Responsibility (CSR) issues.
 - Though the Environmental topic takes the smallest share, its variability is the biggest.
