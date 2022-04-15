@@ -99,6 +99,12 @@ done
 if [[ "$NUM_WORKERS" == "" ]]; then
     NUM_WORKERS=1
 fi
+if [[ "$CONFIG_DIR" == "" ]]; then
+    CONFIG_DIR="/workspace/data/ekorpkit-config/config"
+fi
+if [[ "$WORKSPACE_DIR" == "" ]]; then
+    WORKSPACE_DIR="/workspace"
+fi
 
 if [[ "$DF_BACKEND" == "" ]]; then
     DF_BACKEND="joblib"

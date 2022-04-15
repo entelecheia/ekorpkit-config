@@ -16,6 +16,7 @@ bash run.sh build_corpus -c aihub_book
 
 ```bash
 bash run.sh build_simple -c esg_topics
+bash run.sh build_simple -c finphrase_kr
 ```
 
 ## Build datasets for simpleT5
@@ -37,4 +38,5 @@ bash run.sh topic -t esg_topic_test_30_sampling
 
 ```bash
 bash run.sh finetune -t simple_classification -c esg_topics 
+bash run.sh finetune -t simple_classification -c finphrase_kr
 ```
