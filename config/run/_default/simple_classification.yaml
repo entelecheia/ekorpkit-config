@@ -1,8 +1,8 @@
 # @package _global_
 defaults:
   - /model/transformer/finetune: simple_classification
-  # - /model/transformer/pretrained: bert-base
-  - /model/transformer/pretrained: ekonelectra-base
+  - /model/transformer/pretrained: bert-base
+  # - /model/transformer/pretrained: ekonelectra-base
   - override /task: transformer_finetune
   - override /dataset: simple
 
@@ -10,12 +10,13 @@ model:
   transformer:
     finetune:
       config:
-        max_seq_length: 256
-        train_batch_size: 16
-        eval_batch_size: 16
+        num_train_epochs: 5
+        max_seq_length: 128
+        train_batch_size: 32
+        eval_batch_size: 32
       _pipeline_:
         - train
-        - predict
+        # - predict
       prediction:
         data_dir: 
         data_files:
@@ -27,4 +28,4 @@ model:
           input_text: content
  
 task:
-  name: simple_classification
+  name: ${oc.select:dataset.name, simple_classification}
