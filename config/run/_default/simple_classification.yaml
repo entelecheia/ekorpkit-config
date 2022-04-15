@@ -1,6 +1,7 @@
 # @package _global_
 defaults:
   - /model/transformer/finetune: simple_classification
+  # - /model/transformer/pretrained: bert-base
   - /model/transformer/pretrained: ekonelectra-base
   - override /task: transformer_finetune
   - override /dataset: simple
