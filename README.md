@@ -72,8 +72,31 @@ pprint(cfg)
 ```python
 config_group='preprocessor/tokenizer=mecab'
 cfg = eKonf.compose(config_group=config_group)
-mecab = eKonf.instantiate(cfg)
+pprint(cfg)
+```
 
+```json
+{"_target_": "ekorpkit.preprocessors.tokenizer.MecabTokenizer",
+ "concat_token_and_pos": True,
+ "exclude_pos": ["SP"],
+ "flatten": True,
+ "include_whitespace_token": True,
+ "lowercase": False,
+ "mecab": {"backend": "mecab-python3", "userdic_path": None, "verbose": False},
+ "no_space_for_non_nouns": False,
+ "normalize": None,
+ "noun_pos": ["NNG", "NNP", "XSN", "SL", "XR", "NNB", "NR"],
+ "punct_pos": ["SF", "SP", "SSO", "SSC", "SY"],
+ "sentence_separator": "\\n",
+ "stopwords_path": None,
+ "tokenize_each_word": False,
+ "userdic_path": None,
+ "verbose": False,
+ "wordpieces_prefix": "##"}
+```
+
+```python
+mecab = eKonf.instantiate(cfg)
 text = 'IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마이너스(−)를 持續하고 있다.'
 mecab.tokenize(text)
 ```
