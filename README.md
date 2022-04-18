@@ -1,14 +1,97 @@
 # ekorpkit-config
+
 Config files for the [ekorpkit](https://github.com/entelecheia/ekorpkit) package
 
-# Use Cases
+## Installation
 
-## ESG Topics
+Install the latest version of ekorpit:
+
+```bash
+pip install ekorpkit
+```
+
+Clone the ekorpkit-config
+
+```bash
+git clone https://github.com/entelecheia/ekorpkit-config.git
+```
+
+## Usage
+
+### Command Line Interface (CLI)
+
+There are more examples in the [usage](https://github.com/entelecheia/ekorpkit-config/blob/main/usage.md) file of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
+
+#### Corpus tasks
+
+```bash
+bash run.sh corpus -t corpus_sample -c nikl_news
+bash run.sh corpus -t corpus_sample -c aihub_book
+```
+
+#### Finetune a simple classification model
+
+```bash
+bash run.sh finetune -t simple_classification -c esg_topics
+bash run.sh finetune -t simple_classification -c finphrase_kr
+```
+
+### Python
+
+There are more examples in the [notebooks](https://github.com/entelecheia/ekorpkit-config/tree/main/notebooks) folder of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
+
+#### Compose an ekorpkit config
+
+```python
+# import ekorpkit.ekonf as eKonf
+from ekorpkit import eKonf
+from pprint import pprint
+
+cfg = eKonf.compose()
+print('Config type:', type(cfg))
+pprint(cfg)
+```
+
+#### Instantiating objects with an ekorpkit config
+
+```python
+config_group='preprocessor/tokenizer=mecab'
+cfg = eKonf.compose(config_group=config_group)
+mecab = eKonf.instantiate(cfg)
+
+text = 'IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마이너스(−)를 持續하고 있다.'
+mecab.tokenize(text)
+```
+
+> 'IMF/SL 가/JKS /SP 推定/NNG 한/XSA+ETM /SP 우리나라/NNG 의/JKG /SP GDP/SL 갭/NNG 률/XSN 은/JX /SP 今年/NNG 에/JKB 도/JX /SP 소폭/NNG 의/JKG /SP 마이너스/NNG (/SSO −)/SY 를/JKO /SP 持續/NNG 하/XSV 고/EC /SP 있/VX 다/EF ./SF'
+
+```python
+config_group='preprocessor/normalizer=formal_ko'
+cfg_norm = eKonf.compose(config_group=config_group)
+norm = eKonf.instantiate(cfg_norm)
+norm(text)
+```
+
+> 'IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.'
+
+```python
+config_group='preprocessor/tokenizer=mecab'
+cfg = eKonf.compose(config_group=config_group)
+cfg['normalize'] = cfg_norm
+mecab = eKonf.instantiate(cfg)
+mecab.tokenize(text)
+```
+
+> 'IMF/SL 가/JKS /SP 추정/NNG 한/XSA+ETM /SP 우리나라/NNG 의/JKG /SP GDP/SL 갭/NNG 률/XSN 은/JX /SP 금년/NNG 에/JKB 도/JX /SP 소폭/NNG 의/JKG /SP 마이너스/NNG (/SSO -)/SY 를/JKO /SP 지속/NNG 하/XSV 고/EC /SP 있/VX 다/EF ./SF'
+
+## Use Cases
+
+### ESG Topics
 
 - [Topic coverage in the analyst reports](docs/usecases/esg_topics/anlalyst.md)
 - Topic coverage in the media
 - Topic coverage in the corporate disclosure
-## ESG Ratings
 
-## Bio-medical NER
+### ESG Ratings
 
+### Bio-medical NER
