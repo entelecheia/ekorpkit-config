@@ -75,7 +75,7 @@ cfg = eKonf.compose(config_group=config_group)
 pprint(cfg)
 ```
 
-```json
+```python
 {"_target_": "ekorpkit.preprocessors.tokenizer.MecabTokenizer",
  "concat_token_and_pos": True,
  "exclude_pos": ["SP"],
