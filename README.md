@@ -18,7 +18,22 @@ git clone https://github.com/entelecheia/ekorpkit-config.git
 
 ## Usage
 
-### Command Line Interface (CLI)
+### Via Command Line Interface (CLI)
+
+```bash
+ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
+    project=esgml \
+    dir.workspace=/workspace \
+    env.distributed_framework.backend=joblib \
+    num_workers=230 \
+    +dataset/simple=mp_tone_kr \
+    dataset.simple.fetch.calculate_stats=true \
+    dataset.simple.fetch.preprocess_text=true \
+    dataset.simple.fetch.overwrite=false \
+    dataset.simple.fetch.force_download=false
+```
+
+### Via Shell Script `run.sh`
 
 There are more examples in the [usage](https://github.com/entelecheia/ekorpkit-config/blob/main/usage.md) file of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
 
@@ -36,7 +51,7 @@ bash run.sh finetune -t simple_classification -c esg_topics
 bash run.sh finetune -t simple_classification -c finphrase_kr
 ```
 
-### Python
+### Via Python
 
 There are more examples in the [notebooks](https://github.com/entelecheia/ekorpkit-config/tree/main/notebooks) folder of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
 
