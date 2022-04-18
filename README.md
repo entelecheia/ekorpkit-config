@@ -86,23 +86,24 @@ pprint(cfg)
 ```
 
 ```python
-{"_target_": "ekorpkit.preprocessors.tokenizer.MecabTokenizer",
- "concat_token_and_pos": True,
- "exclude_pos": ["SP"],
- "flatten": True,
- "include_whitespace_token": True,
- "lowercase": False,
- "mecab": {"backend": "mecab-python3", "userdic_path": None, "verbose": False},
- "no_space_for_non_nouns": False,
- "normalize": None,
- "noun_pos": ["NNG", "NNP", "XSN", "SL", "XR", "NNB", "NR"],
- "punct_pos": ["SF", "SP", "SSO", "SSC", "SY"],
- "sentence_separator": "\\n",
- "stopwords_path": None,
- "tokenize_each_word": False,
- "userdic_path": None,
- "verbose": False,
- "wordpieces_prefix": "##"}
+{'_target_': 'ekorpkit.preprocessors.tokenizer.MecabTokenizer',
+ 'extract': {'no_space_for_non_nouns': False,
+             'noun_postags': ['NNG', 'NNP', 'XSN', 'SL', 'XR', 'NNB', 'NR'],
+             'stop_postags': ['SP'],
+             'stopwords': None,
+             'stopwords_path': None},
+ 'mecab': {'backend': 'mecab-python3', 'userdic_path': None, 'verbose': False},
+ 'normalize': None,
+ 'tokenize': {'concat_surface_and_pos': True,
+              'flatten': True,
+              'include_whitespace_token': True,
+              'lowercase': False,
+              'punct_postags': ['SF', 'SP', 'SSO', 'SSC', 'SY'],
+              'tokenize_each_word': False,
+              'userdic_path': None,
+              'wordpieces_prefix': '##'},
+ 'tokenize_article': {'return_typ': 'str', 'sentence_separator': '\\n'},
+ 'verbose': False}
 ```
 
 - intantiate a mecab config and tokenize a text
@@ -113,7 +114,7 @@ text = 'IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마
 mecab.tokenize(text)
 ```
 
-> 'IMF/SL 가/JKS /SP 推定/NNG 한/XSA+ETM /SP 우리나라/NNG 의/JKG /SP GDP/SL 갭/NNG 률/XSN 은/JX /SP 今年/NNG 에/JKB 도/JX /SP 소폭/NNG 의/JKG /SP 마이너스/NNG (/SSO −)/SY 를/JKO /SP 持續/NNG 하/XSV 고/EC /SP 있/VX 다/EF ./SF'
+> ['IMF/SL', '가/JKS', ' /SP', '推定/NNG', '한/XSA+ETM', ' /SP', '우리나라/NNG', '의/JKG', ' /SP', 'GDP/SL', '갭/NNG', '률/XSN', '은/JX', ' /SP', '今年/NNG', '에/JKB', '도/JX', ' /SP', '소폭/NNG', '의/JKG', ' /SP', '마이너스/NNG', '(/SSO', '−)/SY', '를/JKO', ' /SP', '持續/NNG', '하/XSV', '고/EC', ' /SP', '있/VX', '다/EF', './SF']
 
 - compose and instantiate a `formal_ko` config for the normalizer class
 
@@ -136,7 +137,7 @@ mecab = eKonf.instantiate(cfg)
 mecab.tokenize(text)
 ```
 
-> 'IMF/SL 가/JKS /SP 추정/NNG 한/XSA+ETM /SP 우리나라/NNG 의/JKG /SP GDP/SL 갭/NNG 률/XSN 은/JX /SP 금년/NNG 에/JKB 도/JX /SP 소폭/NNG 의/JKG /SP 마이너스/NNG (/SSO -)/SY 를/JKO /SP 지속/NNG 하/XSV 고/EC /SP 있/VX 다/EF ./SF'
+> ['IMF/SL', '가/JKS', ' /SP', '추정/NNG', '한/XSA+ETM', ' /SP', '우리나라/NNG', '의/JKG', ' /SP', 'GDP/SL', '갭/NNG', '률/XSN', '은/JX', ' /SP', '금년/NNG', '에/JKB', '도/JX', ' /SP', '소폭/NNG', '의/JKG', ' /SP', '마이너스/NNG', '(/SSO', '-)/SY', '를/JKO', ' /SP', '지속/NNG', '하/XSV', '고/EC', ' /SP', '있/VX', '다/EF', './SF']
 
 ## Use Cases
 
