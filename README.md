@@ -33,6 +33,14 @@ ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
     dataset.simple.fetch.force_download=false
 ```
 
+#### CLI Help
+
+To see the available configurations for CLI run the command:
+
+```bash
+ekorpkit --help
+```
+
 ### Via Shell Script `run.sh`
 
 There are more examples in the [usage](https://github.com/entelecheia/ekorpkit-config/blob/main/usage.md) file of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
