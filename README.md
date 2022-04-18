@@ -69,6 +69,8 @@ pprint(cfg)
 
 #### Instantiating objects with an ekorpkit config
 
+- compose a config for the mecab class
+
 ```python
 config_group='preprocessor/tokenizer=mecab'
 cfg = eKonf.compose(config_group=config_group)
@@ -95,6 +97,8 @@ pprint(cfg)
  "wordpieces_prefix": "##"}
 ```
 
+- intantiate a mecab config and tokenize a text
+
 ```python
 mecab = eKonf.instantiate(cfg)
 text = 'IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마이너스(−)를 持續하고 있다.'
@@ -102,6 +106,8 @@ mecab.tokenize(text)
 ```
 
 > 'IMF/SL 가/JKS /SP 推定/NNG 한/XSA+ETM /SP 우리나라/NNG 의/JKG /SP GDP/SL 갭/NNG 률/XSN 은/JX /SP 今年/NNG 에/JKB 도/JX /SP 소폭/NNG 의/JKG /SP 마이너스/NNG (/SSO −)/SY 를/JKO /SP 持續/NNG 하/XSV 고/EC /SP 있/VX 다/EF ./SF'
+
+- compose and instantiate a `formal_ko` config for the normalizer class
 
 ```python
 config_group='preprocessor/normalizer=formal_ko'
@@ -111,6 +117,8 @@ norm(text)
 ```
 
 > 'IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.'
+
+- instantiate a mecab config with the above normalizer config
 
 ```python
 config_group='preprocessor/tokenizer=mecab'
