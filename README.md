@@ -35,7 +35,7 @@ ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
 
 #### CLI Help
 
-To see the available configurations for CLI run the command:
+To see the available configurations for CLI, run the command:
 
 ```bash
 ekorpkit --help
