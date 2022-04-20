@@ -193,7 +193,7 @@ build_corpus | build_simple | build_t5 | build_t5_all | build_simple_all)
         echo "$i"
         ekorpkit ${CONFIG_ARG} \
             +${CAT}/${SUBCAT}=${i} \
-            num_workers=${NUM_WORKERS} \
+            cmd=fetch_${SUBCAT}_${CAT} \
             ${CAT}.${SUBCAT}.fetch.calculate_stats=true \
             ${CAT}.${SUBCAT}.fetch.preprocess_text=${PREPROCESS} \
             ${CAT}.${SUBCAT}.fetch.overwrite=${OVERWRITE} \
