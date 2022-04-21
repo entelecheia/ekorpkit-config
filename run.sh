@@ -5,7 +5,7 @@ set +o allexport
 # set -x or set -o xtrace expands variables and prints a little + sign before the line.
 # set -v or set -o verbose does not expand the variables before printing.
 # Use set +x and set +v to turn off the above settings.
-set -x
+# set -x
 
 LIMIT=-1
 CORPUS_NAME=""

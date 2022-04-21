@@ -1,6 +1,23 @@
 # ekorpkit-config
 
-Config files for the [ekorpkit](https://github.com/entelecheia/ekorpkit) package
+Config files for [ekorpkit](https://github.com/entelecheia/ekorpkit) package
+
+## Use Cases
+
+### Topic Model
+
+- [Topic coverage in the analyst reports](docs/usecases/esg_topics/anlalyst.md)
+- Topic coverage in the media
+- Topic coverage in the corporate disclosure
+
+### Classification
+
+- ESG Ratings
+- Monetray Policy Tones
+
+### Named Entity Regcognition
+
+- Bio-medical NER
 
 ## Installation
 
@@ -24,13 +41,14 @@ git clone https://github.com/entelecheia/ekorpkit-config.git
 ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
     project=esgml \
     dir.workspace=/workspace \
+    num_workers=1 \
     env.distributed_framework.backend=joblib \
-    num_workers=230 \
-    +dataset/simple=mp_tone_kr \
-    dataset.simple.fetch.calculate_stats=true \
-    dataset.simple.fetch.preprocess_text=true \
-    dataset.simple.fetch.overwrite=false \
-    dataset.simple.fetch.force_download=false
+    +corpus/builtin=_dummy_fomc_minutes \
+    cmd=fetch_builtin_corpus \
+    corpus.builtin.fetch.calculate_stats=true \
+    corpus.builtin.fetch.preprocess_text=true \
+    corpus.builtin.fetch.overwrite=false \
+    corpus.builtin.fetch.force_download=false
 ```
 
 #### CLI Help
@@ -138,15 +156,3 @@ mecab.tokenize(text)
 ```
 
 > ['IMF/SL', '가/JKS', ' /SP', '추정/NNG', '한/XSA+ETM', ' /SP', '우리나라/NNG', '의/JKG', ' /SP', 'GDP/SL', '갭/NNG', '률/XSN', '은/JX', ' /SP', '금년/NNG', '에/JKB', '도/JX', ' /SP', '소폭/NNG', '의/JKG', ' /SP', '마이너스/NNG', '(/SSO', '-)/SY', '를/JKO', ' /SP', '지속/NNG', '하/XSV', '고/EC', ' /SP', '있/VX', '다/EF', './SF']
-
-## Use Cases
-
-### ESG Topics
-
-- [Topic coverage in the analyst reports](docs/usecases/esg_topics/anlalyst.md)
-- Topic coverage in the media
-- Topic coverage in the corporate disclosure
-
-### ESG Ratings
-
-### Bio-medical NER
