@@ -22,7 +22,7 @@ model:
         data_files:
         columns_to_keep:
           - content
-          - example_id
+          - id
           - classname
         keys:
           input_text: content
