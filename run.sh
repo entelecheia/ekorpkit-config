@@ -9,6 +9,7 @@ set +o allexport
 
 LIMIT=-1
 CORPUS_NAME=""
+DATASET_NAME=""
 FILENAME=""
 EXPRESSION=""
 OVERWRITE="false"
@@ -37,6 +38,10 @@ while [ "$1" != "" ]; do
     -c | --corpus)
         shift
         CORPUS_NAME=$1
+        ;;
+    -d | --dataset)
+        shift
+        DATASET_NAME=$1
         ;;
     -n | --num_workers)
         shift
@@ -134,10 +139,10 @@ info)
     ;;
 finetune)
 
-    if [[ "$CORPUS_NAME" == "" ]]; then
+    if [[ "$DATASET_NAME" == "" ]]; then
         DSET=" "
     else
-        DSET="dataset.name=$CORPUS_NAME "
+        DSET="dataset.name=$DATASET_NAME "
     fi
     if [[ "$DATA_DIR" == "" ]]; then
         DIR_ARG=" "
@@ -154,8 +159,21 @@ finetune)
 
 task)
 
+    if [[ "$DATASET_NAME" == "" ]]; then
+        DSET_ARG=" "
+    else
+        DSET_ARG="dataset=$DATASET_NAME "
+    fi
+    if [[ "$CORPUS_NAME" == "" ]]; then
+        CORPUS_ARG=" "
+    else
+        CORPUS_ARG="dataset=$CORPUS_NAME "
+    fi
+
     ekorpkit ${CONFIG_ARG} \
-        +run/${GROUP}=${TASK}
+        +run/${GROUP}=${TASK} \
+        ${DSET_ARG} \
+        ${CORPUS_ARG} \
 
     ;;
 corpus | dataframe)

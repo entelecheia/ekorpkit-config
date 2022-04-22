@@ -1,0 +1,16 @@
+defaults:
+  - simple_auto
+
+_target_: ekorpkit.datasets.loader.Datasets
+name: 
+  - analystsent_kr
+  - finphrase_kr
+data_dir: ${dir.dataset}/simple
+column_info:
+  keys:
+    id: id
+  data:
+    id: int
+    labels: str
+    text: str
+
