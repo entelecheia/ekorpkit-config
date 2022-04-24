@@ -122,7 +122,7 @@ CONFIG_ARG="--config-dir ${CONFIG_DIR}
     env.os.WANDB_API_KEY=${WANDB_API_KEY}
     env.distributed_framework.backend=${DF_BACKEND}"
 
-RSRC_DIR="$(dirname "$CONFIG_DIR")/resource/"
+RSRC_DIR="$(dirname "$CONFIG_DIR")/resources/"
 
 case $COMMAND in
 listup)

@@ -20,7 +20,7 @@ task:
     extract_tokens:
       nouns_only: false
       filter_stopwords_only: true
-      stopwords_path: /workspace/data/ekorpkit-config/resource/company_names.txt
+      stopwords_path: /workspace/data/ekorpkit-config/resources/company_names.txt
     save_dataframe:
       task_dir: corpus
       output_file: ${corpus.name}_filtered_ex_stopwords.parquet
