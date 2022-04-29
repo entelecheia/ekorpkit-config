@@ -1,5 +1,7 @@
 # ekorpkit-config
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497227.svg)](https://doi.org/10.5281/zenodo.6497227)
+
 Config files for [ekorpkit](https://github.com/entelecheia/ekorpkit) package
 
 ## Use Cases
@@ -156,3 +158,30 @@ mecab.tokenize(text)
 ```
 
 > ['IMF/SL', '가/JKS', ' /SP', '추정/NNG', '한/XSA+ETM', ' /SP', '우리나라/NNG', '의/JKG', ' /SP', 'GDP/SL', '갭/NNG', '률/XSN', '은/JX', ' /SP', '금년/NNG', '에/JKB', '도/JX', ' /SP', '소폭/NNG', '의/JKG', ' /SP', '마이너스/NNG', '(/SSO', '-)/SY', '를/JKO', ' /SP', '지속/NNG', '하/XSV', '고/EC', ' /SP', '있/VX', '다/EF', './SF']
+
+
+## Citation
+
+```tex
+@software{lee_2022_6497227,
+  author       = {Young Joon Lee},
+  title        = {eKorpkit: English Korean Corpus Toolkit},
+  month        = apr,
+  year         = 2022,
+  publisher    = {Zenodo},
+  version      = {0.1.23},
+  doi          = {10.5281/zenodo.6497227},
+  url          = {https://doi.org/10.5281/zenodo.6497227}
+}
+```
+
+```tex
+@software{lee_2022_ekorpkit,
+  author       = {Young Joon Lee},
+  title        = {eKorpkit: English Korean Corpus Toolkit},
+  month        = apr,
+  year         = 2022,
+  publisher    = {GitHub},
+  url          = {https://github.com/entelecheia/ekorpkit}
+}
+```
