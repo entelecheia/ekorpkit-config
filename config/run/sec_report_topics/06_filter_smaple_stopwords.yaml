@@ -1,6 +1,7 @@
 # @package _global_
 defaults:
-  - override /task: dataframe_task
+  - override /task: dataframe
+  - override /cmd: task
 
 corpus:
   name: sec_report
@@ -8,7 +9,6 @@ task:
   name: sec_report_topics
   data_dir: ${dir.project}/${task.name}
   verbose: true
-  merge_metadata: true
   pipeline:
     _pipeline_:
       load_dataframe: load_dataframe

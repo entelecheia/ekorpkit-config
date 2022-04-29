@@ -11,7 +11,6 @@ task:
   name: sec_report_topics
   data_dir: ${dir.project}/${task.name}
   verbose: true
-  merge_metadata: false
   pipeline:
     _pipeline_:
       stdout_samples: stdout_samples

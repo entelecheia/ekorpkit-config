@@ -1,6 +1,8 @@
 # @package _global_
 defaults:
-  - override /task: corpus_task
+  - /preprocessor/tokenizer: mecab_econ
+  - override /task: corpus
+  - override /cmd: task
 
 corpus:
   name: esg_report
@@ -19,12 +21,10 @@ task:
       explode_splits: explode_splits
       save_dataframe2: save_dataframe
     tokenize:
-      userdic_path: /workspace/projects/eKonPLM/resources/mecab/userdict_ekon.dic
-      # preprocessor:
-      #   verbose: false
+      preprocessor: ${preprocessor}
     extract_tokens:
       nouns_only: true
-      stopwords_path: /workspace/data/ekorpkit-config/resource/company_names.txt
+      stopwords_path: /workspace/data/ekorpkit-config/resources/company_names.txt
     save_dataframe:
       task_dir: corpus
       output_file: ${corpus.name}_tokenized.parquet

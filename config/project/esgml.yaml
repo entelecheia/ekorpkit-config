@@ -10,6 +10,7 @@ dir:
   dataset: ${.workspace}/data/datasets
   model: ${.workspace}/data/tbts/models
   output: ${.workspace}/data/outputs
+  corpus: ${.dataset}/corpus/ekorpkit
 env:
   os:
     MODIN_ENGINE: joblib

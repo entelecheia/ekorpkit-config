@@ -1,7 +1,8 @@
 # @package _global_
 defaults:
   - override /corpus: sec_report_nouns
-  - override /task: corpus_task
+  - override /task: corpus
+  - override /cmd: task
 
 corpus:
   autoload: true
