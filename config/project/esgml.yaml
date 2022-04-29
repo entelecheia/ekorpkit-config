@@ -2,12 +2,11 @@
 defaults:
   - override /mode: debug
 
-app_name: esgml
 project: esgml
 dir:
   workspace: /workspace
   data: ${.workspace}/data/tbts
-  project: ${.workspace}/data/tbts/${app_name}
+  project: ${.workspace}/data/tbts/${project}
   dataset: ${.workspace}/data/datasets
   model: ${.workspace}/data/tbts/models
   output: ${.workspace}/data/outputs

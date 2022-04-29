@@ -2,7 +2,7 @@
 defaults:
   - override /mode: debug
 
-app_name: colab
+project: colab
 env:
   os:
     MODIN_ENGINE: joblib
