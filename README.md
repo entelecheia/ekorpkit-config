@@ -1,6 +1,6 @@
 # ekorpkit-config
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497227.svg)](https://doi.org/10.5281/zenodo.6497227)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497226.svg)](https://doi.org/10.5281/zenodo.6497226)
 
 Config files for [ekorpkit](https://github.com/entelecheia/ekorpkit) package
 
@@ -163,15 +163,14 @@ mecab.tokenize(text)
 ## Citation
 
 ```tex
-@software{lee_2022_6497227,
+@software{lee_2022_6497226,
   author       = {Young Joon Lee},
   title        = {eKorpkit: English Korean Corpus Toolkit},
   month        = apr,
   year         = 2022,
   publisher    = {Zenodo},
-  version      = {0.1.23},
-  doi          = {10.5281/zenodo.6497227},
-  url          = {https://doi.org/10.5281/zenodo.6497227}
+  doi          = {10.5281/zenodo.6497226},
+  url          = {https://doi.org/10.5281/zenodo.6497226}
 }
 ```
 
