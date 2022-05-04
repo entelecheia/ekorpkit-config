@@ -1,7 +1,6 @@
 # @package _global_
 defaults:
   - /model/transformer: simple_classification
-  # - /model/transformer/pretrained: ekonbert-base
   - /model/transformer/pretrained: finbert
   - override /cmd: transformer_finetune
   - override /dataset: simple
