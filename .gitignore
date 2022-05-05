@@ -3,8 +3,7 @@
 workspace/
 notebooks/**/*.csv
 notebooks/**/*.parquet
-notebooks/data/
-data/
+notebooks/**/data/
 runs/
 
 
