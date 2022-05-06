@@ -17,7 +17,3 @@ docker run -it --rm \
   -e WANDB_API_KEY=$WANDB_API_KEY \
   -v $WORKSPACE_HOST:$WORKSPACE_DOCKER \
   ekorpkit-torch:21.05-py3 $CMD
-
-# -p 8899:8899 \
-  # -v $PWD:$EKORPKIT_CONFIG_DIR \
-# EKORPKIT_CONFIG_DIR=$WORKSPACE_DIR/projects/ekorpkit-config

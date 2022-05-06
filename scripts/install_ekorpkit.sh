@@ -4,4 +4,6 @@ set -o allexport
 source .env
 set +o allexport
 
-pip install -e $EKORPKIT_SRC_DIR$EKORPKIT_PIP_EXTRA
+EXTRA=${1:-$EKORPKIT_PIP_EXTRA}
+
+pip install -e $EKORPKIT_SRC_DIR$EXTRA
