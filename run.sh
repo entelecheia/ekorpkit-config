@@ -69,7 +69,7 @@ while [ "$1" != "" ]; do
         ;;
     --workspace)
         shift
-        WORKSPACE_DIR=$1
+        EKORPKIT_WORKSPACE_ROOT=$1
         ;;
     --project)
         shift
@@ -107,8 +107,8 @@ fi
 if [[ "$EKORPKIT_CONFIG_DIR" == "" ]]; then
     EKORPKIT_CONFIG_DIR="/workspace/data/ekorpkit-config/config"
 fi
-if [[ "$WORKSPACE_DIR" == "" ]]; then
-    WORKSPACE_DIR="/workspace"
+if [[ "$EKORPKIT_WORKSPACE_ROOT" == "" ]]; then
+    EKORPKIT_WORKSPACE_ROOT="/workspace"
 fi
 
 if [[ "$DF_BACKEND" == "" ]]; then
@@ -117,7 +117,7 @@ fi
 
 CONFIG_ARG="--config-dir ${EKORPKIT_CONFIG_DIR} 
     project=${EKORPKIT_PROJECT} 
-    dir.workspace=${WORKSPACE_DIR} 
+    dir.workspace=${EKORPKIT_WORKSPACE_ROOT} 
     num_workers=${NUM_WORKERS} 
     env.os.WANDB_API_KEY=${WANDB_API_KEY}
     env.distributed_framework.backend=${DF_BACKEND}"
