@@ -65,7 +65,7 @@ while [ "$1" != "" ]; do
         ;;
     --config)
         shift
-        CONFIG_DIR=$1
+        EKORPKIT_CONFIG_DIR=$1
         ;;
     --workspace)
         shift
@@ -73,7 +73,7 @@ while [ "$1" != "" ]; do
         ;;
     --project)
         shift
-        PROJECT=$1
+        EKORPKIT_PROJECT=$1
         ;;
     --backend)
         shift
@@ -104,8 +104,8 @@ done
 if [[ "$NUM_WORKERS" == "" ]]; then
     NUM_WORKERS=1
 fi
-if [[ "$CONFIG_DIR" == "" ]]; then
-    CONFIG_DIR="/workspace/data/ekorpkit-config/config"
+if [[ "$EKORPKIT_CONFIG_DIR" == "" ]]; then
+    EKORPKIT_CONFIG_DIR="/workspace/data/ekorpkit-config/config"
 fi
 if [[ "$WORKSPACE_DIR" == "" ]]; then
     WORKSPACE_DIR="/workspace"
@@ -115,14 +115,14 @@ if [[ "$DF_BACKEND" == "" ]]; then
     DF_BACKEND="joblib"
 fi
 
-CONFIG_ARG="--config-dir ${CONFIG_DIR} 
-    project=${PROJECT} 
+CONFIG_ARG="--config-dir ${EKORPKIT_CONFIG_DIR} 
+    project=${EKORPKIT_PROJECT} 
     dir.workspace=${WORKSPACE_DIR} 
     num_workers=${NUM_WORKERS} 
     env.os.WANDB_API_KEY=${WANDB_API_KEY}
     env.distributed_framework.backend=${DF_BACKEND}"
 
-RSRC_DIR="$(dirname "$CONFIG_DIR")/resources/"
+RSRC_DIR="$(dirname "$EKORPKIT_CONFIG_DIR")/resources/"
 
 case $COMMAND in
 listup)
@@ -173,7 +173,7 @@ task)
     ekorpkit ${CONFIG_ARG} \
         +run/${GROUP}=${TASK} \
         ${DSET_ARG} \
-        ${CORPUS_ARG} \
+        ${CORPUS_ARG}
 
     ;;
 corpus | dataframe)

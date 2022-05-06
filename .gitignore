@@ -5,7 +5,9 @@ notebooks/**/*.csv
 notebooks/**/*.parquet
 notebooks/**/data/
 runs/
-
+.ekorpkit
+.root
+.workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
