@@ -1,6 +1,6 @@
 # ekorpkit[iːkɔːkɪt]: (e)nglish (K)orean C(orp)us Tool(kit)
 
-[![PyPI version](https://badge.fury.io/py/ekorpkit.svg)](https://badge.fury.io/py/ekorpkit) [![codecov](https://codecov.io/gh/entelecheia/ekorpkit/branch/main/graph/badge.svg?token=8I4ORHRREL)](https://codecov.io/gh/entelecheia/ekorpkit) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497226.svg)](https://doi.org/10.5281/zenodo.6497226) [![pages-build-deployment](https://github.com/entelecheia/ekorpkit-config/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/entelecheia/ekorpkit-config/actions/workflows/pages/pages-build-deployment)
+[![PyPI version](https://badge.fury.io/py/ekorpkit.svg)](https://badge.fury.io/py/ekorpkit) [![Jupyter Book Badge](https://jupyterbook.org/en/stable/_images/badge.svg)](https://entelecheia.github.io/ekorpkit-config/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497226.svg)](https://doi.org/10.5281/zenodo.6497226) [![pages-build-deployment](https://github.com/entelecheia/ekorpkit-config/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/entelecheia/ekorpkit-config/actions/workflows/pages/pages-build-deployment)
 
 eKorpkit provides a flexible interface for corpus management and analysis pipelines such as extraction, transformation, tokenization, training, and visualization.
 
