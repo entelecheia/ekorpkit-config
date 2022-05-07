@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: About
+    chapters:
+      - file: docs/about/about.md
+  - caption: Tutorials
+    chapters:
+      - file: docs/tutorials/config/config.ipynb
+  - caption: Datasets
+    chapters:
+      - file: docs/corpus/ekorpkot_corpus.md
+  - caption: Use cases
+    chapters:
+      - file: docs/usecases/esg_topics/analyst.md
