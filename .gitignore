@@ -3,7 +3,7 @@
 workspace/
 notebooks/**/*.csv
 notebooks/**/*.parquet
-notebooks/**/data/
+**/data/
 runs/
 .ekorpkit
 .root
