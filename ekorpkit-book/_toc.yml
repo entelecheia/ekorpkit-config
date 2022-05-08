@@ -13,11 +13,11 @@ parts:
   - caption: Tutorials
     chapters:
       - file: docs/tutorials/config/config.ipynb
-      # - file: docs/tutorials/sentiment/sa_en.ipynb
-      #   sections:
-      #     - file: docs/tutorials/sentiment/lexicon.ipynb
-      # - file: docs/tutorials/sentiment/sa_en.ipynb
-      # - file: docs/tutorials/sentiment/predict_edgar.ipynb
+      - file: docs/tutorials/sentiment/sentiment.ipynb
+        sections:
+          - file: docs/tutorials/sentiment/lexicon.ipynb
+          - file: docs/tutorials/sentiment/sa_en.ipynb
+          - file: docs/tutorials/sentiment/predict_edgar.ipynb
 
   - caption: Datasets
     chapters:
