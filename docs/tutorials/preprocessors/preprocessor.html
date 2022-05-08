@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preprocessors &#8212; eKorpkit Tutorials</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Mecab Tokenizer" href="mecab.html" />
+    <link rel="prev" title="Prediciting Sentiments" href="../sentiment/predict_edgar.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/ekorpkit.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eKorpkit Tutorials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   ekorpkit[iːkɔːkɪt]: English Korean Corpus Toolkit
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/about.html">
+   Getting started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/install.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/usage.html">
+     Usage
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../config/config.html">
+   Compose an ekorpkit config
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sentiment/sentiment.html">
+   Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sentiment/lexicon.html">
+   Sentiment Lexicons
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sentiment/lbsa_en.html">
+   Lexicon-based Sentiment Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sentiment/predict_edgar.html">
+   Prediciting Sentiments
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Preprocessors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mecab.html">
+   Mecab Tokenizer
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../corpus/ekorpkot_corpus.html">
+   The eKorpkit Corpus
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Use cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../usecases/esg_topics/analyst.html">
+   ESG Topic Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/preprocessors/preprocessor.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/entelecheia/ekorpkit-config"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/preprocessors/preprocessor.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/tutorials/preprocessors/preprocessor.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-tokenizer-normalizer">
+   Instantiating a tokenizer/normalizer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-segmenter">
+   Instantiating a segmenter
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Preprocessors</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-tokenizer-normalizer">
+   Instantiating a tokenizer/normalizer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-segmenter">
+   Instantiating a segmenter
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="preprocessors">
+<h1>Preprocessors<a class="headerlink" href="#preprocessors" title="Permalink to this headline">¶</a></h1>
+<p><a href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/notebooks/preprocessor.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%capture</span>
+<span class="c1"># %pip install ekorpkit[transformers,tokenize]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="instantiating-a-tokenizer-normalizer">
+<h2>Instantiating a tokenizer/normalizer<a class="headerlink" href="#instantiating-a-tokenizer-normalizer" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=nltk&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">nltk</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.NLTKTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NN&#39;, &#39;NNP&#39;, &#39;NNS&#39;, &#39;NNPS&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;.&#39;]},
+ &#39;nltk&#39;: {&#39;lemmatize&#39;: False,
+          &#39;lemmatizer&#39;: {&#39;_target_&#39;: &#39;nltk.stem.WordNetLemmatizer&#39;},
+          &#39;stem&#39;: True,
+          &#39;stemmer&#39;: {&#39;_target_&#39;: &#39;nltk.stem.PorterStemmer&#39;}},
+ &#39;normalize&#39;: None,
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I shall reemphasize some of those thoughts today in the context of legislative proposals that are now before the current Congress.&quot;</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">nouns</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nouns</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokens</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;i&#39;, &#39;PRP&#39;), (&#39;shall&#39;, &#39;MD&#39;), (&#39;reemphas&#39;, &#39;VB&#39;), (&#39;some&#39;, &#39;DT&#39;), (&#39;of&#39;, &#39;IN&#39;), (&#39;those&#39;, &#39;DT&#39;), (&#39;thought&#39;, &#39;NNS&#39;), (&#39;today&#39;, &#39;NN&#39;), (&#39;in&#39;, &#39;IN&#39;), (&#39;the&#39;, &#39;DT&#39;), (&#39;context&#39;, &#39;NN&#39;), (&#39;of&#39;, &#39;IN&#39;), (&#39;legisl&#39;, &#39;JJ&#39;), (&#39;propos&#39;, &#39;NNS&#39;), (&#39;that&#39;, &#39;WDT&#39;), (&#39;are&#39;, &#39;VBP&#39;), (&#39;now&#39;, &#39;RB&#39;), (&#39;befor&#39;, &#39;IN&#39;), (&#39;the&#39;, &#39;DT&#39;), (&#39;current&#39;, &#39;JJ&#39;), (&#39;congress&#39;, &#39;NNP&#39;), (&#39;.&#39;, &#39;.&#39;)]
+[&#39;i/PRP&#39;, &#39;shall/MD&#39;, &#39;reemphas/VB&#39;, &#39;some/DT&#39;, &#39;of/IN&#39;, &#39;those/DT&#39;, &#39;thought/NNS&#39;, &#39;today/NN&#39;, &#39;in/IN&#39;, &#39;the/DT&#39;, &#39;context/NN&#39;, &#39;of/IN&#39;, &#39;legisl/JJ&#39;, &#39;propos/NNS&#39;, &#39;that/WDT&#39;, &#39;are/VBP&#39;, &#39;now/RB&#39;, &#39;befor/IN&#39;, &#39;the/DT&#39;, &#39;current/JJ&#39;, &#39;congress/NNP&#39;, &#39;./.&#39;]
+[&#39;thought&#39;, &#39;today&#39;, &#39;context&#39;, &#39;propos&#39;, &#39;congress&#39;]
+[&#39;shall&#39;, &#39;reemphas&#39;, &#39;thought&#39;, &#39;today&#39;, &#39;context&#39;, &#39;legisl&#39;, &#39;propos&#39;, &#39;befor&#39;, &#39;current&#39;, &#39;congress&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.MecabTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NNG&#39;, &#39;NNP&#39;, &#39;XSN&#39;, &#39;SL&#39;, &#39;XR&#39;, &#39;NNB&#39;, &#39;NR&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;SP&#39;]},
+ &#39;mecab&#39;: {&#39;backend&#39;: &#39;mecab-python3&#39;, &#39;userdic_path&#39;: None, &#39;verbose&#39;: False},
+ &#39;normalize&#39;: None,
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마이너스(−)를 持續하고 있다.&#39;</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF/SL&#39;, &#39;가/JKS&#39;, &#39; /SP&#39;, &#39;推定/NNG&#39;, &#39;한/XSA+ETM&#39;, &#39; /SP&#39;, &#39;우리나라/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;GDP/SL&#39;, &#39;갭/NNG&#39;, &#39;률/XSN&#39;, &#39;은/JX&#39;, &#39; /SP&#39;, &#39;今年/NNG&#39;, &#39;에/JKB&#39;, &#39;도/JX&#39;, &#39; /SP&#39;, &#39;소폭/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;마이너스/NNG&#39;, &#39;(/SSO&#39;, &#39;−)/SY&#39;, &#39;를/JKO&#39;, &#39; /SP&#39;, &#39;持續/NNG&#39;, &#39;하/XSV&#39;, &#39;고/EC&#39;, &#39; /SP&#39;, &#39;있/VX&#39;, &#39;다/EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/normalizer=formal_ko&#39;</span>
+<span class="n">cfg_norm</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg_norm</span><span class="p">)</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg_norm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.normalizer.Normalizer&#39;,
+ &#39;ftfy&#39;: {&#39;decode_inconsistent_utf8&#39;: True,
+          &#39;fix_c1_controls&#39;: True,
+          &#39;fix_character_width&#39;: True,
+          &#39;fix_encoding&#39;: True,
+          &#39;fix_latin_ligatures&#39;: True,
+          &#39;fix_line_breaks&#39;: True,
+          &#39;fix_surrogates&#39;: True,
+          &#39;max_decode_length&#39;: 1000000,
+          &#39;normalization&#39;: &#39;NFKC&#39;,
+          &#39;remove_control_chars&#39;: True,
+          &#39;remove_terminal_escapes&#39;: True,
+          &#39;replace_lossy_sequences&#39;: True,
+          &#39;restore_byte_a0&#39;: True,
+          &#39;uncurl_quotes&#39;: True,
+          &#39;unescape_html&#39;: True},
+ &#39;hanja2hangle&#39;: True,
+ &#39;num_repeats&#39;: 2,
+ &#39;spaces&#39;: {&#39;collapse_whitespaces&#39;: True,
+            &#39;fix_whitespaces&#39;: True,
+            &#39;num_spaces_for_tab&#39;: 4,
+            &#39;replace_tabs&#39;: True,
+            &#39;strip&#39;: True},
+ &#39;special_characters&#39;: {&#39;fix_ellipsis&#39;: True,
+                        &#39;fix_emoticons&#39;: False,
+                        &#39;fix_hyphens&#39;: True,
+                        &#39;fix_slashes&#39;: True,
+                        &#39;fix_tildes&#39;: True,
+                        &#39;regular_parentheses_only&#39;: False,
+                        &#39;single_quotes_only&#39;: False}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF/SL&#39;, &#39;가/JKS&#39;, &#39; /SP&#39;, &#39;추정/NNG&#39;, &#39;한/XSA+ETM&#39;, &#39; /SP&#39;, &#39;우리나라/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;GDP/SL&#39;, &#39;갭/NNG&#39;, &#39;률/XSN&#39;, &#39;은/JX&#39;, &#39; /SP&#39;, &#39;금년/NNG&#39;, &#39;에/JKB&#39;, &#39;도/JX&#39;, &#39; /SP&#39;, &#39;소폭/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;마이너스/NNG&#39;, &#39;(/SSO&#39;, &#39;-)/SY&#39;, &#39;를/JKO&#39;, &#39; /SP&#39;, &#39;지속/NNG&#39;, &#39;하/XSV&#39;, &#39;고/EC&#39;, &#39; /SP&#39;, &#39;있/VX&#39;, &#39;다/EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;normalize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg_norm</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.MecabTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NNG&#39;, &#39;NNP&#39;, &#39;XSN&#39;, &#39;SL&#39;, &#39;XR&#39;, &#39;NNB&#39;, &#39;NR&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;SP&#39;]},
+ &#39;mecab&#39;: {&#39;backend&#39;: &#39;mecab-python3&#39;, &#39;userdic_path&#39;: None, &#39;verbose&#39;: False},
+ &#39;normalize&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.normalizer.Normalizer&#39;,
+               &#39;ftfy&#39;: {&#39;decode_inconsistent_utf8&#39;: True,
+                        &#39;fix_c1_controls&#39;: True,
+                        &#39;fix_character_width&#39;: True,
+                        &#39;fix_encoding&#39;: True,
+                        &#39;fix_latin_ligatures&#39;: True,
+                        &#39;fix_line_breaks&#39;: True,
+                        &#39;fix_surrogates&#39;: True,
+                        &#39;max_decode_length&#39;: 1000000,
+                        &#39;normalization&#39;: &#39;NFKC&#39;,
+                        &#39;remove_control_chars&#39;: True,
+                        &#39;remove_terminal_escapes&#39;: True,
+                        &#39;replace_lossy_sequences&#39;: True,
+                        &#39;restore_byte_a0&#39;: True,
+                        &#39;uncurl_quotes&#39;: True,
+                        &#39;unescape_html&#39;: True},
+               &#39;hanja2hangle&#39;: True,
+               &#39;num_repeats&#39;: 2,
+               &#39;spaces&#39;: {&#39;collapse_whitespaces&#39;: True,
+                          &#39;fix_whitespaces&#39;: True,
+                          &#39;num_spaces_for_tab&#39;: 4,
+                          &#39;replace_tabs&#39;: True,
+                          &#39;strip&#39;: True},
+               &#39;special_characters&#39;: {&#39;fix_ellipsis&#39;: True,
+                                      &#39;fix_emoticons&#39;: False,
+                                      &#39;fix_hyphens&#39;: True,
+                                      &#39;fix_slashes&#39;: True,
+                                      &#39;fix_tildes&#39;: True,
+                                      &#39;regular_parentheses_only&#39;: False,
+                                      &#39;single_quotes_only&#39;: False}},
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
+[&#39;IMF/SL&#39;, &#39;가/JKS&#39;, &#39; /SP&#39;, &#39;추정/NNG&#39;, &#39;한/XSA+ETM&#39;, &#39; /SP&#39;, &#39;우리나라/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;GDP/SL&#39;, &#39;갭/NNG&#39;, &#39;률/XSN&#39;, &#39;은/JX&#39;, &#39; /SP&#39;, &#39;금년/NNG&#39;, &#39;에/JKB&#39;, &#39;도/JX&#39;, &#39; /SP&#39;, &#39;소폭/NNG&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;마이너스/NNG&#39;, &#39;(/SSO&#39;, &#39;-)/SY&#39;, &#39;를/JKO&#39;, &#39; /SP&#39;, &#39;지속/NNG&#39;, &#39;하/XSV&#39;, &#39;고/EC&#39;, &#39; /SP&#39;, &#39;있/VX&#39;, &#39;다/EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mecab</span><span class="o">.</span><span class="n">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF&#39;, &#39;추정&#39;, &#39;우리나라&#39;, &#39;GDP&#39;, &#39;갭&#39;, &#39;률&#39;, &#39;금년&#39;, &#39;소폭&#39;, &#39;마이너스&#39;, &#39;지속&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mecab</span><span class="o">.</span><span class="n">morphs</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF&#39;, &#39;가&#39;, &#39;추정&#39;, &#39;한&#39;, &#39;우리나라&#39;, &#39;의&#39;, &#39;GDP&#39;, &#39;갭&#39;, &#39;률&#39;, &#39;은&#39;, &#39;금년&#39;, &#39;에&#39;, &#39;도&#39;, &#39;소폭&#39;, &#39;의&#39;, &#39;마이너스&#39;, &#39;(&#39;, &#39;-)&#39;, &#39;를&#39;, &#39;지속&#39;, &#39;하&#39;, &#39;고&#39;, &#39;있&#39;, &#39;다&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;금통위는 통화신용정책과 한국은행의 운영에 관한 의결권을 행사한다.&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;금/MAJ&#39;, &#39;통/MAG&#39;, &#39;위/NNG&#39;, &#39;는/JX&#39;, &#39; /SP&#39;, &#39;통화/NNG&#39;, &#39;신용/NNG&#39;, &#39;정책/NNG&#39;, &#39;과/JC&#39;, &#39; /SP&#39;, &#39;한국은행/NNP&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;운영/NNG&#39;, &#39;에/JKB&#39;, &#39; /SP&#39;, &#39;관한/VV+ETM&#39;, &#39; /SP&#39;, &#39;의결/NNG&#39;, &#39;권/XSN&#39;, &#39;을/JKO&#39;, &#39; /SP&#39;, &#39;행사/NNG&#39;, &#39;한다/XSV+EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab_econ&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.MecabTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NNG&#39;, &#39;NNP&#39;, &#39;XSN&#39;, &#39;SL&#39;, &#39;XR&#39;, &#39;NNB&#39;, &#39;NR&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;SP&#39;]},
+ &#39;mecab&#39;: {&#39;backend&#39;: &#39;mecab-python3&#39;,
+           &#39;userdic_path&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit/resources/dictionaries/mecab/ekon_v1.dic&#39;,
+           &#39;verbose&#39;: False},
+ &#39;normalize&#39;: None,
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
+[&#39;금통위/NNP&#39;, &#39;는/JX&#39;, &#39; /SP&#39;, &#39;통화/NNG&#39;, &#39;신용/NNG&#39;, &#39;정책/NNG&#39;, &#39;과/JC&#39;, &#39; /SP&#39;, &#39;한국은행/NNP&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;운영/NNG&#39;, &#39;에/JKB&#39;, &#39; /SP&#39;, &#39;관한/VV+ETM&#39;, &#39; /SP&#39;, &#39;의결권/NNP&#39;, &#39;을/JKO&#39;, &#39; /SP&#39;, &#39;행사/NNG&#39;, &#39;한다/XSV+EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=pynori&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">nori</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">nori</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;금/NNG&#39;, &#39;통/NNG&#39;, &#39;위/NNG&#39;, &#39;는/JX&#39;, &#39; /SP&#39;, &#39;통화/NNG&#39;, &#39;신용/NNG&#39;, &#39;정책/NNG&#39;, &#39;과/JC&#39;, &#39; /SP&#39;, &#39;한국은행/NNP&#39;, &#39;의/JKG&#39;, &#39; /SP&#39;, &#39;운영/NNG&#39;, &#39;에/JKB&#39;, &#39; /SP&#39;, &#39;관한/VV+ETM&#39;, &#39; /SP&#39;, &#39;의결권/NNG&#39;, &#39;을/JKO&#39;, &#39; /SP&#39;, &#39;행사/NNG&#39;, &#39;한다/XSV+EF&#39;, &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=bwp&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;normalize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg_norm</span>
+<span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;bwp&#39;</span><span class="p">][</span><span class="s1">&#39;pretrained_model_name_or_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bert-base-multilingual-cased&#39;</span>
+<span class="n">bwp</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">bwp</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "647372c1d19e4e7f8f5fda430a3716b8"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d791d1a2c0a94a62baaa1237becb57e5"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "006ed779dd8942a3a6bfb65e5b61bd48"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "3a5fcf5ff239437bbb600eb50a21dd19"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;금&#39;, &#39;##통&#39;, &#39;##위&#39;, &#39;##는&#39;, &#39;통&#39;, &#39;##화&#39;, &#39;##신&#39;, &#39;##용&#39;, &#39;##정&#39;, &#39;##책&#39;, &#39;##과&#39;, &#39;한국&#39;, &#39;##은&#39;, &#39;##행&#39;, &#39;##의&#39;, &#39;운영&#39;, &#39;##에&#39;, &#39;관한&#39;, &#39;의&#39;, &#39;##결&#39;, &#39;##권을&#39;, &#39;행&#39;, &#39;##사&#39;, &#39;##한다&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=bwp&#39;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;normalize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cfg_norm</span>
+<span class="n">cfg</span><span class="p">[</span><span class="s1">&#39;bwp&#39;</span><span class="p">][</span><span class="s1">&#39;pretrained_model_name_or_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;entelecheia/ekonbert-base&#39;</span>
+<span class="n">bwp</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">bwp</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "1136fc34bea646cabb36a9b2cdbc27db"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "5f7ccb25aa9948bb82fea42ce8220a7f"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "0e48fa76d9084610ae89799b468af410"}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;금통위&#39;, &#39;##는&#39;, &#39;통화&#39;, &#39;##신용&#39;, &#39;##정책&#39;, &#39;##과&#39;, &#39;한국은행&#39;, &#39;##의&#39;, &#39;운영&#39;, &#39;##에&#39;, &#39;관한&#39;, &#39;의결권&#39;, &#39;##을&#39;, &#39;행사&#39;, &#39;##한다&#39;, &#39;.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instantiating-a-segmenter">
+<h2>Instantiating a segmenter<a class="headerlink" href="#instantiating-a-segmenter" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/segmenter=pysbd&#39;</span>
+<span class="n">cfg_seg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg_seg</span><span class="p">)</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg_seg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.segmenter.PySBDSegmenter&#39;,
+ &#39;chunk&#39;: {&#39;chunk_overlap&#39;: False, &#39;chunk_size&#39;: 300},
+ &#39;filter_language&#39;: {&#39;detection_level&#39;: &#39;segment&#39;,
+                     &#39;filter&#39;: False,
+                     &#39;languages_to_keep&#39;: [&#39;en&#39;, &#39;ko&#39;],
+                     &#39;min_language_probability&#39;: 0.8},
+ &#39;filter_programming_language&#39;: False,
+ &#39;filter_sentence_length&#39;: {&#39;filter&#39;: False,
+                            &#39;min_length&#39;: 10,
+                            &#39;min_num_words&#39;: 3},
+ &#39;merge&#39;: {&#39;broken_lines_threshold&#39;: 0.4,
+           &#39;empty_lines_threshold&#39;: 0.6,
+           &#39;merge_level&#39;: &#39;segment&#39;,
+           &#39;merge_lines&#39;: False},
+ &#39;print_args&#39;: False,
+ &#39;pysbd&#39;: {&#39;clean&#39;: False, &#39;doc_type&#39;: None, &#39;language&#39;: &#39;en&#39;},
+ &#39;return_as_list&#39;: False,
+ &#39;separators&#39;: {&#39;in_segment&#39;: &#39;\\n\\n&#39;,
+                &#39;in_sentence&#39;: &#39;\\n&#39;,
+                &#39;out_segment&#39;: &#39;\\n\\n&#39;,
+                &#39;out_sentence&#39;: &#39;\\n&#39;},
+ &#39;split&#39;: {&#39;keep_segment&#39;: True,
+           &#39;max_recover_length&#39;: 30000,
+           &#39;max_recover_step&#39;: 0},
+ &#39;verbose&#39;: True}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;For strains harboring the pYV plasmid and Yop-encoding plasmids, bacteria were grown with aeration at 26 °C overnight in broth supplemented with 2.5 mm CaCl2 and 100 μg/ml ampicillin and then subcultured and grown at 26 °C until A600 of 0.2. At this point, the cultures were shifted to 37 °C and aerated for 1 h. A multiplicity of infection of 50:1 was used for YPIII(p-) incubations, and a multiplicity of infection of 25:1 was used for other derivatives. For the pYopE-expressing plasmid, 0.1 mm isopropyl-β-d-thiogalactopyranoside was supplemented during infection to induce YopE expression.&quot;</span>
+<span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;For strains harboring the pYV plasmid and Yop-encoding plasmids, bacteria were grown with aeration at 26 °C overnight in broth supplemented with 2.5 mm CaCl2 and 100 μg/ml ampicillin and then subcultured and grown at 26 °C until A600 of 0.2. &#39;,
+ &#39;At this point, the cultures were shifted to 37 °C and aerated for 1 h. &#39;,
+ &#39;A multiplicity of infection of 50:1 was used for YPIII(p-) incubations, and a multiplicity of infection of 25:1 was used for other derivatives. &#39;,
+ &#39;For the pYopE-expressing plasmid, 0.1 mm isopropyl-β-d-thiogalactopyranoside was supplemented during infection to induce YopE expression.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/segmenter=kss&#39;</span>
+<span class="n">cfg_seg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg_seg</span><span class="p">)</span>
+<span class="n">seg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg_seg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.segmenter.KSSSegmenter&#39;,
+ &#39;chunk&#39;: {&#39;chunk_overlap&#39;: False, &#39;chunk_size&#39;: 300},
+ &#39;filter_language&#39;: {&#39;detection_level&#39;: &#39;segment&#39;,
+                     &#39;filter&#39;: False,
+                     &#39;languages_to_keep&#39;: [&#39;en&#39;, &#39;ko&#39;],
+                     &#39;min_language_probability&#39;: 0.8},
+ &#39;filter_programming_language&#39;: False,
+ &#39;filter_sentence_length&#39;: {&#39;filter&#39;: False,
+                            &#39;min_length&#39;: 10,
+                            &#39;min_num_words&#39;: 3},
+ &#39;kss&#39;: {&#39;backend&#39;: &#39;mecab-python3&#39;,
+         &#39;use_heuristic&#39;: False,
+         &#39;use_quotes_brackets_processing&#39;: False},
+ &#39;merge&#39;: {&#39;broken_lines_threshold&#39;: 0.4,
+           &#39;empty_lines_threshold&#39;: 0.6,
+           &#39;merge_level&#39;: &#39;segment&#39;,
+           &#39;merge_lines&#39;: False},
+ &#39;print_args&#39;: False,
+ &#39;return_as_list&#39;: False,
+ &#39;separators&#39;: {&#39;in_segment&#39;: &#39;\\n\\n&#39;,
+                &#39;in_sentence&#39;: &#39;\\n&#39;,
+                &#39;out_segment&#39;: &#39;\\n\\n&#39;,
+                &#39;out_sentence&#39;: &#39;\\n&#39;},
+ &#39;split&#39;: {&#39;keep_segment&#39;: True,
+           &#39;max_recover_length&#39;: 30000,
+           &#39;max_recover_step&#39;: 0},
+ &#39;verbose&#39;: True}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;일본기상청과 태평양지진해일경보센터는 3월 11일 오후 2시 49분경에 일본 동해안을 비롯하여 대만, 알래스카, 하와이, 괌, 캘리포니아, 칠레 등 태평양 연안 50여 국가에 지진해일 주의보와 경보를 발령하였다. 다행히도 우리나라는 지진발생위치로부터 1,000km 이상 떨어진데다 일본 열도가 가로막아 지진해일이 도달하지 않았다. 지진해일은 일본 소마항에 7.3m, 카마이시항에 4.1m, 미야코항에 4m 등 일본 동해안 전역에서 관측되었다. 지진해일이 원해로 전파되면서 대만(19시 40분)에서 소규모 지진해일과 하와이 섬에서 1.4m(23시 9분)의 지진해일이 관측되었다. 다음날인 3월 12일 새벽 1시 57분경에는 진앙지로부터 약 7,500km 떨어진 캘리포니아 크레센트시티에서 2.2m의 지진해일이 관측되었다.&quot;</span>
+<span class="n">seg</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;일본기상청과 태평양지진해일경보센터는 3월 11일 오후 2시 49분경에 일본 동해안을 비롯하여 대만, 알래스카, 하와이, 괌, 캘리포니아, 칠레 등 태평양 연안 50여 국가에 지진해일 주의보와 경보를 발령하였다.&#39;,
+ &#39;다행히도 우리나라는 지진발생위치로부터 1,000km 이상 떨어진데다 일본 열도가 가로막아 지진해일이 도달하지 않았다.&#39;,
+ &#39;지진해일은 일본 소마항에 7.3m, 카마이시항에 4.1m, 미야코항에 4m 등 일본 동해안 전역에서 관측되었다.&#39;,
+ &#39;지진해일이 원해로 전파되면서 대만(19시 40분)에서 소규모 지진해일과 하와이 섬에서 1.4m(23시 9분)의 지진해일이 관측되었다.&#39;,
+ &#39;다음날인 3월 12일 새벽 1시 57분경에는 진앙지로부터 약 7,500km 떨어진 캘리포니아 크레센트시티에서 2.2m의 지진해일이 관측되었다.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"8f19ec6a82d044a0be4aad8aee58e04c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1599a91d56c5436da26b0fdc94d0236a": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "f3a7074b52d0418a916d59e26eeb6150": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_8f19ec6a82d044a0be4aad8aee58e04c", "max": 29.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_1599a91d56c5436da26b0fdc94d0236a", "value": 29.0}}, "65cc640b541b49d5a87250d85e5e268d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "01fbb677c1a7485896246755c5c3c520": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "011cae6ecf8f4fe0a97a9da2e8ded272": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_65cc640b541b49d5a87250d85e5e268d", "placeholder": "\u200b", "style": "IPY_MODEL_01fbb677c1a7485896246755c5c3c520", "value": "Downloading: 100%"}}, "ccb363f867d2495abd0cb31f489b2949": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "af28aefeed8543009816f2333ae92880": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "a677955ab3dc48598a2d66f1aeda5c4f": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_ccb363f867d2495abd0cb31f489b2949", "placeholder": "\u200b", "style": "IPY_MODEL_af28aefeed8543009816f2333ae92880", "value": " 29.0/29.0 [00:00&lt;00:00, 1.49kB/s]"}}, "2d7fb7494e2c4bccb8e72aaea00be6f5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "647372c1d19e4e7f8f5fda430a3716b8": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_011cae6ecf8f4fe0a97a9da2e8ded272", "IPY_MODEL_f3a7074b52d0418a916d59e26eeb6150", "IPY_MODEL_a677955ab3dc48598a2d66f1aeda5c4f"], "layout": "IPY_MODEL_2d7fb7494e2c4bccb8e72aaea00be6f5"}}, "426c740b749f48c4afa85dc1f3946ff5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a561f801bfbf4cc48b108b905903de09": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "ca77ae1c542f4f30b41792789e132439": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_426c740b749f48c4afa85dc1f3946ff5", "max": 995526.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_a561f801bfbf4cc48b108b905903de09", "value": 995526.0}}, "6bb9107680a34992b3e95b93db26d252": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a1dfb69daec8499b871d619facefb84e": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "24f039f900af43929188562f0f0abbc9": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_6bb9107680a34992b3e95b93db26d252", "placeholder": "\u200b", "style": "IPY_MODEL_a1dfb69daec8499b871d619facefb84e", "value": "Downloading: 100%"}}, "10ce6e5fd0c64cfe9ed31335741f9e4a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "248c143a181f421f9171feef977e57c9": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "d58400661b0342409d4ea5f9d9d6ac2c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_10ce6e5fd0c64cfe9ed31335741f9e4a", "placeholder": "\u200b", "style": "IPY_MODEL_248c143a181f421f9171feef977e57c9", "value": " 972k/972k [00:01&lt;00:00, 999kB/s]"}}, "82d203a3416343b784b8eec32c3485fc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d791d1a2c0a94a62baaa1237becb57e5": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_24f039f900af43929188562f0f0abbc9", "IPY_MODEL_ca77ae1c542f4f30b41792789e132439", "IPY_MODEL_d58400661b0342409d4ea5f9d9d6ac2c"], "layout": "IPY_MODEL_82d203a3416343b784b8eec32c3485fc"}}, "c7abbcdfe432437eb36309daf42c3ded": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6fe708b11a6744afafa3272818cbc11f": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "090bd37d05a4443fab8b7d08a74194fc": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_c7abbcdfe432437eb36309daf42c3ded", "max": 1961828.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_6fe708b11a6744afafa3272818cbc11f", "value": 1961828.0}}, "dc011318a7ac4630a4a6aa08f2e57e4a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d2f9d31a90cf4bea902f6804e588f56c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "5b42cb01db9a4851b3192d8a67fe514b": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_dc011318a7ac4630a4a6aa08f2e57e4a", "placeholder": "\u200b", "style": "IPY_MODEL_d2f9d31a90cf4bea902f6804e588f56c", "value": "Downloading: 100%"}}, "a69791b4f01e40e482b9c2c509447c98": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4d12f7f6941e4967bdf08a8ed1e0c713": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "2ed8b2766bce4911b48453b854968a94": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_a69791b4f01e40e482b9c2c509447c98", "placeholder": "\u200b", "style": "IPY_MODEL_4d12f7f6941e4967bdf08a8ed1e0c713", "value": " 1.87M/1.87M [00:01&lt;00:00, 2.29MB/s]"}}, "573d39b3cc1a4fd39fbe132ff70ec05e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "006ed779dd8942a3a6bfb65e5b61bd48": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5b42cb01db9a4851b3192d8a67fe514b", "IPY_MODEL_090bd37d05a4443fab8b7d08a74194fc", "IPY_MODEL_2ed8b2766bce4911b48453b854968a94"], "layout": "IPY_MODEL_573d39b3cc1a4fd39fbe132ff70ec05e"}}, "42f692af3489479cbdcc98390881672e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a5ada796c64541e1ba2e0395765562d9": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "e33ad90f67854a009f502b1ad3d34e43": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_42f692af3489479cbdcc98390881672e", "max": 625.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_a5ada796c64541e1ba2e0395765562d9", "value": 625.0}}, "b5962321c241426e9d7b802bd96b1f97": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c6835c68ee4049399e6ecbbd1cdeaa4a": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "86ac41c5680942f2b7c0129471c23a44": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_b5962321c241426e9d7b802bd96b1f97", "placeholder": "\u200b", "style": "IPY_MODEL_c6835c68ee4049399e6ecbbd1cdeaa4a", "value": "Downloading: 100%"}}, "6e8e7dfdc63b44dab39dd2203104799d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "32010b7fface46a0b586e98e853dcbe8": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "60af590c54bd4bc9975f71ff0ffe3c69": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_6e8e7dfdc63b44dab39dd2203104799d", "placeholder": "\u200b", "style": "IPY_MODEL_32010b7fface46a0b586e98e853dcbe8", "value": " 625/625 [00:00&lt;00:00, 33.9kB/s]"}}, "b7ce6308b1f540248b5607e13ff1b2c6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3a5fcf5ff239437bbb600eb50a21dd19": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_86ac41c5680942f2b7c0129471c23a44", "IPY_MODEL_e33ad90f67854a009f502b1ad3d34e43", "IPY_MODEL_60af590c54bd4bc9975f71ff0ffe3c69"], "layout": "IPY_MODEL_b7ce6308b1f540248b5607e13ff1b2c6"}}, "e9d1171dafef4c7faceba899fd047b15": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "74b68441ec574ad9aa57157674f5d5e4": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "1a320157b2c048ddae1d77e21989d58a": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_e9d1171dafef4c7faceba899fd047b15", "max": 59.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_74b68441ec574ad9aa57157674f5d5e4", "value": 59.0}}, "888a4bf4dbfc4112b2650bee20fe4231": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2a3bd41438794de9b15d9d5ff545285c": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "5525ccf534f042d9bf09f1f551ef688f": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_888a4bf4dbfc4112b2650bee20fe4231", "placeholder": "\u200b", "style": "IPY_MODEL_2a3bd41438794de9b15d9d5ff545285c", "value": "Downloading: 100%"}}, "f4be1a3bd5df49278d471b27354fd976": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a226b437fd4f47bfb9d0df86d163f4fd": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "e3d7874c136f4886949b11a1a9963b73": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f4be1a3bd5df49278d471b27354fd976", "placeholder": "\u200b", "style": "IPY_MODEL_a226b437fd4f47bfb9d0df86d163f4fd", "value": " 59.0/59.0 [00:00&lt;00:00, 3.09kB/s]"}}, "bad89cbcd1ab46f7aeff88047c005fab": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1136fc34bea646cabb36a9b2cdbc27db": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5525ccf534f042d9bf09f1f551ef688f", "IPY_MODEL_1a320157b2c048ddae1d77e21989d58a", "IPY_MODEL_e3d7874c136f4886949b11a1a9963b73"], "layout": "IPY_MODEL_bad89cbcd1ab46f7aeff88047c005fab"}}, "665cb4e94a374c638ab786fad3c873c9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ff0d45c469ba417b85bcc5a2bb7fbb1f": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "afad5dfdda1346d09fe8a6aa57d01b7a": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_665cb4e94a374c638ab786fad3c873c9", "max": 228824.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_ff0d45c469ba417b85bcc5a2bb7fbb1f", "value": 228824.0}}, "f6991cc179eb438bbbfe620c33d24cd2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "21eae3b752204dd99575d4c2d7481fe6": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "e525378f87b44188940d24504490cf0d": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_f6991cc179eb438bbbfe620c33d24cd2", "placeholder": "\u200b", "style": "IPY_MODEL_21eae3b752204dd99575d4c2d7481fe6", "value": "Downloading: 100%"}}, "8703288dc0d748f589f7a93125827c92": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4fa7c442cc394a46a0d819cd6866120b": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "d726efff6fbf453a9aba540c03e1ca46": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_8703288dc0d748f589f7a93125827c92", "placeholder": "\u200b", "style": "IPY_MODEL_4fa7c442cc394a46a0d819cd6866120b", "value": " 223k/223k [00:00&lt;00:00, 201kB/s]"}}, "3b95a5d6b7ea4d50834f2760240e5084": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "5f7ccb25aa9948bb82fea42ce8220a7f": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_e525378f87b44188940d24504490cf0d", "IPY_MODEL_afad5dfdda1346d09fe8a6aa57d01b7a", "IPY_MODEL_d726efff6fbf453a9aba540c03e1ca46"], "layout": "IPY_MODEL_3b95a5d6b7ea4d50834f2760240e5084"}}, "1775acbdf88041a78ef4fb1dc1b9290a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "3594f8b621ed401c9c88946e7fc04a5e": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "e90ce368395e4befbca095b1bed74585": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_1775acbdf88041a78ef4fb1dc1b9290a", "max": 563.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_3594f8b621ed401c9c88946e7fc04a5e", "value": 563.0}}, "50dae68779274cf4a88aee8e6f7cd9ba": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "86c5ac3396494720adc597cde3fe90f0": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "ec164204c7cf4c999b51330783353194": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_50dae68779274cf4a88aee8e6f7cd9ba", "placeholder": "\u200b", "style": "IPY_MODEL_86c5ac3396494720adc597cde3fe90f0", "value": "Downloading: 100%"}}, "b90e79ad238e4fc7bcfea03022058e6c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e135e7c086da4b4197208aa3c7850d56": {"model_name": "DescriptionStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "DescriptionStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": ""}}, "2297c3914fcd489abe097531a158712e": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HTMLView", "description": "", "description_tooltip": null, "layout": "IPY_MODEL_b90e79ad238e4fc7bcfea03022058e6c", "placeholder": "\u200b", "style": "IPY_MODEL_e135e7c086da4b4197208aa3c7850d56", "value": " 563/563 [00:00&lt;00:00, 28.8kB/s]"}}, "6eec8086de294157aa7dffe6eee8e974": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0e48fa76d9084610ae89799b468af410": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_ec164204c7cf4c999b51330783353194", "IPY_MODEL_e90ce368395e4befbca095b1bed74585", "IPY_MODEL_2297c3914fcd489abe097531a158712e"], "layout": "IPY_MODEL_6eec8086de294157aa7dffe6eee8e974"}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/preprocessors"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../sentiment/predict_edgar.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Prediciting Sentiments</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="mecab.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mecab Tokenizer</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By entelecheia<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

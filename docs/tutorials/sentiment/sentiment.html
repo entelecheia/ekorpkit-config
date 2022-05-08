@@ -160,6 +160,16 @@ const thebe_selector_output = ".output, .cell_output"
    Prediciting Sentiments
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preprocessors/preprocessor.html">
+   Preprocessors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preprocessors/mecab.html">
+   Mecab Tokenizer
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -572,17 +582,17 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "3e4182faf749416cb3d17320823b06e5"}
+{"version_major": 2, "version_minor": 0, "model_id": "ef9f5ceb27f44132b1ac7b9865c912af"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-train.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d454442b1ba84f4ca7768c3976406893"}
+{"version_major": 2, "version_minor": 0, "model_id": "a0dc7f74d96b480f998788715aec053c"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-test.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "53dce2fd3ab44fd080804b6443210f42"}
+{"version_major": 2, "version_minor": 0, "model_id": "f3a1f3203efa4a6e9f949a83f63a97a1"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-dev.parquet
 </pre></div>
 </div>
@@ -746,21 +756,21 @@ weighted avg       0.63      0.64      0.60      2259
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "c050453178dd4067bb8d6df9d9634730"}
+{"version_major": 2, "version_minor": 0, "model_id": "913959ccefb84de38b1a30e2f6467a63"}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
   warnings.warn(
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "59f26bfe719b4fffa40ac6e09666f223"}
+{"version_major": 2, "version_minor": 0, "model_id": "12800fe6f02749fbb4738fdaca507d9b"}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to detect the name of this notebook, you can set it manually with the WANDB_NOTEBOOK_NAME environment variable to enable code saving.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span>. Use <span class=" -Color -Color-Bold">`wandb login --relogin`</span> to force relogin
 </pre></div>
 </div>
-<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220508_025517-31zfq206</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/31zfq206" target="_blank">cool-dawn-24</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "30e7ca19160143c4bc551d7fe2fe91ff"}
+<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220508_030522-3k4ulpgb</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/3k4ulpgb" target="_blank">dutiful-dragon-25</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "bfa6190cf8d249bdae3848a910db0045"}
 </script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">save</span><span class="nt">(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)</span>
@@ -833,7 +843,7 @@ weighted avg       0.63      0.64      0.60      2259
 <span class="ne">--&gt; </span><span class="mi">259</span>         <span class="bp">self</span><span class="o">.</span><span class="n">file_like</span><span class="o">.</span><span class="n">write_end_of_file</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 
-<span class="ne">RuntimeError</span>: [enforce fail at inline_container.cc:287] . unexpected pos 439285376 vs 439285264
+<span class="ne">RuntimeError</span>: [enforce fail at inline_container.cc:287] . unexpected pos 358228864 vs 358228752
 
 <span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
 
@@ -879,7 +889,7 @@ weighted avg       0.63      0.64      0.60      2259
 <span class="g g-Whitespace">     </span><span class="mi">93</span> 
 
 <span class="ne">InstantiationException</span>: Error in call to target &#39;ekorpkit.models.transformer.simple.SimpleClassification&#39;:
-<span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;[enforce fail at inline_container.cc:287] . unexpected pos 439285376 vs 439285264&#39;</span><span class="p">)</span>
+<span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;[enforce fail at inline_container.cc:287] . unexpected pos 358228864 vs 358228752&#39;</span><span class="p">)</span>
 <span class="ne">full_key</span>: model.transformer
 </pre></div>
 </div>
