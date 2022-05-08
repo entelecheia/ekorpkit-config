@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediciting Sentiments &#8212; eKorpkit Tutorials</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="The eKorpkit Corpus" href="../../corpus/ekorpkot_corpus.html" />
+    <link rel="prev" title="Lexicon-based Sentiment Analysis" href="sa_en.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/ekorpkit.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eKorpkit Tutorials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   ekorpkit[iːkɔːkɪt]: English Korean Corpus Toolkit
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../about/about.html">
+   Getting started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/install.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../about/usage.html">
+     Usage
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../config/config.html">
+   Compose an ekorpkit config
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sentiment.html">
+   Sentiment Analysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="lexicon.html">
+     Sentiment Lexicons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sa_en.html">
+     Lexicon-based Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Prediciting Sentiments
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../corpus/ekorpkot_corpus.html">
+   The eKorpkit Corpus
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Use cases
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../usecases/esg_topics/analyst.html">
+   ESG Topic Analysis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/sentiment/predict_edgar.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/entelecheia/ekorpkit-config"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/sentiment/predict_edgar.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/tutorials/sentiment/predict_edgar.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-edgar-sampel-dataframe">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     edgar
+    </span>
+   </code>
+   sampel dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-financial-phrasebank-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     financial_phrasebank
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compose-a-config-for-the-lm-sentiment-analyser-class">
+   Compose a config for the LM sentiment analyser class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-sentiment-analyser-class-and-prediting-sentiments-of-edgar-dataset">
+   Instantiating a sentiment analyser class and prediting sentiments of
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     edgar
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-transformer-classficiation-model-with-financial-phrasebank-dataset">
+   Instantiating a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     financial_phrasebank
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Prediciting Sentiments</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-edgar-sampel-dataframe">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     edgar
+    </span>
+   </code>
+   sampel dataframe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-financial-phrasebank-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     financial_phrasebank
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compose-a-config-for-the-lm-sentiment-analyser-class">
+   Compose a config for the LM sentiment analyser class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-sentiment-analyser-class-and-prediting-sentiments-of-edgar-dataset">
+   Instantiating a sentiment analyser class and prediting sentiments of
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     edgar
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instantiating-a-transformer-classficiation-model-with-financial-phrasebank-dataset">
+   Instantiating a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     financial_phrasebank
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="prediciting-sentiments">
+<h1>Prediciting Sentiments<a class="headerlink" href="#prediciting-sentiments" title="Permalink to this headline">¶</a></h1>
+<p><a href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/notebooks/sentiment/financial_phrasebank_lm.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%capture</span>
+<span class="c1"># %pip install ekorpkit[model,tokenize,dataset]==0.1.25.post0.dev5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prepare-edgar-sampel-dataframe">
+<h2>Prepare <code class="docutils literal notranslate"><span class="pre">edgar</span></code> sampel dataframe<a class="headerlink" href="#prepare-edgar-sampel-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">df_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;pipeline=blank&#39;</span><span class="p">)</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;edgar_sample&#39;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;gd://15WFOGe73pIDvJEJxV90luirsT4yEInz9:edgar.zip&#39;,true,true}&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;edgar.parquet&#39;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;cik&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">df_cfg</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No pipeline specified
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>filename</th>
+      <th>item</th>
+      <th>cik</th>
+      <th>company</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1410</th>
+      <td>1534</td>
+      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
+      <td>item_1</td>
+      <td>320193</td>
+      <td>APPLE COMPUTER INC</td>
+      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>1697</td>
+      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
+      <td>item_1</td>
+      <td>21344</td>
+      <td>COCA COLA CO</td>
+      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
+    </tr>
+    <tr>
+      <th>2746</th>
+      <td>2977</td>
+      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
+      <td>item_1</td>
+      <td>70858</td>
+      <td>BANK OF AMERICA CORP /DE/</td>
+      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
+    </tr>
+    <tr>
+      <th>3762</th>
+      <td>4088</td>
+      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
+      <td>item_1</td>
+      <td>80424</td>
+      <td>PROCTER &amp; GAMBLE CO</td>
+      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
+    </tr>
+    <tr>
+      <th>4806</th>
+      <td>5211</td>
+      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
+      <td>item_1</td>
+      <td>1018724</td>
+      <td>AMAZON COM INC</td>
+      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="prepare-financial-phrasebank-dataset">
+<h2>Prepare <code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code> dataset<a class="headerlink" href="#prepare-financial-phrasebank-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">ds_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;dataset=dataset&#39;</span><span class="p">)</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;financial_phrasebank&#39;</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;gd://15TUjIfQstCYXU82s0pcaxh2QcSWf1zyG:financial_phrasebank.zip&#39;,true,false}&quot;</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">use_name_as_subdir</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">ds_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compose-a-config-for-the-lm-sentiment-analyser-class">
+<h2>Compose a config for the LM sentiment analyser class<a class="headerlink" href="#compose-a-config-for-the-lm-sentiment-analyser-class" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/sentiment=lm&#39;</span>
+<span class="n">model_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">preprocessor</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">nltk</span><span class="o">.</span><span class="n">lemmatize</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instantiating-a-sentiment-analyser-class-and-prediting-sentiments-of-edgar-dataset">
+<h2>Instantiating a sentiment analyser class and prediting sentiments of <code class="docutils literal notranslate"><span class="pre">edgar</span></code> dataset<a class="headerlink" href="#instantiating-a-sentiment-analyser-class-and-prediting-sentiments-of-edgar-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;pipeline=pipeline&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;edgar_sentiments&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;gd://15WFOGe73pIDvJEJxV90luirsT4yEInz9:edgar.zip&#39;,true,true}&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;edgar.parquet&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;cik&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">_pipeline_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predict&#39;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model_cfg</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./data/predict&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">-lm.parquet&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">num_workers</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 dataframes from [&#39;/root/.ekorpkit/.cache/gdown/.15WFOGe73pIDvJEJxV90luirsT4yEInz9/edgar/edgar.parquet&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 100/100 [00:24&lt;00:00,  4.14it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/edgar_sentiments-lm.parquet
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>filename</th>
+      <th>item</th>
+      <th>cik</th>
+      <th>company</th>
+      <th>text</th>
+      <th>polarity</th>
+      <th>subjectivity</th>
+      <th>polarity_label</th>
+      <th>uncertainty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1410</th>
+      <td>1534</td>
+      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
+      <td>item_1</td>
+      <td>320193</td>
+      <td>APPLE COMPUTER INC</td>
+      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
+      <td>-0.117647</td>
+      <td>0.017405</td>
+      <td>neutral</td>
+      <td>0.011262</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>1697</td>
+      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
+      <td>item_1</td>
+      <td>21344</td>
+      <td>COCA COLA CO</td>
+      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
+      <td>0.066667</td>
+      <td>0.008864</td>
+      <td>neutral</td>
+      <td>0.014773</td>
+    </tr>
+    <tr>
+      <th>2746</th>
+      <td>2977</td>
+      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
+      <td>item_1</td>
+      <td>70858</td>
+      <td>BANK OF AMERICA CORP /DE/</td>
+      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
+      <td>-0.219512</td>
+      <td>0.011724</td>
+      <td>negative</td>
+      <td>0.008579</td>
+    </tr>
+    <tr>
+      <th>3762</th>
+      <td>4088</td>
+      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
+      <td>item_1</td>
+      <td>80424</td>
+      <td>PROCTER &amp; GAMBLE CO</td>
+      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
+      <td>0.090909</td>
+      <td>0.008703</td>
+      <td>neutral</td>
+      <td>0.011867</td>
+    </tr>
+    <tr>
+      <th>4806</th>
+      <td>5211</td>
+      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
+      <td>item_1</td>
+      <td>1018724</td>
+      <td>AMAZON COM INC</td>
+      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
+      <td>-0.106494</td>
+      <td>0.031141</td>
+      <td>neutral</td>
+      <td>0.019979</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>./data/predict
+edgar_sentiments-lm.parquet
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instantiating-a-transformer-classficiation-model-with-financial-phrasebank-dataset">
+<h2>Instantiating a transformer classficiation model with <code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code> dataset<a class="headerlink" href="#instantiating-a-transformer-classficiation-model-with-financial-phrasebank-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">overrides</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;+model/transformer=simple_classification&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;+model/transformer/pretrained=finbert&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">model_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">,</span> <span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/transformer=simple_classification&#39;</span><span class="p">)</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds_cfg</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">max_seq_length</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">train_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">eval_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span><span class="s1">&#39;neutral&#39;</span><span class="p">,</span><span class="s1">&#39;negative&#39;</span><span class="p">]</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">_call_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "4c2417583c1a411a906443cb867a470a", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use thePyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "4092f03dad0b4ee797df93d4520e248b", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span> (use `wandb login --relogin` to force relogin)
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: wandb version 0.12.16 is available!  To upgrade, please run:
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>:  $ pip install wandb --upgrade
+</pre></div>
+</div>
+<div class="output text_html">
+Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/1sp6p2cx" target="_blank">light-droid-13</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">docs</a>).<br/>
+
+</div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "854fc087764d4ed48e2850536d39f9ca", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2416536298b0452b952aad2507c34402", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "afa0cf14580845c5972c4eb9cffb5ff8", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "89084ac26a2a467c9ef8711438b3c058", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Finishing last run (ID:1sp6p2cx) before initializing another...</div><div class="output text_html"><br/>Waiting for W&B process to finish, PID 21569... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "92039a68fa5749868ba111e57db0e109", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><style>
+    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }
+    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }
+    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
+    </style>
+<div class="wandb-row"><div class="wandb-col">
+<h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>▁</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>█▁</td></tr><tr><td>global_step</td><td>▁▂█</td></tr><tr><td>lr</td><td>▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>█▁</td></tr></table><br/></div><div class="wandb-col">
+<h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.56368</td></tr><tr><td>acc</td><td>0.85912</td></tr><tr><td>eval_loss</td><td>0.34183</td></tr><tr><td>global_step</td><td>92</td></tr><tr><td>lr</td><td>2e-05</td></tr><tr><td>mcc</td><td>0.73891</td></tr><tr><td>train_loss</td><td>0.23232</td></tr></table>
+</div></div>
+Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+<br/>Synced <strong style="color:#cdcd00">light-droid-13</strong>: <a href="https://wandb.ai/entelecheia/default-model/runs/1sp6p2cx" target="_blank">https://wandb.ai/entelecheia/default-model/runs/1sp6p2cx</a><br/>
+Find logs at: <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220505_014655-1sp6p2cx/logs</code><br/>
+</div><div class="output text_html">Successfully finished last run (ID:1sp6p2cx). Initializing new run:<br/></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: wandb version 0.12.16 is available!  To upgrade, please run:
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>:  $ pip install wandb --upgrade
+</pre></div>
+</div>
+<div class="output text_html">
+Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/1hmce7sj" target="_blank">civilized-senate-14</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">docs</a>).<br/>
+
+</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f19827c46a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;pipeline=pipeline&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;edgar_sentiments&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;gd://15WFOGe73pIDvJEJxV90luirsT4yEInz9:edgar.zip&#39;,true,true}&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s1">&#39;edgar.parquet&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;cik&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;text&#39;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">_pipeline_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predict&#39;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model_cfg</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./data/predict&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">predict</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">-finbert.parquet&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">num_workers</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading 1 dataframes from [&#39;/root/.ekorpkit/.cache/gdown/.15WFOGe73pIDvJEJxV90luirsT4yEInz9/edgar/edgar.parquet&#39;]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "127c04a15d314ff68a56578d5a8b9779", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "fc8738bea7da44029ee4f128feb9be45", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Finishing last run (ID:1hmce7sj) before initializing another...</div><div class="output text_html"><br/>Waiting for W&B process to finish, PID 21736... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8a522fc734154b36a198206aebd39b4b", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><style>
+    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }
+    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }
+    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
+    </style>
+<div class="wandb-row"><div class="wandb-col">
+</div><div class="wandb-col">
+</div></div>
+Synced 5 W&B file(s), 1 media file(s), 1 artifact file(s) and 0 other file(s)
+<br/>Synced <strong style="color:#cdcd00">civilized-senate-14</strong>: <a href="https://wandb.ai/entelecheia/default-model/runs/1hmce7sj" target="_blank">https://wandb.ai/entelecheia/default-model/runs/1hmce7sj</a><br/>
+Find logs at: <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220505_014722-1hmce7sj/logs</code><br/>
+</div><div class="output text_html">Successfully finished last run (ID:1hmce7sj). Initializing new run:<br/></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: wandb version 0.12.16 is available!  To upgrade, please run:
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>:  $ pip install wandb --upgrade
+</pre></div>
+</div>
+<div class="output text_html">
+Syncing run <strong><a href="https://wandb.ai/entelecheia/default-predict/runs/tsswa981" target="_blank">clone-pilot-1</a></strong> to <a href="https://wandb.ai/entelecheia/default-predict" target="_blank">Weights & Biases</a> (<a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">docs</a>).<br/>
+
+</div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "e4d1ace82ecc481a8f8624f13e524193", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "031fb31652a94efbb49ca2aff86fbb27", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "c2a0065fee7d4506bb134b97dc2d9675", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "26f10f3713774e12b79c79597d5342a4", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Finishing last run (ID:tsswa981) before initializing another...</div><div class="output text_html"><br/>Waiting for W&B process to finish, PID 21902... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "908b1eb5168b4854a19d0172e5dcdb43", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><style>
+    table.wandb td:nth-child(1) { padding: 0 10px; text-align: right }
+    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; width: 100% }
+    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
+    </style>
+<div class="wandb-row"><div class="wandb-col">
+<h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>▁</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>█▁</td></tr><tr><td>global_step</td><td>▁▂█</td></tr><tr><td>lr</td><td>▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>█▁</td></tr></table><br/></div><div class="wandb-col">
+<h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.30405</td></tr><tr><td>acc</td><td>0.85635</td></tr><tr><td>eval_loss</td><td>0.39886</td></tr><tr><td>global_step</td><td>92</td></tr><tr><td>lr</td><td>2e-05</td></tr><tr><td>mcc</td><td>0.73004</td></tr><tr><td>train_loss</td><td>0.62582</td></tr></table>
+</div></div>
+Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+<br/>Synced <strong style="color:#cdcd00">clone-pilot-1</strong>: <a href="https://wandb.ai/entelecheia/default-predict/runs/tsswa981" target="_blank">https://wandb.ai/entelecheia/default-predict/runs/tsswa981</a><br/>
+Find logs at: <code>/root/.ekorpkit/projects/default/outputs/default-predict/finbert/wandb/run-20220505_014747-tsswa981/logs</code><br/>
+</div><div class="output text_html">Successfully finished last run (ID:tsswa981). Initializing new run:<br/></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: wandb version 0.12.16 is available!  To upgrade, please run:
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>:  $ pip install wandb --upgrade
+</pre></div>
+</div>
+<div class="output text_html">
+Syncing run <strong><a href="https://wandb.ai/entelecheia/default-predict/runs/1x6d09qj" target="_blank">mythical-nexu-2</a></strong> to <a href="https://wandb.ai/entelecheia/default-predict" target="_blank">Weights & Biases</a> (<a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">docs</a>).<br/>
+
+</div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8262ec6092e241639d6788f44949ecd1", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token indices sequence length is longer than the specified maximum sequence length for this model (4252 &gt; 512). Running this sequence through the model will result in indexing errors
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f1080dc17f2c4102a49b25f6dd99f7b2", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/edgar_sentiments-finbert.parquet
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>filename</th>
+      <th>item</th>
+      <th>cik</th>
+      <th>company</th>
+      <th>text</th>
+      <th>pred_labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1410</th>
+      <td>1534</td>
+      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
+      <td>item_1</td>
+      <td>320193</td>
+      <td>APPLE COMPUTER INC</td>
+      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
+      <td>positive</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>1697</td>
+      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
+      <td>item_1</td>
+      <td>21344</td>
+      <td>COCA COLA CO</td>
+      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
+      <td>neutral</td>
+    </tr>
+    <tr>
+      <th>2746</th>
+      <td>2977</td>
+      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
+      <td>item_1</td>
+      <td>70858</td>
+      <td>BANK OF AMERICA CORP /DE/</td>
+      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
+      <td>neutral</td>
+    </tr>
+    <tr>
+      <th>3762</th>
+      <td>4088</td>
+      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
+      <td>item_1</td>
+      <td>80424</td>
+      <td>PROCTER &amp; GAMBLE CO</td>
+      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
+      <td>neutral</td>
+    </tr>
+    <tr>
+      <th>4806</th>
+      <td>5211</td>
+      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
+      <td>item_1</td>
+      <td>1018724</td>
+      <td>AMAZON COM INC</td>
+      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
+      <td>positive</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 1585 entries, 1410 to 1291201
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype 
+---  ------       --------------  ----- 
+ 0   id           1585 non-null   int64 
+ 1   filename     1585 non-null   object
+ 2   item         1585 non-null   object
+ 3   cik          1585 non-null   object
+ 4   company      1585 non-null   object
+ 5   text         1585 non-null   object
+ 6   pred_labels  1585 non-null   object
+dtypes: int64(1), object(6)
+memory usage: 99.1+ KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/tutorials/sentiment"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="sa_en.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lexicon-based Sentiment Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../corpus/ekorpkot_corpus.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The eKorpkit Corpus</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By entelecheia<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
