@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="The eKorpkit Corpus" href="../../corpus/ekorpkot_corpus.html" />
-    <link rel="prev" title="Lexicon-based Sentiment Analysis" href="sa_en.html" />
+    <link rel="prev" title="Lexicon-based Sentiment Analysis" href="lbsa_en.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="sa_en.html">
+  <a class="reference internal" href="lbsa_en.html">
    Lexicon-based Sentiment Analysis
   </a>
  </li>
@@ -443,84 +443,85 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No pipeline specified
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">_call_target</span><span class="nt">(_target_, _partial_, args, kwargs, full_key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">86</span>             <span class="k">return</span> <span class="n">_target_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/pipelines/pipe.py</span> in <span class="ni">pipeline</span><span class="nt">(**cfg)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>     <span class="k">elif</span> <span class="n">data_dir</span> <span class="ow">and</span> <span class="n">data_file</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1492</span>         <span class="n">df</span> <span class="o">=</span> <span class="n">_load_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span> 
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/pipelines/pipe.py</span> in <span class="ni">_load_dataframe</span><span class="nt">(df, args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1394</span>         <span class="k">if</span> <span class="n">concatenate</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1395</span>             <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1396</span>                 <span class="p">[</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/pandas/core/reshape/concat.py</span> in <span class="ni">concat</span><span class="nt">(objs, axis, join, ignore_index, keys, levels, names, verify_integrity, sort, copy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">274</span><span class="s2">     op = _Concatenator(</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span><span class="s2">         objs,</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/pandas/core/reshape/concat.py</span> in <span class="ni">__init__</span><span class="nt">(self, objs, axis, join, keys, levels, names, ignore_index, verify_integrity, copy, sort)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span><span class="s2">         if len(objs) == 0:</span>
+<span class="ne">--&gt; </span><span class="mi">331</span><span class="s2">             raise ValueError(&quot;No objects to concatenate&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span><span class="s2"> </span>
+
+<span class="ne">ValueError</span>: No objects to concatenate
+
+<span class="s2">The above exception was the direct cause of the following exception:</span>
+
+<span class="ne">InstantiationException</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
+<span class="s2">&lt;ipython-input-2-3b8cbbfbfda1&gt; in &lt;module&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="s2"> df_cfg.data_file = &#39;edgar.parquet&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="s2"> df_cfg.columns_to_keep = [&#39;id&#39;, &#39;filename&#39;, &#39;item&#39;, &#39;cik&#39;, &#39;company&#39;, &#39;text&#39;]</span>
+<span class="ne">----&gt; </span><span class="mi">8</span><span class="s2"> df = eKonf.instantiate(df_cfg)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span><span class="s2"> df.head()</span>
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">instantiate</span><span class="nt">(config, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span><span class="s2">     @staticmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span><span class="s2">     def instantiate(config: Any, *args: Any, **kwargs: Any) -&gt; Any:</span>
+<span class="ne">--&gt; </span><span class="mi">509</span><span class="s2">         return _instantiate(config, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span><span class="s2">     @staticmethod</span>
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">_instantiate</span><span class="nt">(config, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span><span class="s2">     if _Keys.RECURSIVE not in kwargs:</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span><span class="s2">         kwargs[_Keys.RECURSIVE] = _recursive_</span>
+<span class="ne">--&gt; </span><span class="mi">345</span><span class="s2">     return hydra.utils.instantiate(config, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span><span class="s2"> </span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">instantiate</span><span class="nt">(config, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span><span class="s2">         _partial_ = config.pop(_Keys.PARTIAL, False)</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">218</span><span class="s2">         return instantiate_node(</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span><span class="s2">             config, *args, recursive=_recursive_, convert=_convert_, partial=_partial_</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span><span class="s2">         )</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">instantiate_node</span><span class="nt">(node, convert, recursive, partial, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span><span class="s2">                     kwargs[key] = _convert_node(value, convert)</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">331</span><span class="s2">             return _call_target(_target_, partial, args, kwargs, full_key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span><span class="s2">             # If ALL or PARTIAL non structured, instantiate in dict and resolve interpolations eagerly.</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">_call_target</span><span class="nt">(_target_, _partial_, args, kwargs, full_key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span><span class="s2">             if full_key:</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span><span class="s2">                 msg += f&quot;</span><span class="se">\n</span><span class="s2">full_key: </span><span class="si">{full_key}</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">91</span><span class="s2">             raise InstantiationException(msg) from e</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span><span class="s2"> </span>
+
+<span class="ne">InstantiationException</span>: Error in call to target &#39;ekorpkit.pipelines.pipe.pipeline&#39;:
+<span class="s2">ValueError(&#39;No objects to concatenate&#39;)</span>
+<span class="ne">full_key</span>: pipeline
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>filename</th>
-      <th>item</th>
-      <th>cik</th>
-      <th>company</th>
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1410</th>
-      <td>1534</td>
-      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
-      <td>item_1</td>
-      <td>320193</td>
-      <td>APPLE COMPUTER INC</td>
-      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
-    </tr>
-    <tr>
-      <th>1560</th>
-      <td>1697</td>
-      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
-      <td>item_1</td>
-      <td>21344</td>
-      <td>COCA COLA CO</td>
-      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
-    </tr>
-    <tr>
-      <th>2746</th>
-      <td>2977</td>
-      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
-      <td>item_1</td>
-      <td>70858</td>
-      <td>BANK OF AMERICA CORP /DE/</td>
-      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
-    </tr>
-    <tr>
-      <th>3762</th>
-      <td>4088</td>
-      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
-      <td>item_1</td>
-      <td>80424</td>
-      <td>PROCTER &amp; GAMBLE CO</td>
-      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
-    </tr>
-    <tr>
-      <th>4806</th>
-      <td>5211</td>
-      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
-      <td>item_1</td>
-      <td>1018724</td>
-      <td>AMAZON COM INC</td>
-      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+</div>
 </div>
 </div>
 <div class="section" id="prepare-financial-phrasebank-dataset">
@@ -992,7 +993,7 @@ memory usage: 99.1+ KB
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="sa_en.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="lbsa_en.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
