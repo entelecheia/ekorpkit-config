@@ -598,17 +598,17 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "1cfcb1834ac44469859589812c070957"}
+{"version_major": 2, "version_minor": 0, "model_id": "1844866c30fc4556a40ba1f4d8651f51"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-train.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "2d1a1f63cab44d269fb088b68b05f786"}
+{"version_major": 2, "version_minor": 0, "model_id": "b05b937591a845af910f837d6ffe5c21"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-test.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "45e56e9b9dd4468b877fe204bd2c4b3f"}
+{"version_major": 2, "version_minor": 0, "model_id": "b81db86e8c714702bbb8388521793238"}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-dev.parquet
 </pre></div>
 </div>
@@ -772,23 +772,98 @@ weighted avg       0.63      0.64      0.60      2259
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "0efefb08ef0446b184849106e420ff33"}
+{"version_major": 2, "version_minor": 0, "model_id": "3352e1c1abfe4a0784b61675bde8fa4e"}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
   warnings.warn(
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "d5983fac52b24a96a95b92364656deb6"}
+{"version_major": 2, "version_minor": 0, "model_id": "238044a5dff84865a5fd3896640d6e6f"}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Failed to detect the name of this notebook, you can set it manually with the WANDB_NOTEBOOK_NAME environment variable to enable code saving.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span>. Use <span class=" -Color -Color-Bold">`wandb login --relogin`</span> to force relogin
 </pre></div>
 </div>
-<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220509_004027-77vkufwp</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/77vkufwp" target="_blank">royal-hill-28</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
-{"version_major": 2, "version_minor": 0, "model_id": "8d14a84786244cf7a96d436ef5d00eec"}
+<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/root/.ekorpkit/projects/default/outputs/default-model/finbert/wandb/run-20220509_004459-3evh3nik</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/3evh3nik" target="_blank">icy-vortex-29</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d667437afb5747299899c6b93e7e7b38"}
 </script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">save</span><span class="nt">(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span>             <span class="k">with</span> <span class="n">_open_zipfile_writer</span><span class="p">(</span><span class="n">opened_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_zipfile</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">372</span>                 <span class="n">_save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">opened_zipfile</span><span class="p">,</span> <span class="n">pickle_module</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>                 <span class="k">return</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">_save</span><span class="nt">(obj, zip_file, pickle_module, pickle_protocol)</span>
+<span class="g g-Whitespace">    </span><span class="mi">490</span>         <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="n">storage</span><span class="o">.</span><span class="n">element_size</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">491</span>         <span class="n">zip_file</span><span class="o">.</span><span class="n">write_record</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">storage</span><span class="o">.</span><span class="n">data_ptr</span><span class="p">(),</span> <span class="n">num_bytes</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
+<span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">_call_target</span><span class="nt">(_target_, _partial_, args, kwargs, full_key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">86</span>             <span class="k">return</span> <span class="n">_target_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">__init__</span><span class="nt">(self, **args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">180</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> 
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">__init__</span><span class="nt">(self, **args)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> 
+<span class="ne">---&gt; </span><span class="mi">43</span>         <span class="n">eKonf</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_call_</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> 
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">call</span><span class="nt">(cfg, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span>     <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">559</span>         <span class="n">_call</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span> 
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">_call</span><span class="nt">(cfg, obj)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_run</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">197</span>                     <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_run</span><span class="p">)()</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span>                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_run</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+
+<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">train</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>         <span class="c1"># Train the model</span>
+<span class="ne">--&gt; </span><span class="mi">204</span>         <span class="n">model</span><span class="o">.</span><span class="n">train_model</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>             <span class="bp">self</span><span class="o">.</span><span class="n">train_data</span><span class="p">,</span> <span class="n">eval_df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eval_data</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">train_model</span><span class="nt">(self, train_df, multi_label, output_dir, show_running_loss, args, eval_df, verbose, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">604</span> 
+<span class="ne">--&gt; </span><span class="mi">605</span>         <span class="n">global_step</span><span class="p">,</span> <span class="n">training_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>             <span class="n">train_dataloader</span><span class="p">,</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">train</span><span class="nt">(self, train_dataloader, output_dir, multi_label, show_running_loss, eval_df, test_df, verbose, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>                     <span class="n">best_eval_metric</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">early_stopping_metric</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">1195</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1196</span>                         <span class="n">args</span><span class="o">.</span><span class="n">best_model_dir</span><span class="p">,</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">save_model</span><span class="nt">(self, output_dir, optimizer, scheduler, model, results)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2406</span>             <span class="k">if</span> <span class="n">optimizer</span> <span class="ow">and</span> <span class="n">scheduler</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_optimizer_and_scheduler</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2407</span>                 <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2408</span>                     <span class="n">optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;optimizer.pt&quot;</span><span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">save</span><span class="nt">(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span>                 <span class="n">_save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">opened_zipfile</span><span class="p">,</span> <span class="n">pickle_module</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">373</span>                 <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>         <span class="n">_legacy_save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">opened_file</span><span class="p">,</span> <span class="n">pickle_module</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="p">)</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">__exit__</span><span class="nt">(self, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>     <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">259</span>         <span class="bp">self</span><span class="o">.</span><span class="n">file_like</span><span class="o">.</span><span class="n">write_end_of_file</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+<span class="ne">RuntimeError</span>: [enforce fail at inline_container.cc:287] . unexpected pos 363786368 vs 363786256
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">InstantiationException</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">726836300</span><span class="n">d56</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">model_cfg</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span><span class="s1">&#39;neutral&#39;</span><span class="p">,</span><span class="s1">&#39;negative&#39;</span><span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">model_cfg</span><span class="o">.</span><span class="n">_call_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
@@ -823,104 +898,15 @@ weighted avg       0.63      0.64      0.60      2259
 <span class="g g-Whitespace">    </span><span class="mi">333</span>             <span class="c1"># If ALL or PARTIAL non structured, instantiate in dict and resolve interpolations eagerly.</span>
 
 <span class="nn">/opt/conda/lib/python3.8/site-packages/hydra/_internal/instantiate/_instantiate2.py</span> in <span class="ni">_call_target</span><span class="nt">(_target_, _partial_, args, kwargs, full_key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">86</span>             <span class="k">return</span> <span class="n">_target_</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Error in call to target &#39;</span><span class="si">{</span><span class="n">_convert_target_to_string</span><span class="p">(</span><span class="n">_target_</span><span class="p">)</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>             <span class="k">if</span> <span class="n">full_key</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>                 <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">full_key: </span><span class="si">{</span><span class="n">full_key</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">91</span>             <span class="k">raise</span> <span class="n">InstantiationException</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> 
+<span class="g g-Whitespace">     </span><span class="mi">93</span> 
 
-<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">__init__</span><span class="nt">(self, **args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span> <span class="k">class</span> <span class="nc">SimpleClassification</span><span class="p">(</span><span class="n">SimpleTrainer</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">179</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">args</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">180</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> 
-<span class="g g-Whitespace">    </span><span class="mi">182</span>     <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">__init__</span><span class="nt">(self, **args)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>         <span class="bp">self</span><span class="o">.</span><span class="n">test_data</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> 
-<span class="ne">---&gt; </span><span class="mi">43</span>         <span class="n">eKonf</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_call_</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> 
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="nd">@abstractmethod</span>
-
-<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">call</span><span class="nt">(cfg, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="nd">@staticmethod</span>
-<span class="g g-Whitespace">    </span><span class="mi">558</span>     <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="nb">object</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">559</span>         <span class="n">_call</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span> 
-<span class="g g-Whitespace">    </span><span class="mi">561</span>     <span class="nd">@staticmethod</span>
-
-<span class="nn">/workspace/projects/ekorpkit/ekorpkit/ekonf.py</span> in <span class="ni">_call</span><span class="nt">(cfg, obj)</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>                 <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling </span><span class="si">{</span><span class="n">_run</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span>                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_run</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">197</span>                     <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_run</span><span class="p">)()</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span>                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_run</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">199</span>                     <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">_run</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])(</span><span class="o">**</span><span class="n">_run</span><span class="p">[</span><span class="s2">&quot;args&quot;</span><span class="p">])</span>
-
-<span class="nn">/workspace/projects/ekorpkit/ekorpkit/models/transformer/simple.py</span> in <span class="ni">train</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span> 
-<span class="g g-Whitespace">    </span><span class="mi">203</span>         <span class="c1"># Train the model</span>
-<span class="ne">--&gt; </span><span class="mi">204</span>         <span class="n">model</span><span class="o">.</span><span class="n">train_model</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">205</span>             <span class="bp">self</span><span class="o">.</span><span class="n">train_data</span><span class="p">,</span> <span class="n">eval_df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">eval_data</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="n">sklearn</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span>         <span class="p">)</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">train_model</span><span class="nt">(self, train_df, multi_label, output_dir, show_running_loss, args, eval_df, verbose, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">603</span>         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">604</span> 
-<span class="ne">--&gt; </span><span class="mi">605</span>         <span class="n">global_step</span><span class="p">,</span> <span class="n">training_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span>             <span class="n">train_dataloader</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span>             <span class="n">output_dir</span><span class="p">,</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">train</span><span class="nt">(self, train_dataloader, output_dir, multi_label, show_running_loss, eval_df, test_df, verbose, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1193</span>                 <span class="k">if</span> <span class="ow">not</span> <span class="n">best_eval_metric</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1194</span>                     <span class="n">best_eval_metric</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">args</span><span class="o">.</span><span class="n">early_stopping_metric</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">1195</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">save_model</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1196</span>                         <span class="n">args</span><span class="o">.</span><span class="n">best_model_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1197</span>                         <span class="n">optimizer</span><span class="p">,</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/simpletransformers/classification/classification_model.py</span> in <span class="ni">save_model</span><span class="nt">(self, output_dir, optimizer, scheduler, model, results)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2405</span>             <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;training_args.bin&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">2406</span>             <span class="k">if</span> <span class="n">optimizer</span> <span class="ow">and</span> <span class="n">scheduler</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_optimizer_and_scheduler</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2407</span>                 <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2408</span>                     <span class="n">optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="s2">&quot;optimizer.pt&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2409</span>                 <span class="p">)</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">save</span><span class="nt">(obj, f, pickle_module, pickle_protocol, _use_new_zipfile_serialization)</span>
-<span class="g g-Whitespace">    </span><span class="mi">370</span>         <span class="k">if</span> <span class="n">_use_new_zipfile_serialization</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span>             <span class="k">with</span> <span class="n">_open_zipfile_writer</span><span class="p">(</span><span class="n">opened_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">opened_zipfile</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">372</span>                 <span class="n">_save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">opened_zipfile</span><span class="p">,</span> <span class="n">pickle_module</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span>                 <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span>         <span class="n">_legacy_save</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">opened_file</span><span class="p">,</span> <span class="n">pickle_module</span><span class="p">,</span> <span class="n">pickle_protocol</span><span class="p">)</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/serialization.py</span> in <span class="ni">_save</span><span class="nt">(obj, zip_file, pickle_module, pickle_protocol)</span>
-<span class="g g-Whitespace">    </span><span class="mi">486</span>         <span class="c1"># .cpu() on the underlying Storage</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span>         <span class="k">if</span> <span class="n">storage</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">488</span>             <span class="n">storage</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">489</span>         <span class="c1"># Now that it is on the CPU we can directly copy it into the zip file</span>
-<span class="g g-Whitespace">    </span><span class="mi">490</span>         <span class="n">num_bytes</span> <span class="o">=</span> <span class="n">storage</span><span class="o">.</span><span class="n">size</span><span class="p">()</span> <span class="o">*</span> <span class="n">storage</span><span class="o">.</span><span class="n">element_size</span><span class="p">()</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/storage.py</span> in <span class="ni">cpu</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span>     <span class="k">def</span> <span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="sd">&quot;&quot;&quot;Returns a CPU copy of this storage if it&#39;s not already on the CPU&quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">72</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">torch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> 
-<span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/cuda/__init__.py</span> in <span class="ni">type</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">494</span>         <span class="c1"># or on typing_extensions module on Python &gt;= 3.6</span>
-<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="k">with</span> <span class="n">device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_device</span><span class="p">()):</span>  <span class="c1"># type: ignore</span>
-<span class="ne">--&gt; </span><span class="mi">496</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">_CudaBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># type: ignore[misc]</span>
-<span class="g g-Whitespace">    </span><span class="mi">497</span> 
-<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="fm">__new__</span> <span class="o">=</span> <span class="n">_lazy_new</span>
-
-<span class="nn">/opt/conda/lib/python3.8/site-packages/torch/_utils.py</span> in <span class="ni">_type</span><span class="nt">(self, dtype, non_blocking, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="k">if</span> <span class="n">dtype</span><span class="o">.</span><span class="n">is_sparse</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Cannot cast dense tensor to sparse tensor&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">45</span>     <span class="k">return</span> <span class="n">dtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">())</span><span class="o">.</span><span class="n">copy_</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">non_blocking</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> 
-<span class="g g-Whitespace">     </span><span class="mi">47</span> 
-
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="ne">InstantiationException</span>: Error in call to target &#39;ekorpkit.models.transformer.simple.SimpleClassification&#39;:
+<span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;[enforce fail at inline_container.cc:287] . unexpected pos 363786368 vs 363786256&#39;</span><span class="p">)</span>
+<span class="ne">full_key</span>: model.transformer
 </pre></div>
 </div>
 </div>
