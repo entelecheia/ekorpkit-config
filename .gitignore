@@ -9,6 +9,7 @@ runs/
 .root
 .workspace
 _build/
+refs/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

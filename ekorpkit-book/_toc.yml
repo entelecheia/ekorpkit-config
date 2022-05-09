@@ -8,19 +8,20 @@ parts:
     chapters:
       - file: docs/about/about.md
         sections:
-          - file: docs/about/install.md
-          - file: docs/about/usage.md
+        - file: docs/about/install.md
+        - file: docs/about/usage.md
   - caption: Tutorials
     chapters:
       - file: docs/tutorials/config/config.ipynb
-      - file: docs/tutorials/sentiment/sentiment.ipynb
+      - file: docs/tutorials/sentiment/index
         sections:
-          - file: docs/tutorials/sentiment/lexicon.ipynb
-          - file: docs/tutorials/sentiment/lbsa_en.ipynb
-          - file: docs/tutorials/sentiment/predict_edgar.ipynb
+        - file: docs/tutorials/sentiment/lexicon.ipynb
+        - file: docs/tutorials/sentiment/lbsa_en.ipynb
+        - file: docs/tutorials/sentiment/predict_edgar.ipynb
+        - file: docs/tutorials/sentiment/sentiment.ipynb
       - file: docs/tutorials/preprocessors/preprocessor.ipynb
         sections:
-          - file: docs/tutorials/preprocessors/mecab.ipynb
+        - file: docs/tutorials/preprocessors/mecab.ipynb
   - caption: Datasets
     chapters:
       - file: docs/corpus/ekorpkot_corpus.md
