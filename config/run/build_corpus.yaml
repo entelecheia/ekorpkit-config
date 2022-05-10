@@ -8,8 +8,9 @@ corpus: bok_minutes
 cmd: fetch_builtin_corpus
 calculate_stats: true
 preprocess_text: true
-overwrite: false
+overwrite: true
 force_download: false
+data_dir: ${cached_path:'https://github.com/entelecheia/ekorpkit-config/raw/main/data/bok_minutes_raw.zip',true,false}/bok_minutes_raw
 ekorpkit:
   num_workers: ${..num_workers}
   cmd: ${..cmd}
@@ -19,3 +20,4 @@ ekorpkit:
   corpus.builtin.fetch.preprocess_text: ${..preprocess_text}
   corpus.builtin.fetch.overwrite: ${..overwrite}
   corpus.builtin.fetch.force_download: ${..force_download}
+  corpus.builtin.fetch.data_dir: ${..data_dir}
