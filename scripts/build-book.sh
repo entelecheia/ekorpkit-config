@@ -1,3 +1,6 @@
 #!/bin/bash
+set -x
 
-jupyter-book build --all ekorpkit-book
+OPTIONS=${1:-""}
+
+jupyter-book build ekorpkit-book $OPTIONS

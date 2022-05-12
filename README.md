@@ -10,7 +10,7 @@ eKorpkit provides a flexible interface for corpus management and analysis pipeli
 
 Tutorials for [ekorpkit](https://github.com/entelecheia/ekorpkit) package can be found at https://entelecheia.github.io/ekorpkit-config/
 
-## Installation
+## [Installation](https://entelecheia.github.io/ekorpkit-config/docs/about/install.html)
 
 Install the latest version of ekorpit:
 
@@ -18,7 +18,11 @@ Install the latest version of ekorpit:
 pip install ekorpkit
 ```
 
-## Tutorials
+To install all extra dependencies,
+
+```bash
+pip install ekorpkit[all]
+```
 
 ## Citation
 

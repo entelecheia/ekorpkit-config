@@ -6,8 +6,8 @@ Install the latest version of ekorpit:
 pip install -U ekorpkit
 ```
 
-Clone the ekorpkit-config
+To install all extra dependencies,
 
 ```bash
-git clone https://github.com/entelecheia/ekorpkit-config.git
+pip install ekorpkit[all]
 ```

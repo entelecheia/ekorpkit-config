@@ -6,7 +6,7 @@ root: intro
 parts:
   - caption: About
     chapters:
-      - file: docs/about/about.md
+      - file: docs/about/index
         sections:
         - file: docs/about/install.md
         - file: docs/about/usage.md
