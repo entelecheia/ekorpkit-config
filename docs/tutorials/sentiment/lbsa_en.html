@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -33,26 +33,26 @@
     
   <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >let toggleHintShow = 'Click to show';</script>
-    <script >let toggleHintHide = 'Click to hide';</script>
-    <script >let toggleOpenOnPrint = 'true';</script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Prediciting Sentiments" href="predict_edgar.html" />
@@ -100,14 +100,14 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   About
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../about/about.html">
+  <a class="reference internal" href="../../about/index.html">
    Getting started
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -129,7 +129,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutorials
  </span>
@@ -190,7 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Datasets
  </span>
@@ -202,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Use cases
  </span>
@@ -383,10 +383,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading data from /workspace/projects/ekorpkit/ekorpkit/resources/lexicons/LM.parquet
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polarity&#39;: 0.199999960000008,
  &#39;subjectivity&#39;: 0.6249999218750099,
- &#39;polarity_label&#39;: &#39;neutral&#39;,
- &#39;uncertainty&#39;: 0.12499998437500197}
+ &#39;label&#39;: &#39;neutral&#39;}
 </pre></div>
 </div>
 </div>
@@ -428,8 +430,8 @@ const thebe_selector_output = ".output, .cell_output"
  &#39;voice&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
  &#39;way&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
  &#39;with&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 2}}
-{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;polarity_label&#39;: &#39;positive&#39;, &#39;uncertainty&#39;: 0.0}
-{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;polarity_label&#39;: &#39;negative&#39;, &#39;uncertainty&#39;: 0.0}
+{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;label&#39;: &#39;positive&#39;}
+{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;label&#39;: &#39;negative&#39;}
 </pre></div>
 </div>
 </div>
@@ -451,10 +453,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading data from /workspace/projects/ekorpkit/ekorpkit/resources/lexicons/HIV-4.parquet
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polarity&#39;: -0.9999990000010001,
  &#39;subjectivity&#39;: 0.12499998437500197,
- &#39;label&#39;: &#39;negative&#39;,
- &#39;legal&#39;: 0.0}
+ &#39;label&#39;: &#39;negative&#39;}
 </pre></div>
 </div>
 </div>
@@ -487,8 +491,8 @@ const thebe_selector_output = ".output, .cell_output"
  &#39;the&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
  &#39;them&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
  &#39;with&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 2}}
-{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;label&#39;: &#39;positive&#39;, &#39;legal&#39;: 0.0}
-{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;label&#39;: &#39;negative&#39;, &#39;legal&#39;: 0.0}
+{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;label&#39;: &#39;positive&#39;}
+{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;label&#39;: &#39;negative&#39;}
 </pre></div>
 </div>
 </div>

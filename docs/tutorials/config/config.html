@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -33,26 +33,26 @@
     
   <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >let toggleHintShow = 'Click to show';</script>
-    <script >let toggleHintHide = 'Click to hide';</script>
-    <script >let toggleOpenOnPrint = 'true';</script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Sentiment Analysis" href="../sentiment/index.html" />
@@ -100,14 +100,14 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   About
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../about/about.html">
+  <a class="reference internal" href="../../about/index.html">
    Getting started
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -129,7 +129,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutorials
  </span>
@@ -190,7 +190,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Datasets
  </span>
@@ -202,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Use cases
  </span>
@@ -355,34 +355,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Config type: &lt;class &#39;omegaconf.dictconfig.DictConfig&#39;&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;archive&#39;: &#39;/root/.ekorpkit/data/archive&#39;,
- &#39;cache&#39;: &#39;/root/.ekorpkit/.cache&#39;,
- &#39;corpus&#39;: &#39;/root/.ekorpkit/data/datasets/corpus&#39;,
- &#39;data&#39;: &#39;/root/.ekorpkit/data&#39;,
- &#39;dataset&#39;: &#39;/root/.ekorpkit/data/datasets&#39;,
- &#39;ekorpkit&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit&#39;,
- &#39;home&#39;: &#39;/root&#39;,
- &#39;log&#39;: &#39;/root/.ekorpkit/projects/default/logs&#39;,
- &#39;model&#39;: &#39;/root/.ekorpkit/data/models&#39;,
- &#39;output&#39;: &#39;/root/.ekorpkit/projects/default/outputs&#39;,
- &#39;project&#39;: &#39;/root/.ekorpkit/projects/default&#39;,
- &#39;resource&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit/resources&#39;,
- &#39;runtime&#39;: &#39;/workspace/projects/ekorpkit-config/ekorpkit-book/docs/tutorials/config&#39;,
- &#39;tmp&#39;: &#39;/root/.ekorpkit/.tmp&#39;,
- &#39;workspace&#39;: &#39;/root/.ekorpkit&#39;}
 </pre></div>
 </div>
 </div>
@@ -394,27 +370,6 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;batcher&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
-             &#39;minibatch_size&#39;: 1000,
-             &#39;procs&#39;: 1,
-             &#39;task_num_cpus&#39;: 1,
-             &#39;task_num_gpus&#39;: 0,
-             &#39;verbose&#39;: 10},
- &#39;dask&#39;: {&#39;n_workers&#39;: 1},
- &#39;distributed_framework&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
-                           &#39;initialize&#39;: True,
-                           &#39;num_workers&#39;: 1},
- &#39;dotenv&#39;: {},
- &#39;dotenv_path&#39;: &#39;.env&#39;,
- &#39;os&#39;: {&#39;CACHED_PATH_CACHE_ROOT&#39;: &#39;/root/.ekorpkit/.cache/cached_path&#39;,
-        &#39;MODIN_CPUS&#39;: 1,
-        &#39;MODIN_ENGINE&#39;: &#39;ray&#39;,
-        &#39;WANDB_API_KEY&#39;: &#39;3d6fcda4381d365661f9ca2ad248b80002170ac4&#39;},
- &#39;ray&#39;: {&#39;num_cpus&#39;: 1}}
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -423,20 +378,10 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eKonf</span><span class="o">.</span><span class="n">__home_path__</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/root&#39;
 </pre></div>
 </div>
 </div>
