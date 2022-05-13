@@ -364,15 +364,15 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compose-a-config-for-the-lm-sentiment-analyser-class">
-   Compose a config for the LM sentiment analyser class
+  <a class="reference internal nav-link" href="#predict-setniments-with-the-lm-sentiment-analyser">
+   Predict setniments with the LM sentiment analyser
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-sentiment-scores">
+   Plot the sentiment scores
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-sentiment-scores">
-     Plot the sentiment scores
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#merge-with-fed-rate-data">
      Merge with fed rate data
@@ -416,15 +416,15 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compose-a-config-for-the-lm-sentiment-analyser-class">
-   Compose a config for the LM sentiment analyser class
+  <a class="reference internal nav-link" href="#predict-setniments-with-the-lm-sentiment-analyser">
+   Predict setniments with the LM sentiment analyser
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plot-the-sentiment-scores">
+   Plot the sentiment scores
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plot-the-sentiment-scores">
-     Plot the sentiment scores
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#merge-with-fed-rate-data">
      Merge with fed rate data
@@ -810,8 +810,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 </div>
-<div class="section" id="compose-a-config-for-the-lm-sentiment-analyser-class">
-<h2>Compose a config for the LM sentiment analyser class<a class="headerlink" href="#compose-a-config-for-the-lm-sentiment-analyser-class" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="predict-setniments-with-the-lm-sentiment-analyser">
+<h2>Predict setniments with the LM sentiment analyser<a class="headerlink" href="#predict-setniments-with-the-lm-sentiment-analyser" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/sentiment=lm&#39;</span>
@@ -835,7 +835,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:10&lt;00:00,  8.88it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:12&lt;00:00,  7.48it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/fomc_sentiments-lm.parquet
@@ -975,8 +975,9 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
+</div>
 <div class="section" id="plot-the-sentiment-scores">
-<h3>Plot the sentiment scores<a class="headerlink" href="#plot-the-sentiment-scores" title="Permalink to this headline">¶</a></h3>
+<h2>Plot the sentiment scores<a class="headerlink" href="#plot-the-sentiment-scores" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
@@ -1024,7 +1025,6 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../../../_images/01_FOMC_sentiments_16_0.png" src="../../../_images/01_FOMC_sentiments_16_0.png" />
 </div>
 </div>
-</div>
 <div class="section" id="merge-with-fed-rate-data">
 <h3>Merge with fed rate data<a class="headerlink" href="#merge-with-fed-rate-data" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
@@ -1066,7 +1066,6 @@ const thebe_selector_output = ".output, .cell_output"
       <th>subjectivity</th>
       <th>polarity_label</th>
       <th>uncertainty</th>
-      <th>polarity_ma</th>
       <th>fed_rate</th>
       <th>direction</th>
     </tr>
@@ -1087,7 +1086,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.022519</td>
       <td>negative</td>
       <td>0.019183</td>
-      <td>NaN</td>
       <td>5.75</td>
       <td>1</td>
     </tr>
@@ -1106,7 +1104,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.021809</td>
       <td>negative</td>
       <td>0.018578</td>
-      <td>NaN</td>
       <td>6.00</td>
       <td>1</td>
     </tr>
@@ -1125,7 +1122,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.036649</td>
       <td>negative</td>
       <td>0.020942</td>
-      <td>NaN</td>
       <td>6.50</td>
       <td>1</td>
     </tr>
@@ -1144,7 +1140,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.014085</td>
       <td>neutral</td>
       <td>0.049296</td>
-      <td>NaN</td>
       <td>6.50</td>
       <td>0</td>
     </tr>
@@ -1163,7 +1158,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>0.020222</td>
       <td>negative</td>
       <td>0.033367</td>
-      <td>NaN</td>
       <td>6.50</td>
       <td>0</td>
     </tr>
@@ -1206,7 +1200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;polarity_ma&quot;</span><span class="p">,</span> <span class="s2">&quot;polarity&quot;</span><span class="p">]</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Moving average of last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> statements&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> statement MA&quot;</span><span class="p">,</span>
