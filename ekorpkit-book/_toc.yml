@@ -10,9 +10,11 @@ parts:
         sections:
         - file: docs/about/install.md
         - file: docs/about/usage.md
+  - caption: Configuration
+    chapters:
+      - file: docs/configuration/config/config.ipynb
   - caption: Tutorials
     chapters:
-      - file: docs/tutorials/config/config.ipynb
       - file: docs/tutorials/sentiment/index
         sections:
         - file: docs/tutorials/sentiment/lexicon.ipynb
@@ -25,6 +27,11 @@ parts:
   - caption: Datasets
     chapters:
       - file: docs/corpus/ekorpkot_corpus.md
-  - caption: Use cases
+  - caption: Use Cases
     chapters:
-      - file: docs/usecases/esg_topics/analyst.md
+      - file: docs/usecases/fomc/index
+        sections:
+        - file: docs/usecases/fomc/01_FOMC_sentiments
+  - caption: Research Applications
+    chapters:
+      - file: docs/research/esg_topics/analyst.md
