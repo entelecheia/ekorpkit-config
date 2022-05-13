@@ -1,4 +1,4 @@
-# Analyzing FOMC statements
+# Analyzing FOMC datasets
 
 ## FOMC Datasets
 
