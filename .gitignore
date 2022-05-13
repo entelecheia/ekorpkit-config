@@ -11,6 +11,8 @@ runs/
 _build/
 refs/
 tmp/
+ekorpkit-book/docs/**/*.png
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

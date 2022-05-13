@@ -1,4 +1,4 @@
-# ekorpkit[iːkɔːkɪt]: English Korean Corpus Toolkit
+# ekorpkit[iːkɔːkɪt]
 
 [![PyPI version](https://badge.fury.io/py/ekorpkit.svg)](https://badge.fury.io/py/ekorpkit) [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://entelecheia.github.io/ekorpkit-config/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6497226.svg)](https://doi.org/10.5281/zenodo.6497226)
 
