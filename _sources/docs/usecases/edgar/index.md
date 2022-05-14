@@ -1,4 +1,4 @@
-# Analyzing EDGAR datasets
+# EDGAR dataset
 
 ## Section table of contents
 

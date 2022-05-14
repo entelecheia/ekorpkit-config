@@ -1,6 +1,6 @@
-# Analyzing FOMC datasets
+# FOMC datasets
 
-## FOMC Datasets
+## FOMC dataset contents
 
 - Statements
 - Meeting Minutes
