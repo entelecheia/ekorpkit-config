@@ -19,7 +19,6 @@ parts:
         sections:
           - file: docs/tutorials/sentiment/lexicon.ipynb
           - file: docs/tutorials/sentiment/lbsa_en.ipynb
-          - file: docs/tutorials/sentiment/predict_edgar.ipynb
           - file: docs/tutorials/sentiment/sentiment.ipynb
       - file: docs/tutorials/preprocessors/preprocessor.ipynb
         sections:
@@ -34,6 +33,9 @@ parts:
       - file: docs/usecases/fomc/index
         sections:
           - file: docs/usecases/fomc/01_FOMC_sentiments
+      - file: docs/usecases/edgar/index
+        sections:
+          - file: docs/usecases/edgar/predict_edgar.ipynb
 
   - caption: Research Applications
     chapters:
