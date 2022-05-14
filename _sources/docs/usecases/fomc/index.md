@@ -1,4 +1,4 @@
-# FOMC datasets
+# FOMC dataset
 
 ## FOMC dataset contents
 
