@@ -245,6 +245,18 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../references/index.html">
+   References
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -470,117 +482,93 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">cfg</span><span class="o">.</span><span class="n">series_id</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DFEDTAR&#39;</span><span class="p">,</span> <span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
 
 <span class="n">fred</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
-<span class="n">fred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<span class="n">fred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_69b3c" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fed_rate</th>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_69b3c_level0_col0" class="col_heading level0 col0" >fed_rate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2022-05-08</th>
-      <td>1.0</td>
+      <th id="T_69b3c_level0_row0" class="row_heading level0 row0" >2022-05-08 00:00:00</th>
+      <td id="T_69b3c_row0_col0" class="data row0 col0" >1.000000</td>
     </tr>
     <tr>
-      <th>2022-05-09</th>
-      <td>1.0</td>
+      <th id="T_69b3c_level0_row1" class="row_heading level0 row1" >2022-05-09 00:00:00</th>
+      <td id="T_69b3c_row1_col0" class="data row1 col0" >1.000000</td>
     </tr>
     <tr>
-      <th>2022-05-10</th>
-      <td>1.0</td>
+      <th id="T_69b3c_level0_row2" class="row_heading level0 row2" >2022-05-10 00:00:00</th>
+      <td id="T_69b3c_row2_col0" class="data row2 col0" >1.000000</td>
     </tr>
     <tr>
-      <th>2022-05-11</th>
-      <td>1.0</td>
+      <th id="T_69b3c_level0_row3" class="row_heading level0 row3" >2022-05-11 00:00:00</th>
+      <td id="T_69b3c_row3_col0" class="data row3 col0" >1.000000</td>
     </tr>
     <tr>
-      <th>2022-05-12</th>
-      <td>1.0</td>
+      <th id="T_69b3c_level0_row4" class="row_heading level0 row4" >2022-05-12 00:00:00</th>
+      <td id="T_69b3c_row4_col0" class="data row4 col0" >1.000000</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FEDRATE</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">data</span>
 <span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;fed_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">FEDRATE</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">FEDRATE</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+<div class="output text_html"><style type="text/css">
 </style>
-<table border="1" class="dataframe">
+<table id="T_430db" style="font-size: 10px">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fed_rate</th>
-      <th>direction</th>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_430db_level0_col0" class="col_heading level0 col0" >fed_rate</th>
+      <th id="T_430db_level0_col1" class="col_heading level0 col1" >direction</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1982-09-27</th>
-      <td>10.25</td>
-      <td>0</td>
+      <th id="T_430db_level0_row0" class="row_heading level0 row0" >1982-09-27 00:00:00</th>
+      <td id="T_430db_row0_col0" class="data row0 col0" >10.250000</td>
+      <td id="T_430db_row0_col1" class="data row0 col1" >0</td>
     </tr>
     <tr>
-      <th>1982-09-28</th>
-      <td>10.25</td>
-      <td>0</td>
+      <th id="T_430db_level0_row1" class="row_heading level0 row1" >1982-09-28 00:00:00</th>
+      <td id="T_430db_row1_col0" class="data row1 col0" >10.250000</td>
+      <td id="T_430db_row1_col1" class="data row1 col1" >0</td>
     </tr>
     <tr>
-      <th>1982-09-29</th>
-      <td>10.25</td>
-      <td>0</td>
+      <th id="T_430db_level0_row2" class="row_heading level0 row2" >1982-09-29 00:00:00</th>
+      <td id="T_430db_row2_col0" class="data row2 col0" >10.250000</td>
+      <td id="T_430db_row2_col1" class="data row2 col1" >0</td>
     </tr>
     <tr>
-      <th>1982-09-30</th>
-      <td>10.25</td>
-      <td>0</td>
+      <th id="T_430db_level0_row3" class="row_heading level0 row3" >1982-09-30 00:00:00</th>
+      <td id="T_430db_row3_col0" class="data row3 col0" >10.250000</td>
+      <td id="T_430db_row3_col1" class="data row3 col1" >0</td>
     </tr>
     <tr>
-      <th>1982-10-01</th>
-      <td>10.00</td>
-      <td>-1</td>
+      <th id="T_430db_level0_row4" class="row_heading level0 row4" >1982-10-01 00:00:00</th>
+      <td id="T_430db_row4_col0" class="data row4 col0" >10.000000</td>
+      <td id="T_430db_row4_col1" class="data row4 col1" >-1</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
