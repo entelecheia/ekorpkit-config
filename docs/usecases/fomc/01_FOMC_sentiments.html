@@ -452,7 +452,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 
 <span class="n">start_year</span> <span class="o">=</span> <span class="mi">2000</span>
@@ -586,11 +585,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;wide&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Fed Rate&#39;</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">FEDRATE</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">FEDRATE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -835,10 +835,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:12&lt;00:00,  7.48it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:12&lt;00:00,  7.15it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/fomc_sentiments-lm.parquet
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -981,11 +984,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="s1">&#39;num_tokens&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;num_tokens&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;The number of words in the FOMC statements&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -995,13 +998,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span> <span class="s1">&#39;negative&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;positive&quot;</span><span class="p">,</span> <span class="s2">&quot;negative&quot;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s2">&quot;wide&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;The positive/negative scores of the FOMC statements&#39;</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Positive Score&#39;</span><span class="p">,</span> <span class="s1">&#39;Negative Score&#39;</span><span class="p">]</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;The positive/negative scores of the FOMC statements&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Positive Score&quot;</span><span class="p">,</span> <span class="s2">&quot;Negative Score&quot;</span><span class="p">]</span>
+<span class="c1"># eKonf.print(cfg)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1012,12 +1018,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=stackplot&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;polarity&#39;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;polarity&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;The polarity scores of the FOMC statements&#39;</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">xtickmajorformatterfunc</span> <span class="o">=</span> <span class="s2">&quot;mdates.DateFormatter(&#39;%Y&#39;)&quot;</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1175,19 +1180,27 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;fetch/fetcher=fomc&#39;</span><span class="p">)</span>
 <span class="n">recessions</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">recessions</span>
 
-<span class="n">bbox</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;wheat&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">span_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/axvspan&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">span_args</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;crimson&quot;</span>
+<span class="n">span_args</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
+
 <span class="n">spans</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">recessions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">annotation</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">],</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">])</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;to&quot;</span><span class="p">],</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">])</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span>
-    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span>
-    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">}</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">span_args</span><span class="p">,</span> <span class="o">**</span><span class="n">span</span><span class="p">}</span>
+
     <span class="n">x</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.75</span>
-    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;bbox&#39;</span><span class="p">:</span> <span class="n">bbox</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
-    <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">span</span><span class="p">,</span> <span class="n">annot</span><span class="p">))</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">annot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">annot</span><span class="p">}</span>
+
+    <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
+    <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1198,20 +1211,21 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">fomc_sentiments</span><span class="p">[</span><span class="s1">&#39;polarity_ma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fomc_sentiments</span><span class="o">.</span><span class="n">polarity</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;polarity_ma&quot;</span><span class="p">,</span> <span class="s2">&quot;polarity&quot;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s2">&quot;individual&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;polarity_ma&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;r&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;polarity&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">palette</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Moving average of last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> statements&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> statement MA&quot;</span><span class="p">,</span>
     <span class="s2">&quot;Polarity score of individual statements&quot;</span><span class="p">,</span>
 <span class="p">]</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">span</span><span class="p">,</span> <span class="n">annot</span> <span class="ow">in</span> <span class="n">spans</span><span class="p">:</span>
-    <span class="n">polygon</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">**</span><span class="n">span</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="o">**</span><span class="n">annot</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="n">annotations</span><span class="p">,</span> <span class="n">axvspans</span><span class="o">=</span><span class="n">spans</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1227,8 +1241,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">chair</span><span class="p">[</span><span class="s1">&#39;to_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">chair</span><span class="p">[</span><span class="s1">&#39;to_date&#39;</span><span class="p">])</span>
 <span class="n">chair</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-<span class="n">bbox</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;wheat&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">spans</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">chair</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">row_num</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;from_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
@@ -1239,12 +1255,14 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;darkblue&#39;</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
     <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+
     <span class="n">x</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.75</span>
-    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;bbox&#39;</span><span class="p">:</span> <span class="n">bbox</span><span class="p">,</span> <span class="s1">&#39;ha&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="s1">&#39;va&#39;</span><span class="p">:</span> <span class="s1">&#39;center&#39;</span><span class="p">}</span>
-    <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">span</span><span class="p">,</span> <span class="n">annot</span><span class="p">))</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">annot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">annot</span><span class="p">}</span>
 
-<span class="c1"># spans    </span>
+    <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
+    <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1252,9 +1270,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">yvalue</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;polarity_ma&quot;</span><span class="p">,</span> <span class="s2">&quot;polarity&quot;</span><span class="p">]</span>
+<span class="n">figure2</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s2">&quot;individual&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;polarity_ma&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;polarity&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Moving average of last </span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2"> statements&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="n">labels</span><span class="o">=</span><span class="p">[</span>
@@ -1263,29 +1287,32 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="p">],</span>
     <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">)</span>
+<span class="n">scatter_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot/scatter&quot;</span><span class="p">)</span>
+<span class="n">scatter_cfg</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;fed_rate&quot;</span>
+<span class="n">scatter_cfg</span><span class="o">.</span><span class="n">secondary_y</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">scatter_cfg</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scatter_cfg</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
 
-
-<span class="n">rates</span> <span class="o">=</span> <span class="n">fomc_sentiments</span><span class="p">[</span><span class="s2">&quot;fed_rate&quot;</span><span class="p">]</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">fomc_sentiments</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">rates</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;darkblue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
-    <span class="p">[</span><span class="s2">&quot;Fed Funds Rate (rhs)&quot;</span><span class="p">],</span>
-    <span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+<span class="n">figure2</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">figure2</span><span class="o">.</span><span class="n">ylim</span> <span class="o">=</span> <span class="s2">&quot;(-4, 10)&quot;</span>
+<span class="n">figure2</span><span class="o">.</span><span class="n">legend</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fed Rate&quot;</span><span class="p">],</span>
     <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="k">for</span> <span class="n">span</span><span class="p">,</span> <span class="n">annot</span> <span class="ow">in</span> <span class="n">spans</span><span class="p">:</span>
-    <span class="n">polygon</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="o">**</span><span class="n">span</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="o">**</span><span class="n">annot</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span>
+    <span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_sentiments</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="n">annotations</span><span class="p">,</span> <span class="n">axvspans</span><span class="o">=</span><span class="n">spans</span><span class="p">,</span> <span class="n">figure2</span><span class="o">=</span><span class="n">figure2</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/01_FOMC_sentiments_23_0.png" src="../../../_images/01_FOMC_sentiments_23_0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating secondary axis
+Saved figure to ./figs/lineplot.png
+</pre></div>
+</div>
+<img alt="../../../_images/01_FOMC_sentiments_23_1.png" src="../../../_images/01_FOMC_sentiments_23_1.png" />
 </div>
 </div>
 </div>
