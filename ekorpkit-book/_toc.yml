@@ -4,34 +4,41 @@
 format: jb-book
 root: intro
 parts:
-  - caption: About
+  - caption: Basics
     chapters:
-      - file: docs/about/index
+      - file: docs/basics/index
         sections:
-        - file: docs/about/install.md
-        - file: docs/about/usage.md
-  - caption: Configuration
-    chapters:
-      - file: docs/configuration/config/config.ipynb
+          - file: docs/basics/install.md
+          - file: docs/basics/usage.md
+
+      - file: docs/basics/config/config.ipynb
+
   - caption: Tutorials
     chapters:
       - file: docs/tutorials/sentiment/index
         sections:
-        - file: docs/tutorials/sentiment/lexicon.ipynb
-        - file: docs/tutorials/sentiment/lbsa_en.ipynb
-        - file: docs/tutorials/sentiment/predict_edgar.ipynb
-        - file: docs/tutorials/sentiment/sentiment.ipynb
+          - file: docs/tutorials/sentiment/lexicon.ipynb
+          - file: docs/tutorials/sentiment/lbsa_en.ipynb
+          - file: docs/tutorials/sentiment/predict_edgar.ipynb
+          - file: docs/tutorials/sentiment/sentiment.ipynb
       - file: docs/tutorials/preprocessors/preprocessor.ipynb
         sections:
-        - file: docs/tutorials/preprocessors/mecab.ipynb
+          - file: docs/tutorials/preprocessors/mecab.ipynb
+
   - caption: Datasets
     chapters:
       - file: docs/corpus/ekorpkot_corpus.md
+
   - caption: Use Cases
     chapters:
       - file: docs/usecases/fomc/index
         sections:
-        - file: docs/usecases/fomc/01_FOMC_sentiments
+          - file: docs/usecases/fomc/01_FOMC_sentiments
+
   - caption: Research Applications
     chapters:
       - file: docs/research/esg_topics/analyst.md
+
+  - caption: About
+    chapters:
+      - file: docs/about/index
