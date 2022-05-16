@@ -363,6 +363,19 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-dependencies">
+   Extra dependencies
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -375,6 +388,19 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-dependencies">
+   Extra dependencies
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -391,10 +417,71 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ekorpkit<span class="o">[</span>all<span class="o">]</span>
 </pre></div>
 </div>
+<div class="section" id="extra-dependencies">
+<h2>Extra dependencies<a class="headerlink" href="#extra-dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_mytag docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A python cell&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A python cell&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A python cell
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">eKonf</span><span class="o">.</span><span class="n">dependencies</span><span class="p">(</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;beautifulsoup4&#39;,
+ &#39;cssutils&#39;,
+ &#39;datasets&#39;,
+ &#39;datasketch&#39;,
+ &#39;emoji&#39;,
+ &#39;fredapi&#39;,
+ &#39;ftfy&#39;,
+ &#39;fugashi&#39;,
+ &#39;google-api-python-client&#39;,
+ &#39;google-cloud-storage&gt;=2.0.0&#39;,
+ &#39;html-to-json&#39;,
+ &#39;joblib&#39;,
+ &#39;jsonlines&#39;,
+ &#39;jsonpath-ng&#39;,
+ &#39;kaleido&#39;,
+ &#39;loky&#39;,
+ &#39;lsh&#39;,
+ &#39;matplotlib&#39;,
+ &#39;mecab-ko-dic&#39;,
+ &#39;mecab-python3&#39;,
+ &#39;nltk&#39;,
+ &#39;orjson&#39;,
+ &#39;p_tqdm&#39;,
+ &#39;pathos&#39;,
+ &#39;plotly&#39;,
+ &#39;py7zr&#39;,
+ &#39;pyLDAvis&#39;,
+ &#39;pynori&#39;,
+ &#39;pysbd&#39;,
+ &#39;pysimdjson&#39;,
+ &#39;rich&#39;,
+ &#39;sacremoses&#39;,
+ &#39;seaborn&#39;,
+ &#39;simpletransformers&#39;,
+ &#39;soynlp&#39;,
+ &#39;tensorflow&#39;,
+ &#39;tomotopy&#39;,
+ &#39;wget&#39;,
+ &#39;wordcloud&#39;,
+ &#39;zstandard&#39;}
+</pre></div>
+</div>
 </div>
 </div>
 </div>

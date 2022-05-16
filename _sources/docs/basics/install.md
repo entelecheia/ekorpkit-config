@@ -25,8 +25,16 @@ To install all extra dependencies,
 pip install ekorpkit[all]
 ```
 
+## Extra dependencies
+
 ```{code-cell} ipython3
 :tags: [mytag]
 
 print("A python cell")
+```
+
+```{code-cell} ipython3
+from ekorpkit import eKonf
+
+eKonf.dependencies("all")
 ```
