@@ -10,7 +10,6 @@ kernelspec:
   name: python3
 ---
 
-(file-types:myst-notebooks)=
 # Installation
 
 Install the latest version of ekorpit:
@@ -33,16 +32,13 @@ eKonf.dependencies("tokenize")
 ```
 
 ```{code-cell} ipython3
-from ekorpkit import eKonf
 eKonf.dependencies("dataset")
 ```
 
 ```{code-cell} ipython3
-from ekorpkit import eKonf
 eKonf.dependencies("model")
 ```
 
 ```{code-cell} ipython3
-from ekorpkit import eKonf
 eKonf.dependencies("all")
 ```

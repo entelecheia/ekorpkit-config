@@ -300,7 +300,10 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../../_sources/docs/basics/usage.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/docs/basics/usage.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -337,6 +340,23 @@ const thebe_selector_output = ".output, .cell_output"
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/basics/usage.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -466,7 +486,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="compose-an-ekorpkit-config">
 <h3>Compose an ekorpkit config<a class="headerlink" href="#compose-an-ekorpkit-config" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
-
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Config type:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">cfg</span><span class="p">))</span>
 <span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
@@ -478,95 +497,206 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>compose a config for the nltk class</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=nltk&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+<span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=nltk&#39;</span>
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
 <span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 <span class="n">nltk</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;_target_&#39;</span><span class="p">:</span> <span class="s1">&#39;ekorpkit.preprocessors.tokenizer.NLTKTokenizer&#39;</span><span class="p">,</span>
- <span class="s1">&#39;extract&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;no_space_for_non_nouns&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-             <span class="s1">&#39;noun_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="s1">&#39;NNP&#39;</span><span class="p">,</span> <span class="s1">&#39;NNS&#39;</span><span class="p">,</span> <span class="s1">&#39;NNPS&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;stop_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;stopwords&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-             <span class="s1">&#39;stopwords_path&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
- <span class="s1">&#39;nltk&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;lemmatize&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-          <span class="s1">&#39;lemmatizer&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;_target_&#39;</span><span class="p">:</span> <span class="s1">&#39;nltk.stem.WordNetLemmatizer&#39;</span><span class="p">},</span>
-          <span class="s1">&#39;stem&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-          <span class="s1">&#39;stemmer&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;_target_&#39;</span><span class="p">:</span> <span class="s1">&#39;nltk.stem.PorterStemmer&#39;</span><span class="p">}},</span>
- <span class="s1">&#39;normalize&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
- <span class="s1">&#39;tokenize&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;concat_surface_and_pos&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;flatten&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;include_whitespace_token&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;lowercase&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-              <span class="s1">&#39;punct_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;SSO&#39;</span><span class="p">,</span> <span class="s1">&#39;SSC&#39;</span><span class="p">,</span> <span class="s1">&#39;SY&#39;</span><span class="p">],</span>
-              <span class="s1">&#39;tokenize_each_word&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-              <span class="s1">&#39;userdic_path&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-              <span class="s1">&#39;wordpieces_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;##&#39;</span><span class="p">},</span>
- <span class="s1">&#39;tokenize_article&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;return_typ&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;sentence_separator&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">},</span>
- <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.NLTKTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NN&#39;, &#39;NNP&#39;, &#39;NNS&#39;, &#39;NNPS&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;.&#39;]},
+ &#39;nltk&#39;: {&#39;lemmatize&#39;: False,
+          &#39;lemmatizer&#39;: {&#39;_target_&#39;: &#39;nltk.stem.WordNetLemmatizer&#39;},
+          &#39;stem&#39;: True,
+          &#39;stemmer&#39;: {&#39;_target_&#39;: &#39;nltk.stem.PorterStemmer&#39;}},
+ &#39;normalize&#39;: None,
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I shall reemphasize some of those thoughts today in the context of legislative proposals that are now before the current Congress.&quot;</span>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I shall reemphasize some of those thoughts today in the context of legislative proposals that are now before the current Congress.&quot;</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>[‘I/PRP’, ‘shall/MD’, ‘reemphas/VB’, ‘some/DT’, ‘of/IN’, ‘those/DT’, ‘thought/NNS’, ‘today/NN’, ‘in/IN’, ‘the/DT’, ‘context/NN’, ‘of/IN’, ‘legisl/JJ’, ‘propos/NNS’, ‘that/WDT’, ‘are/VBP’, ‘now/RB’, ‘befor/IN’, ‘the/DT’, ‘current/JJ’, ‘congress/NNP’, ‘./.’]</p>
-</div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="n">nltk</span><span class="o">.</span><span class="n">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i/PRP&#39;,
+ &#39;shall/MD&#39;,
+ &#39;reemphas/VB&#39;,
+ &#39;some/DT&#39;,
+ &#39;of/IN&#39;,
+ &#39;those/DT&#39;,
+ &#39;thought/NNS&#39;,
+ &#39;today/NN&#39;,
+ &#39;in/IN&#39;,
+ &#39;the/DT&#39;,
+ &#39;context/NN&#39;,
+ &#39;of/IN&#39;,
+ &#39;legisl/JJ&#39;,
+ &#39;propos/NNS&#39;,
+ &#39;that/WDT&#39;,
+ &#39;are/VBP&#39;,
+ &#39;now/RB&#39;,
+ &#39;befor/IN&#39;,
+ &#39;the/DT&#39;,
+ &#39;current/JJ&#39;,
+ &#39;congress/NNP&#39;,
+ &#39;./.&#39;]
 </pre></div>
 </div>
-<blockquote>
-<div><p>[‘thought’, ‘today’, ‘context’, ‘propos’, ‘congress’]</p>
-</div></blockquote>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">nltk</span><span class="o">.</span><span class="n">nouns</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;thought&#39;, &#39;today&#39;, &#39;context&#39;, &#39;propos&#39;, &#39;congress&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>compose a config for the mecab class</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
 <span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;_target_&#39;</span><span class="p">:</span> <span class="s1">&#39;ekorpkit.preprocessors.tokenizer.MecabTokenizer&#39;</span><span class="p">,</span>
- <span class="s1">&#39;extract&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;no_space_for_non_nouns&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-             <span class="s1">&#39;noun_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;NNG&#39;</span><span class="p">,</span> <span class="s1">&#39;NNP&#39;</span><span class="p">,</span> <span class="s1">&#39;XSN&#39;</span><span class="p">,</span> <span class="s1">&#39;SL&#39;</span><span class="p">,</span> <span class="s1">&#39;XR&#39;</span><span class="p">,</span> <span class="s1">&#39;NNB&#39;</span><span class="p">,</span> <span class="s1">&#39;NR&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;stop_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SP&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;stopwords&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-             <span class="s1">&#39;stopwords_path&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">},</span>
- <span class="s1">&#39;mecab&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;backend&#39;</span><span class="p">:</span> <span class="s1">&#39;mecab-python3&#39;</span><span class="p">,</span> <span class="s1">&#39;userdic_path&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
- <span class="s1">&#39;normalize&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
- <span class="s1">&#39;tokenize&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;concat_surface_and_pos&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;flatten&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;include_whitespace_token&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-              <span class="s1">&#39;lowercase&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-              <span class="s1">&#39;punct_postags&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="s1">&#39;SP&#39;</span><span class="p">,</span> <span class="s1">&#39;SSO&#39;</span><span class="p">,</span> <span class="s1">&#39;SSC&#39;</span><span class="p">,</span> <span class="s1">&#39;SY&#39;</span><span class="p">],</span>
-              <span class="s1">&#39;tokenize_each_word&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-              <span class="s1">&#39;userdic_path&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-              <span class="s1">&#39;wordpieces_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;##&#39;</span><span class="p">},</span>
- <span class="s1">&#39;tokenize_article&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;return_typ&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">,</span> <span class="s1">&#39;sentence_separator&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">n&#39;</span><span class="p">},</span>
- <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.MecabTokenizer&#39;,
+ &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+             &#39;noun_postags&#39;: [&#39;NNG&#39;, &#39;NNP&#39;, &#39;XSN&#39;, &#39;SL&#39;, &#39;XR&#39;, &#39;NNB&#39;, &#39;NR&#39;],
+             &#39;postags&#39;: None,
+             &#39;stop_postags&#39;: [&#39;SP&#39;]},
+ &#39;mecab&#39;: {&#39;backend&#39;: &#39;mecab-python3&#39;, &#39;userdic_path&#39;: None, &#39;verbose&#39;: False},
+ &#39;normalize&#39;: None,
+ &#39;return_as_list&#39;: False,
+ &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+               &#39;lowercase&#39;: True,
+               &#39;name&#39;: &#39;stopwords&#39;,
+               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;stopwords&#39;: None,
+               &#39;stopwords_path&#39;: None,
+               &#39;verbose&#39;: False},
+ &#39;stopwords_path&#39;: None,
+ &#39;tagset&#39;: None,
+ &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+              &#39;flatten&#39;: True,
+              &#39;include_whitespace_token&#39;: True,
+              &#39;lowercase&#39;: False,
+              &#39;punct_postags&#39;: [&#39;SF&#39;, &#39;SP&#39;, &#39;SSO&#39;, &#39;SSC&#39;, &#39;SY&#39;],
+              &#39;tokenize_each_word&#39;: False,
+              &#39;userdic_path&#39;: None,
+              &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+ &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+ &#39;verbose&#39;: False}
 </pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p>intantiate a mecab config and tokenize a text</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마이너스(−)를 持續하고 있다.&#39;</span>
 <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>[‘IMF/SL’, ‘가/JKS’, ‘ /SP’, ‘推定/NNG’, ‘한/XSA+ETM’, ‘ /SP’, ‘우리나라/NNG’, ‘의/JKG’, ‘ /SP’, ‘GDP/SL’, ‘갭/NNG’, ‘률/XSN’, ‘은/JX’, ‘ /SP’, ‘今年/NNG’, ‘에/JKB’, ‘도/JX’, ‘ /SP’, ‘소폭/NNG’, ‘의/JKG’, ‘ /SP’, ‘마이너스/NNG’, ‘(/SSO’, ‘−)/SY’, ‘를/JKO’, ‘ /SP’, ‘持續/NNG’, ‘하/XSV’, ‘고/EC’, ‘ /SP’, ‘있/VX’, ‘다/EF’, ‘./SF’]</p>
-</div></blockquote>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF/SL&#39;,
+ &#39;가/JKS&#39;,
+ &#39; /SP&#39;,
+ &#39;推定/NNG&#39;,
+ &#39;한/XSA+ETM&#39;,
+ &#39; /SP&#39;,
+ &#39;우리나라/NNG&#39;,
+ &#39;의/JKG&#39;,
+ &#39; /SP&#39;,
+ &#39;GDP/SL&#39;,
+ &#39;갭/NNG&#39;,
+ &#39;률/XSN&#39;,
+ &#39;은/JX&#39;,
+ &#39; /SP&#39;,
+ &#39;今年/NNG&#39;,
+ &#39;에/JKB&#39;,
+ &#39;도/JX&#39;,
+ &#39; /SP&#39;,
+ &#39;소폭/NNG&#39;,
+ &#39;의/JKG&#39;,
+ &#39; /SP&#39;,
+ &#39;마이너스/NNG&#39;,
+ &#39;(/SSO&#39;,
+ &#39;−)/SY&#39;,
+ &#39;를/JKO&#39;,
+ &#39; /SP&#39;,
+ &#39;持續/NNG&#39;,
+ &#39;하/XSV&#39;,
+ &#39;고/EC&#39;,
+ &#39; /SP&#39;,
+ &#39;있/VX&#39;,
+ &#39;다/EF&#39;,
+ &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>compose and instantiate a <code class="docutils literal notranslate"><span class="pre">formal_ko</span></code> config for the normalizer class</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/normalizer=formal_ko&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/normalizer=formal_ko&#39;</span>
 <span class="n">cfg_norm</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
 <span class="n">norm</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg_norm</span><span class="p">)</span>
 <span class="n">norm</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <blockquote>
 <div><p>‘IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.’</p>
@@ -574,17 +704,54 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>instantiate a mecab config with the above normalizer config</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">cfg_norm</span>
 <span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 <span class="n">mecab</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>[‘IMF/SL’, ‘가/JKS’, ‘ /SP’, ‘추정/NNG’, ‘한/XSA+ETM’, ‘ /SP’, ‘우리나라/NNG’, ‘의/JKG’, ‘ /SP’, ‘GDP/SL’, ‘갭/NNG’, ‘률/XSN’, ‘은/JX’, ‘ /SP’, ‘금년/NNG’, ‘에/JKB’, ‘도/JX’, ‘ /SP’, ‘소폭/NNG’, ‘의/JKG’, ‘ /SP’, ‘마이너스/NNG’, ‘(/SSO’, ‘-)/SY’, ‘를/JKO’, ‘ /SP’, ‘지속/NNG’, ‘하/XSV’, ‘고/EC’, ‘ /SP’, ‘있/VX’, ‘다/EF’, ‘./SF’]</p>
-</div></blockquote>
-<p>s</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;IMF/SL&#39;,
+ &#39;가/JKS&#39;,
+ &#39; /SP&#39;,
+ &#39;추정/NNG&#39;,
+ &#39;한/XSA+ETM&#39;,
+ &#39; /SP&#39;,
+ &#39;우리나라/NNG&#39;,
+ &#39;의/JKG&#39;,
+ &#39; /SP&#39;,
+ &#39;GDP/SL&#39;,
+ &#39;갭/NNG&#39;,
+ &#39;률/XSN&#39;,
+ &#39;은/JX&#39;,
+ &#39; /SP&#39;,
+ &#39;금년/NNG&#39;,
+ &#39;에/JKB&#39;,
+ &#39;도/JX&#39;,
+ &#39; /SP&#39;,
+ &#39;소폭/NNG&#39;,
+ &#39;의/JKG&#39;,
+ &#39; /SP&#39;,
+ &#39;마이너스/NNG&#39;,
+ &#39;(/SSO&#39;,
+ &#39;-)/SY&#39;,
+ &#39;를/JKO&#39;,
+ &#39; /SP&#39;,
+ &#39;지속/NNG&#39;,
+ &#39;하/XSV&#39;,
+ &#39;고/EC&#39;,
+ &#39; /SP&#39;,
+ &#39;있/VX&#39;,
+ &#39;다/EF&#39;,
+ &#39;./SF&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
