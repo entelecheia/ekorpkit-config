@@ -385,15 +385,6 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="compose-an-ekorpkit-config">
 <h1>Compose an ekorpkit config<a class="headerlink" href="#compose-an-ekorpkit-config" title="Permalink to this headline">¶</a></h1>
-<p><a href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/notebooks/config.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%capture</span>
-<span class="c1"># %pip install ekorpkit</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
@@ -403,10 +394,34 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Config type: &lt;class &#39;omegaconf.dictconfig.DictConfig&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;archive&#39;: &#39;/workspace/data/archive&#39;,
+ &#39;cache&#39;: &#39;/workspace/.cache&#39;,
+ &#39;corpus&#39;: &#39;/workspace/data/datasets/corpus&#39;,
+ &#39;data&#39;: &#39;/workspace/data&#39;,
+ &#39;dataset&#39;: &#39;/workspace/data/datasets&#39;,
+ &#39;ekorpkit&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit&#39;,
+ &#39;home&#39;: &#39;/root&#39;,
+ &#39;log&#39;: &#39;/workspace/projects/esgml/logs&#39;,
+ &#39;model&#39;: &#39;/workspace/data/models&#39;,
+ &#39;output&#39;: &#39;/workspace/projects/esgml/outputs&#39;,
+ &#39;project&#39;: &#39;/workspace/projects/esgml&#39;,
+ &#39;resource&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit/resources&#39;,
+ &#39;runtime&#39;: &#39;/workspace/projects/ekorpkit-config/ekorpkit-book/docs/basics/config&#39;,
+ &#39;tmp&#39;: &#39;/workspace/.tmp&#39;,
+ &#39;workspace&#39;: &#39;/workspace&#39;}
 </pre></div>
 </div>
 </div>
@@ -418,6 +433,32 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;batcher&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
+             &#39;minibatch_size&#39;: 1000,
+             &#39;procs&#39;: 1,
+             &#39;task_num_cpus&#39;: 1,
+             &#39;task_num_gpus&#39;: 0,
+             &#39;verbose&#39;: 10},
+ &#39;dask&#39;: {&#39;n_workers&#39;: 1},
+ &#39;distributed_framework&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
+                           &#39;initialize&#39;: True,
+                           &#39;num_workers&#39;: 1},
+ &#39;dotenv&#39;: {&#39;EKORPKIT_CONFIG_DIR&#39;: &#39;/workspace/projects/ekorpkit-config/config&#39;,
+            &#39;EKORPKIT_PIP_EXTRA&#39;: &#39;&#39;,
+            &#39;EKORPKIT_PROJECT&#39;: &#39;esgml&#39;,
+            &#39;EKORPKIT_SRC_DIR&#39;: &#39;/workspace/projects/ekorpkit&#39;,
+            &#39;EKORPKIT_WORKSPACE_ROOT&#39;: &#39;/workspace&#39;,
+            &#39;NUM_WORKERS&#39;: &#39;1&#39;},
+ &#39;dotenv_path&#39;: &#39;.env&#39;,
+ &#39;os&#39;: {&#39;CACHED_PATH_CACHE_ROOT&#39;: &#39;/workspace/.cache/cached_path&#39;,
+        &#39;MODIN_CPUS&#39;: 1,
+        &#39;MODIN_ENGINE&#39;: &#39;ray&#39;,
+        &#39;WANDB_API_KEY&#39;: &#39;3d6fcda4381d365661f9ca2ad248b80002170ac4&#39;},
+ &#39;ray&#39;: {&#39;num_cpus&#39;: 1}}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -426,10 +467,20 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eKonf</span><span class="o">.</span><span class="n">__home_path__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/root&#39;
 </pre></div>
 </div>
 </div>

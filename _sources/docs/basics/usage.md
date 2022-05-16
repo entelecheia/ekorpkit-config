@@ -19,9 +19,8 @@ ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
     project=esgml \
     dir.workspace=/workspace \
     num_workers=1 \
-    env.distributed_framework.backend=joblib \
-    +corpus/builtin=_dummy_fomc_minutes \
     cmd=fetch_builtin_corpus \
+    +corpus/builtin=_dummy_fomc_minutes \
     corpus.io.fetch.calculate_stats=true \
     corpus.io.fetch.preprocess_text=true \
     corpus.io.fetch.overwrite=false \
