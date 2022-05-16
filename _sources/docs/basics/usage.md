@@ -18,8 +18,8 @@ kernelspec:
 !ekorpkit
 ```
 
-```bash
-ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
+```{code-cell} ipython3
+!ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
     project=esgml \
     dir.workspace=/workspace \
     verbose=false \

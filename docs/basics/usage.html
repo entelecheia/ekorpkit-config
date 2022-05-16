@@ -542,19 +542,66 @@ Execute `ekorpkit --help` to see what eKorpkit provides
 </div>
 </div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  <span class="se">\</span>
-    <span class="nv">project</span><span class="o">=</span>esgml <span class="se">\</span>
-    dir.workspace<span class="o">=</span>/workspace <span class="se">\</span>
-    <span class="nv">verbose</span><span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-    <span class="nv">print_config</span><span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-    <span class="nv">num_workers</span><span class="o">=</span><span class="m">1</span> <span class="se">\</span>
-    <span class="nv">cmd</span><span class="o">=</span>fetch_builtin_corpus <span class="se">\</span>
-    +corpus/builtin<span class="o">=</span>_dummy_fomc_minutes <span class="se">\</span>
-    corpus.builtin.io.calculate_stats<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-    corpus.builtin.io.preprocess_text<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-    corpus.builtin.io.overwrite<span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-    corpus.builtin.io.force_download<span class="o">=</span><span class="nb">false</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>!ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
+    project=esgml \
+    dir.workspace=/workspace \
+    verbose=false \
+    print_config=false \
+    num_workers=1 \
+    cmd=fetch_builtin_corpus \
+    +corpus/builtin=_dummy_fomc_minutes \
+    corpus.builtin.io.calculate_stats=true \
+    corpus.builtin.io.preprocess_text=true \
+    corpus.builtin.io.overwrite=false \
+    corpus.builtin.io.force_download=false
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-16 09:52:32,938</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.loader.dummy</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes.csv already exists. skipping..
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-16 09:52:32,987</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.build</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet already exists
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:32,987</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Loading data from /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,006</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+Processing dataframe with pipeline: [&#39;normalize&#39;, &#39;segment&#39;, &#39;drop_duplicates&#39;, &#39;save_samples&#39;, &#39;save_dataframe&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,055</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipeline: OrderedDict([(&#39;normalize&#39;, &#39;normalize&#39;), (&#39;segment&#39;, &#39;segment&#39;), (&#39;drop_duplicates&#39;, &#39;drop_duplicates&#39;), (&#39;save_samples&#39;, &#39;save_samples&#39;), (&#39;save_dataframe&#39;, &#39;save_dataframe&#39;)])
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,056</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function normalize at 0x7fc2adacd820&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,058</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function segment at 0x7fc2adacd9d0&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,061</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function drop_duplicates at 0x7fc2adacdee0&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,064</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_samples at 0x7fc2adacdf70&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,068</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function _save_dataframe at 0x7fc2adace3a0&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,070</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Saving dataframe as /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_bytes to num_bytes:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
+apply len_bytes to num_bytes: 100%|████████████| 5/5 [00:00&lt;00:00, 15569.06it/s]
+
+apply len_wospc to num_bytes_wospc:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
+apply len_wospc to num_bytes_wospc: 100%|████████| 5/5 [00:00&lt;00:00, 638.89it/s]
+
+apply len_words to num_words:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
+apply len_words to num_words: 100%|█████████████| 5/5 [00:00&lt;00:00, 2515.17it/s]
+
+apply len_sents to num_sents:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
+apply len_sents to num_sents: 100%|██████████████| 5/5 [00:00&lt;00:00, 385.90it/s]
+
+apply len_segments to num_segments:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
+apply len_segments to num_segments: 100%|████████| 5/5 [00:00&lt;00:00, 420.84it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,157</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.stat</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to calculate statistics: 0:00:00.073985
+[<span class=" -Color -Color-Cyan">2022-05-16 09:52:33,167</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+Corpus [fomc_minutes] is built to [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes] from [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="cli-help">
 <h3>CLI Help<a class="headerlink" href="#cli-help" title="Permalink to this headline">¶</a></h3>
