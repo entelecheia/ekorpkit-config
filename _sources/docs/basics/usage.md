@@ -51,7 +51,7 @@ eKonf.pprint(cfg)
 
 ### Instantiating objects with an ekorpkit config
 
-- compose a config for the nltk class
+#### compose a config for the nltk class
 
 ```{code-cell} ipython3
 from ekorpkit import eKonf
@@ -70,8 +70,7 @@ nltk.tokenize(text)
  nltk.nouns(text)
 ```
 
-
-- compose a config for the mecab class
+#### compose a config for the mecab class
 
 ```{code-cell} ipython3
 config_group='preprocessor/tokenizer=mecab'
@@ -79,7 +78,7 @@ cfg = eKonf.compose(config_group=config_group)
 eKonf.pprint(cfg)
 ```
 
-- intantiate a mecab config and tokenize a text
+#### intantiate a mecab config and tokenize a text
 
 ```{code-cell} ipython3
 mecab = eKonf.instantiate(cfg)
@@ -87,8 +86,7 @@ text = 'IMF가 推定한 우리나라의 GDP갭률은 今年에도 소폭의 마
 mecab.tokenize(text)
 ```
 
-
-- compose and instantiate a `formal_ko` config for the normalizer class
+#### compose and instantiate a `formal_ko` config for the normalizer class
 
 ```{code-cell} ipython3
 config_group='preprocessor/normalizer=formal_ko'
@@ -97,9 +95,7 @@ norm = eKonf.instantiate(cfg_norm)
 norm(text)
 ```
 
-> 'IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.'
-
-- instantiate a mecab config with the above normalizer config
+#### instantiate a mecab config with the above normalizer config
 
 ```{code-cell} ipython3
 config_group='preprocessor/tokenizer=mecab'
@@ -108,4 +104,3 @@ cfg.normalize = cfg_norm
 mecab = eKonf.instantiate(cfg)
 mecab.tokenize(text)
 ```
-

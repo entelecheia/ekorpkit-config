@@ -394,6 +394,39 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#instantiating-objects-with-an-ekorpkit-config">
      Instantiating objects with an ekorpkit config
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-a-config-for-the-nltk-class">
+       compose a config for the nltk class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-a-config-for-the-mecab-class">
+       compose a config for the mecab class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#intantiate-a-mecab-config-and-tokenize-a-text">
+       intantiate a mecab config and tokenize a text
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-and-instantiate-a-formal-ko-config-for-the-normalizer-class">
+       compose and instantiate a
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         formal_ko
+        </span>
+       </code>
+       config for the normalizer class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#instantiate-a-mecab-config-with-the-above-normalizer-config">
+       instantiate a mecab config with the above normalizer config
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -443,6 +476,39 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#instantiating-objects-with-an-ekorpkit-config">
      Instantiating objects with an ekorpkit config
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-a-config-for-the-nltk-class">
+       compose a config for the nltk class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-a-config-for-the-mecab-class">
+       compose a config for the mecab class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#intantiate-a-mecab-config-and-tokenize-a-text">
+       intantiate a mecab config and tokenize a text
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compose-and-instantiate-a-formal-ko-config-for-the-normalizer-class">
+       compose and instantiate a
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         formal_ko
+        </span>
+       </code>
+       config for the normalizer class
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#instantiate-a-mecab-config-with-the-above-normalizer-config">
+       instantiate a mecab config with the above normalizer config
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -494,9 +560,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="instantiating-objects-with-an-ekorpkit-config">
 <h3>Instantiating objects with an ekorpkit config<a class="headerlink" href="#instantiating-objects-with-an-ekorpkit-config" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>compose a config for the nltk class</p></li>
-</ul>
+<div class="section" id="compose-a-config-for-the-nltk-class">
+<h4>compose a config for the nltk class<a class="headerlink" href="#compose-a-config-for-the-nltk-class" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
@@ -588,9 +653,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>compose a config for the mecab class</p></li>
-</ul>
+</div>
+<div class="section" id="compose-a-config-for-the-mecab-class">
+<h4>compose a config for the mecab class<a class="headerlink" href="#compose-a-config-for-the-mecab-class" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
@@ -631,9 +696,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>intantiate a mecab config and tokenize a text</p></li>
-</ul>
+</div>
+<div class="section" id="intantiate-a-mecab-config-and-tokenize-a-text">
+<h4>intantiate a mecab config and tokenize a text<a class="headerlink" href="#intantiate-a-mecab-config-and-tokenize-a-text" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mecab</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
@@ -680,9 +745,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>compose and instantiate a <code class="docutils literal notranslate"><span class="pre">formal_ko</span></code> config for the normalizer class</p></li>
-</ul>
+</div>
+<div class="section" id="compose-and-instantiate-a-formal-ko-config-for-the-normalizer-class">
+<h4>compose and instantiate a <code class="docutils literal notranslate"><span class="pre">formal_ko</span></code> config for the normalizer class<a class="headerlink" href="#compose-and-instantiate-a-formal-ko-config-for-the-normalizer-class" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/normalizer=formal_ko&#39;</span>
@@ -698,12 +763,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>‘IMF가 추정한 우리나라의 GDP갭률은 금년에도 소폭의 마이너스(-)를 지속하고 있다.’</p>
-</div></blockquote>
-<ul class="simple">
-<li><p>instantiate a mecab config with the above normalizer config</p></li>
-</ul>
+</div>
+<div class="section" id="instantiate-a-mecab-config-with-the-above-normalizer-config">
+<h4>instantiate a mecab config with the above normalizer config<a class="headerlink" href="#instantiate-a-mecab-config-with-the-above-normalizer-config" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;preprocessor/tokenizer=mecab&#39;</span>
@@ -749,6 +811,7 @@ const thebe_selector_output = ".output, .cell_output"
  &#39;다/EF&#39;,
  &#39;./SF&#39;]
 </pre></div>
+</div>
 </div>
 </div>
 </div>
