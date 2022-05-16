@@ -11,7 +11,6 @@ kernelspec:
 ---
 
 (file-types:myst-notebooks)=
-
 # Installation
 
 Install the latest version of ekorpit:
@@ -26,9 +25,7 @@ To install all extra dependencies,
 pip install ekorpkit[all]
 ```
 
-## Extra dependencies
-
-- keys (list of dependency keys)
+## Extra dependency keys
 
 ```{code-cell} ipython3
 from ekorpkit import eKonf
@@ -36,7 +33,9 @@ from ekorpkit import eKonf
 eKonf.dependencies("keys")
 ```
 
-- all 
+### Extra dependencies
+
+- all
 
 ```{code-cell} ipython3
 from ekorpkit import eKonf
@@ -51,4 +50,3 @@ from ekorpkit import eKonf
 
 eKonf.dependencies("tokenize")
 ```
-
