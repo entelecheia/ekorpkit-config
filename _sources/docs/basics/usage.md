@@ -14,17 +14,23 @@ kernelspec:
 
 ## Via Command Line Interface (CLI)
 
+```{code-cell} ipython3
+!ekorpkit
+```
+
 ```bash
-ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
+ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
     project=esgml \
     dir.workspace=/workspace \
+    verbose=false \
+    print_config=false \
     num_workers=1 \
     cmd=fetch_builtin_corpus \
     +corpus/builtin=_dummy_fomc_minutes \
-    corpus.io.fetch.calculate_stats=true \
-    corpus.io.fetch.preprocess_text=true \
-    corpus.io.fetch.overwrite=false \
-    corpus.io.fetch.force_download=false
+    corpus.builtin.io.calculate_stats=true \
+    corpus.builtin.io.preprocess_text=true \
+    corpus.builtin.io.overwrite=false \
+    corpus.builtin.io.force_download=false
 ```
 
 ### CLI Help
@@ -41,7 +47,8 @@ There are more examples in the [notebooks](https://github.com/entelecheia/ekorpk
 
 ### Compose an ekorpkit config
 
-```python
+```{code-cell} ipython3
+:tags: [output_scroll]
 from ekorpkit import eKonf
 cfg = eKonf.compose()
 print('Config type:', type(cfg))

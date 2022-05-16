@@ -525,16 +525,35 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="via-command-line-interface-cli">
 <h2>Via Command Line Interface (CLI)<a class="headerlink" href="#via-command-line-interface-cli" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ekorpkit --config-dir /workspace/data/ekorpkit-config/config <span class="se">\</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ekorpkit
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name        : ekorpkit
+author      : entelecheia
+description : eKorpkit provides a flexible interface for corpus management and analysis pipelines such as extraction, transformation, tokenization, training, and visualization.
+version     : 0.1.30+0.gbbc61f7.dirty
+
+Execute `ekorpkit --help` to see what eKorpkit provides
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  <span class="se">\</span>
     <span class="nv">project</span><span class="o">=</span>esgml <span class="se">\</span>
     dir.workspace<span class="o">=</span>/workspace <span class="se">\</span>
+    <span class="nv">verbose</span><span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
+    <span class="nv">print_config</span><span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
     <span class="nv">num_workers</span><span class="o">=</span><span class="m">1</span> <span class="se">\</span>
     <span class="nv">cmd</span><span class="o">=</span>fetch_builtin_corpus <span class="se">\</span>
     +corpus/builtin<span class="o">=</span>_dummy_fomc_minutes <span class="se">\</span>
-    corpus.io.fetch.calculate_stats<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-    corpus.io.fetch.preprocess_text<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-    corpus.io.fetch.overwrite<span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
-    corpus.io.fetch.force_download<span class="o">=</span><span class="nb">false</span>
+    corpus.builtin.io.calculate_stats<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+    corpus.builtin.io.preprocess_text<span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
+    corpus.builtin.io.overwrite<span class="o">=</span><span class="nb">false</span> <span class="se">\</span>
+    corpus.builtin.io.force_download<span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 <div class="section" id="cli-help">
@@ -550,11 +569,191 @@ const thebe_selector_output = ".output, .cell_output"
 <p>There are more examples in the <a class="reference external" href="https://github.com/entelecheia/ekorpkit-config/tree/main/notebooks">notebooks</a> folder of the <a class="reference external" href="https://github.com/entelecheia/ekorpkit-config.git">ekorpkit-config</a></p>
 <div class="section" id="compose-an-ekorpkit-config">
 <h3>Compose an ekorpkit config<a class="headerlink" href="#compose-an-ekorpkit-config" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Config type:&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">cfg</span><span class="p">))</span>
 <span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Config type: &lt;class &#39;omegaconf.dictconfig.DictConfig&#39;&gt;
+{&#39;_config_&#39;: &#39;about.app&#39;,
+ &#39;_target_&#39;: &#39;ekorpkit.cli.cmd&#39;,
+ &#39;about&#39;: {&#39;app&#39;: {&#39;_target_&#39;: &#39;ekorpkit.cli.about&#39;,
+                   &#39;author&#39;: &#39;entelecheia&#39;,
+                   &#39;description&#39;: &#39;eKorpkit provides a flexible interface for &#39;
+                                  &#39;corpus management and analysis pipelines &#39;
+                                  &#39;such as extraction, transformation, &#39;
+                                  &#39;tokenization, training, and visualization.&#39;,
+                   &#39;name&#39;: &#39;ekorpkit&#39;,
+                   &#39;version&#39;: &#39;0.1.30+0.gbbc61f7.dirty&#39;}},
+ &#39;app_name&#39;: &#39;ekorpkit&#39;,
+ &#39;corpus&#39;: {&#39;_target_&#39;: &#39;ekorpkit.corpora.corpus.Corpus&#39;,
+            &#39;autoload&#39;: True,
+            &#39;automerge&#39;: False,
+            &#39;column_info&#39;: {&#39;data&#39;: None,
+                            &#39;keys&#39;: None,
+                            &#39;meta&#39;: None,
+                            &#39;timestamp&#39;: {&#39;format&#39;: None,
+                                          &#39;key&#39;: None,
+                                          &#39;params&#39;: None}},
+            &#39;data_dir&#39;: &#39;/root/.ekorpkit/data/datasets/corpus&#39;,
+            &#39;filetype&#39;: None,
+            &#39;metadata_dir&#39;: None,
+            &#39;name&#39;: None,
+            &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+            &#39;sentence_separator&#39;: &#39;\\n&#39;,
+            &#39;use_name_as_subdir&#39;: True,
+            &#39;verbose&#39;: False},
+ &#39;dataset&#39;: {&#39;_target_&#39;: &#39;ekorpkit.datasets.dataset.Dataset&#39;,
+             &#39;autoload&#39;: True,
+             &#39;column_info&#39;: {&#39;data&#39;: None,
+                             &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;, &#39;text&#39;: &#39;text&#39;}},
+             &#39;data_dir&#39;: &#39;/root/.ekorpkit/data/datasets/dataset&#39;,
+             &#39;filetype&#39;: &#39;csv&#39;,
+             &#39;name&#39;: None,
+             &#39;use_name_as_subdir&#39;: True,
+             &#39;verbose&#39;: False},
+ &#39;debug_mode&#39;: False,
+ &#39;dir&#39;: {&#39;archive&#39;: &#39;/root/.ekorpkit/data/archive&#39;,
+         &#39;cache&#39;: &#39;/root/.ekorpkit/.cache&#39;,
+         &#39;corpus&#39;: &#39;/root/.ekorpkit/data/datasets/corpus&#39;,
+         &#39;data&#39;: &#39;/root/.ekorpkit/data&#39;,
+         &#39;dataset&#39;: &#39;/root/.ekorpkit/data/datasets&#39;,
+         &#39;ekorpkit&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit&#39;,
+         &#39;home&#39;: &#39;/root&#39;,
+         &#39;log&#39;: &#39;/root/.ekorpkit/projects/default/logs&#39;,
+         &#39;model&#39;: &#39;/root/.ekorpkit/data/models&#39;,
+         &#39;output&#39;: &#39;/root/.ekorpkit/projects/default/outputs&#39;,
+         &#39;project&#39;: &#39;/root/.ekorpkit/projects/default&#39;,
+         &#39;resource&#39;: &#39;/workspace/projects/ekorpkit/ekorpkit/resources&#39;,
+         &#39;runtime&#39;: &#39;/workspace/projects/ekorpkit-config/ekorpkit-book/docs/basics&#39;,
+         &#39;tmp&#39;: &#39;/root/.ekorpkit/.tmp&#39;,
+         &#39;workspace&#39;: &#39;/root/.ekorpkit&#39;},
+ &#39;env&#39;: {&#39;batcher&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
+                     &#39;minibatch_size&#39;: 1000,
+                     &#39;procs&#39;: 1,
+                     &#39;task_num_cpus&#39;: 1,
+                     &#39;task_num_gpus&#39;: 0,
+                     &#39;verbose&#39;: 10},
+         &#39;dask&#39;: {&#39;n_workers&#39;: 1},
+         &#39;distributed_framework&#39;: {&#39;backend&#39;: &#39;joblib&#39;,
+                                   &#39;initialize&#39;: True,
+                                   &#39;num_workers&#39;: 1},
+         &#39;dotenv&#39;: {},
+         &#39;dotenv_path&#39;: &#39;/workspace/projects/ekorpkit-config/ekorpkit-book/docs/basics/.env&#39;,
+         &#39;os&#39;: {&#39;CACHED_PATH_CACHE_ROOT&#39;: &#39;/root/.ekorpkit/.cache/cached_path&#39;,
+                &#39;MODIN_CPUS&#39;: 1,
+                &#39;MODIN_ENGINE&#39;: &#39;ray&#39;},
+         &#39;ray&#39;: {&#39;num_cpus&#39;: 1}},
+ &#39;ignore_warnings&#39;: True,
+ &#39;model&#39;: {&#39;data_dir&#39;: &#39;/root/.ekorpkit/projects/default/data&#39;,
+           &#39;name&#39;: &#39;model&#39;,
+           &#39;num_workers&#39;: 1,
+           &#39;output_dir&#39;: &#39;/root/.ekorpkit/projects/default/outputs/model&#39;,
+           &#39;verbose&#39;: False},
+ &#39;num_workers&#39;: 1,
+ &#39;preprocessor&#39;: {&#39;normalizer&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.normalizer.Normalizer&#39;,
+                                 &#39;ftfy&#39;: {&#39;decode_inconsistent_utf8&#39;: True,
+                                          &#39;fix_c1_controls&#39;: True,
+                                          &#39;fix_character_width&#39;: True,
+                                          &#39;fix_encoding&#39;: True,
+                                          &#39;fix_latin_ligatures&#39;: True,
+                                          &#39;fix_line_breaks&#39;: True,
+                                          &#39;fix_surrogates&#39;: True,
+                                          &#39;max_decode_length&#39;: 1000000,
+                                          &#39;normalization&#39;: &#39;NFKC&#39;,
+                                          &#39;remove_control_chars&#39;: True,
+                                          &#39;remove_terminal_escapes&#39;: True,
+                                          &#39;replace_lossy_sequences&#39;: True,
+                                          &#39;restore_byte_a0&#39;: True,
+                                          &#39;uncurl_quotes&#39;: True,
+                                          &#39;unescape_html&#39;: True},
+                                 &#39;hanja2hangle&#39;: False,
+                                 &#39;num_repeats&#39;: 2,
+                                 &#39;spaces&#39;: {&#39;collapse_whitespaces&#39;: True,
+                                            &#39;fix_whitespaces&#39;: True,
+                                            &#39;num_spaces_for_tab&#39;: 4,
+                                            &#39;replace_tabs&#39;: True,
+                                            &#39;strip&#39;: True},
+                                 &#39;special_characters&#39;: {&#39;fix_ellipsis&#39;: True,
+                                                        &#39;fix_emoticons&#39;: False,
+                                                        &#39;fix_hyphens&#39;: True,
+                                                        &#39;fix_slashes&#39;: True,
+                                                        &#39;fix_tildes&#39;: True,
+                                                        &#39;regular_parentheses_only&#39;: False,
+                                                        &#39;single_quotes_only&#39;: False}},
+                  &#39;segmenter&#39;: {&#39;chunk&#39;: {&#39;chunk_overlap&#39;: False,
+                                          &#39;chunk_size&#39;: 300},
+                                &#39;filter_language&#39;: {&#39;detection_level&#39;: &#39;segment&#39;,
+                                                    &#39;filter&#39;: False,
+                                                    &#39;languages_to_keep&#39;: [&#39;en&#39;,
+                                                                          &#39;ko&#39;],
+                                                    &#39;min_language_probability&#39;: 0.8},
+                                &#39;filter_programming_language&#39;: False,
+                                &#39;filter_sentence_length&#39;: {&#39;filter&#39;: False,
+                                                           &#39;min_length&#39;: 10,
+                                                           &#39;min_num_words&#39;: 3},
+                                &#39;merge&#39;: {&#39;broken_lines_threshold&#39;: 0.4,
+                                          &#39;empty_lines_threshold&#39;: 0.6,
+                                          &#39;merge_level&#39;: &#39;segment&#39;,
+                                          &#39;merge_lines&#39;: False},
+                                &#39;print_args&#39;: False,
+                                &#39;return_as_list&#39;: False,
+                                &#39;separators&#39;: {&#39;in_segment&#39;: &#39;\\n\\n&#39;,
+                                               &#39;in_sentence&#39;: &#39;\\n&#39;,
+                                               &#39;out_segment&#39;: &#39;\\n\\n&#39;,
+                                               &#39;out_sentence&#39;: &#39;\\n&#39;},
+                                &#39;split&#39;: {&#39;keep_segment&#39;: True,
+                                          &#39;max_recover_length&#39;: 30000,
+                                          &#39;max_recover_step&#39;: 0},
+                                &#39;verbose&#39;: True},
+                  &#39;tokenizer&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.tokenizer.Tokenizer&#39;,
+                                &#39;extract&#39;: {&#39;no_space_for_non_nouns&#39;: False,
+                                            &#39;noun_postags&#39;: [&#39;NNG&#39;,
+                                                             &#39;NNP&#39;,
+                                                             &#39;XSN&#39;,
+                                                             &#39;SL&#39;,
+                                                             &#39;XR&#39;,
+                                                             &#39;NNB&#39;,
+                                                             &#39;NR&#39;],
+                                            &#39;postags&#39;: None,
+                                            &#39;stop_postags&#39;: [&#39;SP&#39;]},
+                                &#39;normalize&#39;: None,
+                                &#39;return_as_list&#39;: False,
+                                &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
+                                              &#39;lowercase&#39;: True,
+                                              &#39;name&#39;: &#39;stopwords&#39;,
+                                              &#39;nltk_stopwords&#39;: &#39;english&#39;,
+                                              &#39;stopwords&#39;: None,
+                                              &#39;stopwords_path&#39;: None,
+                                              &#39;verbose&#39;: False},
+                                &#39;stopwords_path&#39;: None,
+                                &#39;tagset&#39;: None,
+                                &#39;tokenize&#39;: {&#39;concat_surface_and_pos&#39;: True,
+                                             &#39;flatten&#39;: True,
+                                             &#39;include_whitespace_token&#39;: True,
+                                             &#39;lowercase&#39;: False,
+                                             &#39;punct_postags&#39;: [&#39;SF&#39;,
+                                                               &#39;SP&#39;,
+                                                               &#39;SSO&#39;,
+                                                               &#39;SSC&#39;,
+                                                               &#39;SY&#39;],
+                                             &#39;tokenize_each_word&#39;: False,
+                                             &#39;userdic_path&#39;: None,
+                                             &#39;wordpieces_prefix&#39;: &#39;##&#39;},
+                                &#39;tokenize_article&#39;: {&#39;sentence_separator&#39;: &#39;\\n&#39;},
+                                &#39;verbose&#39;: False}},
+ &#39;print_config&#39;: False,
+ &#39;print_resolved_config&#39;: True,
+ &#39;project&#39;: &#39;default&#39;,
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="instantiating-objects-with-an-ekorpkit-config">
