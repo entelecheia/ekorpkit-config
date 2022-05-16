@@ -300,7 +300,10 @@ const thebe_selector_output = ".output, .cell_output"
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../../_sources/docs/basics/install.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../../_sources/docs/basics/install.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -338,6 +341,23 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/basics/install.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -362,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<span id="file-types-myst-notebooks"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Install the latest version of ekorpit:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -U ekorpkit
 </pre></div>
@@ -370,6 +390,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To install all extra dependencies,</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install ekorpkit<span class="o">[</span>all<span class="o">]</span>
 </pre></div>
+</div>
+<div class="cell tag_mytag docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A python cell&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

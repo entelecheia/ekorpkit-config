@@ -10,10 +10,10 @@ ekorpkit --config-dir /workspace/data/ekorpkit-config/config \
     env.distributed_framework.backend=joblib \
     +corpus/builtin=_dummy_fomc_minutes \
     cmd=fetch_builtin_corpus \
-    corpus.builtin.fetch.calculate_stats=true \
-    corpus.builtin.fetch.preprocess_text=true \
-    corpus.builtin.fetch.overwrite=false \
-    corpus.builtin.fetch.force_download=false
+    corpus.io.fetch.calculate_stats=true \
+    corpus.io.fetch.preprocess_text=true \
+    corpus.io.fetch.overwrite=false \
+    corpus.io.fetch.force_download=false
 ```
 
 ### CLI Help
