@@ -25,28 +25,24 @@ To install all extra dependencies,
 pip install ekorpkit[all]
 ```
 
-## Extra dependency keys
+## Extra dependencies
 
 ```{code-cell} ipython3
 from ekorpkit import eKonf
-
-eKonf.dependencies("keys")
-```
-
-### Extra dependencies
-
-- all
-
-```{code-cell} ipython3
-from ekorpkit import eKonf
-
-eKonf.dependencies("all")
-```
-
-- tokenize
-
-```{code-cell} ipython3
-from ekorpkit import eKonf
-
 eKonf.dependencies("tokenize")
+```
+
+```{code-cell} ipython3
+from ekorpkit import eKonf
+eKonf.dependencies("dataset")
+```
+
+```{code-cell} ipython3
+from ekorpkit import eKonf
+eKonf.dependencies("model")
+```
+
+```{code-cell} ipython3
+from ekorpkit import eKonf
+eKonf.dependencies("all")
 ```
