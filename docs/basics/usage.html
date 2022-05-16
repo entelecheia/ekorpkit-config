@@ -559,8 +559,250 @@ Execute `ekorpkit --help` to see what eKorpkit provides
 <div class="section" id="cli-help">
 <h3>CLI Help<a class="headerlink" href="#cli-help" title="Permalink to this headline">¶</a></h3>
 <p>To see the available configurations for CLI, run the command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ekorpkit --help
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ekorpkit --help
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>== ekorpkit == 
+
+author: entelecheia
+description: eKorpkit provides a flexible interface for corpus management and analysis pipelines such as extraction, transformation, tokenization, training, and visualization.
+
+ekorpkit Command Line Interface for Hydra
+
+== Configuration groups ==
+
+Compose your configuration from those groups (task=task_name)
+_call_: datasets, replace, train_and_eval
+about: default, run
+about/app: default, run
+cmd: convert_electra, default, fetch_builtin_corpus, fetch_simple_dataset, fetch_t5_dataset, info, job, listup, path, pipeline, task, topic_task, transformer_finetune, workflow
+corpus: _loader, corpora, corpus, dataset, default
+corpus/builtin: _build, _dummy_bok_minutes, _dummy_fomc_minutes, aida_paper, aihub_book, aihub_formal1, aihub_formal2, aihub_koen_formal, aihub_koen_sci, aihub_koen_ssci, aihub_law_case, aihub_law_kb, aihub_paper, aihub_patent1, aihub_patent2, bigkinds, bigpatent, bok_minutes, c4_realnewslike, cb_speech, cc_news, courtlistener, earnings_call, edgar, enron_mail, enwiki, esg_report, fomc, gd_review, hacker_news, kaist, kcbert, kcc, kowiki, mc4_ko, namuwiki, nih_exporter, nikl_news, nikl_spoken, nikl_written, oscar_ko, pathobook, philpapers, pmc_comm, pmc_noncomm, pubmed, respec, reuters_financial, sec_report, stackexchange, us_equities_news, verbcl, youtube_subtitles
+corpus/preset: builtins
+dataset: _loader, dataset, datasets, default, preset, simple, simple_auto, t5
+dataset/preset: builtins
+dataset/simple: _build, analystsent_kr, bc4chemd, bc5cdr, esg_topics, financial_phrasebank, finphrase_kr, mp_tone_kr, ncbi-disease, nsmc, pathner, sst2
+dataset/t5: BC2GM, BC4CHEMD, BC5CDR-chem, BC5CDR-disease, JNLPBA, NCBI-disease, _build, _scifive_finetune, linnaeus, s800
+dir: default
+env: default, run
+function: aggregate_columns, chunk, combine_columns, concat_dataframes, drop, drop_duplicates, eval_columns, evaluate_classification_performance, explode_splits, extract_tokens, fillna, filter_length, filter_query, general_function, load_dataframe, melt, merge_dataframe, normalize, pivot, plot, predict, remove_startswith, rename_columns, reset_index, sampling, save_as_json, save_as_text, save_dataframe, save_metadata, save_samples, segment, split_dataframe, split_sampling, stdout_samples, subset, summary_stats, tokenize, top_values
+function/len_bytes: default
+function/len_segments: default
+function/len_sents: default
+function/len_words: default
+function/len_wospc: default
+info: _build_corpus, _build_dataset, _build_t5, _default_build, corpus, t5
+info/stats: corpus, default
+info/table: corpus_info, listup, t5_info
+io: _build_corpus, _build_simple, _build_t5, file
+io/fetcher: _default, _dummy, _gcs, _gdrive_untar, _web, bok, dataframe, earnings_call, edgar, edgar_filings, edgar_items, enwiki, esg_report, fomc, fred, glassdoor, hfds, kcbert, kcc, kowiki, namuwiki, nih_exporter, pathobook, pubmed, respec, sec_report
+io/loader: class, csv, gcs, hfds, parser, tf_textline, the_pile, tsv
+io/loader/decompressor: gzip
+io/loader/parser: email, html_to_json, json, json_to_list, jsonlines, plaintext, plaintext_split, pmc, pubmed, redif, reuters
+job: _job_, build_corpus
+job/example: build_corpus, tokenize_corpus
+mode: debug, default, run
+model: default
+model/eval: classification
+model/plm/electra: base, large
+model/plm/electra/discriminator: base, large
+model/plm/electra/generator: base, large
+model/sentiment: _default, hiv4, lm, mpko_lex
+model/sentiment/lexicon: _default, hiv4, kosac_polarity, lm, mpko_lex
+model/tokenizer: bert_wordpiece, train_spm_t5
+model/tokenizer/spm: t5
+model/topic: default
+model/topic/task: topic_subtask
+model/topic/task/infer_topics: default
+model/topic/task/label_topics: default
+model/topic/task/load_corpus: default
+model/topic/task/load_model: default
+model/topic/task/save_labels: default
+model/topic/task/topic_wordclouds: default
+model/topic/task/train_model: dtm, lda
+model/topic/task/tune_params: default
+model/topic/task/visualize: default
+model/transformer: _default, _train, simple_classification, simple_ner, simple_t5, simple_t5_classification
+model/transformer/config: classification, t5
+model/transformer/pretrained: SciFive-base-Pubmed, bert-base-uncased, ekonelectra-base, electra-discriminator, finbert, t5-base
+pipeline: _blank, _build_corpus, _build_dataset, _default, blank, default
+pipeline/aggregate_columns: default
+pipeline/chunk: default
+pipeline/combine_columns: default
+pipeline/concat_dataframes: default
+pipeline/drop: default
+pipeline/drop_duplicates: default
+pipeline/eval_columns: default
+pipeline/explode_splits: default
+pipeline/extract_tokens: default
+pipeline/fillna: default
+pipeline/filter_length: default
+pipeline/filter_query: default
+pipeline/load_dataframe: default
+pipeline/melt: default
+pipeline/merge_dataframe: default
+pipeline/normalize: default
+pipeline/pivot: default
+pipeline/plot: default
+pipeline/predict: default
+pipeline/remove_startswith: default
+pipeline/rename_columns: default
+pipeline/replace: default
+pipeline/reset_index: default
+pipeline/sampling: default
+pipeline/save_as_json: default
+pipeline/save_as_text: default
+pipeline/save_dataframe: default
+pipeline/save_metadata: default
+pipeline/save_samples: default
+pipeline/segment: default
+pipeline/split_dataframe: default
+pipeline/split_sampling: default
+pipeline/stdout_samples: default
+pipeline/subset: default
+pipeline/summary_stats: default
+pipeline/tokenize: default
+pipeline/top_values: default
+preprocessor/normalizer: default, formal_en, formal_en_parantheses, formal_ko, informal_ko
+preprocessor/segmenter: chunk, default, kss, kss_merge_article, nltk, pysbd, pysbd_filter_pl, pysbd_merge_article, pysbd_merge_article_filter_len, pysbd_merge_enko, pysbd_merge_segment, simple
+preprocessor/tokenizer: bwp, default, mecab, mecab_econ, nltk, pynori
+preprocessor/tokenizer/stopwords: default
+project: default, sample, test
+resource/meta: recessions
+resource/postag: mecab, nltk
+util/lmdata: build_vocab
+util/lmdata/sharding: default
+util/model/convert: convert_electra
+util/vocab/extract_nouns: default
+visualize: default
+visualize/plot: _default, barplot, confusion_matrix, default, lineplot, stackplot
+visualize/plot/annotation: default
+visualize/plot/axvspan: default
+visualize/plot/dataset: default
+visualize/plot/figure: default
+visualize/plot/lineplot: default
+visualize/plot/plot: default
+visualize/plot/savefig: default
+visualize/plot/scatter: default
+visualize/plot/stackplot: default
+visualize/treemap: default
+visualize/wordcloud: default
+workflow: _flow_
+workflow/example: example
+
+== Config ==
+
+This is the config generated for this run.
+You can override everything, for example:
+ekorpkit task=your_config_name
+--------------------------------------------------
+about:
+  app:
+    _target_: ekorpkit.cli.about
+    name: ekorpkit
+    author: entelecheia
+    description: eKorpkit provides a flexible interface for corpus management and
+      analysis pipelines such as extraction, transformation, tokenization, training,
+      and visualization.
+    version: ${__version__:}
+_target_: ekorpkit.cli.cmd
+_config_: about.app
+corpus:
+  _target_: ekorpkit.corpora.corpus.Corpus
+  name: ${oc.select:.builtin.name, null}
+  data_dir: ${oc.select:.builtin.data_dir, ${dir.corpus}}
+  metadata_dir: null
+  filetype: ${oc.select:.builtin.filetype, null}
+  autoload: true
+  automerge: false
+  verbose: ${oc.select:..verbose, true}
+  segment_separator: ${oc.select:.builtin.segment_separator, &#39;\n\n&#39;}
+  sentence_separator: ${oc.select:.builtin.sentence_separator, &#39;\n&#39;}
+  column_info:
+    keys: ${oc.select:..builtin.column_info.keys, null}
+    data: ${oc.select:..builtin.column_info.data, null}
+    meta: ${oc.select:..builtin.column_info.meta, null}
+    timestamp:
+      key: null
+      format: null
+      params: null
+  use_name_as_subdir: true
+dataset:
+  _target_: ekorpkit.datasets.dataset.Dataset
+  name: ${oc.select:.builtin.name, null}
+  data_dir: ${dir.dataset}/dataset
+  filetype: ${oc.select:.builtin.filetype, csv}
+  autoload: true
+  verbose: ${oc.select:..verbose, true}
+  column_info:
+    keys:
+      id: id
+      text: text
+    data: null
+  use_name_as_subdir: true
+dir:
+  archive: ${.data}/archive
+  cache: ${.workspace}/.cache
+  corpus: ${.dataset}/corpus
+  data: ${.workspace}/data
+  dataset: ${.data}/datasets
+  ekorpkit: ${__ekorpkit_path__:}
+  home: ${__home_path__:}
+  log: ${.project}/logs
+  model: ${.data}/models
+  output: ${.project}/outputs
+  project: ${.workspace}/projects/${project}
+  resource: ${.ekorpkit}/resources
+  runtime: ${get_original_cwd:}
+  tmp: ${.workspace}/.tmp
+  workspace: ${oc.env:EKORPKIT_WORKSPACE_ROOT,${.home}/.ekorpkit}
+env:
+  dotenv_path: ${dir.runtime}/.env
+  dotenv: ${dotenv_values:${.dotenv_path}}
+  os:
+    MODIN_ENGINE: ray
+    MODIN_CPUS: ${oc.select:..distributed_framework.num_workers,50}
+    CACHED_PATH_CACHE_ROOT: ${dir.cache}/cached_path
+  distributed_framework:
+    backend: joblib
+    initialize: true
+    num_workers: ${oc.select:num_workers,50}
+  ray:
+    num_cpus: ${oc.select:..distributed_framework.num_workers,50}
+  dask:
+    n_workers: ${oc.select:..distributed_framework.num_workers,50}
+  batcher:
+    procs: ${oc.select:..distributed_framework.num_workers,50}
+    minibatch_size: 1000
+    backend: ${..distributed_framework.backend}
+    task_num_cpus: 1
+    task_num_gpus: 0
+    verbose: 10
+app_name: ${about.app.name}
+debug_mode: false
+print_config: false
+print_resolved_config: true
+num_workers: 1
+verbose: false
+ignore_warnings: true
+model:
+  name: model
+  data_dir: ${oc.select:..data_dir, ${dir.project}/data}
+  output_dir: ${oc.select:..output_dir, ${dir.output}/${.name}}
+  num_workers: ${oc.select:num_workers,1}
+  verbose: ${oc.select:..verbose, true}
+project: ${oc.env:EKORPKIT_PROJECT,default}
+
+--------------------------------------------------
+Powered by Hydra (https://hydra.cc)
+Use --hydra-help to view Hydra specific help
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>

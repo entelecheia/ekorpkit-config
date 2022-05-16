@@ -37,8 +37,9 @@ ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
 
 To see the available configurations for CLI, run the command:
 
-```bash
-ekorpkit --help
+```{code-cell} ipython3
+:tags: [output_scroll]
+!ekorpkit --help
 ```
 
 ## Via Python
