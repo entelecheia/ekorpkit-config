@@ -499,14 +499,23 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="lm-dictionary-vs-finbert-vs-t5">
 <h1>LM Dictionary vs. finbert vs. T5<a class="headerlink" href="#lm-dictionary-vs-finbert-vs-t5" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="prepare-financial-phrasebank-dataset">
 <h2>Prepare <code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code> dataset<a class="headerlink" href="#prepare-financial-phrasebank-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
-<span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
-<span class="n">ds_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;dataset=dataset&#39;</span><span class="p">)</span>
+<span class="n">ds_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;dataset&#39;</span><span class="p">)</span>
 <span class="n">ds_cfg</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;financial_phrasebank&#39;</span>
 <span class="n">ds_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;https://github.com/entelecheia/ekorpkit-config/raw/main/data/financial_phrasebank.zip&#39;,true,false}&quot;</span>
 <span class="n">ds_cfg</span><span class="o">.</span><span class="n">use_name_as_subdir</span> <span class="o">=</span> <span class="kc">True</span>
@@ -581,7 +590,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Instantiating a sentiment analyser class with <code class="docutils literal notranslate"><span class="pre">financial_phrasebank</span></code> dataset<a class="headerlink" href="#instantiating-a-sentiment-analyser-class-with-financial-phrasebank-dataset" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;pipeline=pipeline&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;pipeline&#39;</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds_cfg</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">_pipeline_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predict&#39;</span><span class="p">]</span>
@@ -645,17 +654,17 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "2597de06f0c247879d4c43e7eb35634b", "version_major": 2, "version_minor": 0}
+{"model_id": "b43cd2f960cc48f2a5df4992fdbe9712", "version_major": 2, "version_minor": 0}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-train.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "07d4180a859f4960a243836faa545593", "version_major": 2, "version_minor": 0}
+{"model_id": "e95748301c5a49b9b01a0755a2bbe508", "version_major": 2, "version_minor": 0}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-test.parquet
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "459fcfc6c137416d92d5275d6a08b3cc", "version_major": 2, "version_minor": 0}
+{"model_id": "0b8689b16b134b2398c5bfe4bca2180e", "version_major": 2, "version_minor": 0}
 </script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/financial_phrasebank-dev.parquet
 </pre></div>
 </div>
@@ -672,20 +681,33 @@ const thebe_selector_output = ".output, .cell_output"
  1443   573   neutral  LKAB , headquartered in Lulea , Sweden , is a ...   
  1444  1768   neutral  The EBRD is using its own funds to provide a 2...   
  
-       split  polarity  subjectivity polarity_label  uncertainty  
- 0     train  0.000000      0.000000        neutral          0.0  
- 1     train  0.999999      0.045455       positive          0.0  
- 2     train  0.000000      0.000000        neutral          0.0  
- 3     train  0.000000      0.000000        neutral          0.0  
- 4     train -0.999999      0.034483       negative          0.0  
- ...     ...       ...           ...            ...          ...  
- 1440  train  0.000000      0.000000        neutral          0.0  
- 1441  train  0.000000      0.000000        neutral          0.0  
- 1442  train -0.999999      0.076923       negative          0.0  
- 1443  train  0.000000      0.000000        neutral          0.0  
- 1444  train  0.000000      0.000000        neutral          0.0  
+       split  positive  negative  num_tokens  polarity  subjectivity  \
+ 0     train  0.000000  0.000000          15  0.000000      0.000000   
+ 1     train  0.045455  0.000000          22  0.999999      0.045455   
+ 2     train  0.000000  0.000000          24  0.000000      0.000000   
+ 3     train  0.000000  0.000000          27  0.000000      0.000000   
+ 4     train  0.000000  0.034483          29 -0.999999      0.034483   
+ ...     ...       ...       ...         ...       ...           ...   
+ 1440  train  0.000000  0.000000          20  0.000000      0.000000   
+ 1441  train  0.000000  0.000000          21  0.000000      0.000000   
+ 1442  train  0.000000  0.076923          13 -0.999999      0.076923   
+ 1443  train  0.000000  0.000000          23  0.000000      0.000000   
+ 1444  train  0.000000  0.000000          41  0.000000      0.000000   
  
- [1445 rows x 8 columns],
+      polarity_label  uncertainty  
+ 0           neutral          0.0  
+ 1          positive          0.0  
+ 2           neutral          0.0  
+ 3           neutral          0.0  
+ 4          negative          0.0  
+ ...             ...          ...  
+ 1440        neutral          0.0  
+ 1441        neutral          0.0  
+ 1442       negative          0.0  
+ 1443        neutral          0.0  
+ 1444        neutral          0.0  
+ 
+ [1445 rows x 11 columns],
  &#39;test&#39;:        id    labels                                               text split  \
  0     505   neutral  Los Angeles-based Pacific Office Properties Tr...  test   
  1     783  positive  Investors will continue being interested in th...  test   
@@ -699,20 +721,33 @@ const thebe_selector_output = ".output, .cell_output"
  450  1390   neutral  The company can not give up palm oil altogethe...  test   
  451   181  positive  Pretax profit rose to EUR 1,019 mn from EUR 1,...  test   
  
-      polarity  subjectivity polarity_label  uncertainty  
- 0         0.0           0.0        neutral          0.0  
- 1         0.0           0.0        neutral          0.0  
- 2         0.0           0.0        neutral          0.0  
- 3         0.0           0.0        neutral          0.0  
- 4         0.0           0.0        neutral          0.0  
- ..        ...           ...            ...          ...  
- 447       0.0           0.0        neutral          0.0  
- 448       0.0           0.0        neutral          0.0  
- 449       0.0           0.0        neutral          0.0  
- 450       0.0           0.0        neutral          0.0  
- 451       0.0           0.0        neutral          0.0  
+      positive  negative  num_tokens  polarity  subjectivity polarity_label  \
+ 0         0.0       0.0          36       0.0           0.0        neutral   
+ 1         0.0       0.0          20       0.0           0.0        neutral   
+ 2         0.0       0.0          16       0.0           0.0        neutral   
+ 3         0.0       0.0          18       0.0           0.0        neutral   
+ 4         0.0       0.0          12       0.0           0.0        neutral   
+ ..        ...       ...         ...       ...           ...            ...   
+ 447       0.0       0.0          18       0.0           0.0        neutral   
+ 448       0.0       0.0          30       0.0           0.0        neutral   
+ 449       0.0       0.0          26       0.0           0.0        neutral   
+ 450       0.0       0.0          12       0.0           0.0        neutral   
+ 451       0.0       0.0          17       0.0           0.0        neutral   
  
- [452 rows x 8 columns],
+      uncertainty  
+ 0            0.0  
+ 1            0.0  
+ 2            0.0  
+ 3            0.0  
+ 4            0.0  
+ ..           ...  
+ 447          0.0  
+ 448          0.0  
+ 449          0.0  
+ 450          0.0  
+ 451          0.0  
+ 
+ [452 rows x 11 columns],
  &#39;dev&#39;:        id    labels                                               text split  \
  0    1449   neutral       The identity of the buyer is not yet known .   dev   
  1     165  positive  Operating profit rose to EUR 3.2 mn from EUR 1...   dev   
@@ -726,20 +761,33 @@ const thebe_selector_output = ".output, .cell_output"
  360   225  positive  In January-September 2007 , the group &#39;s net s...   dev   
  361  1008   neutral  Payment of shares shall be effected on subscri...   dev   
  
-      polarity  subjectivity polarity_label  uncertainty  
- 0    0.000000      0.000000        neutral     0.000000  
- 1    0.000000      0.000000        neutral     0.000000  
- 2    0.000000      0.000000        neutral     0.000000  
- 3    0.000000      0.000000        neutral     0.000000  
- 4    0.000000      0.000000        neutral     0.000000  
- ..        ...           ...            ...          ...  
- 357  0.000000      0.000000        neutral     0.066667  
- 358  0.999999      0.058824       positive     0.000000  
- 359  0.000000      0.000000        neutral     0.000000  
- 360  0.000000      0.000000        neutral     0.000000  
- 361  0.000000      0.000000        neutral     0.000000  
+      positive  negative  num_tokens  polarity  subjectivity polarity_label  \
+ 0    0.000000       0.0          10  0.000000      0.000000        neutral   
+ 1    0.000000       0.0          18  0.000000      0.000000        neutral   
+ 2    0.000000       0.0          21  0.000000      0.000000        neutral   
+ 3    0.000000       0.0          13  0.000000      0.000000        neutral   
+ 4    0.000000       0.0          15  0.000000      0.000000        neutral   
+ ..        ...       ...         ...       ...           ...            ...   
+ 357  0.000000       0.0          15  0.000000      0.000000        neutral   
+ 358  0.058824       0.0          17  0.999999      0.058824       positive   
+ 359  0.000000       0.0          22  0.000000      0.000000        neutral   
+ 360  0.000000       0.0          28  0.000000      0.000000        neutral   
+ 361  0.000000       0.0           9  0.000000      0.000000        neutral   
  
- [362 rows x 8 columns]}
+      uncertainty  
+ 0       0.000000  
+ 1       0.000000  
+ 2       0.000000  
+ 3       0.000000  
+ 4       0.000000  
+ ..           ...  
+ 357     0.066667  
+ 358     0.000000  
+ 359     0.000000  
+ 360     0.000000  
+ 361     0.000000  
+ 
+ [362 rows x 11 columns]}
 </pre></div>
 </div>
 </div>
@@ -792,7 +840,7 @@ ___________________________________________________
 weighted avg       0.63      0.64      0.60      2259
 </pre></div>
 </div>
-<img alt="../../../_images/sentiment_8_1.png" src="../../../_images/sentiment_8_1.png" />
+<img alt="../../../_images/sentiment_9_1.png" src="../../../_images/sentiment_9_1.png" />
 </div>
 </div>
 </div>
@@ -819,32 +867,28 @@ weighted avg       0.63      0.64      0.60      2259
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "b4e90afc6fea4f19a9281300eb275b37", "version_major": 2, "version_minor": 0}
-</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
-  warnings.warn(
-</pre></div>
-</div>
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "626985f6208a4d09be6d44c9dc275825", "version_major": 2, "version_minor": 0}
+{"model_id": "97a507e1125f431e87b2458e8b561e90", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a4b2a8ae34404c0a95ffb76f145c8fa6", "version_major": 2, "version_minor": 0}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span>. Use <span class=" -Color -Color-Bold">`wandb login --relogin`</span> to force relogin
 </pre></div>
 </div>
-<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/default/outputs/default-model/finbert/wandb/run-20220509_014224-17pac5te</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/17pac5te" target="_blank">unique-moon-33</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0dccba75c11c4dd59cb56fcea11f7ea4", "version_major": 2, "version_minor": 0}
+<div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/finbert/wandb/run-20220516_091240-2c1w17py</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/2c1w17py" target="_blank">vocal-bush-7</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6fbd1f185716430f9e9ae03f129b3372", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "77725a0636bf47bda39f7b05d0b3ef77", "version_major": 2, "version_minor": 0}
+{"model_id": "dcc9c26c5061441cb70ccbcef7706d72", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "f4ee13392db043feab3d89b8d7f6a45f", "version_major": 2, "version_minor": 0}
+{"model_id": "13953576db63448183b99e92a65a04b7", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "a2d990f800e64382a24a972ad0fb4219", "version_major": 2, "version_minor": 0}
-</script><div class="output text_html">Finishing last run (ID:17pac5te) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "072d0dc7f32d45929b5db5393c1b2377", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Finishing last run (ID:2c1w17py) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
 </script><div class="output text_html"><style>
     table.wandb td:nth-child(1) { padding: 0 10px; text-align: left ; width: auto;} td:nth-child(2) {text-align: left ; width: 100%}
     .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; width: 100% }
     .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
     </style>
-<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>▁</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>█▁</td></tr><tr><td>global_step</td><td>▁▂█</td></tr><tr><td>lr</td><td>▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>█▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.58354</td></tr><tr><td>acc</td><td>0.86464</td></tr><tr><td>eval_loss</td><td>0.41429</td></tr><tr><td>global_step</td><td>92</td></tr><tr><td>lr</td><td>2e-05</td></tr><tr><td>mcc</td><td>0.74563</td></tr><tr><td>train_loss</td><td>0.43466</td></tr></table><br/></div></div></div><div class="output text_html">Synced <strong style="color:#cdcd00">unique-moon-33</strong>: <a href="https://wandb.ai/entelecheia/default-model/runs/17pac5te" target="_blank">https://wandb.ai/entelecheia/default-model/runs/17pac5te</a><br/>Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/default/outputs/default-model/finbert/wandb/run-20220509_014224-17pac5te/logs</code></div><div class="output text_html">Successfully finished last run (ID:17pac5te). Initializing new run:<br/></div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/default/outputs/default-model/finbert/wandb/run-20220509_014248-1idwvgio</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/1idwvgio" target="_blank">revived-cloud-34</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7fb65c7c5940&gt;
+<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>▁</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>█▁</td></tr><tr><td>global_step</td><td>▁▂█</td></tr><tr><td>lr</td><td>▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>█▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.35865</td></tr><tr><td>acc</td><td>0.82597</td></tr><tr><td>eval_loss</td><td>0.40997</td></tr><tr><td>global_step</td><td>92</td></tr><tr><td>lr</td><td>2e-05</td></tr><tr><td>mcc</td><td>0.67839</td></tr><tr><td>train_loss</td><td>0.13202</td></tr></table><br/></div></div></div><div class="output text_html">Synced <strong style="color:#cdcd00">vocal-bush-7</strong>: <a href="https://wandb.ai/entelecheia/esgml-model/runs/2c1w17py" target="_blank">https://wandb.ai/entelecheia/esgml-model/runs/2c1w17py</a><br/>Synced 4 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/esgml/outputs/esgml-model/finbert/wandb/run-20220516_091240-2c1w17py/logs</code></div><div class="output text_html">Successfully finished last run (ID:2c1w17py). Initializing new run:<br/></div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/finbert/wandb/run-20220516_091303-jhlss3jq</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/jhlss3jq" target="_blank">swift-darkness-8</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f0869cec850&gt;
 </pre></div>
 </div>
 </div>
@@ -870,30 +914,30 @@ weighted avg       0.63      0.64      0.60      2259
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "376c5e3b72974a2c81fda6705e7c3df0", "version_major": 2, "version_minor": 0}
+{"model_id": "0890585fada6424f99daf05497073cda", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "7a92b1e517d84ac7bacb1bbbb6e63963", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.8407079646017699
-Precison:  0.8598547980904857
-Recall:  0.8407079646017699
-F1 Score:  0.8331250498933335
+{"model_id": "d9b202efd67a45ddbe52e02e023427eb", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.8030973451327433
+Precison:  0.8460243838645909
+Recall:  0.8030973451327433
+F1 Score:  0.7721789608900423
 Model Report: 
 ___________________________________________________
               precision    recall  f1-score   support
 
-    negative       0.96      0.41      0.57        61
-     neutral       0.92      0.95      0.94       277
-    positive       0.65      0.81      0.72       114
+    negative       1.00      0.11      0.21        61
+     neutral       0.92      0.95      0.93       277
+    positive       0.58      0.82      0.68       114
 
-    accuracy                           0.84       452
-   macro avg       0.85      0.72      0.74       452
-weighted avg       0.86      0.84      0.83       452
+    accuracy                           0.80       452
+   macro avg       0.83      0.63      0.61       452
+weighted avg       0.85      0.80      0.77       452
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7fb5b8058820&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f07aa1610d0&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/sentiment_11_4.png" src="../../../_images/sentiment_11_4.png" />
+<img alt="../../../_images/sentiment_12_4.png" src="../../../_images/sentiment_12_4.png" />
 </div>
 </div>
 </div>
@@ -920,49 +964,49 @@ weighted avg       0.86      0.84      0.83       452
 </div>
 <div class="cell_output docutils container">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "af34200af75e4c5e9fce564847132e0e", "version_major": 2, "version_minor": 0}
+{"model_id": "13203ad9706a48d9a91fa0eee2999fae", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "47bf9cefe6be49a3b55e094e2d7acc0d", "version_major": 2, "version_minor": 0}
-</script><div class="output text_html">Finishing last run (ID:1idwvgio) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a1358f4666ee46e08a57a53669c2f2f9", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Finishing last run (ID:jhlss3jq) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "", "version_major": 2, "version_minor": 0}
-</script><div class="output text_html">Synced <strong style="color:#cdcd00">revived-cloud-34</strong>: <a href="https://wandb.ai/entelecheia/default-model/runs/1idwvgio" target="_blank">https://wandb.ai/entelecheia/default-model/runs/1idwvgio</a><br/>Synced 5 W&B file(s), 1 media file(s), 1 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/default/outputs/default-model/finbert/wandb/run-20220509_014248-1idwvgio/logs</code></div><div class="output text_html">Successfully finished last run (ID:1idwvgio). Initializing new run:<br/></div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/default/outputs/default-model/t5-base/wandb/run-20220509_014314-lg8vfjst</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/default-model/runs/lg8vfjst" target="_blank">treasured-yogurt-35</a></strong> to <a href="https://wandb.ai/entelecheia/default-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "69611ee1263541eaa1bf5874862c3880", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html">Synced <strong style="color:#cdcd00">swift-darkness-8</strong>: <a href="https://wandb.ai/entelecheia/esgml-model/runs/jhlss3jq" target="_blank">https://wandb.ai/entelecheia/esgml-model/runs/jhlss3jq</a><br/>Synced 5 W&B file(s), 1 media file(s), 1 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/esgml/outputs/esgml-model/finbert/wandb/run-20220516_091303-jhlss3jq/logs</code></div><div class="output text_html">Successfully finished last run (ID:jhlss3jq). Initializing new run:<br/></div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/t5-base/wandb/run-20220516_091328-388gg535</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/388gg535" target="_blank">woven-mountain-9</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b083302df47f4d8fa703c44577026232", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "d5c52fd0897e4a6892041acf4b2acc5b", "version_major": 2, "version_minor": 0}
+{"model_id": "474153478f3240e59f0a032797a26e11", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "af5a83f44b9a49cb82d877f4d350bf63", "version_major": 2, "version_minor": 0}
+{"model_id": "a05f873a2a76433b89d1a31b386f565a", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "c694aa4b7ca34f3aa48954be7fbb4c6d", "version_major": 2, "version_minor": 0}
+{"model_id": "68bf66bca0744d47b2773fa62715c31e", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "6dffd434be604d99b50760c7b1ff9a93", "version_major": 2, "version_minor": 0}
+{"model_id": "2238b15f62714df8abe26375fbfc9a42", "version_major": 2, "version_minor": 0}
 </script><script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "bbe538d740ee4ec5bf7753360f000b98", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;eval_loss&#39;: 0.05082466445859162}
+{"model_id": "6a713c837be845718f159006699636bf", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;eval_loss&#39;: 0.0947361536451481}
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "06cdaba815784d5bb5a66f2b8b7d1d21", "version_major": 2, "version_minor": 0}
-</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.9601769911504425
-Precison:  0.9605473158314043
-Recall:  0.9601769911504425
-F1 Score:  0.9598337326658595
+{"model_id": "35a402149fc64918af0f20c69064812e", "version_major": 2, "version_minor": 0}
+</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.9579646017699115
+Precison:  0.9582719818823249
+Recall:  0.9579646017699115
+F1 Score:  0.9580058997050147
 Model Report: 
 ___________________________________________________
               precision    recall  f1-score   support
 
-    negative       0.98      0.87      0.92        61
-     neutral       0.97      0.99      0.98       277
-    positive       0.92      0.94      0.93       114
+    negative       0.89      0.93      0.91        61
+     neutral       0.98      0.98      0.98       277
+    positive       0.94      0.91      0.92       114
 
     accuracy                           0.96       452
-   macro avg       0.96      0.93      0.94       452
+   macro avg       0.94      0.94      0.94       452
 weighted avg       0.96      0.96      0.96       452
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple_t5.SimpleT5 at 0x7fb2b009de20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple_t5.SimpleT5 at 0x7f079001cdc0&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/sentiment_13_21.png" src="../../../_images/sentiment_13_21.png" />
+<img alt="../../../_images/sentiment_14_21.png" src="../../../_images/sentiment_14_21.png" />
 </div>
 </div>
 </div>
