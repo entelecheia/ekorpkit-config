@@ -18,6 +18,8 @@ kernelspec:
 !ekorpkit
 ```
 
+### CLI example to build a corpus
+
 ```{code-cell} ipython3
 !ekorpkit --config-dir /workspace/projects/ekorpkit-config/config  \
     project=esgml \
@@ -43,8 +45,6 @@ To see the available configurations for CLI, run the command:
 ```
 
 ## Via Python
-
-There are more examples in the [notebooks](https://github.com/entelecheia/ekorpkit-config/tree/main/notebooks) folder of the [ekorpkit-config](https://github.com/entelecheia/ekorpkit-config.git)
 
 ### Compose an ekorpkit config
 
