@@ -33,6 +33,8 @@ parts:
       - file: docs/usecases/fomc/index
         sections:
           - file: docs/usecases/fomc/01_FOMC_sentiments
+          - file: docs/usecases/fomc/02_FOMC_numerical_data.ipynb
+      - file: docs/usecases/bok/index
       - file: docs/usecases/edgar/index
         sections:
           - file: docs/usecases/edgar/predict_edgar.ipynb
