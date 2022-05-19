@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="EDGAR dataset" href="../edgar/index.html" />
-    <link rel="prev" title="FOMC dataset" href="index.html" />
+    <link rel="next" title="Bank of Korea" href="../bok/index.html" />
+    <link rel="prev" title="FOMC" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
-   FOMC dataset
+   FOMC
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -220,9 +220,14 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bok/index.html">
+   Bank of Korea
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../edgar/index.html">
-   EDGAR dataset
+   EDGAR
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -469,7 +474,6 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
 
 <span class="n">start_year</span> <span class="o">=</span> <span class="mi">2000</span>
 </pre></div>
@@ -483,104 +487,150 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;io/fetcher=fred&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;DFEDTAR&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">series_id</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DFEDTAR&#39;</span><span class="p">,</span> <span class="s1">&#39;DFEDTARU&#39;</span><span class="p">]</span>
 
 <span class="n">fred</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
-<span class="n">fred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
+<span class="n">fred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
 </style>
-<table id="T_2e98e" style="font-size: 10px">
+<table border="1" class="dataframe">
   <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_2e98e_level0_col0" class="col_heading level0 col0" >fed_rate</th>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DFEDTAR</th>
+      <th>diff</th>
+      <th>series_id</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_2e98e_level0_row0" class="row_heading level0 row0" >2022-05-08 00:00:00</th>
-      <td id="T_2e98e_row0_col0" class="data row0 col0" >1.000000</td>
+      <th>2022-05-14</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>DFEDTARU</td>
     </tr>
     <tr>
-      <th id="T_2e98e_level0_row1" class="row_heading level0 row1" >2022-05-09 00:00:00</th>
-      <td id="T_2e98e_row1_col0" class="data row1 col0" >1.000000</td>
+      <th>2022-05-15</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>DFEDTARU</td>
     </tr>
     <tr>
-      <th id="T_2e98e_level0_row2" class="row_heading level0 row2" >2022-05-10 00:00:00</th>
-      <td id="T_2e98e_row2_col0" class="data row2 col0" >1.000000</td>
+      <th>2022-05-16</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>DFEDTARU</td>
     </tr>
     <tr>
-      <th id="T_2e98e_level0_row3" class="row_heading level0 row3" >2022-05-11 00:00:00</th>
-      <td id="T_2e98e_row3_col0" class="data row3 col0" >1.000000</td>
+      <th>2022-05-17</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>DFEDTARU</td>
     </tr>
     <tr>
-      <th id="T_2e98e_level0_row4" class="row_heading level0 row4" >2022-05-12 00:00:00</th>
-      <td id="T_2e98e_row4_col0" class="data row4 col0" >1.000000</td>
+      <th>2022-05-18</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>DFEDTARU</td>
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FEDRATE</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">data</span>
-<span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;fed_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">FEDRATE</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_table_attributes</span><span class="p">(</span><span class="s1">&#39;style=&quot;font-size: 10px&quot;&#39;</span><span class="p">)</span>
+<span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;direction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FEDRATE</span><span class="p">[</span><span class="s1">&#39;diff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">FEDRATE</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style type="text/css">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
 </style>
-<table id="T_68937" style="font-size: 10px">
+<table border="1" class="dataframe">
   <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_68937_level0_col0" class="col_heading level0 col0" >fed_rate</th>
-      <th id="T_68937_level0_col1" class="col_heading level0 col1" >direction</th>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DFEDTAR</th>
+      <th>diff</th>
+      <th>series_id</th>
+      <th>direction</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_68937_level0_row0" class="row_heading level0 row0" >1982-09-27 00:00:00</th>
-      <td id="T_68937_row0_col0" class="data row0 col0" >10.250000</td>
-      <td id="T_68937_row0_col1" class="data row0 col1" >0</td>
+      <th>1982-09-27</th>
+      <td>10.25</td>
+      <td>NaN</td>
+      <td>DFEDTAR</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th id="T_68937_level0_row1" class="row_heading level0 row1" >1982-09-28 00:00:00</th>
-      <td id="T_68937_row1_col0" class="data row1 col0" >10.250000</td>
-      <td id="T_68937_row1_col1" class="data row1 col1" >0</td>
+      <th>1982-09-28</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th id="T_68937_level0_row2" class="row_heading level0 row2" >1982-09-29 00:00:00</th>
-      <td id="T_68937_row2_col0" class="data row2 col0" >10.250000</td>
-      <td id="T_68937_row2_col1" class="data row2 col1" >0</td>
+      <th>1982-09-29</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th id="T_68937_level0_row3" class="row_heading level0 row3" >1982-09-30 00:00:00</th>
-      <td id="T_68937_row3_col0" class="data row3 col0" >10.250000</td>
-      <td id="T_68937_row3_col1" class="data row3 col1" >0</td>
+      <th>1982-09-30</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th id="T_68937_level0_row4" class="row_heading level0 row4" >1982-10-01 00:00:00</th>
-      <td id="T_68937_row4_col0" class="data row4 col0" >10.000000</td>
-      <td id="T_68937_row4_col1" class="data row4 col1" >-1</td>
+      <th>1982-10-01</th>
+      <td>10.00</td>
+      <td>-0.25</td>
+      <td>DFEDTAR</td>
+      <td>-1</td>
     </tr>
   </tbody>
 </table>
-</div></div>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;wide&#39;</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;fed_rate&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;DFEDTAR&#39;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Fed Rate&#39;</span>
 <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">FEDRATE</span><span class="p">)</span>
@@ -828,7 +878,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:11&lt;00:00,  7.62it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicting [text]: 100%|██████████| 91/91 [00:10&lt;00:00,  8.69it/s]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> &gt;&gt; saved dataframe to ./data/predict/fomc_sentiments-lm.parquet
@@ -1064,7 +1114,9 @@ const thebe_selector_output = ".output, .cell_output"
       <th>subjectivity</th>
       <th>polarity_label</th>
       <th>uncertainty</th>
-      <th>fed_rate</th>
+      <th>DFEDTAR</th>
+      <th>diff</th>
+      <th>series_id</th>
       <th>direction</th>
     </tr>
   </thead>
@@ -1085,6 +1137,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>negative</td>
       <td>0.019183</td>
       <td>5.75</td>
+      <td>0.25</td>
+      <td>DFEDTAR</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1103,6 +1157,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>negative</td>
       <td>0.018578</td>
       <td>6.00</td>
+      <td>0.25</td>
+      <td>DFEDTAR</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1121,6 +1177,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>negative</td>
       <td>0.020942</td>
       <td>6.50</td>
+      <td>0.50</td>
+      <td>DFEDTAR</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1139,6 +1197,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>neutral</td>
       <td>0.049296</td>
       <td>6.50</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1157,6 +1217,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>negative</td>
       <td>0.033367</td>
       <td>6.50</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1168,10 +1230,18 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Plot the results and compare to the economical uncertainty / systemic risk periods<a class="headerlink" href="#plot-the-results-and-compare-to-the-economical-uncertainty-systemic-risk-periods" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher=fomc&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
+<span class="n">fomc</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="o">**</span><span class="n">cfg</span><span class="o">.</span><span class="n">fomc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
-<span class="n">args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;io/fetcher=fomc&#39;</span><span class="p">)</span>
-<span class="n">recessions</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">recessions</span>
+<span class="n">recessions</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">recessions</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
 
 <span class="n">span_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/axvspan&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1180,10 +1250,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">spans</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">recessions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">recessions</span><span class="p">:</span>
     <span class="n">annotation</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">],</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">])</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="s2">&quot;to&quot;</span><span class="p">],</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;format&quot;</span><span class="p">])</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;from_date&quot;</span><span class="p">]</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;to_date&quot;</span><span class="p">]</span>
     <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">}</span>
     <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">span_args</span><span class="p">,</span> <span class="o">**</span><span class="n">span</span><span class="p">}</span>
 
@@ -1194,6 +1264,31 @@ const thebe_selector_output = ".output, .cell_output"
 
     <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
     <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
+<span class="n">spans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;xmin&#39;: Timestamp(&#39;2000-03-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2002-10-01 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2007-04-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2009-03-01 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2010-09-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2012-09-01 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2015-01-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2016-06-01 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2020-02-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2022-02-01 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;}]
 </pre></div>
 </div>
 </div>
@@ -1223,27 +1318,23 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/01_FOMC_sentiments_21_0.png" src="../../../_images/01_FOMC_sentiments_21_0.png" />
+<img alt="../../../_images/01_FOMC_sentiments_22_0.png" src="../../../_images/01_FOMC_sentiments_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;io/fetcher=fomc&#39;</span><span class="p">)</span>
-<span class="n">chair</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="o">.</span><span class="n">fomc</span><span class="o">.</span><span class="n">chair</span><span class="p">)</span>
-<span class="n">chair</span><span class="p">[</span><span class="s1">&#39;from_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">chair</span><span class="p">[</span><span class="s1">&#39;from_date&#39;</span><span class="p">])</span>
-<span class="n">chair</span><span class="p">[</span><span class="s1">&#39;to_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">chair</span><span class="p">[</span><span class="s1">&#39;to_date&#39;</span><span class="p">])</span>
-<span class="n">chair</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chair</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">chair</span>
+<span class="n">chair</span> <span class="o">=</span> <span class="n">chair</span><span class="p">[</span><span class="n">chair</span><span class="o">.</span><span class="n">to_date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="n">start_year</span><span class="p">]</span>
 <span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">spans</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">chair</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">row_num</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;from_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;from_date&#39;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">start</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
-    <span class="n">end</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;to_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;to_date&#39;</span><span class="p">]</span>
     <span class="n">annotation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;darkblue&#39;</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
@@ -1256,6 +1347,28 @@ const thebe_selector_output = ".output, .cell_output"
 
     <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
     <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
+
+<span class="n">spans</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;xmin&#39;: datetime.datetime(2000, 1, 1, 0, 0),
+  &#39;xmax&#39;: Timestamp(&#39;2006-01-31 00:00:00&#39;),
+  &#39;alpha&#39;: 0.0,
+  &#39;color&#39;: &#39;darkblue&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2006-02-01 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2014-01-31 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2014-02-03 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2018-02-03 00:00:00&#39;),
+  &#39;alpha&#39;: 0.0,
+  &#39;color&#39;: &#39;darkblue&#39;},
+ {&#39;xmin&#39;: Timestamp(&#39;2018-02-05 00:00:00&#39;),
+  &#39;xmax&#39;: Timestamp(&#39;2022-05-19 00:00:00&#39;),
+  &#39;alpha&#39;: 0.4,
+  &#39;color&#39;: &#39;crimson&#39;}]
 </pre></div>
 </div>
 </div>
@@ -1281,7 +1394,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">scatter_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot/scatter&quot;</span><span class="p">)</span>
-<span class="n">scatter_cfg</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;fed_rate&quot;</span>
+<span class="n">scatter_cfg</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;DFEDTAR&quot;</span>
 <span class="n">scatter_cfg</span><span class="o">.</span><span class="n">secondary_y</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">scatter_cfg</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scatter_cfg</span><span class="p">)</span>
@@ -1305,7 +1418,7 @@ const thebe_selector_output = ".output, .cell_output"
 Saved figure to ./figs/lineplot.png
 </pre></div>
 </div>
-<img alt="../../../_images/01_FOMC_sentiments_23_1.png" src="../../../_images/01_FOMC_sentiments_23_1.png" />
+<img alt="../../../_images/01_FOMC_sentiments_24_1.png" src="../../../_images/01_FOMC_sentiments_24_1.png" />
 </div>
 </div>
 </div>
@@ -1341,13 +1454,13 @@ Saved figure to ./figs/lineplot.png
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">FOMC dataset</p>
+            <p class="prev-next-title">FOMC</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../edgar/index.html" title="next page">
+    <a class='right-next' id="next-link" href="../bok/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">EDGAR dataset</p>
+        <p class="prev-next-title">Bank of Korea</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
