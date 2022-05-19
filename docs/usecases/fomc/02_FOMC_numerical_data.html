@@ -1,0 +1,3023 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prepapre Numerical Data &#8212; eKorpkit Tutorials</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Bank of Korea" href="../bok/index.html" />
+    <link rel="prev" title="Sentiment Analysis of FOMC Statements" href="01_FOMC_sentiments.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/ekorpkit.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eKorpkit Tutorials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   ekorpkit[iːkɔːkɪt]
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../basics/index.html">
+   Getting started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../basics/install.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../basics/usage.html">
+     Usage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../basics/config/config.html">
+   Compose an ekorpkit config
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/sentiment/index.html">
+   Sentiment Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/lexicon.html">
+     Sentiment Lexicons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/lbsa_en.html">
+     Lexicon-based Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/sentiment.html">
+     LM Dictionary vs. finbert vs. T5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/preprocessors/preprocessor.html">
+   Preprocessors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/preprocessors/mecab.html">
+     Mecab Tokenizer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../corpus/ekorpkot_corpus.html">
+   The eKorpkit Corpus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Use Cases
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   FOMC
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_FOMC_sentiments.html">
+     Sentiment Analysis of FOMC Statements
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Prepapre Numerical Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bok/index.html">
+   Bank of Korea
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../edgar/index.html">
+   EDGAR
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../edgar/predict_edgar.html">
+     Prediciting Sentiments
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../research/esg_topics/analyst.html">
+   ESG Topic Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/index.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/usecases/fomc/02_FOMC_numerical_data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/entelecheia/ekorpkit-config"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/usecases/fomc/02_FOMC_numerical_data.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/usecases/fomc/02_FOMC_numerical_data.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/ekorpkit-book/docs/usecases/fomc/02_FOMC_numerical_data.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-fomc-class">
+   Load FOMC class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chairpersons">
+     Chairpersons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-calendar">
+     Load Calendar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-market-data">
+   Load Market Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#target-fed-rate">
+     Target FED Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effective-fed-rate">
+     Effective FED Rate
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-economic-indices">
+   Load Economic Indices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gdp">
+     GDP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potential-gdp">
+     Potential GDP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-consumption-pce">
+     Personal Consumption: PCE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-consumption-cpi">
+     Personal Consumption: CPI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unemployment">
+     Unemployment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#employment">
+     Employment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retail-sales">
+     Retail Sales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-home-sales">
+     New Home Sales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#treasury-yield">
+     Treasury Yield
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getting-from-us-treasury-site-as-xml">
+       Getting from US Treasury Site as xml
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-the-data">
+   Process the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-rate-and-decisions">
+     Add Rate and Decisions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-quantitative-easing-as-a-lower-event">
+   Add Quantitative Easing as a Lower event
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Prepapre Numerical Data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-fomc-class">
+   Load FOMC class
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chairpersons">
+     Chairpersons
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-calendar">
+     Load Calendar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-market-data">
+   Load Market Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#target-fed-rate">
+     Target FED Rate
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effective-fed-rate">
+     Effective FED Rate
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-economic-indices">
+   Load Economic Indices
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gdp">
+     GDP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#potential-gdp">
+     Potential GDP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-consumption-pce">
+     Personal Consumption: PCE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personal-consumption-cpi">
+     Personal Consumption: CPI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unemployment">
+     Unemployment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#employment">
+     Employment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retail-sales">
+     Retail Sales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-home-sales">
+     New Home Sales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#treasury-yield">
+     Treasury Yield
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getting-from-us-treasury-site-as-xml">
+       Getting from US Treasury Site as xml
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-the-data">
+   Process the data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-rate-and-decisions">
+     Add Rate and Decisions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-quantitative-easing-as-a-lower-event">
+   Add Quantitative Easing as a Lower event
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="prepapre-numerical-data">
+<h1>Prepapre Numerical Data<a class="headerlink" href="#prepapre-numerical-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-fomc-class">
+<h2>Load FOMC class<a class="headerlink" href="#load-fomc-class" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher=fomc&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
+<span class="n">fomc</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="o">**</span><span class="n">cfg</span><span class="o">.</span><span class="n">fomc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="chairpersons">
+<h3>Chairpersons<a class="headerlink" href="#chairpersons" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">chair</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>surname</th>
+      <th>first_name</th>
+      <th>from_date</th>
+      <th>to_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Volcker</td>
+      <td>Paul</td>
+      <td>1979-08-06</td>
+      <td>1987-08-10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Greenspan</td>
+      <td>Alan</td>
+      <td>1987-08-11</td>
+      <td>2006-01-31</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Bernanke</td>
+      <td>Ben</td>
+      <td>2006-02-01</td>
+      <td>2014-01-31</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Yellen</td>
+      <td>Janet</td>
+      <td>2014-02-03</td>
+      <td>2018-02-03</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Powell</td>
+      <td>Jerome</td>
+      <td>2018-02-05</td>
+      <td>2022-05-19</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="load-calendar">
+<h3>Load Calendar<a class="headerlink" href="#load-calendar" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">load_calendar</span><span class="p">(</span><span class="n">from_year</span><span class="o">=</span><span class="mi">1982</span><span class="p">,</span> <span class="n">force_download</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unscheduled</th>
+      <th>forecast</th>
+      <th>confcall</th>
+      <th>chair</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-02-02</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-03-30</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-05-18</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-05-20</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-06-01</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-06-15</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-07-27</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-09-21</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-11-02</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-12-14</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+  </tbody>
+</table>
+<p>427 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">fomc</span><span class="o">.</span><span class="n">calendar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(427, 4)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unscheduled</th>
+      <th>forecast</th>
+      <th>confcall</th>
+      <th>chair</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-02-02</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-03-30</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-05-18</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-05-20</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>1982-06-01</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-06-15</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-07-27</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-09-21</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-11-02</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-12-14</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
+    </tr>
+  </tbody>
+</table>
+<p>427 rows × 4 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="load-market-data">
+<h2>Load Market Data<a class="headerlink" href="#load-market-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="target-fed-rate">
+<h3>Target FED Rate<a class="headerlink" href="#target-fed-rate" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher=fred&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;DFEDTAR&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">series_id</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DFEDTAR&quot;</span><span class="p">,</span> <span class="s2">&quot;DFEDTARU&quot;</span><span class="p">]</span>
+<span class="n">fred</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+
+<span class="n">fedrates</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">fedrates</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DFEDTAR</th>
+      <th>diff</th>
+      <th>series_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-09-27</th>
+      <td>10.25</td>
+      <td>NaN</td>
+      <td>DFEDTAR</td>
+    </tr>
+    <tr>
+      <th>1982-09-28</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+    </tr>
+    <tr>
+      <th>1982-09-29</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+    </tr>
+    <tr>
+      <th>1982-09-30</th>
+      <td>10.25</td>
+      <td>0.00</td>
+      <td>DFEDTAR</td>
+    </tr>
+    <tr>
+      <th>1982-10-01</th>
+      <td>10.00</td>
+      <td>-0.25</td>
+      <td>DFEDTAR</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-05-14</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>DFEDTARU</td>
+    </tr>
+    <tr>
+      <th>2022-05-15</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>DFEDTARU</td>
+    </tr>
+    <tr>
+      <th>2022-05-16</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>DFEDTARU</td>
+    </tr>
+    <tr>
+      <th>2022-05-17</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>DFEDTARU</td>
+    </tr>
+    <tr>
+      <th>2022-05-18</th>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>DFEDTARU</td>
+    </tr>
+  </tbody>
+</table>
+<p>14479 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;DFEDTAR&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s1">&#39;wide&#39;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Fed Rate&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fedrates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_11_0.png" src="../../../_images/02_FOMC_numerical_data_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="effective-fed-rate">
+<h3>Effective FED Rate<a class="headerlink" href="#effective-fed-rate" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dff</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;DFF&quot;</span><span class="p">)</span>
+<span class="n">dff</span><span class="p">[</span><span class="s2">&quot;diff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dff</span><span class="o">.</span><span class="n">DFF</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">dff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DFF</th>
+      <th>diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1954-07-01</th>
+      <td>1.13</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1954-07-02</th>
+      <td>1.25</td>
+      <td>0.12</td>
+    </tr>
+    <tr>
+      <th>1954-07-03</th>
+      <td>1.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1954-07-04</th>
+      <td>1.25</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1954-07-05</th>
+      <td>0.88</td>
+      <td>-0.37</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-05-13</th>
+      <td>0.83</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2022-05-14</th>
+      <td>0.83</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2022-05-15</th>
+      <td>0.83</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2022-05-16</th>
+      <td>0.83</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2022-05-17</th>
+      <td>0.83</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>24793 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use every 30th row as it has too many data points</span>
+<span class="n">dff_30</span> <span class="o">=</span> <span class="n">dff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">30</span><span class="p">,</span> <span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dff_30</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;DFF&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Effective FED Rate&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dff_30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(827, 2)
+</pre></div>
+</div>
+<img alt="../../../_images/02_FOMC_numerical_data_14_1.png" src="../../../_images/02_FOMC_numerical_data_14_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-economic-indices">
+<h2>Load Economic Indices<a class="headerlink" href="#load-economic-indices" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gdp">
+<h3>GDP<a class="headerlink" href="#gdp" title="Permalink to this headline">¶</a></h3>
+<p>Real GDP, Quarterly announced</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Real GDP</span>
+<span class="c1"># Billions of Chained 2012 Dollars, Seasonally Adjusted Annual Rate</span>
+<span class="n">gdpc1</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;GDPC1&quot;</span><span class="p">)</span>
+ 
+<span class="c1"># Add difference from previous value</span>
+<span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;GDPC1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;GDPC1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;GDPC1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="n">gdpc1</span><span class="p">[</span><span class="s1">&#39;GDPC1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">gdpc1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GDPC1</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1947-01-01</th>
+      <td>2034.450</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-04-01</th>
+      <td>2029.024</td>
+      <td>-5.426</td>
+      <td>-0.266706</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-07-01</th>
+      <td>2024.834</td>
+      <td>-4.190</td>
+      <td>-0.206503</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-10-01</th>
+      <td>2056.508</td>
+      <td>31.674</td>
+      <td>1.564276</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1948-01-01</th>
+      <td>2087.442</td>
+      <td>30.934</td>
+      <td>1.504200</td>
+      <td>2.604733</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-01-01</th>
+      <td>19055.655</td>
+      <td>287.877</td>
+      <td>1.533890</td>
+      <td>0.546977</td>
+    </tr>
+    <tr>
+      <th>2021-04-01</th>
+      <td>19368.310</td>
+      <td>312.655</td>
+      <td>1.640747</td>
+      <td>12.226677</td>
+    </tr>
+    <tr>
+      <th>2021-07-01</th>
+      <td>19478.893</td>
+      <td>110.583</td>
+      <td>0.570948</td>
+      <td>4.946556</td>
+    </tr>
+    <tr>
+      <th>2021-10-01</th>
+      <td>19806.290</td>
+      <td>327.397</td>
+      <td>1.680778</td>
+      <td>5.533484</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>19735.895</td>
+      <td>-70.395</td>
+      <td>-0.355417</td>
+      <td>3.569754</td>
+    </tr>
+  </tbody>
+</table>
+<p>301 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;GDPC1&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Real GDP, Quarterly announced&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">gdpc1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_18_0.png" src="../../../_images/02_FOMC_numerical_data_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="potential-gdp">
+<h3>Potential GDP<a class="headerlink" href="#potential-gdp" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Real Potential GDP</span>
+<span class="c1"># Billions of Chained 2012 Dollars, Not Seasonally Adjusted</span>
+<span class="n">gdppot</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;GDPPOT&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add difference from previous value</span>
+<span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;GDPPOT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;GDPPOT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;GDPPOT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="n">gdppot</span><span class="p">[</span><span class="s1">&#39;GDPPOT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">gdppot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GDPPOT</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1949-01-01</th>
+      <td>2102.982630</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1949-04-01</th>
+      <td>2130.581305</td>
+      <td>27.598675</td>
+      <td>1.312359</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1949-07-01</th>
+      <td>2159.340530</td>
+      <td>28.759225</td>
+      <td>1.349830</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1949-10-01</th>
+      <td>2186.844859</td>
+      <td>27.504329</td>
+      <td>1.273737</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1950-01-01</th>
+      <td>2216.058359</td>
+      <td>29.213500</td>
+      <td>1.335874</td>
+      <td>5.376922</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2030-10-01</th>
+      <td>23423.370000</td>
+      <td>98.770000</td>
+      <td>0.423458</td>
+      <td>1.708386</td>
+    </tr>
+    <tr>
+      <th>2031-01-01</th>
+      <td>23522.550000</td>
+      <td>99.180000</td>
+      <td>0.423423</td>
+      <td>1.706249</td>
+    </tr>
+    <tr>
+      <th>2031-04-01</th>
+      <td>23622.050000</td>
+      <td>99.500000</td>
+      <td>0.422998</td>
+      <td>1.704632</td>
+    </tr>
+    <tr>
+      <th>2031-07-01</th>
+      <td>23721.650000</td>
+      <td>99.600000</td>
+      <td>0.421640</td>
+      <td>1.702280</td>
+    </tr>
+    <tr>
+      <th>2031-10-01</th>
+      <td>23821.310000</td>
+      <td>99.660000</td>
+      <td>0.420123</td>
+      <td>1.698902</td>
+    </tr>
+  </tbody>
+</table>
+<p>332 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;GDPPOT&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Potential GDP&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">gdppot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_21_0.png" src="../../../_images/02_FOMC_numerical_data_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="personal-consumption-pce">
+<h3>Personal Consumption: PCE<a class="headerlink" href="#personal-consumption-pce" title="Permalink to this headline">¶</a></h3>
+<p>Use Core PCE excluding Food and Energy as FRB takes this index as important indicator. <BR />
+It is announced monthly around the last working days of each month for the previous month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Personal Consumption Expenditures Excluding Food and Energy (Chain-Type Price Index)</span>
+<span class="c1"># Index 2012=100, Seasonally Adjusted</span>
+<span class="n">pcepilfe</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;PCEPILFE&quot;</span><span class="p">)</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;PCEPILFE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;PCEPILFE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;PCEPILFE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="n">pcepilfe</span><span class="p">[</span><span class="s1">&#39;PCEPILFE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">pcepilfe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PCEPILFE</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1959-01-01</th>
+      <td>16.688</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1959-02-01</th>
+      <td>16.701</td>
+      <td>0.013</td>
+      <td>0.077900</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1959-03-01</th>
+      <td>16.719</td>
+      <td>0.018</td>
+      <td>0.107778</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1959-04-01</th>
+      <td>16.762</td>
+      <td>0.043</td>
+      <td>0.257192</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1959-05-01</th>
+      <td>16.783</td>
+      <td>0.021</td>
+      <td>0.125283</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-11-01</th>
+      <td>119.483</td>
+      <td>0.568</td>
+      <td>0.477652</td>
+      <td>4.686596</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>120.092</td>
+      <td>0.609</td>
+      <td>0.509696</td>
+      <td>4.889339</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>120.660</td>
+      <td>0.568</td>
+      <td>0.472971</td>
+      <td>5.153992</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>121.005</td>
+      <td>0.345</td>
+      <td>0.285927</td>
+      <td>5.314232</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>121.359</td>
+      <td>0.354</td>
+      <td>0.292550</td>
+      <td>5.179273</td>
+    </tr>
+  </tbody>
+</table>
+<p>759 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;PCEPILFE&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Personal Consumption: PCE&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pcepilfe</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_24_0.png" src="../../../_images/02_FOMC_numerical_data_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="personal-consumption-cpi">
+<h3>Personal Consumption: CPI<a class="headerlink" href="#personal-consumption-cpi" title="Permalink to this headline">¶</a></h3>
+<p>CPI’s coverage is less than PCE but announced monthly around 10th of each month for the previous month, which is earlier than PCE. <BR />
+As this is available to some meetings even before PCE announcement, take this index as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Consumer Price Index for All Urban Consumers: All Items in U.S. City Average</span>
+<span class="c1"># Index 1982-1984=100, Seasonally Adjusted</span>
+<span class="n">cpiaucsl</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;CPIAUCSL&quot;</span><span class="p">)</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="n">cpiaucsl</span><span class="p">[</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">cpiaucsl</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CPIAUCSL</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1947-01-01</th>
+      <td>21.480</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-02-01</th>
+      <td>21.620</td>
+      <td>0.140</td>
+      <td>0.651769</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-03-01</th>
+      <td>22.000</td>
+      <td>0.380</td>
+      <td>1.757632</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-04-01</th>
+      <td>22.000</td>
+      <td>0.000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1947-05-01</th>
+      <td>21.950</td>
+      <td>-0.050</td>
+      <td>-0.227273</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>280.126</td>
+      <td>1.602</td>
+      <td>0.575175</td>
+      <td>7.096542</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>281.933</td>
+      <td>1.807</td>
+      <td>0.645067</td>
+      <td>7.525934</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>284.182</td>
+      <td>2.249</td>
+      <td>0.797707</td>
+      <td>7.912024</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>287.708</td>
+      <td>3.526</td>
+      <td>1.240754</td>
+      <td>8.557586</td>
+    </tr>
+    <tr>
+      <th>2022-04-01</th>
+      <td>288.663</td>
+      <td>0.955</td>
+      <td>0.331934</td>
+      <td>8.224139</td>
+    </tr>
+  </tbody>
+</table>
+<p>904 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;CPIAUCSL&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Personal Consumption: CPI&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">cpiaucsl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_27_0.png" src="../../../_images/02_FOMC_numerical_data_27_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="unemployment">
+<h3>Unemployment<a class="headerlink" href="#unemployment" title="Permalink to this headline">¶</a></h3>
+<p>Takes unemployment rate as important input for FRB’s decision. Real Potential GDP is quarterly and usually two month after each quarter. On the other hand, unemployment is annnounced monthly, around a week after the end of each month and can be more real-time. <BR />
+As bigger number indicates negative, turn the sign to have negative number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Unemployment</span>
+<span class="c1"># Percent, Seasonally Adjusted</span>
+<span class="n">unrate</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;UNRATE&quot;</span><span class="p">)</span>
+<span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">unrate</span><span class="p">[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">unrate</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UNRATE</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1948-01-01</th>
+      <td>-3.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1948-02-01</th>
+      <td>-3.8</td>
+      <td>0.4</td>
+      <td>-0.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1948-03-01</th>
+      <td>-4.0</td>
+      <td>0.2</td>
+      <td>-0.2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1948-04-01</th>
+      <td>-3.9</td>
+      <td>-0.1</td>
+      <td>0.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1948-05-01</th>
+      <td>-3.5</td>
+      <td>-0.4</td>
+      <td>0.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>-3.9</td>
+      <td>-0.3</td>
+      <td>0.3</td>
+      <td>2.8</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>-4.0</td>
+      <td>0.1</td>
+      <td>-0.1</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>-3.8</td>
+      <td>-0.2</td>
+      <td>0.2</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>-3.6</td>
+      <td>-0.2</td>
+      <td>0.2</td>
+      <td>2.4</td>
+    </tr>
+    <tr>
+      <th>2022-04-01</th>
+      <td>-3.6</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.4</td>
+    </tr>
+  </tbody>
+</table>
+<p>892 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;UNRATE&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Unemployment&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">unrate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_30_0.png" src="../../../_images/02_FOMC_numerical_data_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="employment">
+<h3>Employment<a class="headerlink" href="#employment" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Employment</span>
+<span class="c1"># Seasonally Adjusted</span>
+<span class="n">payems</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;PAYEMS&quot;</span><span class="p">)</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">payems</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">payems</span><span class="p">[</span><span class="s1">&#39;PAYEMS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span>
+<span class="n">payems</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">payems</span><span class="p">[</span><span class="s1">&#39;PAYEMS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">payems</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PAYEMS</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1939-01-01</th>
+      <td>29923.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1939-02-01</th>
+      <td>30100.0</td>
+      <td>177.0</td>
+      <td>177.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1939-03-01</th>
+      <td>30280.0</td>
+      <td>180.0</td>
+      <td>180.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1939-04-01</th>
+      <td>30094.0</td>
+      <td>-186.0</td>
+      <td>-186.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1939-05-01</th>
+      <td>30299.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>149240.0</td>
+      <td>588.0</td>
+      <td>588.0</td>
+      <td>6743.0</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>149744.0</td>
+      <td>504.0</td>
+      <td>504.0</td>
+      <td>6727.0</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>150458.0</td>
+      <td>714.0</td>
+      <td>714.0</td>
+      <td>6731.0</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>150886.0</td>
+      <td>428.0</td>
+      <td>428.0</td>
+      <td>6455.0</td>
+    </tr>
+    <tr>
+      <th>2022-04-01</th>
+      <td>151314.0</td>
+      <td>428.0</td>
+      <td>428.0</td>
+      <td>6620.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;PAYEMS&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Employment&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payems</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_33_0.png" src="../../../_images/02_FOMC_numerical_data_33_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot=lineplot&#39;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;diff_prev&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Employment changes&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payems</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_34_0.png" src="../../../_images/02_FOMC_numerical_data_34_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="retail-sales">
+<h3>Retail Sales<a class="headerlink" href="#retail-sales" title="Permalink to this headline">¶</a></h3>
+<p>Retail sales is an important indicator of the current economic situation.
+It is usually announced around the middle of each month (15th) for the previous month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Advance Real Retail and Food Services Sales</span>
+<span class="c1"># Millions of 1982-84 CPI Adjusted Dollars, Seasonally Adjusted</span>
+
+<span class="n">rrsfs</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;RRSFS&quot;</span><span class="p">)</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;RRSFS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;RRSFS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;RRSFS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="n">rrsfs</span><span class="p">[</span><span class="s1">&#39;RRSFS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">rrsfs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RRSFS</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-01</th>
+      <td>118651.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1992-02-01</th>
+      <td>118480.0</td>
+      <td>-171.0</td>
+      <td>-0.144120</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1992-03-01</th>
+      <td>117700.0</td>
+      <td>-780.0</td>
+      <td>-0.658339</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1992-04-01</th>
+      <td>118156.0</td>
+      <td>456.0</td>
+      <td>0.387426</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1992-05-01</th>
+      <td>118548.0</td>
+      <td>392.0</td>
+      <td>0.331765</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>226467.0</td>
+      <td>-5018.0</td>
+      <td>-2.167743</td>
+      <td>9.101289</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>231103.0</td>
+      <td>4636.0</td>
+      <td>2.047097</td>
+      <td>5.783456</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>233062.0</td>
+      <td>1959.0</td>
+      <td>0.847674</td>
+      <td>9.076698</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>233448.0</td>
+      <td>386.0</td>
+      <td>0.165621</td>
+      <td>-1.123253</td>
+    </tr>
+    <tr>
+      <th>2022-04-01</th>
+      <td>234776.0</td>
+      <td>1328.0</td>
+      <td>0.568863</td>
+      <td>-0.034915</td>
+    </tr>
+  </tbody>
+</table>
+<p>364 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;RRSFS&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Retail Sales&quot;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">rrsfs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_37_0.png" src="../../../_images/02_FOMC_numerical_data_37_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="new-home-sales">
+<h3>New Home Sales<a class="headerlink" href="#new-home-sales" title="Permalink to this headline">¶</a></h3>
+<p>New home sales is another important index to know the retail sales figure. <br />
+It is usually announced around a week before the end of each month for the previous month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hsn1f</span> <span class="o">=</span> <span class="n">fred</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;HSN1F&quot;</span><span class="p">)</span>
+<span class="c1"># Add difference from previous value</span>
+<span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;diff_prev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;HSN1F&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span> <span class="o">/</span> <span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;HSN1F&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;diff_year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;HSN1F&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="n">hsn1f</span><span class="p">[</span><span class="s1">&#39;HSN1F&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">hsn1f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HSN1F</th>
+      <th>diff</th>
+      <th>diff_prev</th>
+      <th>diff_year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1963-01-01</th>
+      <td>591.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-02-01</th>
+      <td>464.0</td>
+      <td>-127.0</td>
+      <td>-21.489002</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-03-01</th>
+      <td>461.0</td>
+      <td>-3.0</td>
+      <td>-0.646552</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-04-01</th>
+      <td>605.0</td>
+      <td>144.0</td>
+      <td>31.236443</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-05-01</th>
+      <td>586.0</td>
+      <td>-19.0</td>
+      <td>-3.140496</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-11-01</th>
+      <td>753.0</td>
+      <td>86.0</td>
+      <td>12.893553</td>
+      <td>-12.947977</td>
+    </tr>
+    <tr>
+      <th>2021-12-01</th>
+      <td>871.0</td>
+      <td>118.0</td>
+      <td>15.670651</td>
+      <td>-7.635207</td>
+    </tr>
+    <tr>
+      <th>2022-01-01</th>
+      <td>845.0</td>
+      <td>-26.0</td>
+      <td>-2.985075</td>
+      <td>-14.904330</td>
+    </tr>
+    <tr>
+      <th>2022-02-01</th>
+      <td>835.0</td>
+      <td>-10.0</td>
+      <td>-1.183432</td>
+      <td>1.458080</td>
+    </tr>
+    <tr>
+      <th>2022-03-01</th>
+      <td>763.0</td>
+      <td>-72.0</td>
+      <td>-8.622754</td>
+      <td>-12.600229</td>
+    </tr>
+  </tbody>
+</table>
+<p>711 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;HSN1F&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;New Home Sales&quot;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">hsn1f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_40_0.png" src="../../../_images/02_FOMC_numerical_data_40_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="treasury-yield">
+<h3>Treasury Yield<a class="headerlink" href="#treasury-yield" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="getting-from-us-treasury-site-as-xml">
+<h4>Getting from US Treasury Site as xml<a class="headerlink" href="#getting-from-us-treasury-site-as-xml" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">treasury_yield_url</span> <span class="o">=</span> <span class="s2">&quot;https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/all/all?type=daily_treasury_yield_curve&amp;field_tdr_date_value=all&amp;data=yieldAll&amp;page&amp;_format=csv&quot;</span>
+<span class="n">treasury</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">treasury_yield_url</span><span class="p">)</span>
+<span class="n">treasury</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">treasury</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<span class="n">treasury</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">treasury</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1 Mo</th>
+      <th>2 Mo</th>
+      <th>3 Mo</th>
+      <th>6 Mo</th>
+      <th>1 Yr</th>
+      <th>2 Yr</th>
+      <th>3 Yr</th>
+      <th>5 Yr</th>
+      <th>7 Yr</th>
+      <th>10 Yr</th>
+      <th>20 Yr</th>
+      <th>30 Yr</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-05-18</th>
+      <td>0.56</td>
+      <td>0.85</td>
+      <td>1.03</td>
+      <td>1.56</td>
+      <td>2.16</td>
+      <td>2.68</td>
+      <td>2.84</td>
+      <td>2.89</td>
+      <td>2.91</td>
+      <td>2.88</td>
+      <td>3.24</td>
+      <td>3.06</td>
+    </tr>
+    <tr>
+      <th>2022-05-17</th>
+      <td>0.61</td>
+      <td>0.85</td>
+      <td>1.06</td>
+      <td>1.57</td>
+      <td>2.16</td>
+      <td>2.71</td>
+      <td>2.89</td>
+      <td>2.96</td>
+      <td>3.00</td>
+      <td>2.98</td>
+      <td>3.36</td>
+      <td>3.17</td>
+    </tr>
+    <tr>
+      <th>2022-05-16</th>
+      <td>0.64</td>
+      <td>0.85</td>
+      <td>1.07</td>
+      <td>1.54</td>
+      <td>2.07</td>
+      <td>2.58</td>
+      <td>2.75</td>
+      <td>2.83</td>
+      <td>2.89</td>
+      <td>2.88</td>
+      <td>3.30</td>
+      <td>3.09</td>
+    </tr>
+    <tr>
+      <th>2022-05-13</th>
+      <td>0.67</td>
+      <td>0.79</td>
+      <td>1.03</td>
+      <td>1.47</td>
+      <td>2.04</td>
+      <td>2.61</td>
+      <td>2.79</td>
+      <td>2.89</td>
+      <td>2.95</td>
+      <td>2.93</td>
+      <td>3.32</td>
+      <td>3.10</td>
+    </tr>
+    <tr>
+      <th>2022-05-12</th>
+      <td>0.61</td>
+      <td>0.77</td>
+      <td>0.96</td>
+      <td>1.44</td>
+      <td>1.96</td>
+      <td>2.56</td>
+      <td>2.73</td>
+      <td>2.81</td>
+      <td>2.86</td>
+      <td>2.84</td>
+      <td>3.22</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1990-01-08</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.79</td>
+      <td>7.88</td>
+      <td>7.81</td>
+      <td>7.90</td>
+      <td>7.95</td>
+      <td>7.92</td>
+      <td>8.05</td>
+      <td>8.02</td>
+      <td>NaN</td>
+      <td>8.09</td>
+    </tr>
+    <tr>
+      <th>1990-01-05</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.79</td>
+      <td>7.85</td>
+      <td>7.79</td>
+      <td>7.90</td>
+      <td>7.94</td>
+      <td>7.92</td>
+      <td>8.03</td>
+      <td>7.99</td>
+      <td>NaN</td>
+      <td>8.06</td>
+    </tr>
+    <tr>
+      <th>1990-01-04</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.84</td>
+      <td>7.90</td>
+      <td>7.82</td>
+      <td>7.92</td>
+      <td>7.93</td>
+      <td>7.91</td>
+      <td>8.02</td>
+      <td>7.98</td>
+      <td>NaN</td>
+      <td>8.04</td>
+    </tr>
+    <tr>
+      <th>1990-01-03</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.89</td>
+      <td>7.94</td>
+      <td>7.85</td>
+      <td>7.94</td>
+      <td>7.96</td>
+      <td>7.92</td>
+      <td>8.04</td>
+      <td>7.99</td>
+      <td>NaN</td>
+      <td>8.04</td>
+    </tr>
+    <tr>
+      <th>1990-01-02</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.83</td>
+      <td>7.89</td>
+      <td>7.81</td>
+      <td>7.87</td>
+      <td>7.90</td>
+      <td>7.87</td>
+      <td>7.98</td>
+      <td>7.94</td>
+      <td>NaN</td>
+      <td>8.00</td>
+    </tr>
+  </tbody>
+</table>
+<p>8103 rows × 12 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use every 5th row as it has too many data points</span>
+<span class="n">treasury_5</span> <span class="o">=</span> <span class="n">treasury</span><span class="o">.</span><span class="n">iloc</span><span class="p">[::</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
+
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">treasury_5</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Treasury Yields&quot;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">treasury_5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_43_0.png" src="../../../_images/02_FOMC_numerical_data_43_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="process-the-data">
+<h2>Process the data<a class="headerlink" href="#process-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-rate-and-decisions">
+<h3>Add Rate and Decisions<a class="headerlink" href="#add-rate-and-decisions" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">add_decisions_to_calendar</span><span class="p">(</span><span class="n">fedrates</span><span class="p">)</span>
+<span class="n">fomc_calendar</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">fomc_calendar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 427/427 [00:42&lt;00:00,  9.94it/s]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unscheduled</th>
+      <th>forecast</th>
+      <th>confcall</th>
+      <th>chair</th>
+      <th>rate</th>
+      <th>rate_change</th>
+      <th>rate_decision</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-10-05</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.50</td>
+      <td>-0.50</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1982-11-16</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.00</td>
+      <td>-0.50</td>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1982-12-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1983-01-14</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1983-01-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-11-03</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-12-15</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-01-26</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-03-16</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2022-05-04</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>414 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>Though this is not perfect as Target Rate was sometimes changed between FOMC meetings, enough to analyze the impact of FOMC Meetings.</p>
+</div>
+</div>
+<div class="section" id="add-quantitative-easing-as-a-lower-event">
+<h2>Add Quantitative Easing as a Lower event<a class="headerlink" href="#add-quantitative-easing-as-a-lower-event" title="Permalink to this headline">¶</a></h2>
+<p>Between 2008 and 2016 saw zero interest rate. Main monetary measure shifted to quantity from rate. Thus, add “lower” events when those QE was announced.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">add_unconventionals_to_calendar</span><span class="p">()</span>
+<span class="n">fomc_calendar</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">calendar</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">fomc_calendar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unscheduled</th>
+      <th>forecast</th>
+      <th>confcall</th>
+      <th>chair</th>
+      <th>rate</th>
+      <th>rate_change</th>
+      <th>rate_decision</th>
+      <th>rate_changed</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-10-05</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.50</td>
+      <td>-0.50</td>
+      <td>-1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1982-11-16</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.00</td>
+      <td>-0.50</td>
+      <td>-1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1982-12-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1983-01-14</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1983-01-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-11-03</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2021-12-15</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-01-26</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2022-03-16</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2022-05-04</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>415 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=scatter&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;rate_decision&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Rate Decisions&quot;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fomc_calendar</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_FOMC_numerical_data_50_0.png" src="../../../_images/02_FOMC_numerical_data_50_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/usecases/fomc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_FOMC_sentiments.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Sentiment Analysis of FOMC Statements</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../bok/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bank of Korea</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By entelecheia<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
