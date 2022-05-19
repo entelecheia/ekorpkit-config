@@ -1241,10 +1241,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 
-<span class="n">recessions</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">recessions</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+<span class="n">recessions</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">recessions</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">&quot;records&quot;</span><span class="p">)</span>
 
-<span class="n">span_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/axvspan&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">span_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot/axvspan&quot;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span>
+    <span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot/annotation&quot;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 <span class="n">span_args</span><span class="p">[</span><span class="s2">&quot;color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;crimson&quot;</span>
 <span class="n">span_args</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.4</span>
 
@@ -1254,41 +1256,16 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">annotation</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;from_date&quot;</span><span class="p">]</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">span</span><span class="p">[</span><span class="s2">&quot;to_date&quot;</span><span class="p">]</span>
-    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">}</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;xmin&quot;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;xmax&quot;</span><span class="p">:</span> <span class="n">end</span><span class="p">}</span>
     <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">span_args</span><span class="p">,</span> <span class="o">**</span><span class="n">span</span><span class="p">}</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.75</span>
-    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s2">&quot;xytext&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
     <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">annot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">annot</span><span class="p">}</span>
 
     <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
     <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
-<span class="n">spans</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;xmin&#39;: Timestamp(&#39;2000-03-01 00:00:00&#39;),
-  &#39;xmax&#39;: Timestamp(&#39;2002-10-01 00:00:00&#39;),
-  &#39;alpha&#39;: 0.4,
-  &#39;color&#39;: &#39;crimson&#39;},
- {&#39;xmin&#39;: Timestamp(&#39;2007-04-01 00:00:00&#39;),
-  &#39;xmax&#39;: Timestamp(&#39;2009-03-01 00:00:00&#39;),
-  &#39;alpha&#39;: 0.4,
-  &#39;color&#39;: &#39;crimson&#39;},
- {&#39;xmin&#39;: Timestamp(&#39;2010-09-01 00:00:00&#39;),
-  &#39;xmax&#39;: Timestamp(&#39;2012-09-01 00:00:00&#39;),
-  &#39;alpha&#39;: 0.4,
-  &#39;color&#39;: &#39;crimson&#39;},
- {&#39;xmin&#39;: Timestamp(&#39;2015-01-01 00:00:00&#39;),
-  &#39;xmax&#39;: Timestamp(&#39;2016-06-01 00:00:00&#39;),
-  &#39;alpha&#39;: 0.4,
-  &#39;color&#39;: &#39;crimson&#39;},
- {&#39;xmin&#39;: Timestamp(&#39;2020-02-01 00:00:00&#39;),
-  &#39;xmax&#39;: Timestamp(&#39;2022-02-01 00:00:00&#39;),
-  &#39;alpha&#39;: 0.4,
-  &#39;color&#39;: &#39;crimson&#39;}]
 </pre></div>
 </div>
 </div>
@@ -1296,7 +1273,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">fomc_sentiments</span><span class="p">[</span><span class="s1">&#39;polarity_ma&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fomc_sentiments</span><span class="o">.</span><span class="n">polarity</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">fomc_sentiments</span><span class="p">[</span><span class="s2">&quot;polarity_ma&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fomc_sentiments</span><span class="o">.</span><span class="n">polarity</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot=lineplot&quot;</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="s2">&quot;individual&quot;</span>
@@ -1325,30 +1302,30 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chair</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">chair</span>
 <span class="n">chair</span> <span class="o">=</span> <span class="n">chair</span><span class="p">[</span><span class="n">chair</span><span class="o">.</span><span class="n">to_date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&gt;=</span> <span class="n">start_year</span><span class="p">]</span>
-<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;visualize/plot/annotation&#39;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">annot_args</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span>
+    <span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;visualize/plot/annotation&quot;</span><span class="p">,</span> <span class="n">return_as_dict</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 
 <span class="n">spans</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">annotations</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">chair</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">row_num</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;from_date&#39;</span><span class="p">]</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;from_date&quot;</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">start</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">:</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>    
-    <span class="n">end</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;to_date&#39;</span><span class="p">]</span>
-    <span class="n">annotation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;surname&#39;</span><span class="p">]</span>
-    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;crimson&#39;</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;darkblue&#39;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;to_date&quot;</span><span class="p">]</span>
+    <span class="n">annotation</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;surname&quot;</span><span class="p">]</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;crimson&quot;</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;darkblue&quot;</span>
     <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span> <span class="k">if</span> <span class="n">row_num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
-    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;xmin&#39;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s1">&#39;xmax&#39;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;xmin&quot;</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot;xmax&quot;</span><span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">color</span><span class="p">}</span>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.75</span>
-    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s1">&#39;xytext&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
+    <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">annotation</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="s2">&quot;xytext&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)}</span>
     <span class="n">annot</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">annot_args</span><span class="p">,</span> <span class="o">**</span><span class="n">annot</span><span class="p">}</span>
 
     <span class="n">spans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">span</span><span class="p">)</span>
     <span class="n">annotations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">annot</span><span class="p">)</span>
-
-<span class="n">spans</span>    
 </pre></div>
 </div>
 </div>
