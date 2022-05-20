@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lexicon-based Sentiment Analysis &#8212; eKorpkit Tutorials</title>
+    <title>Instantiating pipeline &#8212; eKorpkit Tutorials</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="LM Dictionary vs. finbert vs. T5" href="sentiment.html" />
-    <link rel="prev" title="Sentiment Lexicons" href="lexicon.html" />
+    <link rel="next" title="Sentiment Analysis" href="../sentiment/index.html" />
+    <link rel="prev" title="Pipeline" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -162,45 +162,45 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../pipelines/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    Pipeline
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../pipelines/pipeline.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Instantiating pipeline
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="index.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sentiment/index.html">
    Sentiment Analysis
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="lexicon.html">
+    <a class="reference internal" href="../sentiment/lexicon.html">
      Sentiment Lexicons
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sentiment/lbsa_en.html">
      Lexicon-based Sentiment Analysis
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="sentiment.html">
+    <a class="reference internal" href="../sentiment/sentiment.html">
      LM Dictionary vs. finbert vs. T5
     </a>
    </li>
@@ -351,7 +351,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/sentiment/lbsa_en.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/docs/tutorials/pipelines/pipeline.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -371,7 +371,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/sentiment/lbsa_en.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/tutorials/pipelines/pipeline.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -392,7 +392,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/tutorials/sentiment/lbsa_en.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/tutorials/pipelines/pipeline.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -400,7 +400,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         
         
-        <a class="colab-button" href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/ekorpkit-book/docs/tutorials/sentiment/lbsa_en.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+        <a class="colab-button" href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/ekorpkit-book/docs/tutorials/pipelines/pipeline.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
                 title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
                     src="../../../_static/images/logo_colab.png"
                     alt="Interact on Colab">Colab</button></a>
@@ -420,8 +420,13 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-a-sentiment-analyser-class">
-   Instantiating a sentiment analyser class
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-a-pipeline-with-the-ekorpkit-configs">
+   Process a pipeline  with the ekorpkit configs
   </a>
  </li>
 </ul>
@@ -434,7 +439,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lexicon-based Sentiment Analysis</h1>
+                <h1>Instantiating pipeline</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -445,8 +450,13 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-a-sentiment-analyser-class">
-   Instantiating a sentiment analyser class
+  <a class="reference internal nav-link" href="#load-data">
+   Load data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#process-a-pipeline-with-the-ekorpkit-configs">
+   Process a pipeline  with the ekorpkit configs
   </a>
  </li>
 </ul>
@@ -458,138 +468,290 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lexicon-based-sentiment-analysis">
-<h1>Lexicon-based Sentiment Analysis<a class="headerlink" href="#lexicon-based-sentiment-analysis" title="Permalink to this headline">¶</a></h1>
-<p><a href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/notebooks/preprocessor.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<div class="section" id="instantiating-a-sentiment-analyser-class">
-<h2>Instantiating a sentiment analyser class<a class="headerlink" href="#instantiating-a-sentiment-analyser-class" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="instantiating-pipeline">
+<h1>Instantiating pipeline<a class="headerlink" href="#instantiating-pipeline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-data">
+<h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
-<span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/sentiment=lm&#39;</span>
-<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">preprocessor</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">nltk</span><span class="o">.</span><span class="n">lemmatize</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="c1"># eKonf.pprint(cfg)</span>
-<span class="n">lmsa</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
-
-<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fraud&quot;</span><span class="p">,</span> <span class="s2">&quot;Good&quot;</span><span class="p">,</span><span class="s2">&quot;Good&quot;</span><span class="p">,</span><span class="s2">&quot;Good&quot;</span><span class="p">,</span> <span class="s2">&quot;Sound&quot;</span><span class="p">,</span> <span class="s2">&quot;uncertain&quot;</span><span class="p">,</span> <span class="s2">&quot;beat&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">]</span>
-
-<span class="n">lmsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">df_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;pipeline=blank&quot;</span><span class="p">)</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;edgar_sample&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;https://github.com/entelecheia/ekorpkit-config/raw/main/data/edgar.zip&#39;,true,false}&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">+=</span> <span class="s2">&quot;/edgar&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s2">&quot;edgar.parquet&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;cik&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">df_cfg</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading data from /workspace/projects/ekorpkit/ekorpkit/resources/lexicons/LM.parquet
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>filename</th>
+      <th>item</th>
+      <th>text</th>
+      <th>cik</th>
+      <th>company</th>
+      <th>filing_type</th>
+      <th>filing_date</th>
+      <th>period_of_report</th>
+      <th>sic</th>
+      <th>state_of_inc</th>
+      <th>state_location</th>
+      <th>fiscal_year_end</th>
+      <th>filing_html_index</th>
+      <th>htm_filing_link</th>
+      <th>complete_text_filing_link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1410</th>
+      <td>1534</td>
+      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
+      <td>item_1</td>
+      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
+      <td>320193</td>
+      <td>APPLE COMPUTER INC</td>
+      <td>10-K</td>
+      <td>1999-12-22</td>
+      <td>1999-09-25</td>
+      <td>3571</td>
+      <td>CA</td>
+      <td>CA</td>
+      <td>0930</td>
+      <td>https://www.sec.gov/Archives/edgar/data/320193...</td>
+      <td>None</td>
+      <td>https://www.sec.gov/Archives/edgar/data/320193...</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>1697</td>
+      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
+      <td>item_1</td>
+      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
+      <td>21344</td>
+      <td>COCA COLA CO</td>
+      <td>10-K</td>
+      <td>2000-03-09</td>
+      <td>1999-12-31</td>
+      <td>2080</td>
+      <td>DE</td>
+      <td>GA</td>
+      <td>1231</td>
+      <td>https://www.sec.gov/Archives/edgar/data/21344/...</td>
+      <td>None</td>
+      <td>https://www.sec.gov/Archives/edgar/data/21344/...</td>
+    </tr>
+    <tr>
+      <th>2746</th>
+      <td>2977</td>
+      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
+      <td>item_1</td>
+      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
+      <td>70858</td>
+      <td>BANK OF AMERICA CORP /DE/</td>
+      <td>10-K</td>
+      <td>2000-03-20</td>
+      <td>1999-12-31</td>
+      <td>6021</td>
+      <td>DE</td>
+      <td>NC</td>
+      <td>1231</td>
+      <td>https://www.sec.gov/Archives/edgar/data/70858/...</td>
+      <td>None</td>
+      <td>https://www.sec.gov/Archives/edgar/data/70858/...</td>
+    </tr>
+    <tr>
+      <th>3762</th>
+      <td>4088</td>
+      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
+      <td>item_1</td>
+      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
+      <td>80424</td>
+      <td>PROCTER &amp; GAMBLE CO</td>
+      <td>10-K</td>
+      <td>1999-09-15</td>
+      <td>1999-06-30</td>
+      <td>2840</td>
+      <td>OH</td>
+      <td>OH</td>
+      <td>0630</td>
+      <td>https://www.sec.gov/Archives/edgar/data/80424/...</td>
+      <td>None</td>
+      <td>https://www.sec.gov/Archives/edgar/data/80424/...</td>
+    </tr>
+    <tr>
+      <th>4806</th>
+      <td>5211</td>
+      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
+      <td>item_1</td>
+      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
+      <td>1018724</td>
+      <td>AMAZON COM INC</td>
+      <td>10-K</td>
+      <td>2000-03-29</td>
+      <td>1999-12-31</td>
+      <td>5961</td>
+      <td>DE</td>
+      <td>WA</td>
+      <td>1231</td>
+      <td>https://www.sec.gov/Archives/edgar/data/101872...</td>
+      <td>None</td>
+      <td>https://www.sec.gov/Archives/edgar/data/101872...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="process-a-pipeline-with-the-ekorpkit-configs">
+<h2>Process a pipeline  with the ekorpkit configs<a class="headerlink" href="#process-a-pipeline-with-the-ekorpkit-configs" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;corpus&quot;</span><span class="p">)</span>
+<span class="n">corpus_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;bok_minutes&quot;</span>
+<span class="n">corpus_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data&quot;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">corpus_cfg</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polarity&#39;: 0.199999960000008,
- &#39;subjectivity&#39;: 0.6249999218750099,
- &#39;label&#39;: &#39;neutral&#39;}
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.corpora.corpus.Corpus&#39;,
+ &#39;autoload&#39;: True,
+ &#39;automerge&#39;: False,
+ &#39;column_info&#39;: {&#39;data&#39;: None,
+                 &#39;keys&#39;: None,
+                 &#39;meta&#39;: None,
+                 &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
+ &#39;data_dir&#39;: &#39;../data&#39;,
+ &#39;filetype&#39;: None,
+ &#39;metadata_dir&#39;: None,
+ &#39;name&#39;: &#39;bok_minutes&#39;,
+ &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+ &#39;sentence_separator&#39;: &#39;\\n&#39;,
+ &#39;use_name_as_subdir&#39;: True,
+ &#39;verbose&#39;: False}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Beyond the improved voice capabilities, customers now have a streamlined way to comply with recalls and other traceability requirements, providing them with a competitive advantage.&quot;</span>
-<span class="n">tokens</span> <span class="o">=</span> <span class="n">lmsa</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
-<span class="n">pprint</span><span class="p">(</span><span class="n">lmsa</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negative&#39;</span><span class="p">,</span> <span class="s1">&#39;Positive&#39;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lmsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Operating loss amounted to EUR 0.7 mn compared to a profit of EUR 0.8 mn in the second quarter of 2005.&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">lmsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;pipeline&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">corpus</span> <span class="o">=</span> <span class="n">corpus_cfg</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">_pipeline_</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;summary_stats&quot;</span><span class="p">]</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">summary_stats</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/output&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">summary_stats</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="s2">&quot;bok_minutes_stats.yaml&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beyond&#39;, &#39;the&#39;, &#39;improved&#39;, &#39;voice&#39;, &#39;capability&#39;, &#39;,&#39;, &#39;customer&#39;, &#39;now&#39;, &#39;have&#39;, &#39;a&#39;, &#39;streamlined&#39;, &#39;way&#39;, &#39;to&#39;, &#39;comply&#39;, &#39;with&#39;, &#39;recall&#39;, &#39;and&#39;, &#39;other&#39;, &#39;traceability&#39;, &#39;requirement&#39;, &#39;,&#39;, &#39;provide&#39;, &#39;them&#39;, &#39;with&#39;, &#39;a&#39;, &#39;competitive&#39;, &#39;advantage&#39;, &#39;.&#39;]
-{&#39;advantage&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 2009, &#39;count&#39;: 1},
- &#39;and&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;beyond&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;capability&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;competitive&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;comply&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;customer&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;have&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;improved&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 2009, &#39;count&#39;: 1},
- &#39;now&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;other&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;provide&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;recall&#39;: {&#39;Negative&#39;: 2009, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;requirement&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;streamlined&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;the&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;them&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;to&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;traceability&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;voice&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;way&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 1},
- &#39;with&#39;: {&#39;Negative&#39;: 0, &#39;Positive&#39;: 0, &#39;count&#39;: 2}}
-{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;label&#39;: &#39;positive&#39;}
-{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;label&#39;: &#39;negative&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;autoload&#39;: True,
+ &#39;automerge&#39;: False,
+ &#39;category&#39;: &#39;formal&#39;,
+ &#39;column_info&#39;: {&#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;, &#39;text&#39;: &#39;text&#39;},
+                 &#39;meta&#39;: {&#39;filename&#39;: &#39;str&#39;,
+                          &#39;id&#39;: &#39;int&#39;,
+                          &#39;mdate&#39;: &#39;str&#39;,
+                          &#39;rdate&#39;: &#39;str&#39;},
+                 &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
+ &#39;data_dir&#39;: &#39;../data&#39;,
+ &#39;data_files&#39;: {&#39;train&#39;: &#39;bok_minutes-train.parquet&#39;},
+ &#39;data_files_modified&#39;: &#39;2022-05-20 06:15:19&#39;,
+ &#39;description&#39;: &#39;BOK Minutes Corpus&#39;,
+ &#39;filetype&#39;: None,
+ &#39;fullname&#39;: &#39;BOK MPB Minutes&#39;,
+ &#39;homepage&#39;: &#39;https://www.bok.or.kr&#39;,
+ &#39;info_updated&#39;: &#39;2022-05-20 06:15:19&#39;,
+ &#39;lang&#39;: &#39;ko&#39;,
+ &#39;license&#39;: &#39;Bank of Korea&#39;,
+ &#39;meta_files&#39;: {&#39;train&#39;: &#39;meta-bok_minutes-train.parquet&#39;},
+ &#39;meta_files_modified&#39;: &#39;2022-05-20 06:08:40&#39;,
+ &#39;metadata_dir&#39;: None,
+ &#39;name&#39;: &#39;bok_minutes&#39;,
+ &#39;num_bytes_before_processing&#39;: 88948,
+ &#39;num_docs&#39;: 1,
+ &#39;num_docs_before_processing&#39;: 1,
+ &#39;num_segments&#39;: 5,
+ &#39;num_sents&#39;: 346,
+ &#39;num_words&#39;: 8171,
+ &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+ &#39;sentence_separator&#39;: &#39;\\n&#39;,
+ &#39;size_in_bytes&#39;: 88948,
+ &#39;size_in_human_bytes&#39;: &#39;86.86 KiB&#39;,
+ &#39;splits&#39;: {&#39;train&#39;: {&#39;data_file&#39;: &#39;bok_minutes-train.parquet&#39;,
+                      &#39;dataset_name&#39;: &#39;bok_minutes&#39;,
+                      &#39;human_bytes&#39;: &#39;86.86 KiB&#39;,
+                      &#39;human_bytes_wospc&#39;: &#39;78.88 KiB&#39;,
+                      &#39;meta_file&#39;: &#39;meta-bok_minutes-train.parquet&#39;,
+                      &#39;name&#39;: &#39;train&#39;,
+                      &#39;num_bytes&#39;: 88948,
+                      &#39;num_bytes_before_processing&#39;: 88948,
+                      &#39;num_bytes_max&#39;: 88948,
+                      &#39;num_bytes_median&#39;: 88948.0,
+                      &#39;num_bytes_min&#39;: 88948,
+                      &#39;num_bytes_wospc&#39;: 80773,
+                      &#39;num_docs&#39;: 1,
+                      &#39;num_docs_before_processing&#39;: 1,
+                      &#39;num_segments&#39;: 5,
+                      &#39;num_segments_median&#39;: 5.0,
+                      &#39;num_sents&#39;: 346,
+                      &#39;num_sents_median&#39;: 346.0,
+                      &#39;num_words&#39;: 8171,
+                      &#39;num_words_max&#39;: 8171,
+                      &#39;num_words_median&#39;: 8171.0,
+                      &#39;num_words_min&#39;: 8171}},
+ &#39;use_name_as_subdir&#39;: True,
+ &#39;verbose&#39;: True,
+ &#39;version&#39;: &#39;1.0.0&#39;}
+   id                                               text
+0   0  Economic Situation\n일부 위원은 관련부서에서 지난 3\/4분기 중 ...
+   id                                               text
+0   0  Economic Situation\n일부 위원은 관련부서에서 지난 3\/4분기 중 ...
+   id                mdate                rdate               filename
+0   0  2018-11-30 10:00:00  2018-12-18 16:00:00  BOK_20181130_20181218
+   id                mdate                rdate               filename
+0   0  2018-11-30 10:00:00  2018-12-18 16:00:00  BOK_20181130_20181218
 </pre></div>
 </div>
-</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "46a38561d9d645a3a3caca0ff2075190", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
-<span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/sentiment=hiv4&#39;</span>
-<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="n">config_group</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">preprocessor</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">nltk</span><span class="o">.</span><span class="n">lemmatize</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="c1"># eKonf.pprint(cfg)</span>
-<span class="n">hivsa</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
-
-<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Fraud&quot;</span><span class="p">,</span> <span class="s2">&quot;Good&quot;</span><span class="p">,</span><span class="s2">&quot;Good&quot;</span><span class="p">,</span><span class="s2">&quot;Good&quot;</span><span class="p">,</span> <span class="s2">&quot;Sound&quot;</span><span class="p">,</span> <span class="s2">&quot;uncertain&quot;</span><span class="p">,</span> <span class="s2">&quot;beat&quot;</span><span class="p">,</span> <span class="s2">&quot;wrong&quot;</span><span class="p">]</span>
-
-<span class="n">hivsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">summary_stats</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">cfg</span><span class="o">.</span><span class="n">summary_stats</span><span class="o">.</span><span class="n">output_file</span><span class="p">)</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading data from /workspace/projects/ekorpkit/ekorpkit/resources/lexicons/HIV-4.parquet
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polarity&#39;: -0.9999990000010001,
- &#39;subjectivity&#39;: 0.12499998437500197,
- &#39;label&#39;: &#39;negative&#39;}
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Beyond the improved voice capabilities, customers now have a streamlined way to comply with recalls and other traceability requirements, providing them with a competitive advantage.&quot;</span>
-<span class="n">tokens</span> <span class="o">=</span> <span class="n">hivsa</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
-<span class="n">pprint</span><span class="p">(</span><span class="n">hivsa</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">features</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Negativ&#39;</span><span class="p">,</span> <span class="s1">&#39;Positiv&#39;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hivsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Operating loss amounted to EUR 0.7 mn compared to a profit of EUR 0.8 mn in the second quarter of 2005.&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">hivsa</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Beyond&#39;, &#39;the&#39;, &#39;improved&#39;, &#39;voice&#39;, &#39;capability&#39;, &#39;,&#39;, &#39;customer&#39;, &#39;now&#39;, &#39;have&#39;, &#39;a&#39;, &#39;streamlined&#39;, &#39;way&#39;, &#39;to&#39;, &#39;comply&#39;, &#39;with&#39;, &#39;recall&#39;, &#39;and&#39;, &#39;other&#39;, &#39;traceability&#39;, &#39;requirement&#39;, &#39;,&#39;, &#39;provide&#39;, &#39;them&#39;, &#39;with&#39;, &#39;a&#39;, &#39;competitive&#39;, &#39;advantage&#39;, &#39;.&#39;]
-{&#39;a&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 2},
- &#39;advantage&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: &#39;Positiv&#39;, &#39;count&#39;: 1},
- &#39;and&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;beyond&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;capability&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: &#39;Positiv&#39;, &#39;count&#39;: 1},
- &#39;competitive&#39;: {&#39;Negativ&#39;: &#39;Negativ&#39;, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;comply&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;customer&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;now&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;requirement&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;the&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;them&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 1},
- &#39;with&#39;: {&#39;Negativ&#39;: None, &#39;Positiv&#39;: None, &#39;count&#39;: 2}}
-{&#39;polarity&#39;: 0.33333322222225925, &#39;subjectivity&#39;: 0.10714285331632667, &#39;label&#39;: &#39;positive&#39;}
-{&#39;polarity&#39;: -0.9999990000010001, &#39;subjectivity&#39;: 0.045454543388429844, &#39;label&#39;: &#39;negative&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_examples&#39;: 1, &#39;num_bytes&#39;: 88948, &#39;num_bytes_median&#39;: 88948.0, &#39;num_bytes_max&#39;: 88948, &#39;num_bytes_min&#39;: 88948, &#39;human_bytes&#39;: &#39;86.86 KiB&#39;}
 </pre></div>
 </div>
 </div>
@@ -610,7 +772,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/tutorials/sentiment"
+            path: "./docs/tutorials/pipelines"
         },
         predefinedOutput: true
     }
@@ -622,17 +784,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="lexicon.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Sentiment Lexicons</p>
+            <p class="prev-next-title">Pipeline</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="sentiment.html" title="next page">
+    <a class='right-next' id="next-link" href="../sentiment/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">LM Dictionary vs. finbert vs. T5</p>
+        <p class="prev-next-title">Sentiment Analysis</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
