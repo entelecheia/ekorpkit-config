@@ -44,6 +44,10 @@ To see the available configurations for CLI, run the command:
 !ekorpkit --help
 ```
 
+```{code-cell} ipython3
+!ekorpkit --info defaults
+```
+
 ## Via Python
 
 ### Compose an ekorpkit config

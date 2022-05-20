@@ -15,6 +15,13 @@ parts:
 
   - caption: Tutorials
     chapters:
+      - file: docs/tutorials/corpora/index
+        sections:
+          - file: docs/tutorials/corpora/corpus.ipynb
+          - file: docs/tutorials/corpora/filter_and_save.ipynb
+      - file: docs/tutorials/pipelines/index
+        sections:
+          - file: docs/tutorials/pipelines/pipeline.ipynb
       - file: docs/tutorials/sentiment/index
         sections:
           - file: docs/tutorials/sentiment/lexicon.ipynb
