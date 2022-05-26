@@ -163,11 +163,28 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tutorials/pipelines/index.html">
-   Pipeline
+  <a class="reference internal" href="../tutorials/datasets/index.html">
+   Datasets
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tutorials/datasets/dataset.html">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials/pipelines/index.html">
+   Pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,8 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../tutorials/sentiment/index.html">
    Sentiment Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -210,8 +227,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../tutorials/preprocessors/preprocessor.html">
    Preprocessors
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -246,8 +263,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../usecases/fomc/index.html">
    FOMC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -273,8 +290,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../usecases/edgar/index.html">
    EDGAR
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -594,7 +611,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name        : ekorpkit
 author      : entelecheia
 description : eKorpkit provides a flexible interface for corpus management and analysis pipelines such as extraction, transformation, tokenization, training, and visualization.
-version     : 0.1.30+5.g26259e0.dirty
+version     : 0.1.30+10.g9237b34.dirty
 
 Execute `ekorpkit --help` to see what eKorpkit provides
 </pre></div>
@@ -621,42 +638,41 @@ Execute `ekorpkit --help` to see what eKorpkit provides
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-20 06:33:09,933</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.loader.dummy</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes.csv already exists. skipping..
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,409</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.loader.dummy</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes.csv already exists. skipping..
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-20 06:33:09,983</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet already exists
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:09,983</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Loading data from /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,002</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,461</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet already exists
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,461</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Loading data from /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,479</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
 Processing dataframe with pipeline: [&#39;normalize&#39;, &#39;segment&#39;, &#39;drop_duplicates&#39;, &#39;save_samples&#39;, &#39;save_dataframe&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,051</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipeline: OrderedDict([(&#39;normalize&#39;, &#39;normalize&#39;), (&#39;segment&#39;, &#39;segment&#39;), (&#39;drop_duplicates&#39;, &#39;drop_duplicates&#39;), (&#39;save_samples&#39;, &#39;save_samples&#39;), (&#39;save_dataframe&#39;, &#39;save_dataframe&#39;)])
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,053</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function normalize at 0x7f1ae0035a60&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,055</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function segment at 0x7f1ae0035c10&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,057</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function drop_duplicates at 0x7f1ae0036160&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,061</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_samples at 0x7f1ae00361f0&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,064</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function _save_dataframe at 0x7f1ae00365e0&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,066</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Saving dataframe as /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,530</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipeline: OrderedDict([(&#39;normalize&#39;, &#39;normalize&#39;), (&#39;segment&#39;, &#39;segment&#39;), (&#39;drop_duplicates&#39;, &#39;drop_duplicates&#39;), (&#39;save_samples&#39;, &#39;save_samples&#39;), (&#39;save_dataframe&#39;, &#39;save_dataframe&#39;)])
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,532</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function normalize at 0x7fa3a6d5f0d0&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,534</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function segment at 0x7fa3a6d5f280&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,536</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function drop_duplicates at 0x7fa3a6d5f790&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,540</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_samples at 0x7fa3a6d5f820&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,544</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_dataframe at 0x7fa3a6d5fc10&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,545</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Saving dataframe as /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_bytes to num_bytes:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_bytes to num_bytes: 100%|████████████| 5/5 [00:00&lt;00:00, 16194.22it/s]
+apply len_bytes to num_bytes: 100%|████████████| 5/5 [00:00&lt;00:00, 14926.35it/s]
 
 apply len_wospc to num_bytes_wospc:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
-apply len_wospc to num_bytes_wospc: 100%|████████| 5/5 [00:00&lt;00:00, 695.55it/s]
+apply len_wospc to num_bytes_wospc: 100%|████████| 5/5 [00:00&lt;00:00, 666.10it/s]
 
 apply len_words to num_words:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_words to num_words: 100%|█████████████| 5/5 [00:00&lt;00:00, 2526.99it/s]
-
-apply len_sents to num_sents:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_sents to num_sents: 100%|██████████████| 5/5 [00:00&lt;00:00, 403.69it/s]
-
-apply len_segments to num_segments:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
+apply len_words to num_words: 100%|█████████████| 5/5 [00:00&lt;00:00, 2926.94it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_segments to num_segments: 100%|████████| 5/5 [00:00&lt;00:00, 413.82it/s]
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,153</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.stat</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to calculate statistics: 0:00:00.073317
-[<span class=" -Color -Color-Cyan">2022-05-20 06:33:10,163</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_sents to num_sents:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
+apply len_sents to num_sents: 100%|██████████████| 5/5 [00:00&lt;00:00, 398.51it/s]
+
+apply len_segments to num_segments:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
+apply len_segments to num_segments: 100%|████████| 5/5 [00:00&lt;00:00, 388.00it/s]
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,634</span>][<span class=" -Color -Color-Blue">ekorpkit.info.stat</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to calculate statistics: 0:00:00.074386
+[<span class=" -Color -Color-Cyan">2022-05-26 03:04:04,647</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
 Corpus [fomc_minutes] is built to [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes] from [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes]
 </pre></div>
 </div>
@@ -683,31 +699,35 @@ ekorpkit Command Line Interface for Hydra
 == Configuration groups ==
 
 Compose your configuration from those groups (task=task_name)
-_call_: datasets, replace, train_and_eval
+_func_: aggregate_columns, chunk, combine_columns, concat_dataframes, drop, drop_duplicates, eval_columns, evaluate_classification_performance, explode_splits, extract_tokens, fillna, filter_length, filter_query, general_function, load_dataframe, melt, merge_dataframe, normalize, pivot, plot, predict, remove_startswith, rename_columns, reset_index, sampling, save_as_json, save_as_text, save_dataframe, save_metadata, save_samples, segment, split_dataframe, split_sampling, stdout_samples, subset, summary_stats, tokenize, top_values
+_func_/concat_dataframes: default
+_func_/len_bytes: default
+_func_/len_segments: default
+_func_/len_sents: default
+_func_/len_words: default
+_func_/len_wospc: default
+_func_/load_dataframe: default
+_func_/save_dataframe: default
+_method_: load_and_concatenate, replace, train_and_eval
 about: default, run
 about/app: default, run
 cmd: convert_electra, default, fetch_builtin_corpus, fetch_simple_dataset, fetch_t5_dataset, info, job, listup, path, pipeline, task, topic_task, transformer_finetune, workflow
+column_info: default
 corpus: _loader, corpora, corpus, dataset, default
 corpus/builtin: _build, _dummy_bok_minutes, _dummy_fomc_minutes, aida_paper, aihub_book, aihub_formal1, aihub_formal2, aihub_koen_formal, aihub_koen_sci, aihub_koen_ssci, aihub_law_case, aihub_law_kb, aihub_paper, aihub_patent1, aihub_patent2, bigkinds, bigpatent, bok_minutes, c4_realnewslike, cb_speech, cc_news, courtlistener, earnings_call, edgar, enron_mail, enwiki, esg_report, fomc, gd_review, hacker_news, kaist, kcbert, kcc, kowiki, mc4_ko, namuwiki, nih_exporter, nikl_news, nikl_spoken, nikl_written, oscar_ko, pathobook, philpapers, pmc_comm, pmc_noncomm, pubmed, respec, reuters_financial, sec_report, stackexchange, us_equities_news, verbcl, youtube_subtitles
 corpus/preset: builtins
-data: default
+data: concat, default
 dataset: _loader, dataset, datasets, default, preset, simple, simple_auto, t5
 dataset/preset: builtins
 dataset/simple: _build, analystsent_kr, bc4chemd, bc5cdr, esg_topics, financial_phrasebank, finphrase_kr, mp_tone_kr, ncbi-disease, nsmc, pathner, sst2
 dataset/t5: BC2GM, BC4CHEMD, BC5CDR-chem, BC5CDR-disease, JNLPBA, NCBI-disease, _build, _scifive_finetune, linnaeus, s800
 dir: default
 env: default, run
-function: aggregate_columns, chunk, combine_columns, concat_dataframes, drop, drop_duplicates, eval_columns, evaluate_classification_performance, explode_splits, extract_tokens, fillna, filter_length, filter_query, general_function, load_dataframe, melt, merge_dataframe, normalize, pivot, plot, predict, remove_startswith, rename_columns, reset_index, sampling, save_as_json, save_as_text, save_dataframe, save_metadata, save_samples, segment, split_dataframe, split_sampling, stdout_samples, subset, summary_stats, tokenize, top_values
-function/len_bytes: default
-function/len_segments: default
-function/len_sents: default
-function/len_words: default
-function/len_wospc: default
 info: _build_corpus, _build_dataset, _build_t5, _default_build, corpus, t5
 info/stats: corpus, default
 info/table: corpus_info, listup, t5_info
 io: _build_corpus, _build_simple, _build_t5, file
-io/fetcher: _default, _dummy, _gcs, _gdrive_untar, _web, bok, dataframe, earnings_call, edgar, edgar_filings, edgar_items, enwiki, esg_report, fomc, fred, glassdoor, hfds, kcbert, kcc, kowiki, namuwiki, nasdaq, nih_exporter, pathobook, pubmed, respec, sec_report
+io/fetcher: _default, _dummy, _gcs, _gdrive_untar, _web, bok, dataframe, earnings_call, edgar, edgar_filings, edgar_items, enwiki, esg_report, fomc, glassdoor, hfds, kcbert, kcc, kowiki, namuwiki, nih_exporter, pathobook, pubmed, quandl, respec, sec_report
 io/loader: class, csv, gcs, hfds, parser, tf_textline, the_pile, tsv
 io/loader/decompressor: gzip
 io/loader/parser: email, html_to_json, json, json_to_list, jsonlines, plaintext, plaintext_split, pmc, pubmed, redif, reuters
@@ -790,15 +810,16 @@ util/model/convert: convert_electra
 util/vocab/extract_nouns: default
 visualize: default
 visualize/plot: _default, barplot, confusion_matrix, default, lineplot, scatter, stackplot
-visualize/plot/annotation: default
-visualize/plot/axvspan: default
-visualize/plot/dataset: default
 visualize/plot/figure: default
+visualize/plot/figure/annotation: default
+visualize/plot/figure/axvspan: default
 visualize/plot/lineplot: default
 visualize/plot/plot: default
 visualize/plot/savefig: default
 visualize/plot/scatter: default
+visualize/plot/series: default
 visualize/plot/stackplot: default
+visualize/plot/subplots: default
 visualize/treemap: default
 visualize/wordcloud: default
 workflow: _flow_
@@ -822,6 +843,32 @@ about:
 _target_: ekorpkit.cli.cmd
 _config_: about.app
 corpus:
+  column_info:
+    _target_: ekorpkit.info.base.ColumnInfo
+    keys:
+      id: id
+      text: text
+      timestamp: timestamp
+      split: split
+    columns:
+      id: ${oc.select:..keys.id,id}
+      text: ${oc.select:..keys.text,text}
+      merge_meta_on: ${oc.select:..id}
+      timestamp: ${oc.select:..timestamp.key,timestamp}
+    data:
+      id: int
+      text: str
+    meta: null
+    timestamp:
+      key: null
+      format: null
+      params: null
+    datetime:
+      key: null
+      format: null
+      params: null
+    segment_separator: ${oc.select:..segment_separator, &#39;\n\n&#39;}
+    sentence_separator: ${oc.select:..sentence_separator, &#39;\n&#39;}
   _target_: ekorpkit.corpora.corpus.Corpus
   name: ${oc.select:.builtin.name, null}
   data_dir: ${oc.select:.builtin.data_dir, ${dir.corpus}}
@@ -830,29 +877,40 @@ corpus:
   autoload: true
   automerge: false
   verbose: ${oc.select:..verbose, true}
-  segment_separator: ${oc.select:.builtin.segment_separator, &#39;\n\n&#39;}
-  sentence_separator: ${oc.select:.builtin.sentence_separator, &#39;\n&#39;}
+  use_name_as_subdir: true
+dataset:
   column_info:
-    keys: ${oc.select:..builtin.column_info.keys, null}
-    data: ${oc.select:..builtin.column_info.data, null}
-    meta: ${oc.select:..builtin.column_info.meta, null}
+    _target_: ekorpkit.info.base.ColumnInfo
+    keys:
+      id: id
+      text: text
+      timestamp: timestamp
+      split: split
+    columns:
+      id: ${oc.select:..keys.id,id}
+      text: ${oc.select:..keys.text,text}
+      merge_meta_on: ${oc.select:..id}
+      timestamp: ${oc.select:..timestamp.key,timestamp}
+    data:
+      id: int
+      text: str
+    meta: null
     timestamp:
       key: null
       format: null
       params: null
-  use_name_as_subdir: true
-dataset:
+    datetime:
+      key: null
+      format: null
+      params: null
+    segment_separator: ${oc.select:..segment_separator, &#39;\n\n&#39;}
+    sentence_separator: ${oc.select:..sentence_separator, &#39;\n&#39;}
   _target_: ekorpkit.datasets.dataset.Dataset
   name: ${oc.select:.builtin.name, null}
   data_dir: ${dir.dataset}/dataset
   filetype: ${oc.select:.builtin.filetype, csv}
   autoload: true
   verbose: ${oc.select:..verbose, true}
-  column_info:
-    keys:
-      id: id
-      text: text
-    data: null
   use_name_as_subdir: true
 dir:
   archive: ${.data}/archive
@@ -923,30 +981,32 @@ Use --hydra-help to view Hydra specific help
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Defaults List
 *************
-| Config path                  | Package             | _self_ | Parent        | 
---------------------------------------------------------------------------------
-| hydra/output/default         | hydra               | False  | hydra/config  |
-| hydra/launcher/basic         | hydra.launcher      | False  | hydra/config  |
-| hydra/sweeper/basic          | hydra.sweeper       | False  | hydra/config  |
-| hydra/help/help              | hydra.help          | False  | hydra/config  |
-| hydra/hydra_help/default     | hydra.hydra_help    | False  | hydra/config  |
-| hydra/hydra_logging/colorlog | hydra.hydra_logging | False  | hydra/config  |
-| hydra/job_logging/colorlog   | hydra.job_logging   | False  | hydra/config  |
-| hydra/env/default            | hydra.env           | False  | hydra/config  |
-| hydra/config                 | hydra               | True   | &lt;root&gt;        |
-| config                       |                     | True   | &lt;root&gt;        |
-| about/app/default            | about.app           | False  | about/default |
-| about/default                | about               | True   | config        |
-| cmd/default                  |                     | False  | config        |
-| corpus/default               | corpus              | False  | config        |
-| dataset/default              | dataset             | False  | config        |
-| dir/default                  | dir                 | False  | config        |
-| env/run                      | env                 | False  | env/default   |
-| env/default                  | env                 | True   | config        |
-| mode/default                 |                     | False  | config        |
-| model/default                | model               | False  | config        |
-| project/default              |                     | False  | config        |
---------------------------------------------------------------------------------
+| Config path                  | Package             | _self_ | Parent          | 
+----------------------------------------------------------------------------------
+| hydra/output/default         | hydra               | False  | hydra/config    |
+| hydra/launcher/basic         | hydra.launcher      | False  | hydra/config    |
+| hydra/sweeper/basic          | hydra.sweeper       | False  | hydra/config    |
+| hydra/help/help              | hydra.help          | False  | hydra/config    |
+| hydra/hydra_help/default     | hydra.hydra_help    | False  | hydra/config    |
+| hydra/hydra_logging/colorlog | hydra.hydra_logging | False  | hydra/config    |
+| hydra/job_logging/colorlog   | hydra.job_logging   | False  | hydra/config    |
+| hydra/env/default            | hydra.env           | False  | hydra/config    |
+| hydra/config                 | hydra               | True   | &lt;root&gt;          |
+| config                       |                     | True   | &lt;root&gt;          |
+| about/app/default            | about.app           | False  | about/default   |
+| about/default                | about               | True   | config          |
+| cmd/default                  |                     | False  | config          |
+| column_info/default          | corpus.column_info  | False  | corpus/default  |
+| corpus/default               | corpus              | True   | config          |
+| column_info/default          | dataset.column_info | False  | dataset/default |
+| dataset/default              | dataset             | True   | config          |
+| dir/default                  | dir                 | False  | config          |
+| env/run                      | env                 | False  | env/default     |
+| env/default                  | env                 | True   | config          |
+| mode/default                 |                     | False  | config          |
+| model/default                | model               | False  | config          |
+| project/default              |                     | False  | config          |
+----------------------------------------------------------------------------------
 </pre></div>
 </div>
 </div>
@@ -977,14 +1037,27 @@ Use --hydra-help to view Hydra specific help
                                   &#39;such as extraction, transformation, &#39;
                                   &#39;tokenization, training, and visualization.&#39;,
                    &#39;name&#39;: &#39;ekorpkit&#39;,
-                   &#39;version&#39;: &#39;0.1.30+5.g26259e0.dirty&#39;}},
+                   &#39;version&#39;: &#39;0.1.30+10.g9237b34.dirty&#39;}},
  &#39;app_name&#39;: &#39;ekorpkit&#39;,
  &#39;corpus&#39;: {&#39;_target_&#39;: &#39;ekorpkit.corpora.corpus.Corpus&#39;,
             &#39;autoload&#39;: True,
             &#39;automerge&#39;: False,
-            &#39;column_info&#39;: {&#39;data&#39;: None,
-                            &#39;keys&#39;: None,
+            &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                            &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+                                        &#39;merge_meta_on&#39;: None,
+                                        &#39;text&#39;: &#39;text&#39;,
+                                        &#39;timestamp&#39;: None},
+                            &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                            &#39;datetime&#39;: {&#39;format&#39;: None,
+                                         &#39;key&#39;: None,
+                                         &#39;params&#39;: None},
+                            &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                                     &#39;split&#39;: &#39;split&#39;,
+                                     &#39;text&#39;: &#39;text&#39;,
+                                     &#39;timestamp&#39;: &#39;timestamp&#39;},
                             &#39;meta&#39;: None,
+                            &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+                            &#39;sentence_separator&#39;: &#39;\\n&#39;,
                             &#39;timestamp&#39;: {&#39;format&#39;: None,
                                           &#39;key&#39;: None,
                                           &#39;params&#39;: None}},
@@ -992,14 +1065,29 @@ Use --hydra-help to view Hydra specific help
             &#39;filetype&#39;: None,
             &#39;metadata_dir&#39;: None,
             &#39;name&#39;: None,
-            &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
-            &#39;sentence_separator&#39;: &#39;\\n&#39;,
             &#39;use_name_as_subdir&#39;: True,
             &#39;verbose&#39;: False},
  &#39;dataset&#39;: {&#39;_target_&#39;: &#39;ekorpkit.datasets.dataset.Dataset&#39;,
              &#39;autoload&#39;: True,
-             &#39;column_info&#39;: {&#39;data&#39;: None,
-                             &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;, &#39;text&#39;: &#39;text&#39;}},
+             &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                             &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+                                         &#39;merge_meta_on&#39;: None,
+                                         &#39;text&#39;: &#39;text&#39;,
+                                         &#39;timestamp&#39;: None},
+                             &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                             &#39;datetime&#39;: {&#39;format&#39;: None,
+                                          &#39;key&#39;: None,
+                                          &#39;params&#39;: None},
+                             &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                                      &#39;split&#39;: &#39;split&#39;,
+                                      &#39;text&#39;: &#39;text&#39;,
+                                      &#39;timestamp&#39;: &#39;timestamp&#39;},
+                             &#39;meta&#39;: None,
+                             &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+                             &#39;sentence_separator&#39;: &#39;\\n&#39;,
+                             &#39;timestamp&#39;: {&#39;format&#39;: None,
+                                           &#39;key&#39;: None,
+                                           &#39;params&#39;: None}},
              &#39;data_dir&#39;: &#39;/root/.ekorpkit/data/datasets/dataset&#39;,
              &#39;filetype&#39;: &#39;csv&#39;,
              &#39;name&#39;: None,
@@ -1115,7 +1203,7 @@ Use --hydra-help to view Hydra specific help
                                 &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
                                               &#39;lowercase&#39;: True,
                                               &#39;name&#39;: &#39;stopwords&#39;,
-                                              &#39;nltk_stopwords&#39;: &#39;english&#39;,
+                                              &#39;nltk_stopwords&#39;: None,
                                               &#39;stopwords&#39;: None,
                                               &#39;stopwords_path&#39;: None,
                                               &#39;verbose&#39;: False},
@@ -1173,7 +1261,7 @@ Use --hydra-help to view Hydra specific help
  &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
                &#39;lowercase&#39;: True,
                &#39;name&#39;: &#39;stopwords&#39;,
-               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;nltk_stopwords&#39;: None,
                &#39;stopwords&#39;: None,
                &#39;stopwords_path&#39;: None,
                &#39;verbose&#39;: False},
@@ -1262,7 +1350,7 @@ Use --hydra-help to view Hydra specific help
  &#39;stopwords&#39;: {&#39;_target_&#39;: &#39;ekorpkit.preprocessors.stopwords.Stopwords&#39;,
                &#39;lowercase&#39;: True,
                &#39;name&#39;: &#39;stopwords&#39;,
-               &#39;nltk_stopwords&#39;: &#39;english&#39;,
+               &#39;nltk_stopwords&#39;: None,
                &#39;stopwords&#39;: None,
                &#39;stopwords_path&#39;: None,
                &#39;verbose&#39;: False},

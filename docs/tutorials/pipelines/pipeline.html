@@ -162,12 +162,29 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../datasets/index.html">
+   Datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../datasets/dataset.html">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="index.html">
    Pipeline
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,8 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../sentiment/index.html">
    Sentiment Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -210,8 +227,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../preprocessors/preprocessor.html">
    Preprocessors
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -246,8 +263,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../usecases/fomc/index.html">
    FOMC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -273,8 +290,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../usecases/edgar/index.html">
    EDGAR
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -470,19 +487,37 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="instantiating-pipeline">
 <h1>Instantiating pipeline<a class="headerlink" href="#instantiating-pipeline" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="load-data">
 <h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;https://github.com/entelecheia/ekorpkit-config/raw/main/data/edgar.zip&#39;,true,false}&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">+=</span> <span class="s2">&quot;/edgar&quot;</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s2">&quot;edgar.parquet&quot;</span>
+<span class="c1"># cfg.verbose = True</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
 <span class="n">df_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;pipeline=blank&quot;</span><span class="p">)</span>
 <span class="n">df_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;edgar_sample&quot;</span>
-<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;https://github.com/entelecheia/ekorpkit-config/raw/main/data/edgar.zip&#39;,true,false}&quot;</span>
-<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">+=</span> <span class="s2">&quot;/edgar&quot;</span>
-<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s2">&quot;edgar.parquet&quot;</span>
-<span class="n">df_cfg</span><span class="o">.</span><span class="n">columns_to_keep</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;cik&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">df_cfg</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">df_cfg</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -624,6 +659,98 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">df_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;pipeline=blank&quot;</span><span class="p">)</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;edgar_sample&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;${cached_path:&#39;https://github.com/entelecheia/ekorpkit-config/raw/main/data/edgar.zip&#39;,true,false}&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">+=</span> <span class="s2">&quot;/edgar&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">data_file</span> <span class="o">=</span> <span class="s2">&quot;edgar.parquet&quot;</span>
+<span class="n">df_cfg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="s2">&quot;cik&quot;</span><span class="p">,</span> <span class="s2">&quot;company&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">df_cfg</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>filename</th>
+      <th>item</th>
+      <th>cik</th>
+      <th>company</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1410</th>
+      <td>1534</td>
+      <td>1999/320193_10K_1999_0000912057-99-010244.json</td>
+      <td>item_1</td>
+      <td>320193</td>
+      <td>APPLE COMPUTER INC</td>
+      <td>ITEM 1. \nBUSINESS GENERAL Apple Computer, Inc...</td>
+    </tr>
+    <tr>
+      <th>1560</th>
+      <td>1697</td>
+      <td>1999/21344_10K_1999_0000021344-00-000009.json</td>
+      <td>item_1</td>
+      <td>21344</td>
+      <td>COCA COLA CO</td>
+      <td>ITEM 1. \nBUSINESS The Coca-Cola Company (toge...</td>
+    </tr>
+    <tr>
+      <th>2746</th>
+      <td>2977</td>
+      <td>1999/70858_10K_1999_0000950168-00-000621.json</td>
+      <td>item_1</td>
+      <td>70858</td>
+      <td>BANK OF AMERICA CORP /DE/</td>
+      <td>Item 1. \nBUSINESS General Bank of America Cor...</td>
+    </tr>
+    <tr>
+      <th>3762</th>
+      <td>4088</td>
+      <td>1999/80424_10K_1999_0000080424-99-000027.json</td>
+      <td>item_1</td>
+      <td>80424</td>
+      <td>PROCTER &amp; GAMBLE CO</td>
+      <td>Item 1. \nBusiness. \n--------- General Develo...</td>
+    </tr>
+    <tr>
+      <th>4806</th>
+      <td>5211</td>
+      <td>1999/1018724_10K_1999_0000891020-00-000622.json</td>
+      <td>item_1</td>
+      <td>1018724</td>
+      <td>AMAZON COM INC</td>
+      <td>ITEM 1. \nBUSINESS This Annual Report on Form ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </div>
 <div class="section" id="process-a-pipeline-with-the-ekorpkit-configs">
 <h2>Process a pipeline  with the ekorpkit configs<a class="headerlink" href="#process-a-pipeline-with-the-ekorpkit-configs" title="Permalink to this headline">¶</a></h2>
@@ -640,16 +767,24 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.corpora.corpus.Corpus&#39;,
  &#39;autoload&#39;: True,
  &#39;automerge&#39;: False,
- &#39;column_info&#39;: {&#39;data&#39;: None,
-                 &#39;keys&#39;: None,
+ &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                 &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+                             &#39;merge_meta_on&#39;: None,
+                             &#39;text&#39;: &#39;text&#39;,
+                             &#39;timestamp&#39;: None},
+                 &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;datetime&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None},
+                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                          &#39;split&#39;: &#39;split&#39;,
+                          &#39;text&#39;: &#39;text&#39;,
+                          &#39;timestamp&#39;: &#39;timestamp&#39;},
                  &#39;meta&#39;: None,
+                 &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
                  &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
  &#39;data_dir&#39;: &#39;../data&#39;,
  &#39;filetype&#39;: None,
  &#39;metadata_dir&#39;: None,
  &#39;name&#39;: &#39;bok_minutes&#39;,
- &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
- &#39;sentence_separator&#39;: &#39;\\n&#39;,
  &#39;use_name_as_subdir&#39;: True,
  &#39;verbose&#39;: False}
 </pre></div>
@@ -668,77 +803,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;autoload&#39;: True,
- &#39;automerge&#39;: False,
- &#39;category&#39;: &#39;formal&#39;,
- &#39;column_info&#39;: {&#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
-                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;, &#39;text&#39;: &#39;text&#39;},
-                 &#39;meta&#39;: {&#39;filename&#39;: &#39;str&#39;,
-                          &#39;id&#39;: &#39;int&#39;,
-                          &#39;mdate&#39;: &#39;str&#39;,
-                          &#39;rdate&#39;: &#39;str&#39;},
-                 &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
- &#39;data_dir&#39;: &#39;../data&#39;,
- &#39;data_files&#39;: {&#39;train&#39;: &#39;bok_minutes-train.parquet&#39;},
- &#39;data_files_modified&#39;: &#39;2022-05-20 06:15:19&#39;,
- &#39;description&#39;: &#39;BOK Minutes Corpus&#39;,
- &#39;filetype&#39;: None,
- &#39;fullname&#39;: &#39;BOK MPB Minutes&#39;,
- &#39;homepage&#39;: &#39;https://www.bok.or.kr&#39;,
- &#39;info_updated&#39;: &#39;2022-05-20 06:15:19&#39;,
- &#39;lang&#39;: &#39;ko&#39;,
- &#39;license&#39;: &#39;Bank of Korea&#39;,
- &#39;meta_files&#39;: {&#39;train&#39;: &#39;meta-bok_minutes-train.parquet&#39;},
- &#39;meta_files_modified&#39;: &#39;2022-05-20 06:08:40&#39;,
- &#39;metadata_dir&#39;: None,
- &#39;name&#39;: &#39;bok_minutes&#39;,
- &#39;num_bytes_before_processing&#39;: 88948,
- &#39;num_docs&#39;: 1,
- &#39;num_docs_before_processing&#39;: 1,
- &#39;num_segments&#39;: 5,
- &#39;num_sents&#39;: 346,
- &#39;num_words&#39;: 8171,
- &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
- &#39;sentence_separator&#39;: &#39;\\n&#39;,
- &#39;size_in_bytes&#39;: 88948,
- &#39;size_in_human_bytes&#39;: &#39;86.86 KiB&#39;,
- &#39;splits&#39;: {&#39;train&#39;: {&#39;data_file&#39;: &#39;bok_minutes-train.parquet&#39;,
-                      &#39;dataset_name&#39;: &#39;bok_minutes&#39;,
-                      &#39;human_bytes&#39;: &#39;86.86 KiB&#39;,
-                      &#39;human_bytes_wospc&#39;: &#39;78.88 KiB&#39;,
-                      &#39;meta_file&#39;: &#39;meta-bok_minutes-train.parquet&#39;,
-                      &#39;name&#39;: &#39;train&#39;,
-                      &#39;num_bytes&#39;: 88948,
-                      &#39;num_bytes_before_processing&#39;: 88948,
-                      &#39;num_bytes_max&#39;: 88948,
-                      &#39;num_bytes_median&#39;: 88948.0,
-                      &#39;num_bytes_min&#39;: 88948,
-                      &#39;num_bytes_wospc&#39;: 80773,
-                      &#39;num_docs&#39;: 1,
-                      &#39;num_docs_before_processing&#39;: 1,
-                      &#39;num_segments&#39;: 5,
-                      &#39;num_segments_median&#39;: 5.0,
-                      &#39;num_sents&#39;: 346,
-                      &#39;num_sents_median&#39;: 346.0,
-                      &#39;num_words&#39;: 8171,
-                      &#39;num_words_max&#39;: 8171,
-                      &#39;num_words_median&#39;: 8171.0,
-                      &#39;num_words_min&#39;: 8171}},
- &#39;use_name_as_subdir&#39;: True,
- &#39;verbose&#39;: True,
- &#39;version&#39;: &#39;1.0.0&#39;}
-   id                                               text
-0   0  Economic Situation\n일부 위원은 관련부서에서 지난 3\/4분기 중 ...
-   id                                               text
-0   0  Economic Situation\n일부 위원은 관련부서에서 지난 3\/4분기 중 ...
-   id                mdate                rdate               filename
-0   0  2018-11-30 10:00:00  2018-12-18 16:00:00  BOK_20181130_20181218
-   id                mdate                rdate               filename
-0   0  2018-11-30 10:00:00  2018-12-18 16:00:00  BOK_20181130_20181218
-</pre></div>
-</div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "46a38561d9d645a3a3caca0ff2075190", "version_major": 2, "version_minor": 0}
+{"model_id": "b7e1bdd1137a4e4d8ff551e372985834", "version_major": 2, "version_minor": 0}
 </script></div>
 </div>
 <div class="cell docutils container">

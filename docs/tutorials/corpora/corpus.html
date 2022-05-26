@@ -163,11 +163,28 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../pipelines/index.html">
-   Pipeline
+  <a class="reference internal" href="../datasets/index.html">
+   Datasets
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../datasets/dataset.html">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pipelines/index.html">
+   Pipeline
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -183,8 +200,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../sentiment/index.html">
    Sentiment Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -210,8 +227,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../preprocessors/preprocessor.html">
    Preprocessors
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -246,8 +263,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../usecases/fomc/index.html">
    FOMC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -273,8 +290,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../usecases/edgar/index.html">
    EDGAR
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -425,13 +442,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-corpora-with-an-ekorpkit-config">
-   Instantiating corpora with an ekorpkit config
+  <a class="reference internal nav-link" href="#instantiating-corpora">
+   Instantiating corpora
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-a-corpus-with-an-ekorpkit-config">
-   Instantiating a corpus with an ekorpkit config
+  <a class="reference internal nav-link" href="#instantiating-a-corpus">
+   Instantiating a corpus
   </a>
  </li>
 </ul>
@@ -460,13 +477,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-corpora-with-an-ekorpkit-config">
-   Instantiating corpora with an ekorpkit config
+  <a class="reference internal nav-link" href="#instantiating-corpora">
+   Instantiating corpora
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#instantiating-a-corpus-with-an-ekorpkit-config">
-   Instantiating a corpus with an ekorpkit config
+  <a class="reference internal nav-link" href="#instantiating-a-corpus">
+   Instantiating a corpus
   </a>
  </li>
 </ul>
@@ -789,8 +806,8 @@ Economic Situation
 </script></div>
 </div>
 </div>
-<div class="section" id="instantiating-corpora-with-an-ekorpkit-config">
-<h2>Instantiating corpora with an ekorpkit config<a class="headerlink" href="#instantiating-corpora-with-an-ekorpkit-config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instantiating-corpora">
+<h2>Instantiating corpora<a class="headerlink" href="#instantiating-corpora" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;corpus=corpora&#39;</span><span class="p">)</span>
@@ -807,9 +824,21 @@ Economic Situation
  &#39;autoload&#39;: True,
  &#39;automerge&#39;: False,
  &#39;collapse_ids&#39;: False,
- &#39;column_info&#39;: {&#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
-                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;, &#39;text&#39;: &#39;text&#39;},
+ &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                 &#39;columns&#39;: {&#39;datetime&#39;: None,
+                             &#39;id&#39;: &#39;id&#39;,
+                             &#39;merge_meta_on&#39;: None,
+                             &#39;text&#39;: &#39;text&#39;,
+                             &#39;timestamp&#39;: None},
+                 &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;datetime&#39;: {&#39;format&#39;: None, &#39;params&#39;: None},
+                 &#39;keys&#39;: {&#39;corpus&#39;: &#39;corpus&#39;,
+                          &#39;id&#39;: &#39;id&#39;,
+                          &#39;split&#39;: &#39;split&#39;,
+                          &#39;text&#39;: &#39;text&#39;,
+                          &#39;timestamp&#39;: &#39;timestamp&#39;},
                  &#39;meta&#39;: None,
+                 &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
                  &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
  &#39;corpora&#39;: None,
  &#39;data_dir&#39;: &#39;../data&#39;,
@@ -1122,8 +1151,8 @@ fomc_minutes
 </div></div></div>
 </div>
 </div>
-<div class="section" id="instantiating-a-corpus-with-an-ekorpkit-config">
-<h2>Instantiating a corpus with an ekorpkit config<a class="headerlink" href="#instantiating-a-corpus-with-an-ekorpkit-config" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="instantiating-a-corpus">
+<h2>Instantiating a corpus<a class="headerlink" href="#instantiating-a-corpus" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;corpus&#39;</span><span class="p">)</span>
@@ -1138,9 +1167,20 @@ fomc_minutes
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.corpora.corpus.Corpus&#39;,
  &#39;autoload&#39;: True,
  &#39;automerge&#39;: False,
- &#39;column_info&#39;: {&#39;data&#39;: None,
-                 &#39;keys&#39;: None,
+ &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                 &#39;columns&#39;: {&#39;datetime&#39;: None,
+                             &#39;id&#39;: &#39;id&#39;,
+                             &#39;merge_meta_on&#39;: None,
+                             &#39;text&#39;: &#39;text&#39;,
+                             &#39;timestamp&#39;: None},
+                 &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;datetime&#39;: {&#39;format&#39;: None, &#39;params&#39;: None},
+                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                          &#39;split&#39;: &#39;split&#39;,
+                          &#39;text&#39;: &#39;text&#39;,
+                          &#39;timestamp&#39;: &#39;timestamp&#39;},
                  &#39;meta&#39;: None,
+                 &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
                  &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
  &#39;data_dir&#39;: &#39;../data&#39;,
  &#39;filetype&#39;: None,
