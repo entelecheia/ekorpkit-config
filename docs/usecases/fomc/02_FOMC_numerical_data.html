@@ -609,25 +609,25 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
-<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">eKonf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.30+10.g9237b34.dirty
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.30+11.gd0eacf0.dirty
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/save_dataframe&quot;</span><span class="p">)</span>
-<span class="n">save_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/fomc&quot;</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/save_dataframe&quot;</span><span class="p">)</span>
+<span class="n">save_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/load_dataframe&quot;</span><span class="p">)</span>
-<span class="n">load_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
-<span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/fomc&quot;</span>
+<span class="n">load_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -728,9 +728,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Loading data from ./data/fomc_calendar.parquet
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -753,17 +750,9 @@ const thebe_selector_output = ".output, .cell_output"
       <th>forecast</th>
       <th>confcall</th>
       <th>chair</th>
-      <th>rate</th>
-      <th>rate_change</th>
-      <th>rate_decision</th>
-      <th>rate_changed</th>
     </tr>
     <tr>
       <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -772,59 +761,39 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>1982-10-05</th>
+      <th>1982-02-02</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>9.50</td>
-      <td>8.50</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
-      <th>1982-11-16</th>
+      <th>1982-03-30</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>9.00</td>
-      <td>-0.50</td>
-      <td>-1</td>
-      <td>1</td>
     </tr>
     <tr>
-      <th>1982-12-21</th>
+      <th>1982-05-18</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>1983-01-14</th>
+      <th>1982-05-20</th>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>1983-01-21</th>
+      <th>1982-06-01</th>
       <td>False</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -832,69 +801,45 @@ const thebe_selector_output = ".output, .cell_output"
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>2021-11-03</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2021-12-15</th>
+      <th>2022-06-15</th>
       <td>False</td>
       <td>True</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-01-26</th>
+      <th>2022-07-27</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-03-16</th>
+      <th>2022-09-21</th>
       <td>False</td>
       <td>True</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.50</td>
-      <td>0.25</td>
-      <td>1</td>
-      <td>1</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
+      <th>2022-11-02</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>1.00</td>
-      <td>0.50</td>
-      <td>1</td>
-      <td>1</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-12-14</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
     </tr>
   </tbody>
 </table>
-<p>415 rows × 8 columns</p>
+<p>427 rows × 4 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -927,17 +872,9 @@ const thebe_selector_output = ".output, .cell_output"
       <th>forecast</th>
       <th>confcall</th>
       <th>chair</th>
-      <th>rate</th>
-      <th>rate_change</th>
-      <th>rate_decision</th>
-      <th>rate_changed</th>
     </tr>
     <tr>
       <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -946,59 +883,39 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>1982-10-05</th>
+      <th>1982-02-02</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>9.50</td>
-      <td>8.50</td>
-      <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
-      <th>1982-11-16</th>
+      <th>1982-03-30</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>9.00</td>
-      <td>-0.50</td>
-      <td>-1</td>
-      <td>1</td>
     </tr>
     <tr>
-      <th>1982-12-21</th>
+      <th>1982-05-18</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>1983-01-14</th>
+      <th>1982-05-20</th>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>1983-01-21</th>
+      <th>1982-06-01</th>
       <td>False</td>
       <td>False</td>
-      <td>True</td>
+      <td>False</td>
       <td>Paul Volcker</td>
-      <td>8.50</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1006,69 +923,45 @@ const thebe_selector_output = ".output, .cell_output"
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>2021-11-03</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2021-12-15</th>
+      <th>2022-06-15</th>
       <td>False</td>
       <td>True</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-01-26</th>
+      <th>2022-07-27</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-03-16</th>
+      <th>2022-09-21</th>
       <td>False</td>
       <td>True</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.50</td>
-      <td>0.25</td>
-      <td>1</td>
-      <td>1</td>
+      <td>other</td>
     </tr>
     <tr>
-      <th>2022-05-04</th>
+      <th>2022-11-02</th>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>Jerome Powell</td>
-      <td>1.00</td>
-      <td>0.50</td>
-      <td>1</td>
-      <td>1</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <th>2022-12-14</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>other</td>
     </tr>
   </tbody>
 </table>
-<p>415 rows × 8 columns</p>
+<p>427 rows × 4 columns</p>
 </div></div></div>
 </div>
 </div>
@@ -1091,11 +984,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/DFEDTAR.parquet
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1204,16 +1092,11 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/DFEDTAR.parquet
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dff</span> <span class="o">=</span> <span class="n">quandl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">series_id</span><span class="o">=</span><span class="s2">&quot;DFF&quot;</span><span class="p">)</span>
-<span class="c1"># dff[&quot;diff&quot;] = dff.DFF.diff()</span>
 <span class="n">dff</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/DFF.parquet
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1330,27 +1213,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/DFF.parquet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/10 [00:00&lt;?, ?it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/GDP.parquet
- 10%|█         | 1/10 [00:00&lt;00:05,  1.77it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/GDPPOT.parquet
- 20%|██        | 2/10 [00:01&lt;00:04,  1.73it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/PCE.parquet
- 30%|███       | 3/10 [00:01&lt;00:04,  1.71it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/CPI.parquet
- 40%|████      | 4/10 [00:02&lt;00:03,  1.65it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/UNEMP.parquet
- 50%|█████     | 5/10 [00:03&lt;00:03,  1.59it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/EMP.parquet
- 60%|██████    | 6/10 [00:03&lt;00:02,  1.58it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/PMI.parquet
- 70%|███████   | 7/10 [00:04&lt;00:02,  1.32it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/NMI.parquet
- 80%|████████  | 8/10 [00:05&lt;00:01,  1.28it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/RSALES.parquet
- 90%|█████████ | 9/10 [00:06&lt;00:00,  1.44it/s]INFO:ekorpkit.ekonf:Applying pipe: functools.partial(&lt;function eval_columns at 0x7f5f19d34ee0&gt;)
-INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
-100%|██████████| 10/10 [00:06&lt;00:00,  1.50it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 10/10 [00:06&lt;00:00,  1.54it/s]
 </pre></div>
 </div>
 </div>
@@ -1421,6 +1284,21 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
   </thead>
   <tbody>
     <tr>
+      <th>2022-05-25</th>
+      <td>0.58</td>
+      <td>0.88</td>
+      <td>1.06</td>
+      <td>1.52</td>
+      <td>2.01</td>
+      <td>2.48</td>
+      <td>2.63</td>
+      <td>2.71</td>
+      <td>2.76</td>
+      <td>2.75</td>
+      <td>3.14</td>
+      <td>2.97</td>
+    </tr>
+    <tr>
       <th>2022-05-24</th>
       <td>0.55</td>
       <td>0.88</td>
@@ -1479,21 +1357,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>2.84</td>
       <td>3.24</td>
       <td>3.05</td>
-    </tr>
-    <tr>
-      <th>2022-05-18</th>
-      <td>0.56</td>
-      <td>0.85</td>
-      <td>1.03</td>
-      <td>1.56</td>
-      <td>2.16</td>
-      <td>2.68</td>
-      <td>2.84</td>
-      <td>2.89</td>
-      <td>2.91</td>
-      <td>2.89</td>
-      <td>3.24</td>
-      <td>3.07</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1587,7 +1450,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
     </tr>
   </tbody>
 </table>
-<p>8107 rows × 12 columns</p>
+<p>8108 rows × 12 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1620,7 +1483,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 415/415 [00:39&lt;00:00, 10.60it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 427/427 [00:42&lt;00:00, 10.03it/s]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1648,11 +1511,9 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <th>rate</th>
       <th>rate_change</th>
       <th>rate_decision</th>
-      <th>rate_changed</th>
     </tr>
     <tr>
       <th>date</th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1670,9 +1531,8 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>False</td>
       <td>Paul Volcker</td>
       <td>9.50</td>
-      <td>8.50</td>
-      <td>1</td>
-      <td>1</td>
+      <td>-0.50</td>
+      <td>-1</td>
     </tr>
     <tr>
       <th>1982-11-16</th>
@@ -1683,7 +1543,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>9.00</td>
       <td>-0.50</td>
       <td>-1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>1982-12-21</th>
@@ -1693,7 +1552,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1705,7 +1563,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>8.50</td>
       <td>0.00</td>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>1983-01-21</th>
@@ -1716,11 +1573,9 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>8.50</td>
       <td>0.00</td>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1738,7 +1593,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>0.25</td>
       <td>0.00</td>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>2021-12-15</th>
@@ -1748,7 +1602,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1760,7 +1613,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>0.25</td>
       <td>0.00</td>
       <td>0</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>2022-03-16</th>
@@ -1770,7 +1622,6 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>Jerome Powell</td>
       <td>0.50</td>
       <td>0.25</td>
-      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1782,11 +1633,10 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>1.00</td>
       <td>0.50</td>
       <td>1</td>
-      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>415 rows × 8 columns</p>
+<p>414 rows × 7 columns</p>
 </div></div></div>
 </div>
 <p>Though this is not perfect as Target Rate was sometimes changed between FOMC meetings, enough to analyze the impact of FOMC Meetings.</p>
@@ -1851,8 +1701,8 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
       <td>False</td>
       <td>Paul Volcker</td>
       <td>9.50</td>
-      <td>8.50</td>
-      <td>1</td>
+      <td>-0.50</td>
+      <td>-1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1987,205 +1837,17 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">load_dataframe</span><span class="p">(</span><span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">data_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
-<span class="n">econ_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">load_dataframe</span><span class="p">(</span><span class="n">data_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">econ_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">econ_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Loading data from ../data/fomc/econ_data.parquet
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:ekorpkit.io.file:File ../data/fomc/econ_data.parquet does not exist
 </pre></div>
 </div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>unscheduled</th>
-      <th>forecast</th>
-      <th>confcall</th>
-      <th>chair</th>
-      <th>rate</th>
-      <th>rate_change</th>
-      <th>rate_decision</th>
-      <th>rate_changed</th>
-      <th>GDP</th>
-      <th>GDP_diff_prev</th>
-      <th>...</th>
-      <th>NMI_diff_year</th>
-      <th>NMI_date</th>
-      <th>RSALES</th>
-      <th>RSALES_diff_prev</th>
-      <th>RSALES_diff_year</th>
-      <th>RSALES_date</th>
-      <th>HSALES</th>
-      <th>HSALES_diff_prev</th>
-      <th>HSALES_diff_year</th>
-      <th>HSALES_date</th>
-    </tr>
-    <tr>
-      <th>date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2021-11-03</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>19478.893</td>
-      <td>0.570948</td>
-      <td>...</td>
-      <td>9.440559</td>
-      <td>2021-09-01</td>
-      <td>230078.0</td>
-      <td>0.573951</td>
-      <td>8.474656</td>
-      <td>2021-09-01</td>
-      <td>732.0</td>
-      <td>6.705539</td>
-      <td>-26.135217</td>
-      <td>2021-09-01</td>
-    </tr>
-    <tr>
-      <th>2021-12-15</th>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>19478.893</td>
-      <td>0.570948</td>
-      <td>...</td>
-      <td>20.422535</td>
-      <td>2021-11-01</td>
-      <td>231485.0</td>
-      <td>-0.098829</td>
-      <td>10.977142</td>
-      <td>2021-11-01</td>
-      <td>756.0</td>
-      <td>12.667660</td>
-      <td>-11.163337</td>
-      <td>2021-11-01</td>
-    </tr>
-    <tr>
-      <th>2022-01-26</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.25</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>19478.893</td>
-      <td>0.570948</td>
-      <td>...</td>
-      <td>7.972270</td>
-      <td>2021-12-01</td>
-      <td>226467.0</td>
-      <td>-2.167743</td>
-      <td>9.101289</td>
-      <td>2021-12-01</td>
-      <td>839.0</td>
-      <td>10.978836</td>
-      <td>-3.673938</td>
-      <td>2021-12-01</td>
-    </tr>
-    <tr>
-      <th>2022-03-16</th>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>0.50</td>
-      <td>0.25</td>
-      <td>1</td>
-      <td>1</td>
-      <td>19806.290</td>
-      <td>1.680778</td>
-      <td>...</td>
-      <td>1.073345</td>
-      <td>2022-02-01</td>
-      <td>233062.0</td>
-      <td>0.847674</td>
-      <td>9.076698</td>
-      <td>2022-02-01</td>
-      <td>792.0</td>
-      <td>-4.693141</td>
-      <td>3.125000</td>
-      <td>2022-02-01</td>
-    </tr>
-    <tr>
-      <th>2022-05-04</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>Jerome Powell</td>
-      <td>1.00</td>
-      <td>0.50</td>
-      <td>1</td>
-      <td>1</td>
-      <td>19735.895</td>
-      <td>-0.355417</td>
-      <td>...</td>
-      <td>-6.270096</td>
-      <td>2022-03-01</td>
-      <td>234776.0</td>
-      <td>0.568863</td>
-      <td>-0.034915</td>
-      <td>2022-04-01</td>
-      <td>591.0</td>
-      <td>-16.643159</td>
-      <td>-26.946848</td>
-      <td>2022-04-01</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 48 columns</p>
-</div></div></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2199,7 +1861,22 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
         <span class="n">econ_data</span><span class="p">,</span> <span class="n">econ_indicators</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">offset</span>
     <span class="p">)</span>
 
-<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
+<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 415/415 [00:02&lt;00:00, 188.20it/s]
+100%|██████████| 415/415 [00:03&lt;00:00, 136.76it/s]
+100%|██████████| 415/415 [00:05&lt;00:00, 69.48it/s] 
+100%|██████████| 415/415 [00:06&lt;00:00, 67.77it/s] 
+100%|██████████| 415/415 [00:05&lt;00:00, 69.82it/s] 
+100%|██████████| 415/415 [00:06&lt;00:00, 68.49it/s] 
+100%|██████████| 415/415 [00:05&lt;00:00, 70.53it/s] 
+100%|██████████| 415/415 [00:03&lt;00:00, 126.03it/s]
+100%|██████████| 415/415 [00:05&lt;00:00, 75.99it/s] 
+100%|██████████| 415/415 [00:06&lt;00:00, 68.29it/s] 
+100%|██████████| 10/10 [00:50&lt;00:00,  5.01s/it]
 </pre></div>
 </div>
 </div>
@@ -2249,7 +1926,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_FOMC_numerical_data_31_0.png" src="../../../_images/02_FOMC_numerical_data_31_0.png" />
+<img alt="../../../_images/02_FOMC_numerical_data_30_0.png" src="../../../_images/02_FOMC_numerical_data_30_0.png" />
 </div>
 </div>
 </div>
@@ -2307,7 +1984,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_FOMC_numerical_data_35_0.png" src="../../../_images/02_FOMC_numerical_data_35_0.png" />
+<img alt="../../../_images/02_FOMC_numerical_data_34_0.png" src="../../../_images/02_FOMC_numerical_data_34_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2444,12 +2121,7 @@ INFO:ekorpkit.io.file:Saving dataframe as /workspace/.tmp/fred/HSALES.parquet
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">econ_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">taylor</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
-<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Saving dataframe as ../data/fomc/econ_data.parquet
+<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
