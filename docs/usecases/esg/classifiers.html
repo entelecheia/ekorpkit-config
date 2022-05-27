@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Training Classifiers for ESG Ratings &#8212; eKorpkit Tutorials</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Predicting ESG Categories and Polarities" href="news_sample.html" />
+    <link rel="prev" title="ESG" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/ekorpkit.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eKorpkit Tutorials</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   ekorpkit[iːkɔːkɪt]
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../basics/index.html">
+   Getting started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../basics/install.html">
+     Installation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../basics/usage.html">
+     Usage
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../basics/config/config.html">
+   Compose an ekorpkit config
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/corpora/index.html">
+   Copora
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/corpora/corpus.html">
+     Instantiating corpora and corpus class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/corpora/filter_and_save.html">
+     Corpus task pipeline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/datasets/index.html">
+   Datasets
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/datasets/dataset.html">
+     Datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/pipelines/index.html">
+   Pipelines
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/pipelines/pipeline.html">
+     Instantiating pipeline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/sentiment/index.html">
+   Sentiment Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/lexicon.html">
+     Sentiment Lexicons
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/lbsa_en.html">
+     Lexicon-based Sentiment Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/sentiment/sentiment.html">
+     LM Dictionary vs. finbert vs. T5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tutorials/preprocessors/preprocessor.html">
+   Preprocessors
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tutorials/preprocessors/mecab.html">
+     Mecab Tokenizer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Datasets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../corpus/ekorpkot_corpus.html">
+   The eKorpkit Corpus
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Use Cases
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../fomc/index.html">
+   FOMC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fomc/01_FOMC_sentiments.html">
+     Sentiment Analysis of FOMC Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../fomc/02_FOMC_numerical_data.html">
+     Prepapre Numerical Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bok/index.html">
+   Bank of Korea
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../edgar/index.html">
+   EDGAR
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../edgar/predict_edgar.html">
+     Prediciting Sentiments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   ESG
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Training Classifiers for ESG Ratings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="news_sample.html">
+     Predicting ESG Categories and Polarities
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Research
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../research/esg_topics/analyst.html">
+   ESG Topic Analysis
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../about/index.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/usecases/esg/classifiers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/entelecheia/ekorpkit-config"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/entelecheia/ekorpkit-config/issues/new?title=Issue%20on%20page%20%2Fdocs/usecases/esg/classifiers.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/entelecheia/ekorpkit-config/main?urlpath=tree/ekorpkit-book/docs/usecases/esg/classifiers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/entelecheia/ekorpkit-config/blob/main/ekorpkit-book/docs/usecases/esg/classifiers.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-finsent-kr-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     finsent_kr
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traiing-a-transformer-classficiation-model-with-finsent-kr-dataset">
+   Traiing a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     finsent_kr
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-esg-topics-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     esg_topics
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traiing-a-transformer-classficiation-model-with-esg-topics-dataset">
+   Traiing a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     esg_topics
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Training Classifiers for ESG Ratings</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-finsent-kr-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     finsent_kr
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traiing-a-transformer-classficiation-model-with-finsent-kr-dataset">
+   Traiing a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     finsent_kr
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-esg-topics-dataset">
+   Prepare
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     esg_topics
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#traiing-a-transformer-classficiation-model-with-esg-topics-dataset">
+   Traiing a transformer classficiation model with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     esg_topics
+    </span>
+   </code>
+   dataset
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="training-classifiers-for-esg-ratings">
+<h1>Training Classifiers for ESG Ratings<a class="headerlink" href="#training-classifiers-for-esg-ratings" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_format=&#39;retina&#39;
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">eKonf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.30+17.g71ae258.dirty
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prepare-finsent-kr-dataset">
+<h2>Prepare <code class="docutils literal notranslate"><span class="pre">finsent_kr</span></code> dataset<a class="headerlink" href="#prepare-finsent-kr-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">ds_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;dataset=simple_auto&#39;</span><span class="p">)</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;finsent_kr&#39;</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;analystsent_kr&#39;</span><span class="p">,</span> <span class="s1">&#39;finphrase_kr&#39;</span><span class="p">]</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;/workspace/data/datasets/simple&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">ds_cfg</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">ds_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.datasets.loader:processing analystsent_kr
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:processing finphrase_kr
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_method_&#39;: [&#39;load&#39;, &#39;concatenate&#39;],
+ &#39;_target_&#39;: &#39;ekorpkit.datasets.loader.Datasets&#39;,
+ &#39;autoload&#39;: True,
+ &#39;autorun&#39;: [&#39;load&#39;],
+ &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                 &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+                             &#39;merge_meta_on&#39;: None,
+                             &#39;text&#39;: &#39;text&#39;,
+                             &#39;timestamp&#39;: None},
+                 &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;datetime&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None},
+                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                          &#39;split&#39;: &#39;split&#39;,
+                          &#39;text&#39;: &#39;text&#39;,
+                          &#39;timestamp&#39;: &#39;timestamp&#39;},
+                 &#39;meta&#39;: None,
+                 &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+                 &#39;sentence_separator&#39;: &#39;\\n&#39;,
+                 &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
+ &#39;data_dir&#39;: &#39;/workspace/data/datasets/simple&#39;,
+ &#39;datasets&#39;: [&#39;analystsent_kr&#39;, &#39;finphrase_kr&#39;],
+ &#39;filetype&#39;: &#39;csv&#39;,
+ &#39;info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.stat.SummaryInfo&#39;,
+          &#39;aggregate_info&#39;: {&#39;num_examples&#39;: &#39;num_examples&#39;,
+                             &#39;size_in_bytes&#39;: &#39;num_bytes&#39;},
+          &#39;data_dir&#39;: &#39;/workspace/data/datasets/simple&#39;,
+          &#39;info_file&#39;: &#39;info-finsent_kr.yaml&#39;,
+          &#39;info_list&#39;: [&#39;name&#39;,
+                        &#39;fullname&#39;,
+                        &#39;domain&#39;,
+                        &#39;task&#39;,
+                        &#39;lang&#39;,
+                        &#39;description&#39;,
+                        &#39;license&#39;,
+                        &#39;homepage&#39;,
+                        &#39;version&#39;,
+                        &#39;num_examples&#39;,
+                        &#39;size_in_bytes&#39;,
+                        &#39;size_in_human_bytes&#39;,
+                        &#39;data_files_modified&#39;,
+                        &#39;info_updated&#39;,
+                        &#39;data_files&#39;,
+                        &#39;column_info&#39;],
+          &#39;key_columns&#39;: &#39;&#39;,
+          &#39;modified_info&#39;: {&#39;data_files_modified&#39;: &#39;data_file&#39;},
+          &#39;name&#39;: &#39;finsent_kr&#39;,
+          &#39;stats&#39;: {&#39;_func_&#39;: {&#39;len_bytes&#39;: {&#39;_partial_&#39;: True,
+                                             &#39;_target_&#39;: &#39;ekorpkit.utils.func.len_bytes&#39;}},
+                    &#39;_partial_&#39;: True,
+                    &#39;_target_&#39;: &#39;ekorpkit.info.stat.summary_stats&#39;,
+                    &#39;agg_funcs&#39;: {&#39;num_bytes&#39;: [&#39;count&#39;,
+                                                &#39;sum&#39;,
+                                                &#39;median&#39;,
+                                                &#39;max&#39;,
+                                                &#39;min&#39;]},
+                    &#39;convert_to_humanbytes&#39;: {&#39;num_bytes&#39;: &#39;human_bytes&#39;},
+                    &#39;key_columns&#39;: &#39;&#39;,
+                    &#39;num_columns&#39;: {&#39;num_bytes&#39;: &#39;len_bytes&#39;},
+                    &#39;num_workers&#39;: 1,
+                    &#39;rename_columns&#39;: {&#39;num_bytes_count&#39;: &#39;num_examples&#39;,
+                                       &#39;num_bytes_sum&#39;: &#39;num_bytes&#39;},
+                    &#39;text_keys&#39;: &#39;text&#39;},
+          &#39;update_files_info&#39;: {&#39;data_files&#39;: &#39;data_file&#39;,
+                                &#39;meta_files&#39;: &#39;meta_file&#39;},
+          &#39;update_info&#39;: [&#39;fullname&#39;,
+                          &#39;lang&#39;,
+                          &#39;domain&#39;,
+                          &#39;task&#39;,
+                          &#39;description&#39;,
+                          &#39;license&#39;,
+                          &#39;homepage&#39;,
+                          &#39;version&#39;],
+          &#39;verbose&#39;: False},
+ &#39;name&#39;: &#39;finsent_kr&#39;,
+ &#39;use_name_as_subdir&#39;: True,
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.135370 &lt;&lt;&lt; 
+INFO:ekorpkit.ekonf:Calling load
+INFO:ekorpkit.ekonf:Calling concatenate
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">COLUMN</span><span class="o">.</span><span class="n">INFO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+  &#39;text&#39;: &#39;text&#39;,
+  &#39;timestamp&#39;: &#39;timestamp&#39;,
+  &#39;split&#39;: &#39;split&#39;,
+  &#39;_id&#39;: &#39;_id&#39;,
+  &#39;corpus&#39;: &#39;corpus&#39;,
+  &#39;dataset&#39;: &#39;dataset&#39;},
+ &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+  &#39;text&#39;: &#39;text&#39;,
+  &#39;merge_meta_on&#39;: None,
+  &#39;timestamp&#39;: None},
+ &#39;data&#39;: {&#39;text&#39;: &#39;object&#39;,
+  &#39;id&#39;: &#39;int64&#39;,
+  &#39;labels&#39;: &#39;object&#39;,
+  &#39;split&#39;: &#39;object&#39;,
+  &#39;dataset&#39;: &#39;str&#39;},
+ &#39;meta&#39;: None,
+ &#39;timestamp&#39;: {&#39;key&#39;: None, &#39;format&#39;: None, &#39;params&#39;: None},
+ &#39;datetime&#39;: {&#39;key&#39;: None, &#39;format&#39;: None, &#39;params&#39;: None},
+ &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+ &#39;sentence_separator&#39;: &#39;\\n&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="traiing-a-transformer-classficiation-model-with-finsent-kr-dataset">
+<h2>Traiing a transformer classficiation model with <code class="docutils literal notranslate"><span class="pre">finsent_kr</span></code> dataset<a class="headerlink" href="#traiing-a-transformer-classficiation-model-with-finsent-kr-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overrides</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;+model/transformer=simple_classification&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;+model/transformer/pretrained=ekonelectra-base&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">model_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">,</span> <span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/transformer=simple_classification&#39;</span><span class="p">)</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds_cfg</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">max_seq_length</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">train_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">eval_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span><span class="s1">&#39;neutral&#39;</span><span class="p">,</span><span class="s1">&#39;negative&#39;</span><span class="p">]</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">_method_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Calling train
+INFO:ekorpkit.datasets.loader:processing analystsent_kr
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:processing finphrase_kr
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.137028 &lt;&lt;&lt; 
+INFO:ekorpkit.ekonf:Calling load
+INFO:ekorpkit.ekonf:Calling concatenate
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3d51c4aa270540d3a454fd9b796721f5", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "272b9692f29642c09ecb57e4ac64236c", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Some weights of the model checkpoint at entelecheia/ekonelectra-base-discriminator were not used when initializing ElectraForSequenceClassification: [&#39;discriminator_predictions.dense.bias&#39;, &#39;discriminator_predictions.dense_prediction.bias&#39;, &#39;discriminator_predictions.dense.weight&#39;, &#39;discriminator_predictions.dense_prediction.weight&#39;]
+- This IS expected if you are initializing ElectraForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ElectraForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at entelecheia/ekonelectra-base-discriminator and are newly initialized: [&#39;classifier.dense.bias&#39;, &#39;classifier.out_proj.weight&#39;, &#39;classifier.out_proj.bias&#39;, &#39;classifier.dense.weight&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d8fea768bb3748f7b66173e9883adb3c", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6320a49ab4c1463ab51d64005aaafe0a", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "567c5e34df1546ac93ae3a2e8dadbd06", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: 11372 features created from 11372 samples.
+/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "9b730544dfd34cfbb760b814a8085fad", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Initializing WandB run for training.
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span>. Use <span class=" -Color -Color-Bold">`wandb login --relogin`</span> to force relogin
+</pre></div>
+</div>
+<div class="output text_html">wandb version 0.12.17 is available!  To upgrade, please run:
+ $ pip install wandb --upgrade</div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_210050-1jplve7o</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/1jplve7o" target="_blank">clear-lake-10</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "af7315e6131c45ab82d5f6e9b364986a", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+INFO:simpletransformers.classification.classification_model: 2844 features created from 2844 samples.
+INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6616933945219067, &#39;acc&#39;: 0.8445850914205345, &#39;eval_loss&#39;: 0.3697752726546834}
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f960b0b57cd54d02a0d4bb14931856ea", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+INFO:simpletransformers.classification.classification_model: 2844 features created from 2844 samples.
+INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6714180778759681, &#39;acc&#39;: 0.849507735583685, &#39;eval_loss&#39;: 0.3862245032626591}
+INFO:simpletransformers.classification.classification_model: Training of electra model complete. Saved to /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base.
+INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "33fcec1488924017a13baef81740d08f", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: 3555 features created from 3555 samples.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "32d65460b39d4ac0a83ba8147535900b", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Initializing WandB run for evaluation.
+</pre></div>
+</div>
+<div class="output text_html">Finishing last run (ID:1jplve7o) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><style>
+    table.wandb td:nth-child(1) { padding: 0 10px; text-align: left ; width: auto;} td:nth-child(2) {text-align: left ; width: 100%}
+    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; width: 100% }
+    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
+    </style>
+<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>█▅▅▅▇▅▄▆▄▄▁▁▂▃</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>▁█</td></tr><tr><td>global_step</td><td>▁▂▂▃▃▄▄▄▅▅▆▆▇▇██</td></tr><tr><td>lr</td><td>█▇▇▆▆▅▅▄▄▃▃▂▂▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>█▁</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.28702</td></tr><tr><td>acc</td><td>0.84951</td></tr><tr><td>eval_loss</td><td>0.38622</td></tr><tr><td>global_step</td><td>712</td></tr><tr><td>lr</td><td>0.0</td></tr><tr><td>mcc</td><td>0.67142</td></tr><tr><td>train_loss</td><td>0.2206</td></tr></table><br/></div></div></div><div class="output text_html">Synced <strong style="color:#cdcd00">clear-lake-10</strong>: <a href="https://wandb.ai/entelecheia/esgml-model/runs/1jplve7o" target="_blank">https://wandb.ai/entelecheia/esgml-model/runs/1jplve7o</a><br/>Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_210050-1jplve7o/logs</code></div><div class="output text_html">Successfully finished last run (ID:1jplve7o). Initializing new run:<br/></div><div class="output text_html">wandb version 0.12.17 is available!  To upgrade, please run:
+ $ pip install wandb --upgrade</div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_210240-w1jiko92</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/w1jiko92" target="_blank">azure-sponge-11</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6555096814514465, &#39;acc&#39;: 0.8396624472573839, &#39;eval_loss&#39;: 0.39716599409335424}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f98c5b10af0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overrides</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;+model/transformer=simple_classification&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;+model/transformer/pretrained=ekonelectra-base&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">model_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">,</span> <span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/transformer=simple_classification&#39;</span><span class="p">)</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds_cfg</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">max_seq_length</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">train_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">eval_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;positive&#39;</span><span class="p">,</span><span class="s1">&#39;neutral&#39;</span><span class="p">,</span><span class="s1">&#39;negative&#39;</span><span class="p">]</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">_method_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eval&#39;</span><span class="p">]</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Calling eval
+INFO:ekorpkit.datasets.loader:processing analystsent_kr
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/analystsent_kr/analystsent_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:processing finphrase_kr
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.135574 &lt;&lt;&lt; 
+INFO:ekorpkit.ekonf:Calling load
+INFO:ekorpkit.ekonf:Calling concatenate
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [analystsent_kr]
+INFO:ekorpkit.info.base:Added corpus column [corpus] with value [finphrase_kr]
+INFO:ekorpkit.models.transformer.simple:Loaded model from /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/best_model
+INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "ce9b68042bd0430ebb39d90d1dd44271", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: 3555 features created from 3555 samples.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "86fb12e89b9a411dbceeac089eebd11d", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Saving dataframe as /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/predictions/model_test_predictions.parquet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.8331926863572433
+Precison:  0.8305239087418332
+Recall:  0.8331926863572433
+F1 Score:  0.8314648851526979
+Model Report: 
+___________________________________________________
+              precision    recall  f1-score   support
+
+    negative       0.79      0.83      0.81       446
+     neutral       0.88      0.89      0.88      2459
+    positive       0.69      0.62      0.65       650
+
+    accuracy                           0.83      3555
+   macro avg       0.78      0.78      0.78      3555
+weighted avg       0.83      0.83      0.83      3555
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f2b20489580&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/classifiers_7_7.png" src="../../../_images/classifiers_7_7.png" />
+</div>
+</div>
+</div>
+<div class="section" id="prepare-esg-topics-dataset">
+<h2>Prepare <code class="docutils literal notranslate"><span class="pre">esg_topics</span></code> dataset<a class="headerlink" href="#prepare-esg-topics-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
+
+<span class="n">ds_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;dataset&#39;</span><span class="p">)</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;esg_topics&#39;</span>
+<span class="n">ds_cfg</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;/workspace/data/datasets/simple&#39;</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">ds_cfg</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">ds_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;_target_&#39;: &#39;ekorpkit.datasets.dataset.Dataset&#39;,
+ &#39;autoload&#39;: True,
+ &#39;column_info&#39;: {&#39;_target_&#39;: &#39;ekorpkit.info.base.ColumnInfo&#39;,
+                 &#39;columns&#39;: {&#39;id&#39;: &#39;id&#39;,
+                             &#39;merge_meta_on&#39;: None,
+                             &#39;text&#39;: &#39;text&#39;,
+                             &#39;timestamp&#39;: None},
+                 &#39;data&#39;: {&#39;id&#39;: &#39;int&#39;, &#39;text&#39;: &#39;str&#39;},
+                 &#39;datetime&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None},
+                 &#39;keys&#39;: {&#39;id&#39;: &#39;id&#39;,
+                          &#39;split&#39;: &#39;split&#39;,
+                          &#39;text&#39;: &#39;text&#39;,
+                          &#39;timestamp&#39;: &#39;timestamp&#39;},
+                 &#39;meta&#39;: None,
+                 &#39;segment_separator&#39;: &#39;\\n\\n&#39;,
+                 &#39;sentence_separator&#39;: &#39;\\n&#39;,
+                 &#39;timestamp&#39;: {&#39;format&#39;: None, &#39;key&#39;: None, &#39;params&#39;: None}},
+ &#39;data_dir&#39;: &#39;/workspace/data/datasets/simple&#39;,
+ &#39;filetype&#39;: &#39;csv&#39;,
+ &#39;name&#39;: &#39;esg_topics&#39;,
+ &#39;use_name_as_subdir&#39;: True,
+ &#39;verbose&#39;: False}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">splits</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;S-기업(공급망)동반성장/상생&#39;, &#39;G-지배구조&#39;, &#39;G-기업윤리/불공정/소송&#39;, &#39;G-주주환원&#39;, &#39;S-소비자&#39;,
+       &#39;E-신재생에너지 발전&#39;, &#39;S-사회공헌&#39;, &#39;S-기술혁신&#39;, &#39;S-인적자본&#39;, &#39;E-환경영향&#39;, &#39;E-기후변화&#39;,
+       &#39;S-산업재해/안전관리&#39;, &#39;G-정보공시&#39;, &#39;E-환경혁신&#39;, &#39;S-노조/노사&#39;, &#39;E-원자력발전&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="traiing-a-transformer-classficiation-model-with-esg-topics-dataset">
+<h2>Traiing a transformer classficiation model with <code class="docutils literal notranslate"><span class="pre">esg_topics</span></code> dataset<a class="headerlink" href="#traiing-a-transformer-classficiation-model-with-esg-topics-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">overrides</span><span class="o">=</span><span class="p">[</span>
+    <span class="s1">&#39;+model/transformer=simple_classification&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;+model/transformer/pretrained=ekonelectra-base&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">model_cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">,</span> <span class="n">config_group</span><span class="o">=</span><span class="s1">&#39;model/transformer=simple_classification&#39;</span><span class="p">)</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">ds_cfg</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">num_train_epochs</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">max_seq_length</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">train_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">eval_batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">_method_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">]</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Calling train
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+Some weights of the model checkpoint at entelecheia/ekonelectra-base-discriminator were not used when initializing ElectraForSequenceClassification: [&#39;discriminator_predictions.dense.bias&#39;, &#39;discriminator_predictions.dense_prediction.bias&#39;, &#39;discriminator_predictions.dense.weight&#39;, &#39;discriminator_predictions.dense_prediction.weight&#39;]
+- This IS expected if you are initializing ElectraForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing ElectraForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at entelecheia/ekonelectra-base-discriminator and are newly initialized: [&#39;classifier.dense.weight&#39;, &#39;classifier.dense.bias&#39;, &#39;classifier.out_proj.weight&#39;, &#39;classifier.out_proj.bias&#39;]
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "916b6ddc39dd4f40b2848169b2704f7b", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token indices sequence length is longer than the specified maximum sequence length for this model (731 &gt; 512). Running this sequence through the model will result in indexing errors
+INFO:simpletransformers.classification.classification_model: 11009 features created from 10669 samples.
+/opt/conda/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b3623c8f5d744c36a2045eee1f62b453", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Initializing WandB run for training.
+<span class=" -Color -Color-Bold -Color-Bold-Blue">wandb</span>: Currently logged in as: <span class=" -Color -Color-Yellow">entelecheia</span>. Use <span class=" -Color -Color-Bold">`wandb login --relogin`</span> to force relogin
+</pre></div>
+</div>
+<div class="output text_html">wandb version 0.12.17 is available!  To upgrade, please run:
+ $ pip install wandb --upgrade</div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_211010-35zsopcf</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/35zsopcf" target="_blank">summer-leaf-12</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6c4abab7ae7e48f8b2c30e5d1cf7ed68", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+INFO:simpletransformers.classification.classification_model: 1186 features created from 1186 samples.
+INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6213240754599652, &#39;acc&#39;: 0.654300168634064, &#39;eval_loss&#39;: 1.2273957588170703}
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "074296de0b9e42a68782b386ab28b944", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+INFO:simpletransformers.classification.classification_model: 1186 features created from 1186 samples.
+INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6602906035471546, &#39;acc&#39;: 0.6897133220910624, &#39;eval_loss&#39;: 1.0642714484741813}
+INFO:simpletransformers.classification.classification_model: Training of electra model complete. Saved to /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base.
+INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "88be5420031643819c8b409a88f8c785", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: 1318 features created from 1318 samples.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "5448408a5a4d4f2db9f23f3e4e43d037", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: Initializing WandB run for evaluation.
+</pre></div>
+</div>
+<div class="output text_html">Finishing last run (ID:35zsopcf) before initializing another...</div><div class="output text_html">Waiting for W&B process to finish... <strong style="color:green">(success).</strong></div><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><style>
+    table.wandb td:nth-child(1) { padding: 0 10px; text-align: left ; width: auto;} td:nth-child(2) {text-align: left ; width: 100%}
+    .wandb-row { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; width: 100% }
+    .wandb-col { display: flex; flex-direction: column; flex-basis: 100%; flex: 1; padding: 10px; }
+    </style>
+<div class="wandb-row"><div class="wandb-col"><h3>Run history:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>█▇▅▆▂▄▃▃▃▁▂▃▁</td></tr><tr><td>acc</td><td>▁█</td></tr><tr><td>eval_loss</td><td>█▁</td></tr><tr><td>global_step</td><td>▁▂▂▃▃▄▄▄▅▅▆▆▇██</td></tr><tr><td>lr</td><td>█▇▇▆▆▅▅▄▃▃▂▂▁</td></tr><tr><td>mcc</td><td>▁█</td></tr><tr><td>train_loss</td><td>▁█</td></tr></table><br/></div><div class="wandb-col"><h3>Run summary:</h3><br/><table class="wandb"><tr><td>Training loss</td><td>0.70556</td></tr><tr><td>acc</td><td>0.68971</td></tr><tr><td>eval_loss</td><td>1.06427</td></tr><tr><td>global_step</td><td>690</td></tr><tr><td>lr</td><td>0.0</td></tr><tr><td>mcc</td><td>0.66029</td></tr><tr><td>train_loss</td><td>4.31178</td></tr></table><br/></div></div></div><div class="output text_html">Synced <strong style="color:#cdcd00">summer-leaf-12</strong>: <a href="https://wandb.ai/entelecheia/esgml-model/runs/35zsopcf" target="_blank">https://wandb.ai/entelecheia/esgml-model/runs/35zsopcf</a><br/>Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)</div><div class="output text_html">Find logs at: <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_211010-35zsopcf/logs</code></div><div class="output text_html">Successfully finished last run (ID:35zsopcf). Initializing new run:<br/></div><div class="output text_html">wandb version 0.12.17 is available!  To upgrade, please run:
+ $ pip install wandb --upgrade</div><div class="output text_html">Tracking run with wandb version 0.12.16</div><div class="output text_html">Run data is saved locally in <code>/workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/wandb/run-20220527_211150-3qjwehi3</code></div><div class="output text_html">Syncing run <strong><a href="https://wandb.ai/entelecheia/esgml-model/runs/3qjwehi3" target="_blank">gentle-dew-13</a></strong> to <a href="https://wandb.ai/entelecheia/esgml-model" target="_blank">Weights & Biases</a> (<a href="https://wandb.me/run" target="_blank">docs</a>)<br/></div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model:{&#39;mcc&#39;: 0.6548289397134168, &#39;acc&#39;: 0.6851289833080425, &#39;eval_loss&#39;: 1.0937164245649826}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f2b2094de80&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_cfg</span><span class="o">.</span><span class="n">_method_</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;eval&#39;</span><span class="p">]</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">visualize</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">include_values</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">model_cfg</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="o">.</span><span class="n">visualize</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">include_percentages</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">model_cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.ekonf:Calling eval
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-train.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [train]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-test.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [test]
+INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/esg_topics/esg_topics-dev.csv
+INFO:ekorpkit.info.base:Added split column [split] with value [dev]
+INFO:ekorpkit.models.transformer.simple:Loaded model from /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/best_model
+INFO:simpletransformers.classification.classification_model: Converting to features started. Cache is not used.
+INFO:simpletransformers.classification.classification_model: Sliding window enabled
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "d5ac8facfc8b4a8a9a70e5453147b006", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token indices sequence length is longer than the specified maximum sequence length for this model (712 &gt; 512). Running this sequence through the model will result in indexing errors
+INFO:simpletransformers.classification.classification_model: 1318 features created from 1318 samples.
+</pre></div>
+</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "bd8afc1a330a46bda4a39025ae9cf837", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Saving dataframe as /workspace/projects/esgml/outputs/esgml-model/ekonelectra-base/predictions/model_test_predictions.parquet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.6851289833080425
+Precison:  0.6733160703968519
+Recall:  0.6851289833080425
+F1 Score:  0.6675203149124428
+Model Report: 
+___________________________________________________
+                  precision    recall  f1-score   support
+
+          E-기후변화       0.61      0.56      0.58        63
+     E-신재생에너지 발전       0.73      0.71      0.72        31
+         E-원자력발전       1.00      0.42      0.59        19
+          E-환경영향       0.50      0.51      0.50        61
+          E-환경혁신       0.53      0.52      0.52        52
+   G-기업윤리/불공정/소송       0.61      0.58      0.60        91
+          G-정보공시       0.20      0.02      0.04        50
+          G-주주환원       0.73      0.77      0.74       162
+          G-지배구조       0.73      0.86      0.79       172
+          S-기술혁신       0.74      0.78      0.76       158
+S-기업(공급망)동반성장/상생       0.80      0.21      0.33        39
+         S-노조/노사       0.87      0.86      0.86        70
+          S-사회공헌       0.64      0.82      0.72        68
+     S-산업재해/안전관리       0.77      0.73      0.75        37
+           S-소비자       0.66      0.74      0.69       159
+          S-인적자본       0.64      0.73      0.68        86
+
+        accuracy                           0.69      1318
+       macro avg       0.67      0.61      0.62      1318
+    weighted avg       0.67      0.69      0.67      1318
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f26d0ff8940&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/classifiers_13_7.png" src="../../../_images/classifiers_13_7.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"000142a9ffa04cd99b774c8707591a51": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "00cc6c33fed54379a2d157253975acec": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "01d91afdba984138a490eedd45765ee9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "02fc4723946645f28497a02ecd4a502c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "03f1c47b0539436dae39ff439feebcb4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "0537c11f82124042826bc752ca9264da": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_65533b79d34648b591b1da2898d500ec", "max": 112, "style": "IPY_MODEL_f134c12b21b14d0382c6b14da8ccffab", "value": 112}}, "056bd99664b04ea69a6640c833cc52de": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_62deecb0269e4213a0c418ee1b3514da", "style": "IPY_MODEL_4bbf9611f5ce4665867bd0291a646cef", "value": " 345/345 [00:42&lt;00:00, 10.14it/s]"}}, "05ea299ff09a477da43b2cefc3c5876f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "07283c591b5e42b780ba2e54f6ac2d3c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "074296de0b9e42a68782b386ab28b944": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_dd86cf4c8da446f5a2b3ac8246a1cf4a", "IPY_MODEL_47ce378537214bef96583cd77f541a38", "IPY_MODEL_056bd99664b04ea69a6640c833cc52de"], "layout": "IPY_MODEL_48d2557a233549e3b20ce7fbe3da1439"}}, "088a354c173149b98f7718c10d6a8692": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "08f73f090dbb48f9acd20d07a2f7f056": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "0a1b3eb54ed843db912d0297a0416a09": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_90f29aca3bbe453a859f883caf824229", "max": 228824, "style": "IPY_MODEL_ee128c7c2f1e47218d19fcd00d24ff37", "value": 228824}}, "0a225115de6c48929620dbec725b4d2d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_e210bf18c77e489dbdb6a6d8386e9505", "style": "IPY_MODEL_302ff08b8958469caeaaeebbd609ed1a"}}, "0afd8244a5ec4b2a9bb992562d9043a5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "0b3905616dff4c0ab80841da6e961190": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "0c89a8466aef4d529bcd667ec18f93f7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "0dcbf6babe0b47018d5aa91d7f7f6790": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "0df55da7a09f46428ebd67aa503610c7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "0ef920adf79e41dcbbbdc4da7aba8c6b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_55296b7bd67748f2b3d9cb059b984a53", "style": "IPY_MODEL_780c5beda968467d9809b5fa050069aa"}}, "0f4ea35f50fa4caca5892229f6173f92": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "0faa177778784f00aacf4a1b494d83b8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1134e7831ce645b49d4bd4b114d51d1f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_3046fadb90c14f7da9f8de23d8511d47", "style": "IPY_MODEL_7e04b77925d0423fb35924e984747f49", "value": " 356/356 [00:43&lt;00:00,  9.57it/s]"}}, "120efed0f38e44c38eef500c3d2c3eb1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "13069a8e58bf43a6b1bbac498e84f165": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "13a63bcc74d54f2cb268baf95850f6ae": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "148d2b80611c4bef9d7c98200ed5b57c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_0df55da7a09f46428ebd67aa503610c7", "style": "IPY_MODEL_28944c8f3ae64561b87bb1a2627f7fce", "value": "Running Evaluation: 100%"}}, "1496f5da1c094b8a96c7544ebceb3f18": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "14dd68eb980044d8849d20761b49985a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "15c5543a61654d8a9e438b5f1438655c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1833c0c11f884ed699ddd9e76021d02d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_0a225115de6c48929620dbec725b4d2d", "IPY_MODEL_bd4ed9a58e9c4568b95dd118b5e92110"], "layout": "IPY_MODEL_d414e80d341f4f888f72651c5c734988"}}, "18726f323a334da098e7bf58c3dc3371": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "18e400d8511a478796869f926ef17b8d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "19635612adc3442ebd973e32cf3d9161": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_6171ebd0073049efa66284ee5b97f4fe", "IPY_MODEL_b0f475d573ab4746925f4da6ef4bfa97"], "layout": "IPY_MODEL_1bdef76adc544432bb00e172ec3954ef"}}, "19d54a7824424dbdb7dcd9cfb4fd3486": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1a4c89d394ec4ca781c92cb88ff88169": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "1a8556a5bcd347a38725404263ad8b10": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_4affcac88b3a4927a63ba4fcbab82280", "style": "IPY_MODEL_8436ad2ed1c6415c9ee59ae2ee188514", "value": "Epoch 2 of 2: 100%"}}, "1b1cff80eef84383af8412191b5a994e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1bdef76adc544432bb00e172ec3954ef": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1c48ca445a3248c08ee1b37414c272b7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "1cf883883b134e52b320ffa445ad7772": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1d57dc333c514aa595ddfeef288c2cea": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1dbdf0a20e34411e899f165597863eed": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "1e6fc5b763334eec8e8a9304475432b6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "219c910f1d044d9d8b2f647a21b84046": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "24b0b58bd8094a569cf8769196fd7703": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "2647567fd1e14072be384164099e1561": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "268f6f36393147b7a24b98f44987e00c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_219c910f1d044d9d8b2f647a21b84046", "style": "IPY_MODEL_88a7b983446047a0b1d135dab122b195", "value": "100%"}}, "272b9692f29642c09ecb57e4ac64236c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_dfb05c14dcbf40b883d40a333ee47be9", "IPY_MODEL_f600b4e06f0442ed8494da99e34ed648", "IPY_MODEL_a22d405d79634f8abaa339903e0ab6d8"], "layout": "IPY_MODEL_00cc6c33fed54379a2d157253975acec"}}, "28944c8f3ae64561b87bb1a2627f7fce": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "29e3199c34e841ee8b04e6f78e664f54": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2b26757d0ddb4111af8cde3fe6751dc0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_956340a457ea4e57a634b4f7e07277d0", "max": 1318, "style": "IPY_MODEL_d37c8f9d7d5b416b849e5484bebbb89e", "value": 1318}}, "2b9288066d034c74b63d3a6453375a87": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f33f4535f0634b3c97ce750a64f125c7", "style": "IPY_MODEL_fd1c04042f094adb94931ef0d73fdf0f", "value": "100%"}}, "2d6fbb5991fd4c1c88d746f29745028b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2d722c4fc2284573a1b4b77baad81054": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2e6a740865504ed79bf66bf9b4bb3c68": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_4009db28395e45aa8ebdcd05cca7c413", "style": "IPY_MODEL_65f9ae206c45425780d60b884565efda", "value": "100%"}}, "2ef76314d0e14bb9b361f02880285ec9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "2f1cfe6b53a747f3963caad08b8bbc94": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "302ff08b8958469caeaaeebbd609ed1a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "303729bcd4184fd8b363f14825d33e5a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3046fadb90c14f7da9f8de23d8511d47": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "32d65460b39d4ac0a83ba8147535900b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_148d2b80611c4bef9d7c98200ed5b57c", "IPY_MODEL_0537c11f82124042826bc752ca9264da", "IPY_MODEL_687d2ac975c74eeea64d2ffdcf4b8192"], "layout": "IPY_MODEL_e6a4a85306dc46a88f67a07ed541620c"}}, "33fcec1488924017a13baef81740d08f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_2e6a740865504ed79bf66bf9b4bb3c68", "IPY_MODEL_a69eeca57c5e45d9acbf7ac42cec2ea7", "IPY_MODEL_423ae54fe809482196b4f0b119fd7101"], "layout": "IPY_MODEL_389964444da14e3c828fe48dbed2f454"}}, "35aa73a0e23b4e85aac8555e4bbd3cce": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "36189e4939334e82b2ad76e54d1e4b3c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "36eaf217fd994d89acada240dad1f551": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3795bf8113f344aca85a8f5beb62f51b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "381619d730394e0abfa18b354e9608da": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "389964444da14e3c828fe48dbed2f454": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "38db643b7fcd4592883c10d15315c82d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_7f3f9389431d426591f9bafc6f87efa3", "style": "IPY_MODEL_1d57dc333c514aa595ddfeef288c2cea", "value": "100%"}}, "399bd26250d14def8c00da6491061452": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "3ac6cacbb9824f04ba64134b42aa3759": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_506e1841934b446a9545e7f41fe93958", "style": "IPY_MODEL_19d54a7824424dbdb7dcd9cfb4fd3486"}}, "3b34a54cb1204d2da656e11d85a25644": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "3c39aab3578b4ee4826de7892e962ba8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_b8ae58757d474222be135ecbc736ae51", "style": "IPY_MODEL_b1a19b4bab204284aa9eee24de037bab", "value": " 11372/11372 [00:01&lt;00:00, 7423.04it/s]"}}, "3c63186ed4b34f41ab236ab42b52e0dc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_fd82baa95e8a4e67a09f2b63423ce5de", "style": "IPY_MODEL_4783be89087a4158ae3a142ab79a6d8b"}}, "3d51c4aa270540d3a454fd9b796721f5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_96712f334f9944cfa77ff60979bcc273", "IPY_MODEL_9e0ea092d644419aaa53da4a10bd2264", "IPY_MODEL_e835898649384a06a6c3d3c29e860556"], "layout": "IPY_MODEL_7d1a1122cbe3449cb02a81f5bb31901b"}}, "3f927efc30834631bc89679bf377bd2a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "3f9d0055cf99485ba07d9074315bcb94": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4009db28395e45aa8ebdcd05cca7c413": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4039f9f4ee7c440389335b3f1de3abdc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_0b3905616dff4c0ab80841da6e961190", "style": "IPY_MODEL_633c4d8e31514223a63f8013ddbfca86", "value": " 43/43 [00:01&lt;00:00, 28.94it/s]"}}, "407cf67f02ef4c12abd270a112f76d20": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_3c63186ed4b34f41ab236ab42b52e0dc", "IPY_MODEL_dd8ab2df686b43e6ac8881e9edd9490c"], "layout": "IPY_MODEL_b2e2c929718647c39c5dc990d7b761d9"}}, "423ae54fe809482196b4f0b119fd7101": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_9e7e7ac8183c43eda5af3656cca4e3fc", "style": "IPY_MODEL_ea86fadee3124af0b568032e4035ab1c", "value": " 3555/3555 [00:00&lt;00:00, 7936.47it/s]"}}, "42dc2f8416c543979cd19bc18ed2ec9f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "466133ddefe8409aaca2d0f0aa26586b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4783be89087a4158ae3a142ab79a6d8b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "47ce378537214bef96583cd77f541a38": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_80e9087daea544c5ab0bee0732ca38a5", "max": 345, "style": "IPY_MODEL_42dc2f8416c543979cd19bc18ed2ec9f", "value": 345}}, "48502a6b3fd344319dc0c5bdff6b1a7d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "48d2557a233549e3b20ce7fbe3da1439": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "49d7d1896f094c75b40e3d692aa68191": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "4affcac88b3a4927a63ba4fcbab82280": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4bbf9611f5ce4665867bd0291a646cef": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "4cd6a55a009e419bbffc32761b0a87f0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "4dbf6e1a6b384c9098033dacae5af482": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_35aa73a0e23b4e85aac8555e4bbd3cce", "style": "IPY_MODEL_1dbdf0a20e34411e899f165597863eed", "value": " 3555/3555 [00:00&lt;00:00, 4718.81it/s]"}}, "4e5f9eb444dd4d4ba319f661e0f866b9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "4e6f624e740745ad99bf07ad1931dd17": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_ace320006c9242859d342d94add1dd5d", "max": 1318, "style": "IPY_MODEL_f414556512c748f3b5e8b521cc3c6d52", "value": 1318}}, "4feb58de82d64fbbaa46596c0a508d83": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_d77a1b2dffec4a71b040ed275a97233a", "style": "IPY_MODEL_0c89a8466aef4d529bcd667ec18f93f7", "value": " 2/2 [01:38&lt;00:00, 48.55s/it]"}}, "506e1841934b446a9545e7f41fe93958": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5129f9c86aa947958dac85c15bd43cf1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "52a0775b5e3c455e9e540eb5ab539dd4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_13a63bcc74d54f2cb268baf95850f6ae", "max": 1318, "style": "IPY_MODEL_2647567fd1e14072be384164099e1561", "value": 1318}}, "52acb90b35ac4a389c4312d0f1948d2b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_872f7d88ff23488993126c4b0b1920fb", "max": 1, "style": "IPY_MODEL_0f4ea35f50fa4caca5892229f6173f92", "value": 1}}, "537294c418594eb0a55e5aceb6573a2f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5448408a5a4d4f2db9f23f3e4e43d037": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_85eefebcef6b4a2fb96a071ac6aeb367", "IPY_MODEL_ad2aeaf6338642f0b800fc32ef771a33", "IPY_MODEL_5944c65e6c19485abdca7b0b05849747"], "layout": "IPY_MODEL_15c5543a61654d8a9e438b5f1438655c"}}, "55296b7bd67748f2b3d9cb059b984a53": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "553ac48a6666406bb2ab220f1a1b2c15": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_c394c95851544bd3bc0375255365b605", "style": "IPY_MODEL_b6e5cf206704438c8d2b7acb6311c51c", "value": "100%"}}, "567c5e34df1546ac93ae3a2e8dadbd06": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_ee2f62f6f57e44708376c778a1778339", "IPY_MODEL_630bbaa428004877ac385ffbf41a8bbe", "IPY_MODEL_3c39aab3578b4ee4826de7892e962ba8"], "layout": "IPY_MODEL_628251b7404e41059a9bef09099c49dd"}}, "56de99c123af4c3796f4d8203ea2122b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_7d69c7c31d8f45959771e2c075dc7605", "style": "IPY_MODEL_a074450f9a47492ba7de692672107545", "value": "100%"}}, "57c5c806bae04963a81e018eea444dac": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_6b6df047989e4545b5994485d8db39d8", "style": "IPY_MODEL_1cf883883b134e52b320ffa445ad7772", "value": " 112/112 [00:03&lt;00:00, 28.94it/s]"}}, "5825d43120404f0ea72d7f24868718ed": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5852d31b4c9b4ef8a60b45e057151411": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "59430859f12c4fc398dabb758594f3b2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_466133ddefe8409aaca2d0f0aa26586b", "max": 345, "style": "IPY_MODEL_79de7fe1414948dc85923a115d9dbf6e", "value": 345}}, "5944c65e6c19485abdca7b0b05849747": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_4cd6a55a009e419bbffc32761b0a87f0", "style": "IPY_MODEL_bb87fd1cd54b4e75a3dc95efa67993d8", "value": " 43/43 [00:01&lt;00:00, 29.50it/s]"}}, "5a351f6ebdfc48739e46384a983ef7e4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "5a8a623a5dd244cc8de25032f8f9efec": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5c0bcf703dbd4150b162c30ec789768c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5dc1e6ef3eed41f7b1d51ff015b6012d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5e9b5ba5c21740d2b66d6856de81a5de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "5fec052de9da409c84be6ba923cae01a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "604bf2febba5446db324df464caf7b41": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6171ebd0073049efa66284ee5b97f4fe": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_6f5e922b88714cfcb81b233cb29f2fda", "style": "IPY_MODEL_945bc17fdf9a49dda0d0e604e506383e"}}, "628251b7404e41059a9bef09099c49dd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "62deecb0269e4213a0c418ee1b3514da": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "630bbaa428004877ac385ffbf41a8bbe": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_e3faa91c562640d5be77783fb2cd8018", "max": 11372, "style": "IPY_MODEL_b0d90dcbef5d4f158544793bcb4b539e", "value": 11372}}, "6320a49ab4c1463ab51d64005aaafe0a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_7b2ab66b3f6b4fabb4af6e99de221c42", "IPY_MODEL_0a1b3eb54ed843db912d0297a0416a09", "IPY_MODEL_f042ad2888f84fc5bd24181ee6f3142f"], "layout": "IPY_MODEL_01d91afdba984138a490eedd45765ee9"}}, "633c4d8e31514223a63f8013ddbfca86": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "652ca0cf36f24a229501a18d8b72bb20": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_a71e6efdca1a4662b45969bf573ba623", "IPY_MODEL_e7455ae4652e4cad938749dc034ab934", "IPY_MODEL_57c5c806bae04963a81e018eea444dac"], "layout": "IPY_MODEL_d773423758fa4e7b90b6a9acca61532c"}}, "65533b79d34648b591b1da2898d500ec": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "65f9ae206c45425780d60b884565efda": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "661bb1110c9a40c388840f6433f0e2b2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "665822f395f943a7a597d2da14f68402": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "687d2ac975c74eeea64d2ffdcf4b8192": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_fad735a2bed844b48f8d6663c88bc431", "style": "IPY_MODEL_02fc4723946645f28497a02ecd4a502c", "value": " 112/112 [00:03&lt;00:00, 29.52it/s]"}}, "68efcc0eb14d4a748cdaf3dccf220222": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "69fe792844974814a7575fb885885c4e": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6b0937696b034ab695f75a180fc77e6c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "6b30bc8789ca4815bbef6765e7f1d7ce": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "6b5b420f0f0144bcbcbacc021fa5d998": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_73f5c55a361d47519c6e18e9c00afc70", "style": "IPY_MODEL_ff23b3eaf4fa42e19a821750658edfa2", "value": "0.015 MB of 0.015 MB uploaded (0.000 MB deduped)\r"}}, "6b6df047989e4545b5994485d8db39d8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6c4abab7ae7e48f8b2c30e5d1cf7ed68": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_f98c49de196c406a9cb741436724e0ab", "IPY_MODEL_59430859f12c4fc398dabb758594f3b2", "IPY_MODEL_d4b1e3b25e224f9c80f0408273a08bf7"], "layout": "IPY_MODEL_96bace3b4f254efc8b939495015e3914"}}, "6c992bd81646435a835010ee475ebfe5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6ca03b4436454616b00a66a7dedd7248": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_13069a8e58bf43a6b1bbac498e84f165", "style": "IPY_MODEL_d53113fafc69493082e0691c10dd21bb", "value": "100%"}}, "6d21d67e777e4d8884a5f86614b9c824": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6d6c241e32b243f392cfb1a8e6736263": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6db28d41e1ea4728a2447dc8b11e6842": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "6ed182dc51b44cccb6d5b8840d09622c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_fa50897641af4063bd49e65083677057", "IPY_MODEL_9c596eb27f624cf9862969eafacd9fa1", "IPY_MODEL_c4024b29240842ceb8cd0ad70e96caf5"], "layout": "IPY_MODEL_ff6309cfdc104a8d83c1ac01611cdd62"}}, "6f5e922b88714cfcb81b233cb29f2fda": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "706ee24264e94fe9ade9e3c78d7cecd0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_29e3199c34e841ee8b04e6f78e664f54", "max": 356, "style": "IPY_MODEL_f788e95155ec4d639ad1c38ebda5e439", "value": 356}}, "71b80ec22ce6454b979a5bf0b7a0f3ac": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "71ed223d9856499cbfa8a2d4b2bc6973": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "72264a2bc3ba4cf18cf26c03de4023e6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "73f5c55a361d47519c6e18e9c00afc70": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7506960bae17493894efad8aad8008a8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_974fb31908f242d5945d753bff6b4b70", "style": "IPY_MODEL_a13271d8c314494ea5b57339e2b26f5e", "value": "100%"}}, "752afe9f41e14b78b17d2e82113585cf": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "753c8bfc3ba049379d0592140e0e17f3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_1b1cff80eef84383af8412191b5a994e", "style": "IPY_MODEL_841193548a30485b917928d755ac4d0d", "value": "0.015 MB of 0.015 MB uploaded (0.000 MB deduped)\r"}}, "75a36a25f47442098fb08177fc558410": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "780c5beda968467d9809b5fa050069aa": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "79bc6078b94d40f29eee85fbe9358bee": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "79de7fe1414948dc85923a115d9dbf6e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "7b0750c1906c4f6c8134d01ca36a178d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "7b2ab66b3f6b4fabb4af6e99de221c42": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_72264a2bc3ba4cf18cf26c03de4023e6", "style": "IPY_MODEL_e7402270835a45cfb5da79ca473f4d44", "value": "Downloading: 100%"}}, "7d1a1122cbe3449cb02a81f5bb31901b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7d6737ccc42e48898f653e62811cf2fd": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7d69c7c31d8f45959771e2c075dc7605": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "7e04b77925d0423fb35924e984747f49": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "7f3f9389431d426591f9bafc6f87efa3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8068b8a3351643dc8e8921d1879f7bde": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_a63b2cd7811c493c848aac39d5f560d8", "max": 2, "style": "IPY_MODEL_bf2560061bb74e959013e8812302a807", "value": 2}}, "80e9087daea544c5ab0bee0732ca38a5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8158c5208db245f1b7c2099bf6706505": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "841193548a30485b917928d755ac4d0d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "8436ad2ed1c6415c9ee59ae2ee188514": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "84fdf0da07594f28959392d82784d91c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "85eefebcef6b4a2fb96a071ac6aeb367": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_71b80ec22ce6454b979a5bf0b7a0f3ac", "style": "IPY_MODEL_7b0750c1906c4f6c8134d01ca36a178d", "value": "Running Evaluation: 100%"}}, "86d3f68109744fe8af0ebff745bfbdff": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "86e8363172a041fe933ef9cdd92d0d46": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_14dd68eb980044d8849d20761b49985a", "style": "IPY_MODEL_24b0b58bd8094a569cf8769196fd7703", "value": " 1318/1318 [00:00&lt;00:00, 2179.77it/s]"}}, "86fb12e89b9a411dbceeac089eebd11d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_38db643b7fcd4592883c10d15315c82d", "IPY_MODEL_c6a356fa215c4c6596cb3ce6a4fbaf5e", "IPY_MODEL_fbe979f862c444ea97d716184e21b224"], "layout": "IPY_MODEL_fd6017ede24449f6a62502bb432f7768"}}, "872f7d88ff23488993126c4b0b1920fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "88564c43ddb4400d9ea20ce2b7b35790": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "88a7b983446047a0b1d135dab122b195": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "88be5420031643819c8b409a88f8c785": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_2b9288066d034c74b63d3a6453375a87", "IPY_MODEL_52a0775b5e3c455e9e540eb5ab539dd4", "IPY_MODEL_c609d1b2d67643a3b146ffe159bd50b6"], "layout": "IPY_MODEL_5c0bcf703dbd4150b162c30ec789768c"}}, "89d51301f9f447c195b1b56a74f93350": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_e2a79c94017147148a36047975bda8a0", "style": "IPY_MODEL_9afa4d82cd3b4a0bbf7d22d11a09133c", "value": "Epoch 2 of 2: 100%"}}, "8bdf23f14a544977bc9c7e167f4f3866": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_68efcc0eb14d4a748cdaf3dccf220222", "style": "IPY_MODEL_000142a9ffa04cd99b774c8707591a51", "value": "100%"}}, "8c3b90d27182465b9a5797e839ef8fdf": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8cd6ab0c242a4cf09191cc044306b404": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "8d08354460c646a7aeec2cdc76bc5a00": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "8d11e97255524f08884d6d91df1e160e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "8e4d22177c8741ceaabec398ebb9326c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_553ac48a6666406bb2ab220f1a1b2c15", "IPY_MODEL_e296828e98f84cff9cffb0a8f2a01292", "IPY_MODEL_db75d10a9ddd4db6a28fcd5ce937bf12"], "layout": "IPY_MODEL_be9dd12d2f1144c5a2dc172a4b933de3"}}, "8ebf93dd1a53422aad6637fbf541e349": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "9017ae9cdc9643388c175adb17521b2c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "903a9d956933466fa3dcf488c0d9b64a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "90548a25749845cc9c66560064defffc": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_973daa04e43145368c0318a419d73f28", "IPY_MODEL_4e6f624e740745ad99bf07ad1931dd17", "IPY_MODEL_9baef50cb98f40969c8b46fc75f8d8af"], "layout": "IPY_MODEL_cf6227bff1de4bb3bf8ff241ef90e534"}}, "90f29aca3bbe453a859f883caf824229": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "916b6ddc39dd4f40b2848169b2704f7b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_268f6f36393147b7a24b98f44987e00c", "IPY_MODEL_d5c56814f0a840c087ee85ec091dd206", "IPY_MODEL_e74525fadf9d49da8f22aeceb51bad63"], "layout": "IPY_MODEL_6db28d41e1ea4728a2447dc8b11e6842"}}, "93746172268241bfabfc0441a286a73e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "945bc17fdf9a49dda0d0e604e506383e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "956340a457ea4e57a634b4f7e07277d0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "96712f334f9944cfa77ff60979bcc273": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f24b78d199df4139a697e41d0ba43048", "style": "IPY_MODEL_3f927efc30834631bc89679bf377bd2a", "value": "Downloading: 100%"}}, "96bace3b4f254efc8b939495015e3914": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "96baf7713f5948fc9ae6e791678890c8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_fbc8dc5227144232ae941a81aac76ba1", "style": "IPY_MODEL_f630d638744b44b78e95797cd975dbd5", "value": " 356/356 [00:44&lt;00:00,  9.59it/s]"}}, "973daa04e43145368c0318a419d73f28": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_fc943aa1d09547369df1302d23a4c9c5", "style": "IPY_MODEL_5825d43120404f0ea72d7f24868718ed", "value": "100%"}}, "974fb31908f242d5945d753bff6b4b70": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "977144014f0447dbbbf18b0d90d126fe": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "9854261da3874a4eb7716dec0c87abcb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_f520ca4e515745d69a3561b6246669c9", "max": 1, "style": "IPY_MODEL_399bd26250d14def8c00da6491061452"}}, "993c5753a5b04474844f47da3fb782f9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_8bdf23f14a544977bc9c7e167f4f3866", "IPY_MODEL_ffce69f360ca40278e9d4f92ef3f9309", "IPY_MODEL_e364d58e636349a08500aa147e27c76f"], "layout": "IPY_MODEL_0faa177778784f00aacf4a1b494d83b8"}}, "9af307aaaf534f698be0395aab25d875": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "LabelModel", "state": {"layout": "IPY_MODEL_ca4dc429b72844c5b6023780d625f4b4", "style": "IPY_MODEL_752afe9f41e14b78b17d2e82113585cf", "value": "0.017 MB of 0.017 MB uploaded (0.000 MB deduped)\r"}}, "9afa4d82cd3b4a0bbf7d22d11a09133c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "9b730544dfd34cfbb760b814a8085fad": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_1a8556a5bcd347a38725404263ad8b10", "IPY_MODEL_8068b8a3351643dc8e8921d1879f7bde", "IPY_MODEL_bcc52d186fd14365a37133779c589332"], "layout": "IPY_MODEL_f86d05462bcc462e8b4bc6a8bd0e476f"}}, "9baef50cb98f40969c8b46fc75f8d8af": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5fec052de9da409c84be6ba923cae01a", "style": "IPY_MODEL_18726f323a334da098e7bf58c3dc3371", "value": " 1318/1318 [00:00&lt;00:00, 2135.90it/s]"}}, "9bb98b79c74f4d19837416ce5f9e0134": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "9c596eb27f624cf9862969eafacd9fa1": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_07283c591b5e42b780ba2e54f6ac2d3c", "max": 43, "style": "IPY_MODEL_e97c85543ebd4dba8c6039ca5a42ebb5", "value": 43}}, "9e0ea092d644419aaa53da4a10bd2264": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_18e400d8511a478796869f926ef17b8d", "max": 490, "style": "IPY_MODEL_79bc6078b94d40f29eee85fbe9358bee", "value": 490}}, "9e7e7ac8183c43eda5af3656cca4e3fc": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a074450f9a47492ba7de692672107545": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "a13271d8c314494ea5b57339e2b26f5e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "a1415fa8f5594af8a51e50089f4a8603": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "a153d5dd94a942a4bca689bf408c44f0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a22d405d79634f8abaa339903e0ab6d8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5129f9c86aa947958dac85c15bd43cf1", "style": "IPY_MODEL_88564c43ddb4400d9ea20ce2b7b35790", "value": " 422M/422M [00:21&lt;00:00, 22.7MB/s]"}}, "a2b9a605f68b4941b7b285ebc1026b0f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_3b34a54cb1204d2da656e11d85a25644", "max": 3555, "style": "IPY_MODEL_ece8a530ac1d46f4b1bc5838f50709e4", "value": 3555}}, "a3109b4137a444bd97f8e1bd97b760ca": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a59a4306de3948f6a3111433503158d5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "a5f1488ab3044d02984c0465b3a8ee4c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a63b2cd7811c493c848aac39d5f560d8": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "a69eeca57c5e45d9acbf7ac42cec2ea7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_2d722c4fc2284573a1b4b77baad81054", "max": 3555, "style": "IPY_MODEL_b07df6c2927a45d89ae9a768e1669ff4", "value": 3555}}, "a70c2105b4e9452cbe841a73177b85d9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_dddd430ef58645f28eb87c603305c6e3", "style": "IPY_MODEL_604bf2febba5446db324df464caf7b41", "value": "100%"}}, "a71e6efdca1a4662b45969bf573ba623": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_71ed223d9856499cbfa8a2d4b2bc6973", "style": "IPY_MODEL_a59a4306de3948f6a3111433503158d5", "value": "100%"}}, "aa229abf677d4ca6b296e8e245c6e8ae": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "aa3aeef0f97d4b39a00d77f6ace97eee": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "aa4b821ab5304104bb35ff93619171fb": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "aae599da0c9846509cfda185658e2095": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ace320006c9242859d342d94add1dd5d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ad2aeaf6338642f0b800fc32ef771a33": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_303729bcd4184fd8b363f14825d33e5a", "max": 43, "style": "IPY_MODEL_977144014f0447dbbbf18b0d90d126fe", "value": 43}}, "ad8014ab684d45a5ad6d899aa0fe8462": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "af30934c7b3749c7a747f48e491aa284": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "af7315e6131c45ab82d5f6e9b364986a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_d70b609029904c1ab25984a19538cc6e", "IPY_MODEL_706ee24264e94fe9ade9e3c78d7cecd0", "IPY_MODEL_96baf7713f5948fc9ae6e791678890c8"], "layout": "IPY_MODEL_665822f395f943a7a597d2da14f68402"}}, "afe1a099922b411da18c1cc3edcc6700": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_c6a753ee0e7b4f14b653cdd67a72de1b", "max": 1, "style": "IPY_MODEL_f3f7278333e2427c9ec84ee745e37ed3"}}, "b07df6c2927a45d89ae9a768e1669ff4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "b0d90dcbef5d4f158544793bcb4b539e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "b0f475d573ab4746925f4da6ef4bfa97": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_8c3b90d27182465b9a5797e839ef8fdf", "max": 1, "style": "IPY_MODEL_9017ae9cdc9643388c175adb17521b2c"}}, "b1a19b4bab204284aa9eee24de037bab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "b2e2c929718647c39c5dc990d7b761d9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b3623c8f5d744c36a2045eee1f62b453": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_89d51301f9f447c195b1b56a74f93350", "IPY_MODEL_f2a3726c2e134129b01444d0b683f64f", "IPY_MODEL_4feb58de82d64fbbaa46596c0a508d83"], "layout": "IPY_MODEL_84fdf0da07594f28959392d82784d91c"}}, "b4f251339b934c5b9eb09af959af6eeb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "b6e5cf206704438c8d2b7acb6311c51c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "b8455aa11a624bd79d4eaa55c910612a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b8ae58757d474222be135ecbc736ae51": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "b8b2ba5b1fc240aea3ed58ee55963798": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bad2d3cb2e774d09932c270c9cc9c2c4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "bb3406d1e4434ede949a296389fa87f5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "bb87fd1cd54b4e75a3dc95efa67993d8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "bcc52d186fd14365a37133779c589332": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_3795bf8113f344aca85a8f5beb62f51b", "style": "IPY_MODEL_2f1cfe6b53a747f3963caad08b8bbc94", "value": " 2/2 [01:44&lt;00:00, 51.48s/it]"}}, "bd4ed9a58e9c4568b95dd118b5e92110": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_5a8a623a5dd244cc8de25032f8f9efec", "max": 1, "style": "IPY_MODEL_1e6fc5b763334eec8e8a9304475432b6"}}, "bd8afc1a330a46bda4a39025ae9cf837": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_7506960bae17493894efad8aad8008a8", "IPY_MODEL_fb4e724c2f694b02a26fb8b77e81069a", "IPY_MODEL_4039f9f4ee7c440389335b3f1de3abdc"], "layout": "IPY_MODEL_120efed0f38e44c38eef500c3d2c3eb1"}}, "bda27d3939564c15a648fb2c597687e6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_0dcbf6babe0b47018d5aa91d7f7f6790", "max": 1, "style": "IPY_MODEL_0afd8244a5ec4b2a9bb992562d9043a5", "value": 1}}, "be9dd12d2f1144c5a2dc172a4b933de3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "bf2560061bb74e959013e8812302a807": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "c11fe2dd06c04a7ebaf8a84603cfa52f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_088a354c173149b98f7718c10d6a8692", "max": 356, "style": "IPY_MODEL_aae599da0c9846509cfda185658e2095", "value": 356}}, "c394c95851544bd3bc0375255365b605": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c3b17fde1ae14860b5cac31752403e01": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "c4024b29240842ceb8cd0ad70e96caf5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_6d21d67e777e4d8884a5f86614b9c824", "style": "IPY_MODEL_6b30bc8789ca4815bbef6765e7f1d7ce", "value": " 43/43 [00:01&lt;00:00, 29.01it/s]"}}, "c4093903c541428a8c03d2533dc4549d": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c4d2944a32bd489caf92e95cb06dda7e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_c4093903c541428a8c03d2533dc4549d", "style": "IPY_MODEL_fbafd6266d15461c8d11f1c72c8dba2b", "value": "Epochs 1/2. Running Loss:    0.2206: 100%"}}, "c53bd786857540ccac2427e2f2f97029": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "c570f59fab9b49b887da939831ee8a5f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_8ebf93dd1a53422aad6637fbf541e349", "max": 59, "style": "IPY_MODEL_a1415fa8f5594af8a51e50089f4a8603", "value": 59}}, "c609d1b2d67643a3b146ffe159bd50b6": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_af30934c7b3749c7a747f48e491aa284", "style": "IPY_MODEL_661bb1110c9a40c388840f6433f0e2b2", "value": " 1318/1318 [00:00&lt;00:00, 2176.56it/s]"}}, "c611f8189e2747a7b1c6ca7f9b5aaaf8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_8cd6ab0c242a4cf09191cc044306b404", "max": 1318, "style": "IPY_MODEL_6b0937696b034ab695f75a180fc77e6c", "value": 1318}}, "c6a356fa215c4c6596cb3ce6a4fbaf5e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_e78982fe90c74cae953cb44feba58827", "max": 112, "style": "IPY_MODEL_75a36a25f47442098fb08177fc558410", "value": 112}}, "c6a753ee0e7b4f14b653cdd67a72de1b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ca19b4973b404e35b9d27a47a1b78401": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "ca4dc429b72844c5b6023780d625f4b4": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "cd0d775a616e47df8bdd0751cbfcb1d0": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "cd51e544e52f4f4db2500f65fa261fc7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ce9b68042bd0430ebb39d90d1dd44271": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_6ca03b4436454616b00a66a7dedd7248", "IPY_MODEL_a2b9a605f68b4941b7b285ebc1026b0f", "IPY_MODEL_4dbf6e1a6b384c9098033dacae5af482"], "layout": "IPY_MODEL_2d6fbb5991fd4c1c88d746f29745028b"}}, "cf6227bff1de4bb3bf8ff241ef90e534": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d37c8f9d7d5b416b849e5484bebbb89e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "d40e797d7959448d92719ac8d2b11f6b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_0ef920adf79e41dcbbbdc4da7aba8c6b", "IPY_MODEL_9854261da3874a4eb7716dec0c87abcb"], "layout": "IPY_MODEL_3f9d0055cf99485ba07d9074315bcb94"}}, "d414e80d341f4f888f72651c5c734988": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d4b1e3b25e224f9c80f0408273a08bf7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_1c48ca445a3248c08ee1b37414c272b7", "style": "IPY_MODEL_ca19b4973b404e35b9d27a47a1b78401", "value": " 345/345 [00:42&lt;00:00,  9.32it/s]"}}, "d53113fafc69493082e0691c10dd21bb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "d5ac8facfc8b4a8a9a70e5453147b006": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_56de99c123af4c3796f4d8203ea2122b", "IPY_MODEL_c611f8189e2747a7b1c6ca7f9b5aaaf8", "IPY_MODEL_86e8363172a041fe933ef9cdd92d0d46"], "layout": "IPY_MODEL_1496f5da1c094b8a96c7544ebceb3f18"}}, "d5c56814f0a840c087ee85ec091dd206": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_daa1b624bc9c4204bd46f644200cb764", "max": 10669, "style": "IPY_MODEL_dbed7c113d024cb589f2b6b254826122", "value": 10669}}, "d70b609029904c1ab25984a19538cc6e": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_36189e4939334e82b2ad76e54d1e4b3c", "style": "IPY_MODEL_8d08354460c646a7aeec2cdc76bc5a00", "value": "Epochs 0/2. Running Loss:    0.5616: 100%"}}, "d773423758fa4e7b90b6a9acca61532c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d77a1b2dffec4a71b040ed275a97233a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "d8fea768bb3748f7b66173e9883adb3c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_e8d66c82a2404c0a93f3ee3afd46572d", "IPY_MODEL_c570f59fab9b49b887da939831ee8a5f", "IPY_MODEL_f16eaf23bbf4474e919a1b4cb29c8e58"], "layout": "IPY_MODEL_6c992bd81646435a835010ee475ebfe5"}}, "daa1b624bc9c4204bd46f644200cb764": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "db75d10a9ddd4db6a28fcd5ce937bf12": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_c53bd786857540ccac2427e2f2f97029", "style": "IPY_MODEL_93746172268241bfabfc0441a286a73e", "value": " 43/43 [00:01&lt;00:00, 28.98it/s]"}}, "dbed7c113d024cb589f2b6b254826122": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "dd86cf4c8da446f5a2b3ac8246a1cf4a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f998da36be5646878db69dce9c37a8b2", "style": "IPY_MODEL_f3204a7474694f7eaea3753eca201aeb", "value": "Epochs 1/2. Running Loss:    4.3118: 100%"}}, "dd8ab2df686b43e6ac8881e9edd9490c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_36eaf217fd994d89acada240dad1f551", "max": 1, "style": "IPY_MODEL_4e5f9eb444dd4d4ba319f661e0f866b9"}}, "dddd430ef58645f28eb87c603305c6e3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "dfb05c14dcbf40b883d40a333ee47be9": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_f2ce3762ca4d4fc8acab2adeeb680bb6", "style": "IPY_MODEL_9bb98b79c74f4d19837416ce5f9e0134", "value": "Downloading: 100%"}}, "e0e1ae9d241942fc86d19e5d83a04c38": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e210bf18c77e489dbdb6a6d8386e9505": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e296828e98f84cff9cffb0a8f2a01292": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_48502a6b3fd344319dc0c5bdff6b1a7d", "max": 43, "style": "IPY_MODEL_03f1c47b0539436dae39ff439feebcb4", "value": 43}}, "e2a79c94017147148a36047975bda8a0": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e364d58e636349a08500aa147e27c76f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_537294c418594eb0a55e5aceb6573a2f", "style": "IPY_MODEL_49d7d1896f094c75b40e3d692aa68191", "value": " 3555/3555 [00:00&lt;00:00, 7784.18it/s]"}}, "e3f2e657b32e4762a502e2d4b08fe554": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_b8455aa11a624bd79d4eaa55c910612a", "style": "IPY_MODEL_5a351f6ebdfc48739e46384a983ef7e4", "value": " 1318/1318 [00:00&lt;00:00, 2187.84it/s]"}}, "e3faa91c562640d5be77783fb2cd8018": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e47238d2730d494c80c5c249ec0d28a3": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e6a4a85306dc46a88f67a07ed541620c": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e6edf3bc086e4bfba04a88d9d8e057d7": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_a70c2105b4e9452cbe841a73177b85d9", "IPY_MODEL_2b26757d0ddb4111af8cde3fe6751dc0", "IPY_MODEL_e3f2e657b32e4762a502e2d4b08fe554"], "layout": "IPY_MODEL_a5f1488ab3044d02984c0465b3a8ee4c"}}, "e7402270835a45cfb5da79ca473f4d44": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "e74525fadf9d49da8f22aeceb51bad63": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5dc1e6ef3eed41f7b1d51ff015b6012d", "style": "IPY_MODEL_381619d730394e0abfa18b354e9608da", "value": " 10669/10669 [00:04&lt;00:00, 2294.29it/s]"}}, "e7455ae4652e4cad938749dc034ab934": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_edb23b993e2941a1b8b65189cdf928ee", "max": 112, "style": "IPY_MODEL_bad2d3cb2e774d09932c270c9cc9c2c4", "value": 112}}, "e78982fe90c74cae953cb44feba58827": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "e835898649384a06a6c3d3c29e860556": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_7d6737ccc42e48898f653e62811cf2fd", "style": "IPY_MODEL_ad8014ab684d45a5ad6d899aa0fe8462", "value": " 490/490 [00:00&lt;00:00, 22.0kB/s]"}}, "e8d66c82a2404c0a93f3ee3afd46572d": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_aa3aeef0f97d4b39a00d77f6ace97eee", "style": "IPY_MODEL_c3b17fde1ae14860b5cac31752403e01", "value": "Downloading: 100%"}}, "e97c85543ebd4dba8c6039ca5a42ebb5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ea86fadee3124af0b568032e4035ab1c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "eaf0d75ba6b54c21aada5df08aee0a2b": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ece8a530ac1d46f4b1bc5838f50709e4": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "edb23b993e2941a1b8b65189cdf928ee": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ee128c7c2f1e47218d19fcd00d24ff37": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "ee2f62f6f57e44708376c778a1778339": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_e47238d2730d494c80c5c249ec0d28a3", "style": "IPY_MODEL_8d11e97255524f08884d6d91df1e160e", "value": "100%"}}, "f042ad2888f84fc5bd24181ee6f3142f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_2ef76314d0e14bb9b361f02880285ec9", "style": "IPY_MODEL_86d3f68109744fe8af0ebff745bfbdff", "value": " 223k/223k [00:00&lt;00:00, 309kB/s]"}}, "f134c12b21b14d0382c6b14da8ccffab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "f16eaf23bbf4474e919a1b4cb29c8e58": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_aa4b821ab5304104bb35ff93619171fb", "style": "IPY_MODEL_5852d31b4c9b4ef8a60b45e057151411", "value": " 59.0/59.0 [00:00&lt;00:00, 2.95kB/s]"}}, "f24b78d199df4139a697e41d0ba43048": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f2a3726c2e134129b01444d0b683f64f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_a3109b4137a444bd97f8e1bd97b760ca", "max": 2, "style": "IPY_MODEL_903a9d956933466fa3dcf488c0d9b64a", "value": 2}}, "f2ce3762ca4d4fc8acab2adeeb680bb6": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f3204a7474694f7eaea3753eca201aeb": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "f33f4535f0634b3c97ce750a64f125c7": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f3f7278333e2427c9ec84ee745e37ed3": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "f414556512c748f3b5e8b521cc3c6d52": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "f46a36c6e34a4e5bbb6e8573b330a076": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"layout": "IPY_MODEL_a153d5dd94a942a4bca689bf408c44f0", "max": 1, "style": "IPY_MODEL_f66078d3f7ea4693a23debf75dd208c8", "value": 1}}, "f520ca4e515745d69a3561b6246669c9": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f600b4e06f0442ed8494da99e34ed648": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_f8d239ee162d48f58d0b3570a5b71477", "max": 442525507, "style": "IPY_MODEL_bb3406d1e4434ede949a296389fa87f5", "value": 442525507}}, "f630d638744b44b78e95797cd975dbd5": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "f66078d3f7ea4693a23debf75dd208c8": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "f781fced71634509bf73b12d773b1f9a": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f788e95155ec4d639ad1c38ebda5e439": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "ProgressStyleModel", "state": {"description_width": ""}}, "f86d05462bcc462e8b4bc6a8bd0e476f": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f8d239ee162d48f58d0b3570a5b71477": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "f960b0b57cd54d02a0d4bb14931856ea": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HBoxModel", "state": {"children": ["IPY_MODEL_c4d2944a32bd489caf92e95cb06dda7e", "IPY_MODEL_c11fe2dd06c04a7ebaf8a84603cfa52f", "IPY_MODEL_1134e7831ce645b49d4bd4b114d51d1f"], "layout": "IPY_MODEL_eaf0d75ba6b54c21aada5df08aee0a2b"}}, "f98c49de196c406a9cb741436724e0ab": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_b8b2ba5b1fc240aea3ed58ee55963798", "style": "IPY_MODEL_cd0d775a616e47df8bdd0751cbfcb1d0", "value": "Epochs 0/2. Running Loss:    2.3080: 100%"}}, "f998da36be5646878db69dce9c37a8b2": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fa50897641af4063bd49e65083677057": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_5e9b5ba5c21740d2b66d6856de81a5de", "style": "IPY_MODEL_08f73f090dbb48f9acd20d07a2f7f056", "value": "100%"}}, "fad735a2bed844b48f8d6663c88bc431": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fb4e724c2f694b02a26fb8b77e81069a": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_69fe792844974814a7575fb885885c4e", "max": 43, "style": "IPY_MODEL_cd51e544e52f4f4db2500f65fa261fc7", "value": 43}}, "fbafd6266d15461c8d11f1c72c8dba2b": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "fbc8dc5227144232ae941a81aac76ba1": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fbe979f862c444ea97d716184e21b224": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "HTMLModel", "state": {"layout": "IPY_MODEL_aa229abf677d4ca6b296e8e245c6e8ae", "style": "IPY_MODEL_b4f251339b934c5b9eb09af959af6eeb", "value": " 112/112 [00:04&lt;00:00, 29.22it/s]"}}, "fc943aa1d09547369df1302d23a4c9c5": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fcb76254d561495dbe6fe135de24860c": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_9af307aaaf534f698be0395aab25d875", "IPY_MODEL_bda27d3939564c15a648fb2c597687e6"], "layout": "IPY_MODEL_05ea299ff09a477da43b2cefc3c5876f"}}, "fd1c04042f094adb94931ef0d73fdf0f": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "fd6017ede24449f6a62502bb432f7768": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "fd82baa95e8a4e67a09f2b63423ce5de": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ff23b3eaf4fa42e19a821750658edfa2": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "DescriptionStyleModel", "state": {"description_width": ""}}, "ff33bc4f2a31491eaef3ea3c7398bb68": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "VBoxModel", "state": {"children": ["IPY_MODEL_3ac6cacbb9824f04ba64134b42aa3759", "IPY_MODEL_afe1a099922b411da18c1cc3edcc6700"], "layout": "IPY_MODEL_f781fced71634509bf73b12d773b1f9a"}}, "ff6309cfdc104a8d83c1ac01611cdd62": {"model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "model_name": "LayoutModel", "state": {}}, "ffce69f360ca40278e9d4f92ef3f9309": {"model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "model_name": "FloatProgressModel", "state": {"bar_style": "success", "layout": "IPY_MODEL_6d6c241e32b243f392cfb1a8e6736263", "max": 3555, "style": "IPY_MODEL_1a4c89d394ec4ca781c92cb88ff88169", "value": 3555}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/usecases/esg"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">ESG</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="news_sample.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Predicting ESG Categories and Polarities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By entelecheia<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
