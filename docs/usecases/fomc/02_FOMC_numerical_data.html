@@ -616,7 +616,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.30+11.gd0eacf0.dirty
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1.30+13.g779907e.dirty
 </pre></div>
 </div>
 </div>
@@ -624,10 +624,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/fomc&quot;</span>
-<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/save_dataframe&quot;</span><span class="p">)</span>
-<span class="n">save_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
-<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/load_dataframe&quot;</span><span class="p">)</span>
-<span class="n">load_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="n">save_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span>
+    <span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/save_dataframe&quot;</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">data_dir</span>
+<span class="p">)</span>
+<span class="n">load_dataframe</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;_func_/load_dataframe&quot;</span><span class="p">,</span> <span class="n">data_dir</span><span class="o">=</span><span class="n">data_dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -638,9 +638,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ekorpkit</span> <span class="kn">import</span> <span class="n">eKonf</span>
 
-<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher=fomc&quot;</span><span class="p">)</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;./data&quot;</span>
-<span class="n">fomc</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="o">**</span><span class="n">cfg</span><span class="o">.</span><span class="n">fomc</span><span class="p">)</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher/fomc&quot;</span><span class="p">)</span>
+<span class="n">cfg</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;../data/fomc&quot;</span>
+<span class="n">fomc</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +649,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Chairpersons<a class="headerlink" href="#chairpersons" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">chair</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fomc</span><span class="o">.</span><span class="n">chairpersons</span>
 </pre></div>
 </div>
 </div>
@@ -672,7 +672,7 @@ const thebe_selector_output = ".output, .cell_output"
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>surname</th>
+      <th>last_name</th>
       <th>first_name</th>
       <th>from_date</th>
       <th>to_date</th>
@@ -712,7 +712,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Powell</td>
       <td>Jerome</td>
       <td>2018-02-05</td>
-      <td>2022-05-26</td>
+      <td>2022-05-27</td>
     </tr>
   </tbody>
 </table>
@@ -749,7 +749,7 @@ const thebe_selector_output = ".output, .cell_output"
       <th>unscheduled</th>
       <th>forecast</th>
       <th>confcall</th>
-      <th>chair</th>
+      <th>speaker</th>
     </tr>
     <tr>
       <th>date</th>
@@ -871,7 +871,7 @@ const thebe_selector_output = ".output, .cell_output"
       <th>unscheduled</th>
       <th>forecast</th>
       <th>confcall</th>
-      <th>chair</th>
+      <th>speaker</th>
     </tr>
     <tr>
       <th>date</th>
@@ -975,7 +975,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">compose</span><span class="p">(</span><span class="n">config_group</span><span class="o">=</span><span class="s2">&quot;io/fetcher=quandl&quot;</span><span class="p">)</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">series_name</span> <span class="o">=</span> <span class="s2">&quot;DFEDTAR&quot;</span>
 <span class="n">cfg</span><span class="o">.</span><span class="n">series_id</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DFEDTAR&quot;</span><span class="p">,</span> <span class="s2">&quot;DFEDTARU&quot;</span><span class="p">]</span>
-<span class="n">cfg</span><span class="o">.</span><span class="n">force_download</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># cfg.force_download = True</span>
 <span class="n">quandl</span> <span class="o">=</span> <span class="n">eKonf</span><span class="o">.</span><span class="n">instantiate</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
 
 <span class="n">fedrates</span> <span class="o">=</span> <span class="n">quandl</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1203,9 +1203,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">econ_indicators</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">quandl</span><span class="o">.</span><span class="n">force_download</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># quandl.force_download = True</span>
 
-<span class="k">for</span> <span class="n">sr</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">sr</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="n">econ_indicators</span><span class="p">[</span><span class="n">sr</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">quandl</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
         <span class="n">series_id</span><span class="o">=</span><span class="n">sr</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span> <span class="n">series_name</span><span class="o">=</span><span class="n">sr</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">expressions</span><span class="o">=</span><span class="n">sr</span><span class="p">[</span><span class="s2">&quot;expressions&quot;</span><span class="p">]</span>
     <span class="p">)</span>
@@ -1213,7 +1213,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 10/10 [00:06&lt;00:00,  1.54it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 10/10 [00:00&lt;00:00, 477.35it/s]
 </pre></div>
 </div>
 </div>
@@ -1284,6 +1284,21 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
+      <th>2022-05-26</th>
+      <td>0.71</td>
+      <td>0.90</td>
+      <td>1.07</td>
+      <td>1.52</td>
+      <td>1.99</td>
+      <td>2.46</td>
+      <td>2.63</td>
+      <td>2.70</td>
+      <td>2.75</td>
+      <td>2.75</td>
+      <td>3.18</td>
+      <td>2.99</td>
+    </tr>
+    <tr>
       <th>2022-05-25</th>
       <td>0.58</td>
       <td>0.88</td>
@@ -1342,21 +1357,6 @@ const thebe_selector_output = ".output, .cell_output"
       <td>2.78</td>
       <td>3.17</td>
       <td>2.99</td>
-    </tr>
-    <tr>
-      <th>2022-05-19</th>
-      <td>0.65</td>
-      <td>0.91</td>
-      <td>1.05</td>
-      <td>1.52</td>
-      <td>2.11</td>
-      <td>2.63</td>
-      <td>2.78</td>
-      <td>2.84</td>
-      <td>2.87</td>
-      <td>2.84</td>
-      <td>3.24</td>
-      <td>3.05</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1450,7 +1450,7 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
   </tbody>
 </table>
-<p>8108 rows × 12 columns</p>
+<p>8109 rows × 12 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -1483,7 +1483,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 427/427 [00:42&lt;00:00, 10.03it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 427/427 [00:00&lt;00:00, 1196.43it/s]
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1507,7 +1507,7 @@ const thebe_selector_output = ".output, .cell_output"
       <th>unscheduled</th>
       <th>forecast</th>
       <th>confcall</th>
-      <th>chair</th>
+      <th>speaker</th>
       <th>rate</th>
       <th>rate_change</th>
       <th>rate_decision</th>
@@ -1532,7 +1532,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>9.50</td>
       <td>-0.50</td>
-      <td>-1</td>
+      <td>-1.0</td>
     </tr>
     <tr>
       <th>1982-11-16</th>
@@ -1542,7 +1542,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>9.00</td>
       <td>-0.50</td>
-      <td>-1</td>
+      <td>-1.0</td>
     </tr>
     <tr>
       <th>1982-12-21</th>
@@ -1552,7 +1552,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1983-01-14</th>
@@ -1562,7 +1562,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1983-01-21</th>
@@ -1572,7 +1572,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1592,7 +1592,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2021-12-15</th>
@@ -1602,7 +1602,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2022-01-26</th>
@@ -1612,7 +1612,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2022-03-16</th>
@@ -1622,7 +1622,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.50</td>
       <td>0.25</td>
-      <td>1</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2022-05-04</th>
@@ -1632,7 +1632,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>1.00</td>
       <td>0.50</td>
-      <td>1</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1675,7 +1675,7 @@ const thebe_selector_output = ".output, .cell_output"
       <th>unscheduled</th>
       <th>forecast</th>
       <th>confcall</th>
-      <th>chair</th>
+      <th>speaker</th>
       <th>rate</th>
       <th>rate_change</th>
       <th>rate_decision</th>
@@ -1702,7 +1702,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>9.50</td>
       <td>-0.50</td>
-      <td>-1</td>
+      <td>-1.0</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1713,7 +1713,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>9.00</td>
       <td>-0.50</td>
-      <td>-1</td>
+      <td>-1.0</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1724,7 +1724,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1735,7 +1735,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1746,7 +1746,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Paul Volcker</td>
       <td>8.50</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1768,7 +1768,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1779,7 +1779,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1790,7 +1790,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.25</td>
       <td>0.00</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1801,7 +1801,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>0.50</td>
       <td>0.25</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1812,7 +1812,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Jerome Powell</td>
       <td>1.00</td>
       <td>0.50</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -1839,12 +1839,52 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">load_dataframe</span><span class="p">(</span><span class="n">data_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">econ_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">econ_data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">econ_data</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:ekorpkit.io.file:File ../data/fomc/econ_data.parquet does not exist
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            unscheduled  forecast  confcall          chair  rate  rate_change  \
+date                                                                            
+2021-11-03        False     False     False  Jerome Powell  0.25         0.00   
+2021-12-15        False      True     False  Jerome Powell  0.25         0.00   
+2022-01-26        False     False     False  Jerome Powell  0.25         0.00   
+2022-03-16        False      True     False  Jerome Powell  0.50         0.25   
+2022-05-04        False     False     False  Jerome Powell  1.00         0.50   
+
+            rate_decision  rate_changed        GDP  GDP_diff_prev  ...  \
+date                                                               ...   
+2021-11-03              0             0  19478.893       0.570948  ...   
+2021-12-15              0             0  19478.893       0.570948  ...   
+2022-01-26              0             0  19478.893       0.570948  ...   
+2022-03-16              1             1  19806.290       1.680778  ...   
+2022-05-04              1             1  19735.895      -0.355417  ...   
+
+            NMI_diff_year   NMI_date    RSALES  RSALES_diff_prev  \
+date                                                               
+2021-11-03       9.440559 2021-09-01  230078.0          0.573951   
+2021-12-15      20.422535 2021-11-01  231485.0         -0.098829   
+2022-01-26       7.972270 2021-12-01  226467.0         -2.167743   
+2022-03-16       1.073345 2022-02-01  233062.0          0.847674   
+2022-05-04      -6.270096 2022-03-01  234776.0          0.568863   
+
+            RSALES_diff_year RSALES_date  HSALES  HSALES_diff_prev  \
+date                                                                 
+2021-11-03          8.474656  2021-09-01   732.0          6.705539   
+2021-12-15         10.977142  2021-11-01   756.0         12.667660   
+2022-01-26          9.101289  2021-12-01   839.0         10.978836   
+2022-03-16          9.076698  2022-02-01   792.0         -4.693141   
+2022-05-04         -0.034915  2022-04-01   591.0        -16.643159   
+
+            HSALES_diff_year HSALES_date  
+date                                      
+2021-11-03        -26.135217  2021-09-01  
+2021-12-15        -11.163337  2021-11-01  
+2022-01-26         -3.673938  2021-12-01  
+2022-03-16          3.125000  2022-02-01  
+2022-05-04        -26.946848  2022-04-01  
+
+[5 rows x 48 columns]
 </pre></div>
 </div>
 </div>
@@ -1853,8 +1893,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">fomc_calendar</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">sr</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="p">):</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">sr</span> <span class="ow">in</span> <span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">offset</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="s2">&quot;relativedelta&quot;</span><span class="p">]</span>
     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_diff_prev&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_diff_year&quot;</span><span class="p">]</span>
     <span class="n">econ_data</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">add_available_latest</span><span class="p">(</span>
@@ -1866,17 +1905,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 415/415 [00:02&lt;00:00, 188.20it/s]
-100%|██████████| 415/415 [00:03&lt;00:00, 136.76it/s]
-100%|██████████| 415/415 [00:05&lt;00:00, 69.48it/s] 
-100%|██████████| 415/415 [00:06&lt;00:00, 67.77it/s] 
-100%|██████████| 415/415 [00:05&lt;00:00, 69.82it/s] 
-100%|██████████| 415/415 [00:06&lt;00:00, 68.49it/s] 
-100%|██████████| 415/415 [00:05&lt;00:00, 70.53it/s] 
-100%|██████████| 415/415 [00:03&lt;00:00, 126.03it/s]
-100%|██████████| 415/415 [00:05&lt;00:00, 75.99it/s] 
-100%|██████████| 415/415 [00:06&lt;00:00, 68.29it/s] 
-100%|██████████| 10/10 [00:50&lt;00:00,  5.01s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 415/415 [00:00&lt;00:00, 1187.39it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1201.06it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1202.73it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1209.28it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1211.78it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1206.54it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1190.50it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 2298.93it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1514.60it/s]
+100%|██████████| 415/415 [00:00&lt;00:00, 1198.11it/s]
 </pre></div>
 </div>
 </div>
@@ -1893,7 +1931,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">lineplot</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">lineplot</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">figure</span> <span class="o">=</span> <span class="n">cfg</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span>
     <span class="n">plot</span> <span class="o">=</span> <span class="n">lineplot</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1936,10 +1974,30 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference external" href="https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm">https://www.federalreserve.gov/monetarypolicy/policy-rules-and-how-policymakers-use-them.htm</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create taylor dataframe</span>
+<span class="n">taylor</span> <span class="o">=</span> <span class="n">fedrates</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="c1"># Create taylor dataframe</span>
-<span class="n">taylor</span> <span class="o">=</span> <span class="n">econ_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fedrates</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span> <span class="s1">&#39;GDPPOT&#39;</span><span class="p">,</span> <span class="s1">&#39;PCE&#39;</span><span class="p">]:</span>
+    <span class="n">sr</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">econ_series</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">sr</span><span class="p">[</span><span class="s2">&quot;relativedelta&quot;</span><span class="p">]</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_diff_prev&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_diff_year&quot;</span><span class="p">]</span>
+    <span class="n">taylor</span> <span class="o">=</span> <span class="n">fomc</span><span class="o">.</span><span class="n">add_available_latest</span><span class="p">(</span>
+        <span class="n">taylor</span><span class="p">,</span> <span class="n">econ_indicators</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">offset</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████| 14486/14486 [00:12&lt;00:00, 1190.84it/s]
+100%|██████████| 14486/14486 [00:11&lt;00:00, 1213.75it/s]
+100%|██████████| 14486/14486 [00:11&lt;00:00, 1217.74it/s]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Obtain available index used to calculate Taylor rule each day</span>
 <span class="n">taylor</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">taylor</span><span class="p">[</span><span class="s2">&quot;GDP&quot;</span><span class="p">]</span>
@@ -1984,7 +2042,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_FOMC_numerical_data_34_0.png" src="../../../_images/02_FOMC_numerical_data_34_0.png" />
+<img alt="../../../_images/02_FOMC_numerical_data_35_0.png" src="../../../_images/02_FOMC_numerical_data_35_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2050,69 +2108,69 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>2021-11-03</th>
-      <td>0.25</td>
-      <td>5.747177</td>
-      <td>4.940210</td>
-      <td>-0.528532</td>
-      <td>5.497177</td>
-      <td>4.690210</td>
-      <td>-0.778532</td>
-      <td>0.184163</td>
-      <td>0.219515</td>
-      <td>-0.032927</td>
-    </tr>
-    <tr>
-      <th>2021-12-15</th>
-      <td>0.25</td>
-      <td>6.472329</td>
-      <td>5.665362</td>
-      <td>-0.637304</td>
-      <td>6.222329</td>
-      <td>5.415362</td>
-      <td>-0.887304</td>
-      <td>0.725152</td>
-      <td>0.725152</td>
-      <td>-0.108773</td>
-    </tr>
-    <tr>
-      <th>2022-01-26</th>
-      <td>0.25</td>
-      <td>7.222928</td>
-      <td>6.415961</td>
-      <td>-0.749894</td>
-      <td>6.972928</td>
-      <td>6.165961</td>
-      <td>-0.999894</td>
-      <td>0.750599</td>
-      <td>0.750599</td>
-      <td>-0.112590</td>
-    </tr>
-    <tr>
-      <th>2022-03-16</th>
-      <td>0.25</td>
-      <td>8.499377</td>
-      <td>8.267766</td>
-      <td>-1.027665</td>
-      <td>8.249377</td>
-      <td>8.017766</td>
-      <td>-1.277665</td>
-      <td>1.276449</td>
-      <td>1.851805</td>
-      <td>-0.277771</td>
-    </tr>
-    <tr>
-      <th>2022-05-04</th>
-      <td>0.50</td>
+      <th>2022-05-21</th>
+      <td>1.0</td>
       <td>8.094924</td>
       <td>7.420939</td>
-      <td>-0.688141</td>
-      <td>7.594924</td>
-      <td>6.920939</td>
-      <td>-1.188141</td>
-      <td>-0.404453</td>
-      <td>-0.846827</td>
-      <td>0.339524</td>
+      <td>-0.263141</td>
+      <td>7.094924</td>
+      <td>6.420939</td>
+      <td>-1.263141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-05-22</th>
+      <td>1.0</td>
+      <td>8.094924</td>
+      <td>7.420939</td>
+      <td>-0.263141</td>
+      <td>7.094924</td>
+      <td>6.420939</td>
+      <td>-1.263141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-05-23</th>
+      <td>1.0</td>
+      <td>8.094924</td>
+      <td>7.420939</td>
+      <td>-0.263141</td>
+      <td>7.094924</td>
+      <td>6.420939</td>
+      <td>-1.263141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-05-24</th>
+      <td>1.0</td>
+      <td>8.094924</td>
+      <td>7.420939</td>
+      <td>-0.263141</td>
+      <td>7.094924</td>
+      <td>6.420939</td>
+      <td>-1.263141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-05-25</th>
+      <td>1.0</td>
+      <td>8.094924</td>
+      <td>7.420939</td>
+      <td>-0.263141</td>
+      <td>7.094924</td>
+      <td>6.420939</td>
+      <td>-1.263141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
@@ -2120,11 +2178,352 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">econ_data</span> <span class="o">=</span> <span class="n">econ_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">taylor</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">)</span>
-<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data.parquet&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">taylor2</span> <span class="o">=</span> <span class="n">taylor</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">taylor2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">taylor2</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">taylor2</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">econ_data2</span> <span class="o">=</span> <span class="n">econ_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">taylor2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">econ_data2</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">save_dataframe</span><span class="p">(</span><span class="n">econ_data2</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;econ_data2.parquet&quot;</span><span class="p">)</span>
+<span class="n">econ_data2</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>unscheduled</th>
+      <th>forecast</th>
+      <th>confcall</th>
+      <th>speaker</th>
+      <th>rate</th>
+      <th>rate_change</th>
+      <th>rate_decision</th>
+      <th>rate_changed</th>
+      <th>GDP</th>
+      <th>GDP_diff_prev</th>
+      <th>...</th>
+      <th>Rate</th>
+      <th>Taylor</th>
+      <th>Balanced</th>
+      <th>Inertia</th>
+      <th>Taylor-Rate</th>
+      <th>Balanced-Rate</th>
+      <th>Inertia-Rate</th>
+      <th>Taylor_diff</th>
+      <th>Balanced_diff</th>
+      <th>Inertia_diff</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1982-10-05</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.50</td>
+      <td>-0.50</td>
+      <td>-1.0</td>
+      <td>1</td>
+      <td>6830.251</td>
+      <td>0.456199</td>
+      <td>...</td>
+      <td>10.00</td>
+      <td>7.428054</td>
+      <td>4.300007</td>
+      <td>7.854999</td>
+      <td>-2.571946</td>
+      <td>-5.699993</td>
+      <td>-2.145001</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1982-11-16</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>9.00</td>
+      <td>-0.50</td>
+      <td>-1.0</td>
+      <td>1</td>
+      <td>6804.139</td>
+      <td>-0.382299</td>
+      <td>...</td>
+      <td>9.50</td>
+      <td>6.397952</td>
+      <td>2.690992</td>
+      <td>7.671351</td>
+      <td>-3.102048</td>
+      <td>-6.809008</td>
+      <td>-1.828649</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1982-12-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>6804.139</td>
+      <td>-0.382299</td>
+      <td>...</td>
+      <td>8.50</td>
+      <td>6.456348</td>
+      <td>2.749388</td>
+      <td>6.812592</td>
+      <td>-2.043652</td>
+      <td>-5.750612</td>
+      <td>-1.687408</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1983-01-14</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>6804.139</td>
+      <td>-0.382299</td>
+      <td>...</td>
+      <td>8.50</td>
+      <td>6.117343</td>
+      <td>2.410384</td>
+      <td>6.863442</td>
+      <td>-2.382657</td>
+      <td>-6.089616</td>
+      <td>-1.636558</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1983-01-21</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>Paul Volcker</td>
+      <td>8.50</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>6804.139</td>
+      <td>-0.382299</td>
+      <td>...</td>
+      <td>8.50</td>
+      <td>6.117343</td>
+      <td>2.410384</td>
+      <td>6.863442</td>
+      <td>-2.382657</td>
+      <td>-6.089616</td>
+      <td>-1.636558</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2021-11-03</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>19478.893</td>
+      <td>0.570948</td>
+      <td>...</td>
+      <td>0.25</td>
+      <td>5.747177</td>
+      <td>4.940210</td>
+      <td>-0.528532</td>
+      <td>5.497177</td>
+      <td>4.690210</td>
+      <td>-0.778532</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2021-12-15</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>19478.893</td>
+      <td>0.570948</td>
+      <td>...</td>
+      <td>0.25</td>
+      <td>6.472329</td>
+      <td>5.665362</td>
+      <td>-0.637304</td>
+      <td>6.222329</td>
+      <td>5.415362</td>
+      <td>-0.887304</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-01-26</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.25</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>19478.893</td>
+      <td>0.570948</td>
+      <td>...</td>
+      <td>0.25</td>
+      <td>7.222928</td>
+      <td>6.415961</td>
+      <td>-0.749894</td>
+      <td>6.972928</td>
+      <td>6.165961</td>
+      <td>-0.999894</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-03-16</th>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>0.50</td>
+      <td>0.25</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>19806.290</td>
+      <td>1.680778</td>
+      <td>...</td>
+      <td>0.25</td>
+      <td>8.499377</td>
+      <td>8.267766</td>
+      <td>-1.027665</td>
+      <td>8.249377</td>
+      <td>8.017766</td>
+      <td>-1.277665</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2022-05-04</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>Jerome Powell</td>
+      <td>1.00</td>
+      <td>0.50</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>19735.895</td>
+      <td>-0.355417</td>
+      <td>...</td>
+      <td>0.50</td>
+      <td>8.094924</td>
+      <td>7.420939</td>
+      <td>-0.688141</td>
+      <td>7.594924</td>
+      <td>6.920939</td>
+      <td>-1.188141</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>415 rows × 58 columns</p>
+</div></div></div>
 </div>
 </div>
 </div>
