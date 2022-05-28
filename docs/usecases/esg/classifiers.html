@@ -624,7 +624,7 @@ INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphras
 INFO:ekorpkit.info.base:Added split column [split] with value [test]
 INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-dev.csv
 INFO:ekorpkit.info.base:Added split column [split] with value [dev]
-INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.169455 &lt;&lt;&lt; 
+INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.170462 &lt;&lt;&lt; 
 INFO:ekorpkit.ekonf:Calling load
 INFO:ekorpkit.ekonf:Calling concatenate
 INFO:ekorpkit.info.base:Added dataset column [dataset] with value [analystsent_kr]
@@ -655,9 +655,9 @@ INFO:ekorpkit.info.base:Added dataset column [dataset] with value [finphrase_kr]
   &#39;text&#39;: &#39;text&#39;,
   &#39;merge_meta_on&#39;: None,
   &#39;timestamp&#39;: None},
- &#39;data&#39;: {&#39;labels&#39;: &#39;object&#39;,
-  &#39;text&#39;: &#39;object&#39;,
+ &#39;data&#39;: {&#39;text&#39;: &#39;object&#39;,
   &#39;id&#39;: &#39;int64&#39;,
+  &#39;labels&#39;: &#39;object&#39;,
   &#39;split&#39;: &#39;object&#39;,
   &#39;dataset&#39;: &#39;str&#39;},
  &#39;meta&#39;: None,
@@ -820,7 +820,7 @@ INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphras
 INFO:ekorpkit.info.base:Added split column [split] with value [test]
 INFO:ekorpkit.io.file:Loading data from /workspace/data/datasets/simple/finphrase_kr/finphrase_kr-dev.csv
 INFO:ekorpkit.info.base:Added split column [split] with value [dev]
-INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.129488 &lt;&lt;&lt; 
+INFO:ekorpkit.datasets.loader:&gt;&gt;&gt; Elapsed time: 0:00:00.138295 &lt;&lt;&lt; 
 INFO:ekorpkit.ekonf:Calling load
 INFO:ekorpkit.ekonf:Calling concatenate
 INFO:ekorpkit.info.base:Added dataset column [dataset] with value [analystsent_kr]
@@ -835,13 +835,15 @@ INFO:simpletransformers.classification.classification_model: Sliding window enab
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3fe095a8c2234209b5de3de62cea9824", "version_major": 2, "version_minor": 0}
+{"model_id": "286c9089d5ea47f2a7146de929115b4f", "version_major": 2, "version_minor": 0}
 </script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:simpletransformers.classification.classification_model: 3555 features created from 3555 samples.
 </pre></div>
 </div>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "372cd5a6635e4d88b25d746f5ad6c04b", "version_major": 2, "version_minor": 0}
-</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.io.file:Saving dataframe as /workspace/projects/esgml/outputs/esgml-esg_polarity/ekonelectra-base/predictions/esg_polarity_test_predictions.parquet
+{"model_id": "9fc7d4c4bcc64b8eb2ef009686886a54", "version_major": 2, "version_minor": 0}
+</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:ekorpkit.models.transformer.simple:type of raw_outputs: &lt;class &#39;list&#39;&gt;
+INFO:ekorpkit.models.transformer.simple:raw_output: [1.0614229440689087, 1.3390781879425049, -2.543381690979004]
+INFO:ekorpkit.io.file:Saving dataframe as /workspace/projects/esgml/outputs/esgml-esg_polarity/ekonelectra-base/predictions/esg_polarity_test_predictions.parquet
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy:  0.8323488045007033
@@ -866,7 +868,7 @@ WARNING:matplotlib.font_manager:findfont: Font family [&#39;NanumGothic&#39;] no
 INFO:ekorpkit.visualize.plot:Saved figure to /workspace/projects/esgml/outputs/esgml-esg_polarity/ekonelectra-base/predictions/confusion_matrix.png
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7faab9f00d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ekorpkit.models.transformer.simple.SimpleClassification at 0x7f7501c6b310&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/classifiers_7_8.png" src="../../../_images/classifiers_7_8.png" />
