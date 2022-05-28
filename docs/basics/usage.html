@@ -660,68 +660,72 @@ Execute `ekorpkit --help` to see what eKorpkit provides
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:09:32,887</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.loader.dummy</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes.csv already exists. skipping..
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,251</span>][<span class=" -Color -Color-Blue">ekorpkit.io.fetch.loader.dummy</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes.csv already exists. skipping..
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:09:32,938</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet already exists
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:32,938</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Loading data from /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:32,956</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,302</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet already exists
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,302</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Loading data from /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,321</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
 Processing dataframe with pipeline: [&#39;normalize&#39;, &#39;segment&#39;, &#39;drop_duplicates&#39;, &#39;save_samples&#39;, &#39;save_dataframe&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,014</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipeline: OrderedDict([(&#39;normalize&#39;, &#39;normalize&#39;), (&#39;segment&#39;, &#39;segment&#39;), (&#39;drop_duplicates&#39;, &#39;drop_duplicates&#39;), (&#39;save_samples&#39;, &#39;save_samples&#39;), (&#39;save_dataframe&#39;, &#39;save_dataframe&#39;)])
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,016</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function normalize at 0x7fe1d1256c10&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,020</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Normalizing text: {&#39;_func_&#39;: {&#39;_partial_&#39;: True, &#39;_target_&#39;: &#39;ekorpkit.pipelines.pipe.normalize&#39;}, &#39;apply_to&#39;: &#39;text&#39;, &#39;verbose&#39;: False, &#39;use_batcher&#39;: True, &#39;preprocessor&#39;: {&#39;normalizer&#39;: {&#39;ftfy&#39;: {&#39;unescape_html&#39;: &#39;auto&#39;, &#39;remove_terminal_escapes&#39;: True, &#39;fix_encoding&#39;: True, &#39;restore_byte_a0&#39;: True, &#39;replace_lossy_sequences&#39;: True, &#39;decode_inconsistent_utf8&#39;: True, &#39;fix_c1_controls&#39;: True, &#39;fix_latin_ligatures&#39;: True, &#39;fix_character_width&#39;: True, &#39;uncurl_quotes&#39;: True, &#39;fix_line_breaks&#39;: True, &#39;fix_surrogates&#39;: True, &#39;remove_control_chars&#39;: True, &#39;normalization&#39;: &#39;NFKC&#39;, &#39;max_decode_length&#39;: 1000000}, &#39;spaces&#39;: {&#39;strip&#39;: True, &#39;fix_whitespaces&#39;: True, &#39;collapse_whitespaces&#39;: True, &#39;replace_tabs&#39;: True, &#39;num_spaces_for_tab&#39;: 4}, &#39;special_characters&#39;: {&#39;fix_hyphens&#39;: True, &#39;fix_ellipsis&#39;: True, &#39;fix_slashes&#39;: True, &#39;fix_tildes&#39;: True, &#39;fix_emoticons&#39;: False, &#39;single_quotes_only&#39;: False, &#39;regular_parentheses_only&#39;: False}, &#39;_target_&#39;: &#39;ekorpkit.preprocessors.normalizer.Normalizer&#39;, &#39;hanja2hangle&#39;: False, &#39;num_repeats&#39;: 2}}}
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,020</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - instantiating normalizer
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,379</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipeline: OrderedDict([(&#39;normalize&#39;, &#39;normalize&#39;), (&#39;segment&#39;, &#39;segment&#39;), (&#39;drop_duplicates&#39;, &#39;drop_duplicates&#39;), (&#39;save_samples&#39;, &#39;save_samples&#39;), (&#39;save_dataframe&#39;, &#39;save_dataframe&#39;)])
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,381</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function normalize at 0x7fa59a782b80&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,384</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - instantiating normalizer
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Normalizing column: text:   0%|                           | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Normalizing column: text: 100%|███████████████████| 5/5 [00:00&lt;00:00, 97.68it/s]
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,576</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to normalize: 0:00:00.054408
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:33,578</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function segment at 0x7fe1d1256dc0&gt;)
-
-Splitting column: text:   0%|                             | 0/5 [00:00&lt;?, ?it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Normalizing column: text: 100%|███████████████████| 5/5 [00:00&lt;00:00, 96.67it/s]
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,958</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to normalize: 0:00:00.055048
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,960</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function segment at 0x7fa59a782d30&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:21,964</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] - instantiating segmenter
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  40%|████████▍            | 2/5 [00:00&lt;00:00,  4.01it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:   0%|                             | 0/5 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  60%|████████████▌        | 3/5 [00:00&lt;00:00,  3.81it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  40%|████████▍            | 2/5 [00:00&lt;00:00,  4.10it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  80%|████████████████▊    | 4/5 [00:01&lt;00:00,  3.92it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  60%|████████████▌        | 3/5 [00:00&lt;00:00,  3.86it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text: 100%|█████████████████████| 5/5 [00:01&lt;00:00,  3.58it/s]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text:  80%|████████████████▊    | 4/5 [00:01&lt;00:00,  3.95it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text: 100%|█████████████████████| 5/5 [00:01&lt;00:00,  3.16it/s]
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,184</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function drop_duplicates at 0x7fe1d1257310&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,188</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_samples at 0x7fe1d12573a0&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,191</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_dataframe at 0x7fe1d1257790&gt;)
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,193</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Saving dataframe as /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text: 100%|█████████████████████| 5/5 [00:01&lt;00:00,  3.59it/s]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Splitting column: text: 100%|█████████████████████| 5/5 [00:01&lt;00:00,  3.18it/s]
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,555</span>][<span class=" -Color -Color-Blue">ekorpkit.pipelines.pipe</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to segment: 0:00:01.572506
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,556</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function drop_duplicates at 0x7fa59a766280&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,560</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_samples at 0x7fa59a766310&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,564</span>][<span class=" -Color -Color-Blue">ekorpkit.ekonf</span>][<span class=" -Color -Color-Green">INFO</span>] - Applying pipe: functools.partial(&lt;function save_dataframe at 0x7fa59a766700&gt;)
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,566</span>][<span class=" -Color -Color-Blue">ekorpkit.io.file</span>][<span class=" -Color -Color-Green">INFO</span>] - Saving dataframe as /workspace/data/datasets/corpus/ekorpkit/fomc_minutes/fomc_minutes-train.parquet
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_bytes to num_bytes:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_bytes to num_bytes: 100%|████████████| 5/5 [00:00&lt;00:00, 19239.93it/s]
+apply len_bytes to num_bytes: 100%|████████████| 5/5 [00:00&lt;00:00, 19934.90it/s]
 
 apply len_wospc to num_bytes_wospc:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
-apply len_wospc to num_bytes_wospc: 100%|████████| 5/5 [00:00&lt;00:00, 741.25it/s]
+apply len_wospc to num_bytes_wospc: 100%|████████| 5/5 [00:00&lt;00:00, 673.70it/s]
 
 apply len_words to num_words:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_words to num_words: 100%|█████████████| 5/5 [00:00&lt;00:00, 2924.08it/s]
+apply len_words to num_words: 100%|█████████████| 5/5 [00:00&lt;00:00, 2897.82it/s]
 
 apply len_sents to num_sents:   0%|                       | 0/5 [00:00&lt;?, ?it/s]
-apply len_sents to num_sents: 100%|██████████████| 5/5 [00:00&lt;00:00, 423.91it/s]
-
-apply len_segments to num_segments:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
-apply len_segments to num_segments: 100%|████████| 5/5 [00:00&lt;00:00, 419.05it/s]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,276</span>][<span class=" -Color -Color-Blue">ekorpkit.info.stat</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to calculate statistics: 0:00:00.069217
-[<span class=" -Color -Color-Cyan">2022-05-28 07:09:35,289</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apply len_sents to num_sents: 100%|██████████████| 5/5 [00:00&lt;00:00, 421.50it/s]
+
+apply len_segments to num_segments:   0%|                 | 0/5 [00:00&lt;?, ?it/s]
+apply len_segments to num_segments: 100%|████████| 5/5 [00:00&lt;00:00, 413.04it/s]
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,650</span>][<span class=" -Color -Color-Blue">ekorpkit.info.stat</span>][<span class=" -Color -Color-Green">INFO</span>] -  &gt;&gt; elapsed time to calculate statistics: 0:00:00.070264
+[<span class=" -Color -Color-Cyan">2022-05-28 07:49:23,662</span>][<span class=" -Color -Color-Blue">ekorpkit.corpora.build</span>][<span class=" -Color -Color-Green">INFO</span>] - 
 Corpus [fomc_minutes] is built to [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes] from [/workspace/data/datasets/corpus/ekorpkit/fomc_minutes]
 </pre></div>
 </div>
