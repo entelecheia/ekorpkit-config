@@ -5,7 +5,7 @@
 
 ## Introduction
 
-eKorpkit provides a flexible interface for NLP research pipelines such as extraction, transformation, tokenization, training, and visualization.
+eKorpkit provides a flexible interface for NLP and ML research pipelines such as extraction, transformation, tokenization, training, and visualization.
 
 ## Key features
 
