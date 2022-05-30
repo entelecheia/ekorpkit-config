@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: eKorpkit Tutorials
-author: entelecheia
+author: Young Joon Lee
 email: entelecheia@hotmail.com
 logo: ekorpkit.png
 only_build_toc_files: true
